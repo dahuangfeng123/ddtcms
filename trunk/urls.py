@@ -5,8 +5,8 @@ admin.autodiscover()
 
 
 from django.contrib.sitemaps import FlatPageSitemap, GenericSitemap
-from mysite.blog.sitemaps import BlogSitemap
-from mysite.blog.models import Entry
+from ddtcms.blog.sitemaps import BlogSitemap
+from ddtcms.blog.models import Entry
 
 info_dict = {
     'queryset': Entry.objects.all(),
@@ -23,24 +23,24 @@ sitemaps = {
 
 
 
-from mysite import settings
+from ddtcms  import settings
 
 urlpatterns = patterns('',
     # Example:
-    # (r'^mysite/', include('mysite.foo.urls')),
-    (r'^',                include('mysite.home.urls')),
-    (r'^(?i)news/',       include('mysite.news.urls')),
-    (r'^(?i)article/',    include('mysite.article.urls')),
-    (r'^(?i)photo/',      include('mysite.photo.urls')),
-    (r'^(?i)forum/',      include('mysite.forum.urls')),
-    (r'^(?i)faq/',        include('mysite.faq.urls')),
-    (r'^(?i)wiki/',       include('mysite.wiki.urls')),
-    (r'^(?i)polls/',      include('mysite.polls.urls')),
-    (r'^(?i)blog/',       include('mysite.blog.urls')),
-    (r'^(?i)captcha/',    include('mysite.captcha.urls')),
-    (r'^(?i)todo/',       include('mysite.todo.urls')),
-    (r'^(?i)notice/',     include('mysite.notice.urls')),
-    (r'^(?i)profiles/',   include('mysite.profiles.urls')),
+    # (r'^mysite/', include('ddtcms.foo.urls')),
+    (r'^',                include('ddtcms.home.urls')),
+    (r'^(?i)news/',       include('ddtcms.news.urls')),
+    (r'^(?i)article/',    include('ddtcms.article.urls')),
+    (r'^(?i)photo/',      include('ddtcms.photo.urls')),
+    (r'^(?i)forum/',      include('ddtcms.forum.urls')),
+    (r'^(?i)faq/',        include('ddtcms.faq.urls')),
+    (r'^(?i)wiki/',       include('ddtcms.wiki.urls')),
+    (r'^(?i)polls/',      include('ddtcms.polls.urls')),
+    (r'^(?i)blog/',       include('ddtcms.blog.urls')),
+    (r'^(?i)captcha/',    include('ddtcms.captcha.urls')),
+    (r'^(?i)todo/',       include('ddtcms.todo.urls')),
+    (r'^(?i)notice/',     include('ddtcms.notice.urls')),
+    (r'^(?i)profiles/',   include('ddtcms.profiles.urls')),
     
     #(r'^blog/',    include('diario.urls.entries')),   
     

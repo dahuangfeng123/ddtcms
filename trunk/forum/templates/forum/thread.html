@@ -1,0 +1,41 @@
+{% extends "forum_base.html" %}{% load i18n %}
+{% block title %}{{ thread.title|escape }} ({{ forum.title }}){% endblock %}
+
+{% block pagetitle %}{{ forum.title }} &raquo; {{ thread.title|escape }}{% endblock %}
+
+
+{% block breadcrumbs %}{% for title, url in thread.forum.get_url_name %} &raquo; <a href='{{ url }}'>{{ title }}</a>{% endfor %} &raquo; <a href='{{ thread.get_absolute_url }}'>{{ thread.title|escape }}</a> ({{ thread.posts }} post{{ thread.posts|pluralize }}){% endblock %}
+
+{% block content %}
+
+<table id='djangoForumThreadPosts'>
+{% load markup %}
+{% for post in posts %}
+
+<tr>
+<th class='djangoForumThreadPostDetail' id='post{{ post.id }}'>{{ post.time|timesince }} ago<br />
+by <strong>{{ post.author }}</strong></th>
+<td>{{ post.body|escape|markdown|safe }}</td>{%comment%}{{ post.body|escape|markdown|safe }}{%endcomment%}
+</tr>{% endfor %}
+
+</table>
+
+<h2>{%comment%}<a href="{% url forumsubs %}">Update Subscriptions</a>{%endcomment%}</h2>
+<h2>发布一个回帖</h2>
+{% if thread.closed %}
+<p>Sorry, this thread is closed. No further replies are permitted.</p>
+{% else %}
+{% if user.is_authenticated %}
+<form method='post' action='reply/'>
+<p><label>楼主:</label><span>{{ user.username }}</span></p>
+<p><label for='id_body'>内容:</label>
+<textarea name='body' rows='8' cols='50' id='id_body'></textarea></p>
+<p><label for='id_subscribe'>通过邮件订阅:</label><input type='checkbox' id='id_subscribe' name='subscribe' {% if subscription %}checked{% endif %}/></p>
+<input type='submit' value='发表' />
+</form>
+{% else %}
+<p>发布回帖请<a href='/accounts/login'>登录</a>.</p>
+{% endif %}
+{% endif %}
+
+{% endblock %}

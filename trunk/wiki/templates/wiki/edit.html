@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}我的网站{% endblock %}
+
+{% block content %}
+
+<h2>编辑条目:{{ pagename }}</h2>
+<form method="post" action="/wiki/{{pagename}}/save/">
+<textarea name="content" rows="10" cols="120">{{ content }}</textarea><br/>
+<input type="hidden" name="pub_date" value=""><br/>
+<input type="submit" value="保存">
+</form>
+
+{% endblock %}

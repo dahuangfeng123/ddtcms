@@ -1,0 +1,74 @@
+{% extends "forum_base.html" %}{% load i18n %}
+
+{% block title %}{{ forum.title }}{% endblock %}
+
+{% block extrahead %}
+<link rel="alternate" type="application/rss+xml" title="{{ forum.title }} Posts via RSS" href="{% url forum_index %}rss/{{ forum.slug }}/" />
+<link rel="alternate" type="application/atom+xml" title="{{ forum.title }} Posts via ATOM" href="{% url forum_index %}atom/{{ forum.slug }}/" />
+{% endblock %}
+
+{% block pagetitle %}{{ forum.title }}{% endblock %}
+
+{% block breadcrumbs %} {% for title, url in forum.get_url_name %} &raquo; <a href='{{ url }}'>{{ title }}</a> {% endfor %} ({{ forum.threads }} thread{{ forum.threads|pluralize }}, {{ forum.posts }} post{{ forum.posts|pluralize }}){% endblock %}
+
+
+{% block content %}
+
+{% if forum.child.all %}
+<table id='djangoForumList'>
+<tr>
+<th>Sub-Forum</th>
+<th>Last Post</th>
+</tr>
+
+{% for subforum in forum.child.all %}
+<tr>
+<td class='djangoForumListDetails'><p><strong><a href='{{ subforum.get_absolute_url }}'>{{ subforum.title }}</a></strong><br /><span class='djangoForumStats'>{{ subforum.threads }} thread{{ subforum.threads|pluralize }}, {{ subforum.posts }} post{{ subforum.posts|pluralize }}</span></p>
+<p>{{ subforum.description }}</p></td>
+{% with subforum.forum_latest_post as latest_post %}
+<td class='djangoForumListLastPost'>{% if latest_post %}{{ latest_post.time|timesince }} ago by {{ latest_post.author }} (<a href='{{ latest_post.get_absolute_url }}'>view</a>){% else %}No Posts{% endif %}</td>
+{% endwith %}
+</tr>
+{% endfor %}
+</table>
+<br />
+{% endif %}
+
+<table id='djangoForumThreadList'  align='left'>
+
+<tr>
+<th>{% trans "Thread" %}</th>
+<th style='width: 50px;'>{% trans "Posts" %}</th>
+<th style='width: 50px;'>{% trans "Views" %}</th>
+<th style='width: 220px;'>{% trans "Last Post" %}</th>
+</tr>
+
+{% for t in threads %}
+<tr>
+<td>{% if t.sticky %}Sticky {% endif %}<a href='{{ t.get_absolute_url }}'>{{ t.title|escape }}</a>{% if t.closed %} (Closed){% endif %}</td>
+<td style='width: 50px;'>{{ t.posts }}</td>
+<td style='width: 50px;'>{{ t.views }}</td>
+{% with t.thread_latest_post as latest_post %}
+<td style='width: 220px;' class='djangoForumThreadLastPost'>{{ latest_post.time|timesince }} ago by {{ latest_post.author }} (<a href='{{ latest_post.get_absolute_url }}'>view</a>)</td>
+{% endwith %}
+</tr>
+{% endfor %}
+</table>
+
+<div style='display:block;clear:both'>
+    <h2>Create a Thread</h2>
+{% if user.is_authenticated %}
+<form method='post' action='new/'>
+<p><label for='title'>Title</label> <input type='text' name='title' maxlength='100' /></p>
+<p><label>Posting As</label><span>{{ user.username }}</span></p>
+<p><label for='body'>Body</label>
+<textarea name='body' rows='8' cols='50'></textarea></p>
+<p><label for='subscribe'>Subscribe via email:</label><input type='checkbox' name='subscribe' /></p>
+<p><input type='submit' value='Post' /></p>
+</form>
+{% else %}
+<p>Please login to create a thread.</p>
+{% endif %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,7 @@
+Django tried loading these templates, in this order:
+
+Using loader django.template.loaders.filesystem.load_template_source: 
+f:\docs\mysite\templates\blog\article_archive.html (File does not exist)
+Using loader django.template.loaders.app_directories.load_template_source: 
+c:\python25\lib\site-packages\django\contrib\admin\templates\blog\article_archive.html (File does not exist)
+c:\python25\lib\site-packages\django\contrib\comments\templates\blog\article_archive.html (File does not exist)

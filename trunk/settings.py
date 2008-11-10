@@ -76,7 +76,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.doc.XViewMiddleware',
 )
 
-ROOT_URLCONF = 'mysite.urls'
+ROOT_URLCONF = 'ddtcms.urls'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -118,19 +118,19 @@ INSTALLED_APPS = (
     'django.contrib.comments',
     'django.contrib.markup',
     'django.contrib.sitemaps',
-    'mysite.home',
-    'mysite.wiki',
-    'mysite.blog',
-    'mysite.photo',
-    'mysite.notice',
-    'mysite.news',
-    'mysite.article',
-    'mysite.polls',
-    'mysite.forum',
-    'mysite.faq',
-    'mysite.todo',
-    'mysite.member',
-    'mysite.captcha',
+    'ddtcms.home',
+    'ddtcms.wiki',
+    'ddtcms.blog',
+    'ddtcms.photo',
+    'ddtcms.notice',
+    'ddtcms.news',
+    'ddtcms.article',
+    'ddtcms.polls',
+    'ddtcms.forum',
+    'ddtcms.faq',
+    'ddtcms.todo',
+    'ddtcms.member',
+    'ddtcms.captcha',
     #'diario',
     'registration',
     #'photologue',

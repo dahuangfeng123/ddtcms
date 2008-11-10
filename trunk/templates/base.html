@@ -1,0 +1,169 @@
+﻿{% load i18n %}<!DOCTYPE html PUBLIC  "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+    <title> {% block title %}标题{% endblock %} - {{sitename}}</title>
+    <meta name="generator" content="django" />
+    <meta name="keywords" content="{% block keywords %}我们一直在努力。很久很久很久后{% endblock %}" />
+    <meta name="description" content="首页" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link type="text/css" rel="stylesheet"  href="/styles/default.css" />
+    <script type="text/javascript" language="javascript"  src="/scripts/function.js" ></script>
+    {% block extrahead %}{% endblock %}
+</head>
+<body>
+
+<div id="wrapper">
+<div id="topwrapper">
+<div id="mininav">
+  <div>    
+    <div id="notice">
+        <marquee onmouseover="this.stop();" onmouseout="this.start();" trueSpeed scrollAmount="1" scrollDelay="21">{% block notice %}公告：网站正在测试中。。。{% endblock %}</marquee>
+	</div>
+	
+	<div id="tool">
+	    
+	     {% if user.is_authenticated %}
+          您好，<a href="/accounts/profile/">{{user.username}}</a> ，欢迎您的到来！<a href="/accounts/logout/">注销</a>
+         {% else %}
+          <a href="/accounts/login/">登录</a>  <a href="/accounts/register/">注册</a> 
+         {% endif %}
+         | <a href="/faq/">帮助</a> 
+         | <a href="/accounts/click/">看东东</a> <a href="/search/">找西西</a> 
+         | <a href="/accounts/publish/">发布信息</a> 
+         | <a href="javascript:window.external.AddFavorite('', '{{sitename}}')" target=_self>收藏</a> 
+       
+	</div>
+   </div>
+</div>
+
+<div id="header">
+
+    <div id='logo'> <a href="/" ><img src="/images/logo.gif" alt="{{sitename}}"/></a>
+        </div>
+    
+    <div>
+        <h2><a href="/" title="首页">{{sitename}}</a></h2>
+        <p>网站正在建设中。。。</p>
+        
+    </div>
+    <div class='clearBOX'></div>
+    <div id="nav"  class="top-menu">
+        <ul id="menu">
+            <li><span><a href="/">{% trans "Home" %}</a></span></li>
+            <li><span><a href="/news/">{% trans "News" %}</a></span></li>
+            <li><span><a href="/article/">{% trans "Article" %}</a></span></li>
+            <li><span><a href="/photo/">{% trans "Photo" %}</a></span></li>
+            <li><span><a href="/blog/">{% trans "Blog" %}</a></span></li>
+            <li><span><a href="/wiki/">{% trans "Wiki" %}</a></span></li>
+            <li><span><a href="/todo/">{% trans "ToDo" %}</a></span></li> 
+            <li><span><a href="/polls/">{% trans "Polls" %}</a></span></li>
+            <li><span><a href="/faq/">{% trans "FAQ" %}</a></span></li>            
+            <li><span><a href="/forum/">{% trans "Forum" %}</a></span></li>{##}
+            
+        </ul>
+    </div>
+    <div id='AppBreadcrumbs'><a href='/'>{% trans "Home" %}</a> &raquo; <a href='/{{app_label}}'>{{app_label}}</a>{% block breadcrumbs %}{% endblock %}</div>
+</div>
+</div>
+
+<div id="midwrapper">  
+<div id="pagebody"><!--页面主体-->
+{% block pagebody %} 
+ <div id="sidebar"><!--侧边栏-->
+        {% block sidebar %}
+        <div class="box-top"><h1>{% trans "SideBar" %}</h1></div>
+        <div class="box">
+
+        
+        
+        
+        <div>
+            <div class="box-top1"><span></span></div>
+            <div class="box1">
+                <h2>{% trans "SideBar" %}</h2>
+                请在模板中更新
+               <div id='user_intro'>
+                {% if user.is_authenticated %}
+                {{user.username}},欢迎您的到来！
+                {% else %}
+                <p>您必须登录之后才能查看用户信息，请在右边登录。</p>
+                {% endif %}
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="box-bot"><span></span></div>
+        </div>
+        <div class="clear"></div>  
+        
+        <div>
+            <div class="box-top1"><span></span></div>
+            <div class="box1">
+                <h2>{% trans "User Profile" %}</h2>
+                请在模板中更新
+               <ul>
+            <li><a href='/accounts/register'>注册新用户</a></li>
+            <li>看看新闻</li>
+            <li>去论坛</li>
+            <li></li>
+            <li><a href='/accounts/logout'>注销</a></li>
+           </ul>
+                <div class="clear"></div>
+            </div>
+            <div class="box-bot"><span></span></div>
+        </div>
+        <div class="clear"></div>  
+        
+        <div>
+            <div class="box-top1"><span></span></div>
+            <div class="box1">
+                <h2>{% trans "Support" %}</h2>
+               <ul>            
+            <li><a href="http://www.python.org"><img src="/images/python-powered.png" alt="python"/></a></li>
+            <li><a href="http://www.djangoproject.com"><img src='/images/a-DJANGO-site.gif' alt='Site based on Django'/></a></li>
+           </ul>
+                <div class="clear"></div>
+            </div>
+            <div class="box-bot"><span></span></div>
+        </div>
+        <div class="clear"></div>  
+        
+        
+        </div>
+        <div class="box-bot"><span></span></div>
+
+        {% endblock %}
+ </div>
+ 
+ 
+ 
+ <div id="mainbody"><!--主体内容-->
+        <div class="box-top"><h1>{% block maintitle %}大标题{% endblock %}</h1></div>
+        <div class="box">
+        {% block content %}
+
+
+        {% endblock %}
+        </div>
+        <div class="box-bot"><span></span></div>
+ </div>
+{% endblock %}
+</div>
+
+</div>
+
+
+<div id='botmwrapper'>
+<div id='footer'>
+    <a href="/faq/about">关于我们</a> -  
+    <a href="/faq/contact">联系方式</a> -  
+    <a href="/links/">友情链接</a> - 
+    <a href="/sitemap.xml">网站地图</a> -    
+    <a href="/admin/">后台管理</a> - 
+    <a href="/faq/">帮助</a> - 
+    <a href="/forum/">论坛</a><br />
+    Copyright &copy; 2008 <a href="http://blog.csdn.net/huyoo/">http://blog.csdn.net/huyoo/</a> [huyoo353@126.com]. All rights reserved. Powered By <a href="http://www.djangoproject.com">Django</a>.
+</div>
+</div>
+</div><!--wrapper-->
+</body>
+</html>
