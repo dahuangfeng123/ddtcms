@@ -1,5 +1,7 @@
 # Django settings for mysite project.
+import os
 
+ROOTDIR = os.path.abspath(os.path.dirname(__file__))
 # DEBUG =False
 DEBUG =True
 TEMPLATE_DEBUG = DEBUG
@@ -60,6 +62,7 @@ ADMIN_MEDIA_PREFIX = '/admin_media/'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '$pjbv(g)*a5#d*hwppus!m0f=fjslg*4r*$!q6=tzu8zvbv0j('
+SESSION_COOKIE_NAME = 'sessionid.ddtcms'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -68,12 +71,24 @@ TEMPLATE_LOADERS = (
 #     'django.template.loaders.eggs.load_template_source',
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = ( 
+'django.core.context_processors.auth', 
+'django.core.context_processors.debug',
+'django.core.context_processors.i18n', 
+'django.core.context_processors.request', 
+"ddtcms.navbar.context_processors.crumbs",
+"ddtcms.navbar.context_processors.navbar",
+"ddtcms.navbar.context_processors.navtree",
+"ddtcms.navbar.context_processors.navbars",
+)
+
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.doc.XViewMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 )
 
 ROOT_URLCONF = 'ddtcms.urls'
@@ -89,19 +104,15 @@ TEMPLATE_DIRS = (
     './news/templates/',
     './photo/templates/',
     './wiki/templates/',
+    './faq/templates/',
     './todo/templates/',
     './polls/templates/',
     './registration/templates/',
     './notice/templates/',
     './life/templates/',
+    './navbar/templates/',
 )
 
-TEMPLATE_CONTEXT_PROCESSORS = ( 
-'django.core.context_processors.auth', 
-'django.core.context_processors.debug', 
-'django.core.context_processors.i18n', 
-'django.core.context_processors.request', 
-) 
 
 LOCALE_PATHS =(
     './locale/',
@@ -110,17 +121,19 @@ LOCALE_PATHS =(
 
 INSTALLED_APPS = (
     'django.contrib.auth',
+    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.admindocs',
     'django.contrib.comments',
     'django.contrib.markup',
     'django.contrib.sitemaps',
+    'django.contrib.flatpages',
     'ddtcms.home',
     'ddtcms.wiki',
     'ddtcms.blog',
+    'ddtcms.book',
     'ddtcms.photo',
     'ddtcms.notice',
     'ddtcms.news',
@@ -134,6 +147,7 @@ INSTALLED_APPS = (
     #'diario',
     'registration',
     #'photologue',
+    'navbar',
 
 )
 
@@ -145,6 +159,16 @@ AUTH_PROFILE_MODULE='member.Profile'
 ACCOUNT_ACTIVATION_DAYS=10
 
 LISTITEM_PER_PAGE=10
+
+#navbar settings
+NAVBAR_TREE_MAX_DEPTH = 3
+NAVBAR_TREE_SHOW_DEPTH = 0
+NAVBAR_TREE_MARK_SELECTED = True
+
+NAVBAR_MAX_DEPTH=3
+NAVBAR_MARK_SELECTED=True
+NAVBAR_SHOW_DEPTH=3
+
 
 
 # django-diario settings

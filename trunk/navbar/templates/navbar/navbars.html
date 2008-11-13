@@ -1,0 +1,7 @@
+{% load i18n navbar %}
+{% for navbar in navbars %}
+<ul class="navbar-{{ forloop.counter|cssnumber }}">
+    {% for entry in navbar %}<li{% if entry.selected %} class="selected"{% endif %}><a href="{{ entry.url }}" {% if entry.selected %} class="selected"{% endif %} title="{{ entry.title|escape }}">{% trans entry.name %}</a></li>
+    {% endfor %}
+</ul>
+{% endfor %}

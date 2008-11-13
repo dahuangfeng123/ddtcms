@@ -41,6 +41,7 @@ urlpatterns = patterns('',
     (r'^(?i)todo/',       include('ddtcms.todo.urls')),
     (r'^(?i)notice/',     include('ddtcms.notice.urls')),
     (r'^(?i)profiles/',   include('ddtcms.profiles.urls')),
+    (r'^(?i)book/',   include('ddtcms.book.urls')),
     
     #(r'^blog/',    include('diario.urls.entries')),   
     

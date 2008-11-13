@@ -1,14 +1,31 @@
 ﻿{% load i18n %}<!DOCTYPE html PUBLIC  "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
 <head>
-    <title> {% block title %}标题{% endblock %} - {{sitename}}</title>
-    <meta name="generator" content="django" />
-    <meta name="keywords" content="{% block keywords %}我们一直在努力。很久很久很久后{% endblock %}" />
-    <meta name="description" content="首页" />
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <link type="text/css" rel="stylesheet"  href="/styles/default.css" />
-    <script type="text/javascript" language="javascript"  src="/scripts/function.js" ></script>
-    {% block extrahead %}{% endblock %}
+<title> {% block title %}标题{% endblock %} - {{sitename}}</title>
+<meta name="generator" content="django" />
+<meta name="keywords" content="{% block keywords %}我们一直在努力。很久很久很久后{% endblock %}" />
+<meta name="description" content="首页" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link type="text/css" rel="stylesheet"  href="/styles/default.css" />
+<script type="text/javascript" language="javascript"  src="/scripts/function.js" ></script>
+{% block extrahead %}{% endblock %}
+{% block styles %}
+<style >
+#main { margin-top: 1em; }
+#content { padding-left: 1em; }
+.selected { font-weight: bold; }
+ul.navbar-one {  margin-bottom: 0px;}
+ul.navbar-two {  margin-bottom: 0px; margin-top: 0px;}
+ul.navbar-three { margin-top: 0px; }
+
+ul.navbar-one LI { display: inline; margin-right: 5px; }
+ul.navbar-two LI { display: inline; margin-right: 5px; }
+ul.navbar-three LI { display: inline; margin-right: 5px; }
+
+ul.level-two{padding:0 0 0 10px}
+ul.level-three{padding:0 0 0 10px}
+</style>
+{% endblock styles %}
 </head>
 <body>
 
@@ -43,26 +60,17 @@
     
     <div>
         <h2><a href="/" title="首页">{{sitename}}</a></h2>
-        <p>网站正在建设中。。。</p>
+        <p>网站正在建设中。。。(管理帐户/密码： admin/admin)</p>
         
     </div>
     <div class='clearBOX'></div>
-    <div id="nav"  class="top-menu">
-        <ul id="menu">
-            <li><span><a href="/">{% trans "Home" %}</a></span></li>
-            <li><span><a href="/news/">{% trans "News" %}</a></span></li>
-            <li><span><a href="/article/">{% trans "Article" %}</a></span></li>
-            <li><span><a href="/photo/">{% trans "Photo" %}</a></span></li>
-            <li><span><a href="/blog/">{% trans "Blog" %}</a></span></li>
-            <li><span><a href="/wiki/">{% trans "Wiki" %}</a></span></li>
-            <li><span><a href="/todo/">{% trans "ToDo" %}</a></span></li> 
-            <li><span><a href="/polls/">{% trans "Polls" %}</a></span></li>
-            <li><span><a href="/faq/">{% trans "FAQ" %}</a></span></li>            
-            <li><span><a href="/forum/">{% trans "Forum" %}</a></span></li>{##}
-            
-        </ul>
+   {% load navbar %}
+    <div id="nav"  class="top-menu">            
+            {% navbars %}
     </div>
-    <div id='AppBreadcrumbs'><a href='/'>{% trans "Home" %}</a> &raquo; <a href='/{{app_label}}'>{{app_label}}</a>{% block breadcrumbs %}{% endblock %}</div>
+
+    <div class="breadcrumbs"><span style='float: right;'>欢迎您的光临！</span>您的位置（crumbs）: {% for crumb in crumbs %}<a href="{{ crumb.path }}"> {% trans crumb.name %} </a>{% if not forloop.last %} &raquo; {% endif %}{% endfor %}</div>
+
 </div>
 </div>
 
@@ -75,7 +83,16 @@
         <div class="box">
 
         
-        
+        <div>
+            <div class="box-top1"><span></span></div>
+            <div class="box1">
+                <h2>{% trans "NavTree" %}</h2>
+                {% navtree %}
+                <div class="clear"></div>
+            </div>
+            <div class="box-bot"><span></span></div>
+        </div>
+        <div class="clear"></div>          
         
         <div>
             <div class="box-top1"><span></span></div>
