@@ -3,22 +3,50 @@
 {% block title %}{% trans "Forums" %}{% endblock %}
 
 {% block content %}
-<table id='djangoForumList'>
-<tr>
-<th>{% trans "Forum" %}</th>
-<th>{% trans "Last Post" %}</th>
-</tr>
-
-{% for forum in object_list %}
-
-<tr>
-<td class='djangoForumListDetails'><p><strong><a href='{{ forum.get_absolute_url }}'>{{ forum.title }}</a></strong><br /><span class='djangoForumStats'>{% blocktrans with forum.threads as thread_count and forum.posts as post_count %}{{ thread_count }} 话题, {{ post_count }} 帖子 {% endblocktrans %}</span></p>
-<p>{{ forum.description }}</p></td>
-{% with forum.forum_latest_post as latest_post %}
-<td class='djangoForumListLastPost'>{% if latest_post %}{{ latest_post.time|timesince }} 前由 {{ latest_post.author }}发表(<a href='{{ latest_post.get_absolute_url }}'>{% trans "view" %}</a>){% else %}{% trans "No Posts" %}{% endif %}</td>
-{% endwith %}
-</tr>
-{% endfor %}
-</table>
+			<div class="mainbox forumlist">
+			<span class="headactions">
+								<img id="category_3_img" src="{{ MEDIA_URL }}themes/forum/images/collapsed_no.gif" title="收起/展开" alt="收起/展开" onclick="toggle_collapse('category_3');" />
+			</span>
+			<h3><a href="index.php?gid=3">iQ浏览器交流</a></h3>
+			<table id="category_3" summary="category3" cellspacing="0" cellpadding="0" style="">
+				<thead class="category">
+					<tr>
+						<th>&nbsp;</th>
+						<th>{% trans "Panel" %}</th>
+						<td class="nums">{% trans "Threads" %}</td>
+						<td class="nums">{% trans "Posts" %}</td>
+						<td class="lastpost">{% trans "Last Post" %}</td>
+					</tr>
+				</thead> 
+ 
+ 
+    			{% for forum in object_list %}
+    	         <tbody id="forum{{ forum.id }}">
+    				<tr>
+    					<td class="stat_pic"><div class="bold_pic"><a href="{{ forum.get_absolute_url }}"><img src="{{ MEDIA_URL }}themes/forum/images/iq_browser_icon.gif" alt=""/></a></div></td>
+    					<th class="new">
+    						<h2><a href="{{ forum.get_absolute_url }}">{{ forum.title }}</a><em> (<img src="{{ MEDIA_URL }}themes/forum/images/threadlist_icon07.gif" align="absmiddle"/> 今日: 20)</em></h2>
+    						<p>{{ forum.description }}</p>    <p class="moderators">版主: <a class="notabs" href="space.php?username=yuanfang8687">yuanfang8687</a>, <a class="notabs" href="space.php?username=iQ_browser">iQ_browser</a>, <a class="notabs" href="space.php?username=wjy910">wjy910</a>, <a class="notabs" href="space.php?username=liushuai">liushuai</a></p>							</th>
+    					{% blocktrans with forum.threads as thread_count and forum.posts as post_count %}
+    					<td class="nums bg_blue">{{ thread_count }}</td>
+    					<td class="nums">{{ post_count }}</td>
+    					{% endblocktrans %}
+    					<td class="lastpost bg_blue">
+    					    {% with forum.forum_latest_post as latest_post %}
+                               {% if latest_post %}<a href="{{ latest_post.get_absolute_url }}">{% trans "Re:" %}{{ latest_post.thread }}</a>
+    							<cite>by <a href="/accounts/profile/{{ latest_post.author }}">{{ latest_post.author }}</a> - {{ latest_post.time|timesince }}{% trans "ago" %}</cite>{% else %}{% trans "No Posts" %}{% endif %}
+                            {% endwith %}					    
+					    </td>
+				    </tr>
+			     </tbody>
+			    {% endfor %}
+		    </table>
+		    </div>
+		    <div id="ad_intercat_3"></div>
+		
 {%comment%}<p><a href="{% url forumsubs %}">{% trans "Update Subscriptions" %}</a></p>{%endcomment%}
+
+
+
+
 {% endblock %}

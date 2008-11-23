@@ -1,31 +1,18 @@
 ﻿{% load i18n %}<!DOCTYPE html PUBLIC  "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
 <head>
-<title> {% block title %}标题{% endblock %} - {{sitename}}</title>
+<title> {% block title %}title{% endblock %} - {{SITE_NAME}}</title>
+<meta name="robots" content="{% block robots %}index,follow{% endblock %}" />
 <meta name="generator" content="django" />
-<meta name="keywords" content="{% block keywords %}我们一直在努力。很久很久很久后{% endblock %}" />
-<meta name="description" content="首页" />
+<meta name="keywords" content="{% block keywords %}糯米糊糊,huyoo353,我们一直在努力。很久很久很久后{% endblock %}" />
+<meta name="description" content="{% block description %}糯米糊糊,huyoo353,ddtcms,Django Dream Team's CMS{% endblock %}" />
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link type="text/css" rel="stylesheet"  href="/styles/default.css" />
-<script type="text/javascript" language="javascript"  src="/scripts/function.js" ></script>
+{% block styles %}<link type="text/css" rel="stylesheet"  href="{{ MEDIA_URL }}themes/default/css/default.css" />{% endblock%}
+{% block extracss %}{% endblock %}
+<script type="text/javascript" language="javascript" src="{{ MEDIA_URL }}scripts/function.js" ></script>
+<script type="text/javascript" language="javascript" src="{{ MEDIA_URL }}userprofile/js/jquery-1.2.6.min.js"></script>
+{% block extrajs %}{% endblock %}
 {% block extrahead %}{% endblock %}
-{% block styles %}
-<style >
-#main { margin-top: 1em; }
-#content { padding-left: 1em; }
-.selected { font-weight: bold; }
-ul.navbar-one {  margin-bottom: 0px;}
-ul.navbar-two {  margin-bottom: 0px; margin-top: 0px;}
-ul.navbar-three { margin-top: 0px; }
-
-ul.navbar-one LI { display: inline; margin-right: 5px; }
-ul.navbar-two LI { display: inline; margin-right: 5px; }
-ul.navbar-three LI { display: inline; margin-right: 5px; }
-
-ul.level-two{padding:0 0 0 10px}
-ul.level-three{padding:0 0 0 10px}
-</style>
-{% endblock styles %}
 </head>
 <body>
 
@@ -40,14 +27,14 @@ ul.level-three{padding:0 0 0 10px}
 	<div id="tool">
 	    
 	     {% if user.is_authenticated %}
-          您好，<a href="/accounts/profile/">{{user.username}}</a> ，欢迎您的到来！<a href="/accounts/logout/">注销</a>
+           <a href="/accounts/profile/">{{user.username}}</a>,{% trans "Welcome back!" %} <a href="{% url logout %}">{% trans "Logout" %}</a>
          {% else %}
-          <a href="/accounts/login/">登录</a>  <a href="/accounts/register/">注册</a> 
+          <a href="{% url login %}">{% trans "Login" %}</a>  <a href="{% url signup %}">{% trans "Register" %}</a>
          {% endif %}
          | <a href="/faq/">帮助</a> 
          | <a href="/accounts/click/">看东东</a> <a href="/search/">找西西</a> 
          | <a href="/accounts/publish/">发布信息</a> 
-         | <a href="javascript:window.external.AddFavorite('', '{{sitename}}')" target=_self>收藏</a> 
+         | <a href="javascript:window.external.AddFavorite('', '{{SITE_NAME}}')" target=_self>收藏</a> 
        
 	</div>
    </div>
@@ -55,11 +42,11 @@ ul.level-three{padding:0 0 0 10px}
 
 <div id="header">
 
-    <div id='logo'> <a href="/" ><img src="/images/logo.gif" alt="{{sitename}}"/></a>
+    <div id='logo'> <a href="/" ><img src="/images/logo.gif" alt="{{SITE_NAME}}"/></a>
         </div>
     
     <div>
-        <h2><a href="/" title="首页">{{sitename}}</a></h2>
+        <h2><a href="/" title="首页">{{SITE_NAME}}</a></h2>
         <p>网站正在建设中。。。(管理帐户/密码： admin/admin)</p>
         
     </div>
@@ -79,7 +66,7 @@ ul.level-three{padding:0 0 0 10px}
 {% block pagebody %} 
  <div id="sidebar"><!--侧边栏-->
         {% block sidebar %}
-        <div class="box-top"><h1>{% trans "SideBar" %}</h1></div>
+        <div class="box-top"><h3>{% trans "SideBar" %}</h3><span></span></div>
         <div class="box">
 
         
@@ -87,7 +74,7 @@ ul.level-three{padding:0 0 0 10px}
             <div class="box-top1"><span></span></div>
             <div class="box1">
                 <h2>{% trans "NavTree" %}</h2>
-                {% navtree %}
+                 {% navtree   %}
                 <div class="clear"></div>
             </div>
             <div class="box-bot"><span></span></div>
@@ -158,8 +145,8 @@ ul.level-three{padding:0 0 0 10px}
         <div class="box">
         {% block content %}
 
-
         {% endblock %}
+         
         </div>
         <div class="box-bot"><span></span></div>
  </div>

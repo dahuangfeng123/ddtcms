@@ -6,122 +6,60 @@
 
 
 {% block content %}
-<div id="screen_1" > 
-    <div> 
-      <div style="width:768px;float:left; height:260px; overflow:hidden;"> 
-        <div> 
-          <div id="magic"> 
-            <div id="magic_paly"> 
-              <!--flash幻灯展示开始-->
-              <div id="flash_show_box"> 
-                <div id="flash_show" > 
-                  <div id="flash_img"></div>
-                  <div id="flash_btn"> 
-                    <div><a href="javascript:;" onclick="javascript:showImage(0)" ><img src="/images/flash_btn_1.gif" alt="第1幅" width="12" height="11" border="0" /></a></div>
-                    <div><a href="javascript:;" onclick="javascript:showImage(1)" ><img src="/images/flash_btn_2.gif" alt="第2幅" width="12" height="11" border="0" /></a></div>
-                    <div><a href="javascript:;" onclick="javascript:showImage(2)" ><img src="/images/flash_btn_3.gif" alt="第3幅" width="12" height="11" border="0" /></a></div>
-                    <div><a href="javascript:;" onclick="javascript:showImage(3)" ><img src="/images/flash_btn_4.gif" alt="第4幅" width="12" height="11" border="0" /></a></div>
-                  </div>
-                </div>
-              </div>
-              <!--flash幻灯展示结束-->
-              <!--flash幻灯展示控制开始-->
-              <div id="flash_show_control"> 
-                <div id="flash_show_ctl"> 
-                  <div id="flash_show_ctl_msg" style="float:left"> 
-                    <img id="flash_show_ctl_arrow" src="/images/green_arrow.gif" width="4" height="8" /><a href="#" id="flash_title"></a> 
-                  </div>
-                  <div style="padding-top:2px; float:right;"> 
-                    <a id="img_prev_btn" href="javascript:;" onclick="javascript:showPrevImage();" ><img src="/images/flash_back.gif" alt="上一页" width="13" height="12" border="0"/></a><a id="img_next_btn" href="javascript:;" onclick="javascript:showNextImage();" ><img src="/images/flash_next.gif" alt="下一页" width="11" height="12" border="0" /></a></div>
-                </div>
-              </div>
-              <!--flash幻灯展示控制结束-->
-             <script language="javascript" type="text/javascript" >
-				var fImgs = new Array();
-				fImgs[0] = {title:"佳能月促销活动开始啦     ",img:"/images/2008.jpg",href:"#"};
-				fImgs[1] = {title:"自驾游，有它全搞定！",     img:"/images/img200808111532121.jpg",href:"#"};
-				fImgs[2] = {title:"“惊”历迪士尼黑色世界！   ",img:"/images/img200808111532122.jpg",href:"#"};
-				fImgs[3] = {title:"佳能eos ",                 img:"/images/img200808111532123.jpg",href:"#"};
-				imagePlay();
-			</script>
-            </div>
-            <!--最近一分钟被看过的图片开始-->
-            <!--最近一分钟被看过的图片结束-->
-          </div>
-          <div id="mypoco"> 
-            <!-- 今日聚焦开始 -->
-            <div class="ash_title_today" ><span style="float:left;font-size:14px;font-weight:bold; color:#FFFFFF"><img src="/images/index_icon02v201.gif" alt=""/>&nbsp;今日精选</span> 
-              <span style=" padding-top:2px; float:right; margin:0px; width:340px; text-align:right;color:#FFFFFF"> 
-              <a href="photo_list.htx&list=type&tid=5" >玩家空间</a> 
-              | <a href="photo_list.htx&list=type&tid=1" >发烧天地</a> 
-              | <a href="photo_list.htx&list=type&tid=0" >摄影乐园</a> 
-              | <a href="photo_list.htx&list=type&tid=2" > 
-              新手乐园</a> | <a href="photo_list.htx&list=vouch" > 
-              精品欣赏</a> </span></div>
-            <div class="clearBOX"></div>
-            <div class="clearBOX"></div>
-            <div id="toady_choiceness" style="margin-bottom:5px;"> 
-              <!--  图片排列开始  --><!-- 图1 -->
-<div class="imgList">
-<div><a target="_blank" href="lastphoto-htx-id-1098224-p-0.xhtml"><img height="120" alt="" width="100" border="0" src="/Image/20(30).jpg" /></a> </div>
-<div class="imgList_title"><a target="_blank" href="lastphoto-htx-id-1098224-p-0.xhtml">夏祭</a></div>
-</div>
-<!-- 图2 -->
-<div class="imgList">
-<div><a target="_blank" href="lastphoto-htx-id-1100812-p-0.xhtml"><img height="120" alt="" width="100" border="0" src="/Image/21(29).jpg" /></a> </div>
-<div class="imgList_title"><a target="_blank" href="lastphoto-htx-id-1100812-p-0.xhtml">Dangerous</a></div>
-</div>
-<!-- 图3 -->
-<div class="imgList">
-<div><a target="_blank" href="lastphoto-htx-id-1073829-p-0.xhtml"><img height="120" alt="" width="100" border="0" src="/Image/22(27).jpg" /></a> </div>
-<div class="imgList_title"><a target="_blank" href="lastphoto-htx-id-1073829-p-0.xhtml">记忆碎片</a></div>
-</div>
-<!-- 图4 -->
-<div class="imgList">
-<div><a target="_blank" href="lastphoto-htx-id-1098314-p-0.xhtml"><img height="120" alt="" width="100" border="0" src="/Image/23(24).jpg" /></a> </div>
-<div class="imgList_title"><a target="_blank" href="lastphoto-htx-id-1098314-p-0.xhtml">禾木晨曲</a></div>
-</div>
-            </div>
-            <!--今日聚焦 -->
-            <!-- 热点聚集开始-->
-            <div class="right_hu_dong_topic_title" style="margin-bottom:0px; margin-top:0px;height:20px; overflow:hidden; clear:both"><img src="/images/index_icon02v201.gif" alt=""/>&nbsp;<strong>热点聚集</strong> 
-            </div>
-            <div id="today_focus"> 
-              <div class="today_focus_box">
-              <a target="_blank" href="http://travel.poco.cn/travel_lastblog.htx&amp;id=2816348&amp;temp=1762">
-              <img class="float_left img_border" height="53" alt="" width="55" src="/Image/19(32).jpg" /></a>
-              <div class="today_focus_content"><a class="today_focus_content_title" target="_blank" href="http://travel.poco.cn/travel_lastblog.htx&amp;id=2816348&amp;temp=1762">美女带你去旅游</a><br /><a>三大才女做足功课，带你畅游天下旅游胜地，绝不含糊。</a><a class="font_bare_bold" target="_blank" href="http://travel.poco.cn/travel_lastblog.htx&amp;id=2816348&amp;temp=1762"></a></div>
-</div>
-<div class="today_focus_box" style="FLOAT: right">
-    <a target="_blank" href="#"><img class="float_left img_border" height="53" alt="" width="55" src="/Image/12(27).jpg" /></a>
-    <div class="today_focus_content" style="PADDING-RIGHT: 10px">
-        <a class="today_focus_content_title" target="_blank" href="#">极致优雅</a><br /><a>无论是复古还是新生的时尚，都是绝对的极致和一贯的优雅</a><a class="font_bare_bold" target="_blank" href="#"></a></div>
-    </div>
 
-<div></div>
-            </div>
-            <!-- 热点聚集结束-->
-          </div>
-        </div>
-        <div style="width:746px;margin-top:1px" >mmm</div>
-      </div>
-    </div>
-</div>
+<h1>DDTCMS</h1>
+<h2>Summary:</h2>
+<p class='para'>DDTCMS(Django Dream Team's Content Management System),is a CMS based on django 1.0,supported by Django Dream Team,created by huyoo353 on 2008-NOV-10. </p>
+<p>http://code.google.com/p/ddtcms/</p>
+<p>admin u/p: admin/admin </p>
+<h2>Requirements:</h2>
+<dl>
+<dt>django 1.0</dt><dd>Django version 1.0 or greater.</dd>
+<dt>PIL</dt><dd>The Python Imaging Library,Source: http://www.pythonware.com/products/pil/</dd>
+<dt>markdown</dt>
+<dd>Markdown is a text-to-HTML conversion tool for web writers.
+    http://daringfireball.net/projects/markdown/</dd>
+<dt>django-navbar</dt><dd>Site navigation controlled from the django admin with: 
 
-
-
-
-<div>
-<div class="box-top1"><span></span></div>
-<div class="box1">
-<h2>{% trans "Support" %}</h2>
-<ul>            
-<li><a href="http://www.python.org"><img src="/images/python-powered.png" alt="python"/></a></li>
-<li><a href="http://www.djangoproject.com"><img src='/images/a-DJANGO-site.gif' alt='Site based on Django'/></a></li>
+Navigation bar 
+Navigation tree 
+Chained Navigation bars 
+JSON sub tree requests (comming soon) 
+Permission control on which entries are seen 
+http://code.google.com/p/django-wikiapp/</dd>
+<dt>django-wikiapp</dt><dd>Django WikiApp is a pluggable application for Django that aims to provide a complete Wiki (for really small values of "complete") 
+http://code.google.com/p/django-wikiapp/
+</dd>
+<dt>django-photologue</dt><dd></dd>
+<dt>django-forum</dt><dd></dd>
+<dt>django-tagging</dt><dd></dd>
+<dt>django-pressroom</dt><dd></dd>
+<dt>gettext</dt><dd>Optional(needed when you use i18n tags in code or templates)</dd>
+<dt>Google Data API</dt><dd>Optional(allows image searching)
+      Download it from http://code.google.com/p/gdata-python-client/</dd>
+<dt>django-profile</dt>
+<dd>
+<ul>
+<li>http://code.google.com/p/django-profile/</li> 
+<li>This is a Django pluggable user profile zone which can be used and customized easily in your social application web platform developed in django. </dd></li>
 </ul>
-<div class="clear"></div>
-</div>
-<div class="box-bot"><span></span></div>
-</div>
-<div class="clear"></div>  
+</dl>
+<p></p>
+<h2>App Directory Structure:</h2>
+<dl><dt>appname/</dt>
+<dd>
+<ul>
+<li>--templates/</li>
+<li>----appname/</li>
+<li>--templatetags/</li>
+</ul>
+</dd></dl>
+
+
+
+
+
+
+
+
 {% endblock %}

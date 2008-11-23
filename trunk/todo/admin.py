@@ -7,7 +7,7 @@ class ProjectAdmin(admin.ModelAdmin):
     
     
 class TaskAdmin(admin.ModelAdmin):
-    list_display = ('project','name','lastupdated','priority','completed')
+    list_display = ('name','project','lastupdated','priority','completed')
     list_filter =('project',)     
 
 admin.site.register(Project,ProjectAdmin)

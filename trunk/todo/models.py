@@ -29,7 +29,11 @@ class Project(models.Model):
         return self.name    
         
     def get_absolute_url(self):
-        return "/todo/%s/" % (self.slug)  
+        if self.slug:
+            return "/todo/%s/" % (self.slug)
+        else:
+            return "/todo/%s/" % (self.id)
+            
                  
     class Meta:        
         verbose_name=_('Todo Project')
