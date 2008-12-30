@@ -1,4 +1,4 @@
-# Django settings for mysite project.
+# Django settings for ddtcms project.
 import os
 from datetime import datetime
 ROOTDIR = os.path.abspath(os.path.dirname(__file__))
@@ -72,7 +72,7 @@ ADMIN_MEDIA_PREFIX = '/admin_media/'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '$pjbv(g)*a5#d*hwppus!m0f=fjslg*4r*$!q6=tzu8zvbv0j('
-SESSION_COOKIE_NAME = 'sessionid.mysite'
+SESSION_COOKIE_NAME = 'sessionid.ddtcms'
 
 
 # List of callables that know how to import templates from various sources.

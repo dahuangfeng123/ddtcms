@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import *
 from ddtcms.home.views import common_dict
-
+from tagging.models import Tag
 from ddtcms.news.models import News
 news_dict = {
 'queryset': News.objects.all(),
@@ -9,7 +9,7 @@ news_dict = {
 }
 
 
-from ddtcms.blog.models import Tag
+
 tag_dict = {
 'queryset': Tag.objects.all(),
 }

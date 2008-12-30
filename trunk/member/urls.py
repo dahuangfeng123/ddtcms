@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import *
-from mysite.home.views import common_dict
-from mysite.member.models import Profile,Resume
+from ddtcms.home.views import common_dict
+from ddtcms.member.models import Profile,Resume
 
 common_dict.update({'app_label':'member',    })
     

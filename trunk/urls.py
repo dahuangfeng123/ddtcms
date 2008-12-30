@@ -32,7 +32,7 @@ from ddtcms import settings
 
 urlpatterns = patterns('',
     # Example:
-    # (r'^mysite/', include('ddtcms.foo.urls')),
+    # (r'^ddtcms/', include('ddtcms.foo.urls')),
     (r'^',                     include('ddtcms.home.urls')),
     (r'^(?i)news/',            include('ddtcms.news.urls')),
     (r'^(?i)article/',         include('ddtcms.article.urls')),

@@ -1,11 +1,11 @@
-F:\Python\mysite>manage.py shell
+F:\Python\ddtcms>manage.py shell
 Python 2.5.2 (r252:60911, Feb 21 2008, 13:11:45) [MSC v.1310 32 bit (Intel)] on
 win32
 Type "help", "copyright", "credits" or "license" for more information.
 (InteractiveConsole)
 >>> import django
->>> import mysite
->>> dir(mysite)
+>>> import ddtcms
+>>> dir(ddtcms)
 ['__builtins__', '__doc__', '__file__', '__name__', '__path__', 'article', 'blog
 ', 'captcha', 'faq', 'forum', 'home', 'member', 'news', 'notice', 'photo', 'poll
 s', 'settings', 'todo', 'wiki']
@@ -17,7 +17,7 @@ Traceback (most recent call last):
 NameError: name 'profiles' is not defined
 >>> import ddtcms.profiles as profiles
 >>> profiles
-<module 'ddtcms.profiles' from 'F:\Python\mysite\..\mysite\profiles\__init__.pyc
+<module 'ddtcms.profiles' from 'F:\Python\ddtcms\..\ddtcms\profiles\__init__.pyc
 '>
 >>> dir(profiles)
 ['__builtins__', '__doc__', '__file__', '__name__', '__path__']
@@ -27,7 +27,7 @@ Traceback (most recent call last):
 AttributeError: 'module' object has no attribute 'views'
 >>> import profiles.views as pw
 >>> pw
-<module 'profiles.views' from 'F:\Python\mysite\profiles\views.pyc'>
+<module 'profiles.views' from 'F:\Python\ddtcms\profiles\views.pyc'>
 >>> dir(pw)
 ['Http404', 'HttpResponseRedirect', 'ObjectDoesNotExist', 'RequestContext', 'Use
 r', '__builtins__', '__doc__', '__file__', '__name__', 'create_profile', 'edit_p
