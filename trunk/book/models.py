@@ -8,6 +8,10 @@ class Publisher(models.Model):
      state_province = models.CharField(max_length=30)
      country = models.CharField(max_length=50)
      website = models.URLField()
+     
+     class Meta:
+     	verbose_name = _('Publisher')
+        verbose_name_plural = _('Publishers')
 
 class Author(models.Model):
      salutation = models.CharField(max_length=10)
@@ -15,6 +19,10 @@ class Author(models.Model):
      last_name = models.CharField(max_length=40)
      email = models.EmailField()
      headshot = models.ImageField(upload_to='/face/')
+     
+     class Meta:
+     	verbose_name = _('Book Author')
+        verbose_name_plural = _('Book Authors')
 
 class Book(models.Model):
      title = models.CharField(max_length=100)
@@ -22,9 +30,16 @@ class Book(models.Model):
      publisher = models.ForeignKey(Publisher)
      publication_date = models.DateField()
      cover = models.ImageField(upload_to='/book/cover/')
+     class Meta:
+     	verbose_name = _('Book')
+        verbose_name_plural = _('Books')
      
 class Chapter(models.Model):
     title=models.CharField(max_length=200)
     book=models.ForeignKey(Book)
     content=models.TextField()
+    
+    class Meta:
+     	verbose_name = _('Book Chapter')
+        verbose_name_plural = _('Book Chapters')
     

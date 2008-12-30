@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 from datetime import datetime,timedelta
 from random import random
 from captcha.settings import TIMEOUT
@@ -19,6 +20,10 @@ class CaptchaRequest(models.Model):
     request_path = models.CharField(max_length=50, blank=True)
     uid = models.CharField(max_length=40, blank=True)
     text = models.CharField(max_length=10)
+    
+    class Meta:
+     	verbose_name = _('CaptchaRequest')
+        verbose_name_plural = _('CaptchaRequests')
 
     def save(self):
         shaobj = sha.new()

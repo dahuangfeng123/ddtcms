@@ -24,7 +24,7 @@ function toggle_collapse(objname) {
         <a name='#modules_{{forloop.counter}}'/>
         <div class="module">            
         {%comment%}
-            <div style='height:20px;padding:4px;text-align:left;background-color:#f5f5f5;'><span style='float:right'>(<a href='#modules_{{forloop.counter}}' onclick="toggle_collapse('modules_{{forloop.counter}}');">ÕÛµş/Õ¹¿ª</a>)</span> {% blocktrans with app.name as name %}{{ name }}{% endblocktrans %} </div>
+            <div style='height:20px;padding:4px;text-align:left;background-color:#f5f5f5;'><span style='float:right'>(<a href='#modules_{{forloop.counter}}' onclick="toggle_collapse('modules_{{forloop.counter}}');">æŠ˜å /å±•å¼€</a>)</span> {% blocktrans with app.name as name %}{{ name }}{% endblocktrans %} </div>
         {%endcomment%}
         
         <table summary="{% blocktrans with app.name as name %}Models available in the {{ name }} application.{% endblocktrans %}" id='modules_{{forloop.counter}}' style='display:block'>

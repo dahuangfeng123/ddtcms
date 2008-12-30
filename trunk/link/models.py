@@ -32,6 +32,10 @@ class Link(models.Model):
     notes         = models.TextField(null=True,blank=True)
     pub_date      = models.DateTimeField(null=True,blank=True,default=datetime.datetime.now)
     tags          = TagField(help_text=tagfield_help_text, verbose_name=_('tags'))
+    
+    class Meta:
+        verbose_name = _('Link')
+        verbose_name_plural = _('Links')
 
 
 

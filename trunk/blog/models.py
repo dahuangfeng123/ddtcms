@@ -40,8 +40,11 @@ class Entry(models.Model):
 
     class Meta:
         ordering      = ('-pub_date',)
+        verbose_name = _('Entry')
+        verbose_name_plural = _('Entries')
 #        get_latest_by = 'pub_date'
 #        db_table      = "blog_entry"
+
 
 
     def get_absolute_url(self):

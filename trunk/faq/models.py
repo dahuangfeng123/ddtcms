@@ -7,6 +7,10 @@ class Faq(models.Model):
     content       = models.TextField()
     slug          = models.SlugField(max_length=50)
     
+    class Meta:
+		verbose_name = "Faq"
+		verbose_name_plural = "Faqs"
+		
     def __unicode__(self):
         return self.title
     
