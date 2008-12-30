@@ -46,7 +46,7 @@
 		
 {%comment%}<p><a href="{% url forumsubs %}">{% trans "Update Subscriptions" %}</a></p>{%endcomment%}
 
-
+{% if request.user.is_authenticated %}<p><a href="{% url forum_subscriptions %}">{% trans "Update Subscriptions" %}</a></p>{%else%}ddd{% endif %}
 
 
 {% endblock %}

@@ -82,7 +82,7 @@
 </ul>
 {% endif %}
 
-<h2><a href="{% url forum_subscriptions %}">Update Subscriptions</a></h2>
+<h2>{% if request.user.is_authenticated %}<p><a href="{% url forum_subscriptions %}">{% trans "Update Subscriptions" %}</a></p>{% endif %}</h2>
 <h2>发布一个回帖</h2>
 {% if thread.closed %}
 <p>Sorry, this thread is closed. No further replies are permitted.</p>

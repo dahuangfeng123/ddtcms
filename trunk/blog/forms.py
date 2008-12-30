@@ -6,12 +6,14 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User
 
 
-from ddtcms.blog.models import Entry,Category,Tag
+from ddtcms.blog.models import Entry
+from ddtcms.category.models import Category
 
 from ddtcms.captcha.forms import *
 
 attrs_dict = { 'class': 'required' }
 
+CATEGORY_CHOICES = Category.objects.for_model(Entry)
 
 class CreateEntryForm(forms.Form):
 
@@ -23,7 +25,9 @@ class CreateEntryForm(forms.Form):
                              label=_(u'title'))
                              
     #category = forms.ChoiceField(label=_(u'category'), choices=[(c.id,c.name) for c in Category.objects.all()])
-    category = forms.ModelChoiceField(label=_(u'category'), queryset=Category.objects.all())
+    #category = forms.ModelChoiceField(label=_(u'category'), queryset=Category.objects.all())
+    category = forms.ChoiceField(label=_(u'category'), choices=CATEGORY_CHOICES)
+    
     
     pub_date = forms.DateTimeField(widget=forms.DateTimeInput(attrs=attrs_dict),
                                 label=_(u'datetime'))
@@ -32,7 +36,7 @@ class CreateEntryForm(forms.Form):
     slug          = forms.SlugField(label=_(u'Slug'),help_text="Use English Or Pinyin.")
     summary       = forms.CharField(label=_(u'Summary'),help_text="One paragraph. Don't add tag.")
     #tags          = forms.MultipleChoiceField(label=u'tag', choices=[(t.id,t.name) for t in Tag.objects.all()])   
-    tags          = forms.ModelMultipleChoiceField(label=u'tag', queryset=Tag.objects.all()) 
+    tags          = forms.CharField(widget=forms.TextInput(attrs=dict(attrs_dict,maxlength=75)), label=_(u'tags'))
     captcha_uid = forms.CharField(
             required=True,
             label="",

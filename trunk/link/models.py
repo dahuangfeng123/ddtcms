@@ -24,8 +24,9 @@ except ImportError:
 
 class Link(models.Model):
     name          = models.CharField(max_length=200)
-    category      = generic.GenericRelation(Category)
-    url           = models.URLField(max_length=255)
+    #category      = generic.GenericRelation(Category)
+    category      = models.ForeignKey(Category)
+    url           = models.URLField(max_length=255,default='http://')
     domain        = models.CharField(null=True,blank=True,max_length=255,help_text='like "sohu.com" in "www.sohu.com",or IP:"127.0.0.1"')
     slug          = models.SlugField(null=True,blank=True,help_text='Automatically built From the domain.')
     notes         = models.TextField(null=True,blank=True)

@@ -73,16 +73,16 @@ Template-loader postmortem
 Django tried loading these templates, in this order:
 
 Using loader django.template.loaders.filesystem.load_template_source: 
-f:\docs\mysite\templates\blog\entry_archive_month.html (File does not exist)
-f:\docs\mysite\forum\templates\blog\entry_archive_month.html (File does not exist)
-f:\docs\mysite\blog\templates\blog\entry_archive_month.html (File does not exist)
+f:\docs\ddtcms\templates\blog\entry_archive_month.html (File does not exist)
+f:\docs\ddtcms\forum\templates\blog\entry_archive_month.html (File does not exist)
+f:\docs\ddtcms\blog\templates\blog\entry_archive_month.html (File does not exist)
 Using loader django.template.loaders.app_directories.load_template_source: 
 c:\python25\lib\site-packages\django\contrib\admin\templates\blog\entry_archive_month.html (File does not exist)
 c:\python25\lib\site-packages\django\contrib\admindocs\templates\blog\entry_archive_month.html (File does not exist)
 c:\python25\lib\site-packages\django\contrib\comments\templates\blog\entry_archive_month.html (File does not exist)
 c:\python25\lib\site-packages\django\contrib\sitemaps\templates\blog\entry_archive_month.html (File does not exist)
-f:\docs\mysite\blog\templates\blog\entry_archive_month.html (File does not exist)
-f:\docs\mysite\forum\templates\blog\entry_archive_month.html (File does not exist)
+f:\docs\ddtcms\blog\templates\blog\entry_archive_month.html (File does not exist)
+f:\docs\ddtcms\forum\templates\blog\entry_archive_month.html (File does not exist)
 
 =======================
 <a href="/blog/archive/{{ year|date:"Y" }}">{{ year|date:"Y" }}</a></li>

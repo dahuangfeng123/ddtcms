@@ -10,7 +10,7 @@ news_dict = {
 }
 
 
-from ddtcms.blog.models import Tag
+from tagging.models import Tag
 tag_dict = {
 'queryset': Tag.objects.all(),
 }
