@@ -1,4 +1,5 @@
-{% extends "forum_base.html" %}{% load i18n %}
+{% extends "forum_base.html" %}
+{% load i18n %}{% load markup %}
 {% block title %}{{ thread.title|escape }} ({{ forum.title }}){% endblock %}
 
 {% block pagetitle %}{{ forum.title }} &raquo; {{ thread.title|escape }}{% endblock %}
@@ -7,44 +8,50 @@
 {% block breadcrumbs %}{% for title, url in thread.forum.get_url_name %} &raquo; <a href='{{ url }}'>{{ title }}</a>{% endfor %} &raquo; <a href='{{ thread.get_absolute_url }}'>{{ thread.title|escape }}</a> ({{ thread.posts }} post{{ thread.posts|pluralize }}){% endblock %}
 
 {% block content %}
+<div class="pages_btns">
+<span class="replybtn"><a href="post.php?action=reply&amp;fid=11&amp;tid=1890&amp;extra=page%3D1"><img src="images/iq_browser/reply.gif" border="0" alt="" /></a></span><span class="postbtn" id="newspecialtmp" onmouseover="$('newspecial').id = 'newspecialtmp';this.id = 'newspecial';showMenu(this.id)"><a href="post.php?action=newthread&amp;fid=11&amp;extra=page%3D1"><img src="images/iq_browser/newtopic.gif" border="0" alt="发新话题" title="发新话题" /></a></span>
+<div class="threadflow"><a href="redirect.php?fid=11&amp;tid=1890&amp;goto=nextoldset">上一主题</a><a href="redirect.php?fid=11&amp;tid=1890&amp;goto=nextnewset">下一主题</a></div></div>
+	<ul class="popupmenu_popup newspecialmenu" id="newspecial_menu" style="display: none">
+		<li><a href="post.php?action=newthread&amp;fid=11&amp;extra=page%3D1">发新话题</a></li>
+		<li class="poll"><a href="post.php?action=newthread&amp;fid=11&amp;extra=page%3D1&amp;special=1">发布投票</a></li>		<li class="trade"><a href="post.php?action=newthread&amp;fid=11&amp;extra=page%3D1&amp;special=2">发布商品</a></li>		<li class="reward"><a href="post.php?action=newthread&amp;fid=11&amp;extra=page%3D1&amp;special=3">发布悬赏</a></li>		<li class="activity"><a href="post.php?action=newthread&amp;fid=11&amp;extra=page%3D1&amp;special=4">发布活动</a></li>		<li class="debate"><a href="post.php?action=newthread&amp;fid=11&amp;extra=page%3D1&amp;special=5">发布辩论</a></li>		<li class="video"><a href="post.php?action=newthread&amp;fid=11&amp;extra=page%3D1&amp;special=6">发布视频</a></li>			</ul>
 
-{% load markup %}
 <form method="post" name="modactions">
 <input type="hidden" name="formhash" value="0d4adb89" />
+
+
+
 {% for post in post_list %}
 <div class="mainbox viewthread">
 <span class="headactions">
-<a href="viewthread.php?action=printable&amp;tid=936" target="_blank" class="notabs">打印</a>
+<a href="print/" target="_blank" class="notabs">打印</a>
 </span>
-<h1>希望商务合作</h1>
+<h1>{{ thread.title }}</h1>
 <table id="pid{{ post.id }}" summary="pid{{ post.id }}" cellspacing="0" cellpadding="0">
 <tr>
 <td class="postauthor">
 <cite>
-<a href="/accounts/profile/{{ post.author }}" target="_blank" id="userinfo3197">{{ post.author }}</a></cite>
+<a href="/accounts/profile/{{ post.author }}" target="_blank" id="userinfo{{ post.author.id }}">{{ post.author }}</a></cite>
 <div id="avatar"><div class="avatar"><img class="avatar" src="{{ MEDIA_URL }}userprofile/avatars/noavatar.gif" alt="" /></div></div>
 <p class="post_level"><em>新会员</em></p>
 <p class="post_level_img"><img src="{{ MEDIA_URL }}themes/forum/images/star_level1.gif" alt="Rank: 1" /></p>
-<dl class="profile"><dt>UID</dt><dd>75692&nbsp;</dd><dt>帖子</dt><dd>1&nbsp;</dd><dt>积分</dt><dd>3&nbsp;</dd><dt>注册时间</dt><dd>2008-11-15&nbsp;</dd><dt>最后登录</dt><dd>2008-11-15&nbsp;</dd></dl><ul>
+<dl class="profile"><dt>UID</dt><dd>{{ post.author.id }}&nbsp;</dd><dt>帖子</dt><dd>1&nbsp;</dd><dt>积分</dt><dd>3&nbsp;</dd><dt>注册时间</dt><dd>{{post.author.date_joined}}&nbsp;</dd><dt>最后登录</dt><dd>{{post.author.last_login}}&nbsp;</dd></dl><ul>
 <li class="pm"><a href="pm.php?action=send&amp;uid=75692" target="_blank" id="ajax_uid_3197" onclick="ajaxmenu(event, this.id, 9000000, null, 0)">发短消息</a></li>
-<li class="buddy"><a href="my.php?item=buddylist&amp;newbuddyid=75692&amp;buddysubmit=yes" target="_blank" id="ajax_buddy_0" onclick="ajaxmenu(event, this.id, null, 0)">加为好友</a></li>
+<li class="buddy"><a href="/accounts/profile/{{ post.author }}/buddy/new/{{ post.author }}/" target="_blank" id="ajax_buddy_0" onclick="ajaxmenu(event, this.id, null, 0)">加为好友</a></li>
 </ul>
 </td>
 <td class="postcontent" >
 <div class="postinfo">
 <strong title="复制帖子链接到剪贴板" id="postnum_{{ post.id }}" onclick="setcopy('http://bbs.myiq.cn/viewthread.php?tid=936&page=1#pid3197', '帖子链接已经复制到剪贴板')">#{{forloop.counter}}</strong>
-发表于{{ post.time }}  <a href="viewthread.php?tid=936&amp;page=1&amp;authorid=75692">只看该作者</a>
+发表于{{ post.time }}  <a href="/forum/thread/{{ post.id }}/page/1/user/{{ post.author }}/">只看该作者</a>
 </div>
 <div id="ad_thread2_0"></div>
 <div class="postmessage defaultpost">
-<div id="ad_thread3_0"></div><div id="ad_thread4_0"></div>
+<div id="ad_thread3_0"></div>
+<div id="ad_thread4_0"></div>
 
 <div id="postmessage_{{ post.id }}" class="t_msgfont">
-{{ post.body|escape|markdown|safe }}    
+{{ post.body|escape|linebreaks }}    
 </div>
-
-
-
 
 </div>
 </div>
@@ -63,9 +70,9 @@
 </table>
 </div>
 
-<div id="ad_interthread"></div>
 
 {% endfor %}
+
 </td>
 </tr>
 </table>
