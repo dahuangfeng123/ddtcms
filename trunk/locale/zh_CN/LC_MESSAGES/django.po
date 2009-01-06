@@ -7,70 +7,83 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-22 02:22+0800\n"
-"PO-Revision-Date: 2008-11-22 02:28+0800\n"
-"Last-Translator: huyoo <huyoo353@126.com>\n"
+"POT-Creation-Date: 2009-01-06 11:10+0800\n"
+"PO-Revision-Date: 2009-01-06 11:29+0800\n"
+"Last-Translator: huyoo <huaitwooos@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: .\blog\forms.py:21
+#: .\blog\forms.py:23
 #: .\news\forms.py:21
 #: .\registration\forms.py:42
 msgid "username"
 msgstr "用户名"
 
-#: .\blog\forms.py:23
+#: .\blog\forms.py:25
 msgid "title"
 msgstr "标题"
 
-#: .\blog\forms.py:26
+#: .\blog\forms.py:29
 #: .\news\forms.py:26
 msgid "category"
 msgstr "类别"
 
-#: .\blog\forms.py:29
+#: .\blog\forms.py:33
 #: .\news\forms.py:28
 msgid "datetime"
 msgstr "日期"
 
-#: .\blog\forms.py:31
+#: .\blog\forms.py:35
 msgid "content"
 msgstr "内容"
 
-#: .\blog\forms.py:32
+#: .\blog\forms.py:36
 #: .\forum\models.py:24
 msgid "Slug"
 msgstr "缩记"
 
-#: .\blog\forms.py:33
+#: .\blog\forms.py:37
 msgid "Summary"
 msgstr "摘要"
 
-#: .\blog\forms.py:61
+#: .\blog\forms.py:39
+#: .\blog\models.py:37
+#: .\link\models.py:34
+msgid "tags"
+msgstr "tags"
+
+#: .\blog\forms.py:65
 #: .\news\forms.py:44
 #: .\registration\forms.py:77
 msgid "This username is already taken. Please choose another."
 msgstr "该用户名已被使用，请选用其他的。"
 
-#: .\blog\forms.py:73
+#: .\blog\forms.py:77
 #: .\news\forms.py:56
 #: .\registration\forms.py:89
 msgid "You must type the same password each time"
 msgstr "你每次必须输入相同的密码"
 
 #: .\blog\models.py:10
+#: .\link\models.py:12
 msgid "Separate tags with spaces, put quotes around multiple-word tags."
 msgstr "用空格分隔标签tag，带空格的词组请用引号包括"
 
 #: .\blog\models.py:19
+#: .\link\models.py:21
 msgid "Django-tagging was not found, tags will be treated as plain text."
 msgstr "Django-tagging 没有找到，tags将会被作为纯文本处理。"
 
-#: .\blog\models.py:64
-msgid "tags"
-msgstr "tags"
+#: .\blog\models.py:43
+#, fuzzy
+msgid "Entry"
+msgstr "国家"
+
+#: .\blog\models.py:44
+msgid "Entries"
+msgstr ""
 
 #: .\blog\templates\blog_base.html.py:8
 #: .\blog\templates\blog_base.html.py:11
@@ -79,6 +92,8 @@ msgid "Search"
 msgstr "搜索"
 
 #: .\blog\templates\blog_base.html.py:39
+#: .\category\models.py:69
+#: .\category\models.py:70
 msgid "Category"
 msgstr "分类"
 
@@ -89,6 +104,65 @@ msgstr "博客链接"
 #: .\blog\templates\blog_base.html.py:70
 msgid "Archive"
 msgstr "档案"
+
+#: .\book\models.py:13
+#, fuzzy
+msgid "Publisher"
+msgstr "用户"
+
+#: .\book\models.py:14
+msgid "Publishers"
+msgstr ""
+
+#: .\book\models.py:24
+msgid "Book Author"
+msgstr ""
+
+#: .\book\models.py:25
+msgid "Book Authors"
+msgstr ""
+
+#: .\book\models.py:34
+msgid "Book"
+msgstr "图书"
+
+#: .\book\models.py:35
+#, fuzzy
+msgid "Books"
+msgstr "图书"
+
+#: .\book\models.py:43
+msgid "Book Chapter"
+msgstr ""
+
+#: .\book\models.py:44
+msgid "Book Chapters"
+msgstr ""
+
+#: .\captcha\models.py:25
+msgid "CaptchaRequest"
+msgstr ""
+
+#: .\captcha\models.py:26
+msgid "CaptchaRequests"
+msgstr ""
+
+#: .\category\admin.py:21
+msgid "Content"
+msgstr "内容"
+
+#: .\category\models.py:60
+msgid "name"
+msgstr "名称"
+
+#: .\category\models.py:63
+#, fuzzy
+msgid "root category's pk"
+msgstr "旋转或翻转"
+
+#: .\category\models.py:64
+msgid "order"
+msgstr ""
 
 #: .\forum\feeds.py:28
 #, python-format
@@ -127,13 +201,13 @@ msgstr "描述"
 
 #: .\forum\models.py:27
 #: .\forum\models.py:170
-#: .\forum\templates\forum\forum_list.html.py:16
+#: .\forum\templates\forum\forum_list.html.py:52
 msgid "Threads"
 msgstr "话题"
 
 #: .\forum\models.py:28
 #: .\forum\models.py:152
-#: .\forum\templates\forum\forum_list.html.py:17
+#: .\forum\templates\forum\forum_list.html.py:53
 msgid "Posts"
 msgstr "帖子"
 
@@ -146,7 +220,8 @@ msgid "Forum"
 msgstr "论坛"
 
 #: .\forum\models.py:108
-#: .\forum\templates\forum_base.html.py:23
+#: .\forum\templates\forum_base.html.py:26
+#: .\forum\templates\forum_base.html.py:27
 #: .\forum\templates\forum\forum_list.html.py:3
 msgid "Forums"
 msgstr "论坛"
@@ -165,15 +240,9 @@ msgstr "关闭？"
 
 #: .\forum\models.py:153
 #: .\forum\templates\forum\thread_list.html.py:51
-#: .\templates\themes\beijing2008\blog\list.html.py:11
-#: .\templates\themes\beijing2008\blog\page.html.py:12
-#: .\templates\themes\beijing2008\blog\post.html.py:13
 #: .\templates\themes\default\blog\list.html.py:20
 #: .\templates\themes\default\blog\page.html.py:18
 #: .\templates\themes\default\blog\post.html.py:18
-#: .\templates\themes\techicon\blog\list.html.py:39
-#: .\templates\themes\techicon\blog\page.html.py:12
-#: .\templates\themes\techicon\blog\post.html.py:17
 msgid "Views"
 msgstr "查看"
 
@@ -190,35 +259,35 @@ msgstr "话题"
 msgid "Time"
 msgstr "时间"
 
-#: .\forum\models.py:255
+#: .\forum\models.py:257
 #, fuzzy
 msgid "Subscription"
 msgstr "描述"
 
-#: .\forum\models.py:256
+#: .\forum\models.py:258
 #, fuzzy
 msgid "Subscriptions"
 msgstr "更新订阅"
 
-#: .\forum\views.py:184
+#: .\forum\views.py:209
 msgid "Sorry, you need to login."
 msgstr "对不起，请登录"
 
-#: .\forum\templates\forum_base.html.py:23
+#: .\forum\templates\forum_base.html.py:27
 #: .\templates\themes\default\blog\tags\menu.html.py:3
 msgid "Home"
 msgstr "首页"
 
-#: .\forum\templates\forum\forum_list.html.py:15
+#: .\forum\templates\forum\forum_list.html.py:51
 msgid "Panel"
 msgstr ""
 
-#: .\forum\templates\forum\forum_list.html.py:18
+#: .\forum\templates\forum\forum_list.html.py:54
 #: .\forum\templates\forum\thread_list.html.py:52
 msgid "Last Post"
 msgstr "最新帖子"
 
-#: .\forum\templates\forum\forum_list.html.py:30
+#: .\forum\templates\forum\forum_list.html.py:66
 #, python-format
 msgid ""
 "\n"
@@ -227,28 +296,72 @@ msgid ""
 "    \t\t\t\t\t"
 msgstr ""
 
-#: .\forum\templates\forum\forum_list.html.py:36
+#: .\forum\templates\forum\forum_list.html.py:72
 msgid "Re:"
 msgstr ""
 
-#: .\forum\templates\forum\forum_list.html.py:37
+#: .\forum\templates\forum\forum_list.html.py:73
 msgid "ago"
 msgstr ""
 
-#: .\forum\templates\forum\forum_list.html.py:37
+#: .\forum\templates\forum\forum_list.html.py:73
 msgid "No Posts"
 msgstr "暂无帖子"
 
-#: .\forum\templates\forum\forum_list.html.py:47
+#: .\forum\templates\forum\forum_list.html.py:83
+#: .\forum\templates\forum\forum_list.html.py:85
+#: .\forum\templates\forum\thread.html.py:92
 msgid "Update Subscriptions"
 msgstr "更新订阅"
 
-#: .\forum\templates\forum\thread.html.py:77
+#: .\forum\templates\forum\newthread.html.py:4
+#: .\forum\templates\forum\newthread.html.py:11
+#, python-format
+msgid "New Thread in %(title)s"
+msgstr ""
+
+#: .\forum\templates\forum\newthread.html.py:13
+#, fuzzy
+msgid "New Thread"
+msgstr "话题"
+
+#: .\forum\templates\forum\newthread.html.py:18
+#, fuzzy
+msgid "Create a Thread"
+msgstr "创建于 "
+
+#: .\forum\templates\forum\newthread.html.py:21
+#: .\forum\templates\forum\reply.html.py:16
+#, fuzzy
+msgid "Posting As"
+msgstr "帖子"
+
+#: .\forum\templates\forum\newthread.html.py:23
+#: .\forum\templates\forum\reply.html.py:18
+#, fuzzy
+msgid "Post"
+msgstr "帖子"
+
+#: .\forum\templates\forum\reply.html.py:4
+#, python-format
+msgid "Reply to thread  \"%(title)s\""
+msgstr ""
+
+#: .\forum\templates\forum\reply.html.py:6
+#, python-format
+msgid "Reply to Thread \"%(title)s\""
+msgstr ""
+
+#: .\forum\templates\forum\reply.html.py:13
+msgid "Reply to Thread"
+msgstr ""
+
+#: .\forum\templates\forum\thread.html.py:84
 #: .\forum\templates\forum\thread_list.html.py:95
 msgid "First"
 msgstr ""
 
-#: .\forum\templates\forum\thread.html.py:81
+#: .\forum\templates\forum\thread.html.py:88
 #: .\forum\templates\forum\thread_list.html.py:99
 msgid "Last"
 msgstr "最新"
@@ -260,6 +373,16 @@ msgstr ""
 #: .\forum\templates\forum\thread_list.html.py:51
 msgid "Reply"
 msgstr ""
+
+#: .\link\models.py:37
+#, fuzzy
+msgid "Link"
+msgstr "链接"
+
+#: .\link\models.py:38
+#: .\templates\themes\default\base.html.py:84
+msgid "Links"
+msgstr "链接"
 
 #: .\member\models.py:11
 msgid "Female"
@@ -498,6 +621,12 @@ msgstr "导航菜单项"
 msgid "news title"
 msgstr "新闻标题"
 
+#: .\news\models.py:15
+#: .\news\models.py:16
+#, fuzzy
+msgid "News"
+msgstr "视图"
+
 #: .\registration\forms.py:45
 msgid "email address"
 msgstr "电子邮件"
@@ -563,140 +692,50 @@ msgstr "Django 站点管理"
 msgid "Django administration"
 msgstr "Django 管理"
 
-#: .\templates\admin\index.html.py:24
 #: .\templates\admin\index.html.py:27
+#: .\templates\admin\index.html.py:31
 #, python-format
 msgid "%(name)s"
 msgstr ""
 
-#: .\templates\admin\index.html.py:26
+#: .\templates\admin\index.html.py:30
 #, python-format
 msgid "Models available in the %(name)s application."
 msgstr ""
 
-#: .\templates\admin\index.html.py:37
+#: .\templates\admin\index.html.py:41
 msgid "Add"
 msgstr "添加"
 
-#: .\templates\admin\index.html.py:43
+#: .\templates\admin\index.html.py:47
 #: .\userprofile\templates\userprofile\account\password_change.html.py:46
 #: .\userprofile\templates\userprofile\account\password_reset_confirm.html.py:42
 msgid "Change"
 msgstr "修改"
 
-#: .\templates\admin\index.html.py:53
+#: .\templates\admin\index.html.py:57
 msgid "You don't have permission to edit anything."
 msgstr "你没有权限编辑任何东西。"
 
-#: .\templates\admin\index.html.py:61
+#: .\templates\admin\index.html.py:65
 msgid "Recent Actions"
 msgstr "最近动作"
 
-#: .\templates\admin\index.html.py:62
+#: .\templates\admin\index.html.py:66
 msgid "My Actions"
 msgstr "我的动作"
 
-#: .\templates\admin\index.html.py:66
+#: .\templates\admin\index.html.py:70
 msgid "None available"
 msgstr "不可用"
 
-#: .\templates\themes\beijing2008\base.html.py:82
-msgid "Feeds"
-msgstr "种子"
-
-#: .\templates\themes\beijing2008\base.html.py:88
-msgid "Menu"
-msgstr "菜单"
-
-#: .\templates\themes\beijing2008\base.html.py:92
-#: .\templates\themes\techicon\blog\list.html.py:9
-msgid "Latest Posts"
-msgstr "最新发表"
-
-#: .\templates\themes\beijing2008\base.html.py:96
-#: .\templates\themes\default\base.html.py:84
-#: .\templates\themes\techicon\base.html.py:111
-msgid "Links"
-msgstr "链接"
-
-#: .\templates\themes\beijing2008\base.html.py:101
-#: .\templates\themes\beijing2008\blog\page.html.py:11
-#: .\templates\themes\beijing2008\blog\post.html.py:12
 #: .\templates\themes\default\base.html.py:57
 #: .\templates\themes\default\blog\post.html.py:19
-#: .\templates\themes\techicon\base.html.py:99
-#: .\templates\themes\techicon\blog\post.html.py:13
 msgid "Categories"
 msgstr ""
 
-#: .\templates\themes\beijing2008\base.html.py:105
 #: .\templates\themes\default\base.html.py:71
-#: .\templates\themes\techicon\base.html.py:103
 msgid "Archives"
-msgstr ""
-
-#: .\templates\themes\beijing2008\blog\list.html.py:11
-#: .\templates\themes\beijing2008\blog\page.html.py:12
-#: .\templates\themes\beijing2008\blog\page.html.py:31
-#: .\templates\themes\beijing2008\blog\post.html.py:13
-#: .\templates\themes\beijing2008\blog\post.html.py:31
-#: .\templates\themes\default\blog\list.html.py:20
-#: .\templates\themes\default\blog\page.html.py:39
-#: .\templates\themes\default\blog\post.html.py:46
-#: .\templates\themes\techicon\blog\list.html.py:39
-#: .\templates\themes\techicon\blog\page.html.py:32
-#: .\templates\themes\techicon\blog\post.html.py:32
-#: .\templates\themes\techicon\blog\post.html.py:42
-msgid "Comments"
-msgstr ""
-
-#: .\templates\themes\beijing2008\blog\list.html.py:12
-#: .\templates\themes\beijing2008\blog\page.html.py:20
-#: .\templates\themes\beijing2008\blog\post.html.py:21
-#: .\templates\themes\default\blog\list.html.py:11
-#: .\templates\themes\default\blog\page.html.py:18
-#: .\templates\themes\default\blog\post.html.py:18
-#: .\templates\themes\techicon\blog\list.html.py:30
-#: .\templates\themes\techicon\blog\page.html.py:12
-#: .\templates\themes\techicon\blog\post.html.py:12
-msgid "Pubdate"
-msgstr ""
-
-#: .\templates\themes\beijing2008\blog\list.html.py:19
-#: .\templates\themes\default\blog\list.html.py:26
-#: .\templates\themes\techicon\blog\list.html.py:44
-msgid "Prev"
-msgstr ""
-
-#: .\templates\themes\beijing2008\blog\list.html.py:20
-#: .\templates\themes\default\blog\list.html.py:27
-#: .\templates\themes\techicon\blog\list.html.py:45
-msgid "Next"
-msgstr ""
-
-#: .\templates\themes\beijing2008\blog\page.html.py:15
-#: .\templates\themes\beijing2008\blog\post.html.py:16
-#: .\templates\themes\beijing2008\blog\tags.html.py:3
-#: .\templates\themes\beijing2008\blog\tags.html.py:9
-#: .\templates\themes\default\blog\page.html.py:20
-#: .\templates\themes\default\blog\post.html.py:28
-#: .\templates\themes\default\blog\tags.html.py:3
-#: .\templates\themes\default\blog\tags.html.py:8
-#: .\templates\themes\default\blog\tags\menu.html.py:5
-#: .\templates\themes\techicon\blog\page.html.py:15
-#: .\templates\themes\techicon\blog\post.html.py:20
-#: .\templates\themes\techicon\blog\tags.html.py:3
-#: .\templates\themes\techicon\blog\tags.html.py:8
-msgid "Tags"
-msgstr ""
-
-#: .\templates\themes\beijing2008\blog\page.html.py:37
-#: .\templates\themes\beijing2008\blog\post.html.py:37
-#: .\templates\themes\default\blog\page.html.py:42
-#: .\templates\themes\default\blog\post.html.py:52
-#: .\templates\themes\techicon\blog\page.html.py:37
-#: .\templates\themes\techicon\blog\post.html.py:47
-msgid "Post at"
 msgstr ""
 
 #: .\templates\themes\default\base.html.py:101
@@ -710,6 +749,39 @@ msgstr ""
 #: .\templates\themes\default\base.html.py:121
 msgid "Contact Me"
 msgstr "联系我"
+
+#: .\templates\themes\default\blog\list.html.py:11
+#: .\templates\themes\default\blog\page.html.py:18
+#: .\templates\themes\default\blog\post.html.py:18
+msgid "Pubdate"
+msgstr ""
+
+#: .\templates\themes\default\blog\list.html.py:20
+#: .\templates\themes\default\blog\page.html.py:39
+#: .\templates\themes\default\blog\post.html.py:46
+msgid "Comments"
+msgstr ""
+
+#: .\templates\themes\default\blog\list.html.py:26
+msgid "Prev"
+msgstr ""
+
+#: .\templates\themes\default\blog\list.html.py:27
+msgid "Next"
+msgstr ""
+
+#: .\templates\themes\default\blog\page.html.py:20
+#: .\templates\themes\default\blog\post.html.py:28
+#: .\templates\themes\default\blog\tags.html.py:3
+#: .\templates\themes\default\blog\tags.html.py:8
+#: .\templates\themes\default\blog\tags\menu.html.py:5
+msgid "Tags"
+msgstr ""
+
+#: .\templates\themes\default\blog\page.html.py:42
+#: .\templates\themes\default\blog\post.html.py:52
+msgid "Post at"
+msgstr ""
 
 #: .\templates\themes\default\blog\tags\archivelist.html.py:12
 msgid "No Archive Now"
@@ -726,18 +798,6 @@ msgstr "目前无链接"
 #: .\templates\themes\default\blog\tags\menu.html.py:4
 msgid "Todo"
 msgstr "待办"
-
-#: .\templates\themes\techicon\base.html.py:94
-msgid "Subscribe to my blog using RSS"
-msgstr "使用Rss订阅我的博客"
-
-#: .\templates\themes\techicon\blog\list.html.py:10
-msgid "Latest Comments"
-msgstr "最新评论"
-
-#: .\templates\themes\techicon\blog\list.html.py:11
-msgid "Popular Posts"
-msgstr "热门帖子"
 
 #: .\todo\models.py:19
 msgid "Project Name"
@@ -1076,9 +1136,8 @@ msgid "Cyprus"
 msgstr ""
 
 #: .\userprofile\countries.py:61
-#, fuzzy
 msgid "Czech Republic"
-msgstr "是公开的"
+msgstr ""
 
 #: .\userprofile\countries.py:62
 msgid "Germany"
@@ -2058,9 +2117,8 @@ msgid "User login"
 msgstr "用户登录"
 
 #: .\userprofile\templates\userprofile\account\login.html.py:42
-#, fuzzy
 msgid "Utilities"
-msgstr "滤镜"
+msgstr "工具"
 
 #: .\userprofile\templates\userprofile\account\login.html.py:44
 msgid "Lost your password?"
@@ -2077,9 +2135,8 @@ msgstr "注册！"
 
 #: .\userprofile\templates\userprofile\account\logout.html.py:4
 #: .\userprofile\templates\userprofile\account\logout.html.py:9
-#, fuzzy
 msgid "Logged out"
-msgstr "登录用户"
+msgstr "注销"
 
 #: .\userprofile\templates\userprofile\account\logout.html.py:10
 msgid "You've been logged out"
@@ -2096,27 +2153,23 @@ msgid "Password change for"
 msgstr ""
 
 #: .\userprofile\templates\userprofile\account\password_change.html.py:24
-#, fuzzy
 msgid "Old password"
-msgstr "密码"
+msgstr "旧密码"
 
 #: .\userprofile\templates\userprofile\account\password_change.html.py:30
 #: .\userprofile\templates\userprofile\account\password_reset_confirm.html.py:26
-#, fuzzy
 msgid "New password"
-msgstr "密码"
+msgstr "新密码"
 
 #: .\userprofile\templates\userprofile\account\password_change.html.py:36
 #: .\userprofile\templates\userprofile\account\password_reset_confirm.html.py:32
-#, fuzzy
 msgid "Confirm password"
-msgstr "密码"
+msgstr "确认密码"
 
 #: .\userprofile\templates\userprofile\account\password_change.html.py:52
 #: .\userprofile\templates\userprofile\account\password_change_done.html.py:19
-#, fuzzy
 msgid "Password change"
-msgstr "密码（重复）"
+msgstr "密码更改"
 
 #: .\userprofile\templates\userprofile\account\password_change.html.py:53
 #: .\userprofile\templates\userprofile\account\password_change_done.html.py:20
@@ -2144,14 +2197,12 @@ msgstr ""
 #: .\userprofile\templates\userprofile\account\password_reset.html.py:20
 #: .\userprofile\templates\userprofile\account\password_reset_complete.html.py:19
 #: .\userprofile\templates\userprofile\account\password_reset_confirm.html.py:55
-#, fuzzy
 msgid "Password reset"
-msgstr "密码"
+msgstr "密码重置"
 
 #: .\userprofile\templates\userprofile\account\password_reset.html.py:31
-#, fuzzy
 msgid "Reset my password"
-msgstr "密码"
+msgstr "重置我的密码"
 
 #: .\userprofile\templates\userprofile\account\password_reset.html.py:37
 #: .\userprofile\templates\userprofile\account\password_reset_done.html.py:16
@@ -2191,9 +2242,8 @@ msgstr ""
 
 #: .\userprofile\templates\userprofile\account\registration.html.py:4
 #: .\userprofile\templates\userprofile\account\registration.html.py:19
-#, fuzzy
 msgid "User registration"
-msgstr "注册信息"
+msgstr "用户注册"
 
 #: .\userprofile\templates\userprofile\account\registration.html.py:26
 msgid "E-mail"
@@ -2401,33 +2451,28 @@ msgstr ""
 
 #: .\userprofile\templates\userprofile\profile\overview.html.py:53
 #: .\userprofile\templates\userprofile\profile\overview.html.py:62
-#, fuzzy
 msgid "Not set"
-msgstr "暂无帖子"
+msgstr "未设置"
 
 #: .\userprofile\templates\userprofile\profile\overview.html.py:80
 msgid "Management:"
 msgstr ""
 
 #: .\userprofile\templates\userprofile\profile\overview.html.py:81
-#, fuzzy
 msgid "Change password"
-msgstr "密码"
+msgstr "更改密码"
 
 #: .\userprofile\templates\userprofile\profile\overview.html.py:83
-#, fuzzy
 msgid "Change your e-mail address"
-msgstr "电子邮件"
+msgstr "更改你的电子邮件"
 
 #: .\userprofile\templates\userprofile\profile\overview.html.py:83
-#, fuzzy
 msgid "Add your e-mail address"
-msgstr "电子邮件"
+msgstr "添加你的电子邮件"
 
 #: .\userprofile\templates\userprofile\profile\overview.html.py:88
-#, fuzzy
 msgid "Add location"
-msgstr "标题"
+msgstr "添加位置"
 
 #: .\userprofile\templates\userprofile\profile\overview.html.py:90
 msgid "Change location"
@@ -2455,214 +2500,4 @@ msgstr "公开小档案"
 #: .\userprofile\templatetags\avatars.py:74
 msgid "You have to provide only the size as             an integer (both sides will be equal) and optionally, the             username."
 msgstr ""
-
-#~ msgid "view"
-#~ msgstr "查看"
-#~ msgid "Very Low"
-#~ msgstr "非常低（30%）"
-#~ msgid "Low"
-#~ msgstr "低（40%）"
-#~ msgid "Medium-Low"
-#~ msgstr "中低（50%）"
-#~ msgid "Medium-High"
-#~ msgstr "中高（70%）"
-#~ msgid "High"
-#~ msgstr "高（80%）"
-#~ msgid "Very High"
-#~ msgstr "非常高（90%）"
-#~ msgid "Top"
-#~ msgstr "顶部"
-#~ msgid "Right"
-#~ msgstr "右"
-#~ msgid "Bottom"
-#~ msgstr "底部"
-#~ msgid "Left"
-#~ msgstr "左边"
-#~ msgid "Center (Default)"
-#~ msgstr "居中（默认）"
-#~ msgid "Flip left to right"
-#~ msgstr "水平翻转"
-#~ msgid "Flip top to bottom"
-#~ msgstr "垂直翻转"
-#~ msgid "Rotate 90 degrees counter-clockwise"
-#~ msgstr "逆时针旋转90度"
-#~ msgid "Rotate 90 degrees clockwise"
-#~ msgstr "顺时针旋转90度"
-#~ msgid "Rotate 180 degrees"
-#~ msgstr "旋转180度"
-#~ msgid "date published"
-#~ msgstr "发布日期"
-#~ msgid "title slug"
-#~ msgstr "标题缩略语"
-#~ msgid "A \"slug\" is a unique URL-friendly title for an object."
-#~ msgstr "slug是唯一标记该对象的友好URL形式的简短缩记"
-#~ msgid "description"
-#~ msgstr "描述"
-#~ msgid "Public galleries will be displayed in the default views."
-#~ msgstr "公开相册将会显示在默认视图"
-#~ msgid "photos"
-#~ msgstr "图片"
-#~ msgid "gallery"
-#~ msgstr "相册集"
-#~ msgid "galleries"
-#~ msgstr "相册集"
-#~ msgid "images file (.zip)"
-#~ msgstr "图像文件压缩包（.zip）"
-#~ msgid "Select a .zip file of images to upload into a new Gallery."
-#~ msgstr "选择一个.zip的图片压缩包上传至一个新的相册集"
-#~ msgid ""
-#~ "Select a gallery to add these images to. leave this empty to create a new "
-#~ "gallery from the supplied title."
-#~ msgstr "选择一个相册来添加图片.留空将使用提供的标题创建一个新的相册"
-#~ msgid ""
-#~ "All photos in the gallery will be given a title made up of the gallery "
-#~ "title + a sequential number."
-#~ msgstr "此相册中的所有图片将会有一个标题，标题为：相册标题+图片序号"
-#~ msgid "Caption will be added to all photos."
-#~ msgstr "标题将会被添加到所有的图片"
-#~ msgid "A description of this Gallery."
-#~ msgstr "相册集描述"
-#~ msgid ""
-#~ "Uncheck this to make the uploaded gallery and included photographs "
-#~ "private."
-#~ msgstr "不勾选此项将使该上传相册和相册内图片转为私有."
-#~ msgid "gallery upload"
-#~ msgstr "相册上传"
-#~ msgid "gallery uploads"
-#~ msgstr "上传相册"
-#~ msgid "date taken"
-#~ msgstr "日期"
-#~ msgid "crop from"
-#~ msgstr "剪裁自"
-#~ msgid "effect"
-#~ msgstr "效果"
-#~ msgid "An \"admin_thumbnail\" photo size has not been defined."
-#~ msgstr "缩略图管理（admin_thumbnail）中的图片尺寸还未定义"
-#~ msgid "Thumbnail"
-#~ msgstr "缩略图"
-#~ msgid "slug"
-#~ msgstr "缩记"
-#~ msgid "date added"
-#~ msgstr "添加日期"
-#~ msgid "Public photographs will be displayed in the default views."
-#~ msgstr "公开图片将会在默认视图中显示"
-#~ msgid "photo"
-#~ msgstr "图片"
-#~ msgid "name"
-#~ msgstr "名称"
-#~ msgid "rotate or flip"
-#~ msgstr "旋转或翻转"
-#~ msgid "color"
-#~ msgstr "颜色"
-#~ msgid ""
-#~ "A factor of 0.0 gives a black and white image, a factor of 1.0 gives the "
-#~ "original image."
-#~ msgstr "因子0.0提供一个黑和白色图像,1.0提供原始图像"
-#~ msgid "brightness"
-#~ msgstr "亮度"
-#~ msgid ""
-#~ "A factor of 0.0 gives a black image, a factor of 1.0 gives the original "
-#~ "image."
-#~ msgstr "因子0.0提供一个黑色图像,1.0提供原始图像"
-#~ msgid ""
-#~ "A factor of 0.0 gives a solid grey image, a factor of 1.0 gives the "
-#~ "original image."
-#~ msgstr "因子0.0提供一个实心灰色图像,1.0提供原始图像"
-#~ msgid "sharpness"
-#~ msgstr "锐化"
-#~ msgid ""
-#~ "A factor of 0.0 gives a blurred image, a factor of 1.0 gives the original "
-#~ "image."
-#~ msgstr "因子0.0提供一个模糊图像,1.0提供原始图像"
-#~ msgid "size"
-#~ msgstr "尺寸"
-#~ msgid ""
-#~ "The height of the reflection as a percentage of the orignal image. A "
-#~ "factor of 0.0 adds no reflection, a factor of 1.0 adds a reflection equal "
-#~ "to the height of the orignal image."
-#~ msgstr ""
-#~ "镜像高度是原始图像的百分比.因子0.0不添加镜像,1.0提供一个高度等于原始图像的"
-#~ "镜像"
-#~ msgid "strength"
-#~ msgstr "强度"
-#~ msgid "photo effect"
-#~ msgstr "图片效果"
-#~ msgid "photo effects"
-#~ msgstr "图片效果"
-#~ msgid "style"
-#~ msgstr "样式"
-#~ msgid "opacity"
-#~ msgstr "透明度"
-#~ msgid "The opacity of the overlay."
-#~ msgstr "覆盖层的透明度"
-#~ msgid "watermarks"
-#~ msgstr "水印"
-#~ msgid ""
-#~ "Photo size name should contain only letters, numbers and underscores. "
-#~ "Examples: \"thumbnail\", \"display\", \"small\", \"main_page_widget\"."
-#~ msgstr ""
-#~ "图片尺寸名称应该仅仅包含字母，数字、和下划线。例如\"thumbnail\", \"display"
-#~ "\", \"small\", \"main_page_widget\"。"
-#~ msgid "width"
-#~ msgstr "宽度"
-#~ msgid ""
-#~ "If width is set to \"0\" the image will be scaled to the supplied height."
-#~ msgstr "如果宽度为0，图片将被缩放至给定的高度"
-#~ msgid "height"
-#~ msgstr "高度"
-#~ msgid ""
-#~ "If height is set to \"0\" the image will be scaled to the supplied width"
-#~ msgstr "如果高度为0，图片将被缩放至给定的宽度"
-#~ msgid "JPEG image quality."
-#~ msgstr "JPEG图像质量"
-#~ msgid "upscale images?"
-#~ msgstr "高标度图像?"
-#~ msgid "crop to fit?"
-#~ msgstr "剪裁以适合？"
-#~ msgid "pre-cache?"
-#~ msgstr "预缓存"
-#~ msgid "increment view count?"
-#~ msgstr "增加查看次数？"
-#~ msgid "watermark image"
-#~ msgstr "水印图像"
-#~ msgid "photo size"
-#~ msgstr "图片尺寸"
-#~ msgid "photo sizes"
-#~ msgstr "图片尺寸"
-
-#, fuzzy
-#~ msgid "News"
-#~ msgstr "视图"
-#~ msgid "Article"
-#~ msgstr "文章"
-#~ msgid "Book"
-#~ msgstr "图书"
-#~ msgid "Blog"
-#~ msgstr "博客"
-#~ msgid "Wiki"
-#~ msgstr "百科"
-#~ msgid "Polls"
-#~ msgstr "投票"
-#~ msgid "FAQ"
-#~ msgstr "帮助"
-
-#, fuzzy
-#~ msgid "Textile"
-#~ msgstr "标题"
-#~ msgid "Content"
-#~ msgstr "内容"
-#~ msgid "Articles"
-#~ msgstr "文章"
-
-#, fuzzy
-#~ msgid "Old Title"
-#~ msgstr "标题"
-#~ msgid "Edit"
-#~ msgstr "编辑"
-#~ msgid "At"
-#~ msgstr "在"
-#~ msgid "User"
-#~ msgstr "用户"
-#~ msgid "Comment"
-#~ msgstr "评论"
 
