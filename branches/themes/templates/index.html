@@ -1,0 +1,65 @@
+{% extends 'base.html' %}{% load i18n %}
+{% block title %}首页{% endblock %}
+
+
+{% block notice %} {% for notice in notice_list %} [公告]<a href="{{notice.get_absolute_url}}">{{ notice.title }}</a>({{notice.pub_date}})  {% endfor %}{% endblock %}
+
+
+{% block content %}
+
+<h1>DDTCMS</h1>
+<h2>Summary:</h2>
+<p class='para'>DDTCMS(Django Dream Team's Content Management System),is a CMS based on django 1.0,supported by Django Dream Team,created by huyoo353 on 2008-NOV-10. </p>
+<p>http://code.google.com/p/ddtcms/</p>
+<p>admin u/p: admin/admin </p>
+<h2>Requirements:</h2>
+<dl>
+<dt>django 1.0</dt><dd>Django version 1.0 or greater.</dd>
+<dt>PIL</dt><dd>The Python Imaging Library,Source: http://www.pythonware.com/products/pil/</dd>
+<dt>markdown</dt>
+<dd>Markdown is a text-to-HTML conversion tool for web writers.
+    http://daringfireball.net/projects/markdown/</dd>
+<dt>django-navbar</dt><dd>Site navigation controlled from the django admin with: 
+
+Navigation bar 
+Navigation tree 
+Chained Navigation bars 
+JSON sub tree requests (comming soon) 
+Permission control on which entries are seen 
+http://code.google.com/p/django-wikiapp/</dd>
+<dt>django-wikiapp</dt><dd>Django WikiApp is a pluggable application for Django that aims to provide a complete Wiki (for really small values of "complete") 
+http://code.google.com/p/django-wikiapp/
+</dd>
+<dt>django-photologue</dt><dd></dd>
+<dt>django-forum</dt><dd></dd>
+<dt>django-tagging</dt><dd></dd>
+<dt>django-pressroom</dt><dd></dd>
+<dt>gettext</dt><dd>Optional(needed when you use i18n tags in code or templates)</dd>
+<dt>Google Data API</dt><dd>Optional(allows image searching)
+      Download it from http://code.google.com/p/gdata-python-client/</dd>
+<dt>django-profile</dt>
+<dd>
+<ul>
+<li>http://code.google.com/p/django-profile/</li> 
+<li>This is a Django pluggable user profile zone which can be used and customized easily in your social application web platform developed in django. </dd></li>
+</ul>
+</dl>
+<p></p>
+<h2>App Directory Structure:</h2>
+<dl><dt>appname/</dt>
+<dd>
+<ul>
+<li>--templates/</li>
+<li>----appname/</li>
+<li>--templatetags/</li>
+</ul>
+</dd></dl>
+
+
+
+
+
+
+
+
+{% endblock %}

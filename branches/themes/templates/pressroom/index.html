@@ -1,0 +1,51 @@
+{% extends 'base.html' %}{% load i18n %}
+{% block title %}首页{% endblock %}
+
+
+{% block notice %} {% for notice in notice_list %} [公告]<a href="{{notice.get_absolute_url}}">{{ notice.title }}</a>({{notice.pub_date}})  {% endfor %}{% endblock %}
+
+
+{% block content %}
+
+<div>
+<div class="box-top1"><span></span></div>
+<div class="box1">
+
+<ul>            
+
+{% for object in articles %}
+<li>
+<h2> <a href="{{ object.get_absolute_url }}" class="view_t">{{ object.headline|escape }}</a> </h2>
+<p class="post-date">{{ object.pub_date|date:"F j, Y" }}</p>
+<p class="summary">{{ object.summary|escape|linebreaks }}</p>
+<p class="summary">{{ object.body|escape|linebreaks }}</p>
+</li>
+{% endfor%}
+
+</ul>
+
+
+
+
+<div class="clear"></div>
+</div>
+<div class="box-bot"><span></span></div>
+</div>
+<div class="clear"></div>  
+
+
+
+<div>
+<div class="box-top1"><span></span></div>
+<div class="box1">
+<h2>{% trans "Support" %}</h2>
+<ul>            
+<li><a href="http://www.python.org"><img src="/images/python-powered.png" alt="python"/></a></li>
+<li><a href="http://www.djangoproject.com"><img src='/images/a-DJANGO-site.gif' alt='Site based on Django'/></a></li>
+</ul>
+<div class="clear"></div>
+</div>
+<div class="box-bot"><span></span></div>
+</div>
+<div class="clear"></div>  
+{% endblock %}
