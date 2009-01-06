@@ -35,6 +35,8 @@ class Entry(models.Model):
                   )
     summary       = models.TextField(help_text="One paragraph. Don't add tag.")
     tags          = TagField(help_text=tagfield_help_text, verbose_name=_('tags'))
+    views         = models.IntegerField(_("Views"), default=0)
+    comments      = models.IntegerField(_("Comments"), default=0)
 
 
 

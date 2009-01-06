@@ -1,5 +1,10 @@
 from ddtcms.news.models import News
 from django.contrib import admin
 
-admin.site.register(News)
 
+
+class NewsAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('title',)}
+
+
+admin.site.register(News,NewsAdmin)

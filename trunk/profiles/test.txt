@@ -1,8 +1,4 @@
 F:\Python\ddtcms>manage.py shell
-Python 2.5.2 (r252:60911, Feb 21 2008, 13:11:45) [MSC v.1310 32 bit (Intel)] on
-win32
-Type "help", "copyright", "credits" or "license" for more information.
-(InteractiveConsole)
 >>> import django
 >>> import ddtcms
 >>> dir(ddtcms)
@@ -11,20 +7,9 @@ Type "help", "copyright", "credits" or "license" for more information.
 s', 'settings', 'todo', 'wiki']
 >>> import ddtcms.member
 >>> import ddtcms.profiles
->>> dir(profiles)
-Traceback (most recent call last):
-  File "<console>", line 1, in <module>
-NameError: name 'profiles' is not defined
 >>> import ddtcms.profiles as profiles
->>> profiles
-<module 'ddtcms.profiles' from 'F:\Python\ddtcms\..\ddtcms\profiles\__init__.pyc
-'>
 >>> dir(profiles)
-['__builtins__', '__doc__', '__file__', '__name__', '__path__']
 >>> profiles.views
-Traceback (most recent call last):
-  File "<console>", line 1, in <module>
-AttributeError: 'module' object has no attribute 'views'
 >>> import profiles.views as pw
 >>> pw
 <module 'profiles.views' from 'F:\Python\ddtcms\profiles\views.pyc'>

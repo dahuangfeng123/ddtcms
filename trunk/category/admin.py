@@ -23,7 +23,8 @@ class CategoryAdmin(admin.ModelAdmin):
         ),
      )
     #date_hierarchy = 'pub_date'
-    list_display = ('name','parent','outline',  'user', 'display_order', 'root_pk')
+    prepopulated_fields = {'slug': ('name',)}
+    list_display = ('name','parent','user', 'display_order', 'root_pk')
     list_filter = ('user','parent','root_pk')
     ordering = ('outline',)
     search_fields = ('name', 'user__username')

@@ -115,7 +115,8 @@ class EntryAdmin(admin.ModelAdmin):
         ('内容',             {'fields': ['content']}),
         ('摘要',             {'fields': ['summary']}),
         ('Tags',             {'fields': ['tags']}), 
-        
+        ('Views',            {'fields': ['views']}),
+        ('Comments',         {'fields': ['comments']}), 
     ]
 
     prepopulated_fields = {'slug': ('title',)}

@@ -236,8 +236,8 @@ class Post(models.Model):
 
     class Meta:
         ordering = ('-time',)
-        verbose_name = "Post"		
-        verbose_name_plural = "Posts"
+        verbose_name = _("Post")		
+        verbose_name_plural = _("Posts")
         
     def get_absolute_url(self):
         return '%s#post%s' % (self.thread.get_absolute_url(), self.id)
