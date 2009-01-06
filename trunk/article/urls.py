@@ -1,7 +1,6 @@
 from django.conf.urls.defaults import *
+from tagging.models import Tag
 from ddtcms.home.views import common_dict
-common_dict.update({'app_label':'article',})
-
 from ddtcms.article.models import Article
 news_dict = {
 'queryset': Article.objects.all(),
@@ -10,7 +9,7 @@ news_dict = {
 }
 
 
-from tagging.models import Tag
+
 tag_dict = {
 'queryset': Tag.objects.all(),
 }

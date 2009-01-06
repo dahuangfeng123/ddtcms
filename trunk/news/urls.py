@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import *
-from ddtcms.home.views import common_dict
 from tagging.models import Tag
+from ddtcms.home.views import common_dict
 from ddtcms.news.models import News
 news_dict = {
 'queryset': News.objects.all(),
