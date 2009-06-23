@@ -1,0 +1,15 @@
+<form id="registerform" name="form1"   action="/accounts/register/complete/" method="post">
+<h3>帐户基本信息（均为必填项）</h3>
+<div>
+
+<ul>
+	<li><label>用 户 名：</label><input type="text" name="username" value="" id="shortname" /> </li>
+	<li><label>输入密码：</label><INPUT id="password1" type="password" name="password1"></li>
+	<li><label>确认密码：</label><INPUT id="password2"	type="password" name="password2"><span	style="color:red" id="passworderror"></span></li>
+	<li><label>备用邮箱：</label><input type="text" name="email" value="" id="email" /><span class="red" id="emailerror"> </span></li>
+	<li><label>验 证 码：</label><input type="text" name="validate" value="" id="validate" /> </li>
+
+</ul>
+</div>
+<input type=submit value="提交注册信息">
+</form>

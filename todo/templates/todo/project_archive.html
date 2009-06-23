@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}最新日志列表{% endblock %}
+
+
+{% block maintitle %}待办事项{% endblock %}
+
+
+{% block content %}
+
+<ol id="object-list">
+{% for object in latest %}
+<li>
+<h2><a href="{{ object.get_absolute_url }}">{{ object.name|escape }}</a></h2>
+<p><span class="summary">{{ object.desc }},</span> <span class="post-date">{{ object.pub_date|date:"Y,M d"}}</span></p>
+
+
+
+</li>
+{% endfor %}
+</ol>
+{% endblock %}

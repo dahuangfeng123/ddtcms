@@ -1,0 +1,6 @@
+<script language="Javascript">
+d=document;
+t=d.selection?(d.selection.type!='None'?d.selection.createRange().text:''):(d.getSelection?d.getSelection():'');
+void(keyit=window.open('http://localhost/storeit.aspx?t='+escape(d.title)+'&u='+escape(d.location.href)+'&c='+escape(t),'keyit','scrollbars=no,width=475,height=575,left=75,top=20,status=no,resizable=yes'));
+keyit.focus();
+</script>

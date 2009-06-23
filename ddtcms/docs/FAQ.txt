@@ -1,0 +1,13 @@
+tools文件夹里的那些是用来干嘛的？
+
+1.makemessages.cmd 是用来生成国际化的文本啊
+也就是生成django.po文件
+
+2.compilemessages.cmd 就是把django.po编译成django.mo
+
+dos here.reg 就是在右键添加dos here,直接在文件夹上右键,选dos here 就可以dos命令行进入选择的目录
+其他的看看内容就知道了
+
+mysite里面的每个文件夹都是新建project的吗？ 
+===
+不是,用的是manage.py startapp appname
