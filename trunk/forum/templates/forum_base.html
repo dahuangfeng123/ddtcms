@@ -1,0 +1,84 @@
+{% extends 'base.html' %}{% load i18n %}
+
+{% block extrahead %}
+<link rel="alternate" type="application/rss+xml" title="All Latest Posts via RSS" href="{% url forum_index %}rss/" />
+<link rel="alternate" type="application/atom+xml" title="All Latest Posts via ATOM" href="{% url forum_index %}atom/" />
+{% endblock %}
+
+{% block extracss %}
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}themes/forum/css/djangoForum.css"  />
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}themes/forum/css/forum.css"  />
+{% endblock %}
+
+{% block extrajs %}
+<script type="text/javascript" language="javascript" src="{{ MEDIA_URL }}themes/forum/js/common.js"></script>
+{% endblock %}
+
+
+
+
+{% block pagebody %} 
+
+
+
+<div id="foruminfo">
+	<div id="userinfo">
+		<div id="nav" class="pos_nav"><p>您的位置：<a id="forumlist" href="{% url forum_index %}" class="dropmenu" onmouseover="showMenu(this.id)">{% trans "Forums" %}</a> {% block breadcrumbs %}{% endblock %}</p></div>
+		<div id="nav" class="index_userinfor"><a href='/'>{% trans "Home" %}</a> &raquo; <a href='{% url forum_index %}'>{% trans "Forums" %}</a> &raquo; {% block pagetitle %}Welcome to the Forums{% endblock %}
+			</div>
+		<p>和哈哈 </p>
+    </div>
+
+	<div id="forumstats">
+		<p>
+			今日: <em>102</em>, 昨日: <em>124</em>, 最高日: <em>165</em> &nbsp; <a href="digest.php">精华区</a>
+			<a href="/sitemap-forum.xml" title="RSS 订阅全部版块" target="_blank"><img src="{{ MEDIA_URL }}images/common/xml.gif" alt="RSS 订阅全部版块" align="absmiddle"/></a></p>
+		<p>主题: <em>927</em>, 帖子: <em>3917</em>, 会员: <em>92458</em>, 欢迎新会员 <cite><a href="space.php?username=yinyrijliutao">yinyrijliutao</a></cite></p>
+	</div>
+</div>
+
+
+<div id="ad_text"></div>
+
+
+
+{% block content %}
+
+
+{% endblock %}
+
+
+<div class="forumlinks box">
+<table summary="联盟论坛" id="forumlinks" cellpadding="0" cellspacing="0" style="">
+    <tr><td><a href="http://www.360quan.com" target="_blank">[360圈]</a> <a href="http://www.shengshengkan.com" target="_blank">[省省看]</a> <a href="http://bbs.iyaxin.com" target="_blank">[亚心网论坛]</a> <a href="http://bbs.cunzone.com/" target="_blank">[中央民族大学论坛]</a> <a href="http://www.angelqq.cn" target="_blank">[QQ空间非主流代码]</a> <a href="http://www.txtxz.com" target="_blank">[非凡TXT电子书论坛]</a> <a href="http://bbs.myiq.cn/forumdisplay.php?fid=9" target="_blank">[申请友情链接]</a> </td></tr>
+</table>
+</div>
+
+<div class="box" id="online">
+<span class="headactions"><img src="{{ MEDIA_URL }}themes/forum/images/member_bg03.gif"/></span>
+<h3>
+- <em>15</em> 人在线
+- <em>15</em> 会员(<em>0</em> 隐身),
+<em>0</em> 位游客
+- 最高记录是 <em>27</em> 于 <em>2008-11-18</em>.
+</h3>
+</div>
+	
+<ul class="popupmenu_popup" id="creditlist_menu" style="display: none">
+	<li>积分: 0</li><li>威望: 0 </li><li>金钱: 0 </li></ul>
+	<script type="text/javascript">announcementScroll();</script>
+</div>
+	<ul class="popupmenu_popup headermenu_popup" id="memcp_menu" style="display: none">
+		<li><a href="memcp.php">控制面板首页</a></li>
+		<li><a href="memcp.php?action=profile">编辑个人资料</a></li>
+				<li><a href="memcp.php?action=creditslog">积分记录</a></li>
+		<li><a href="memcp.php?action=usergroups">公众用户组</a></li>
+			</ul>
+	<ul class="popupmenu_popup headermenu_popup" id="stats_menu" style="display: none">
+		<li><a href="stats.php">基本概况</a></li>
+				<li><a href="stats.php?type=forumsrank">版块排行</a></li><li><a href="stats.php?type=threadsrank">主题排行</a></li><li><a href="stats.php?type=postsrank">发帖排行</a></li><li><a href="stats.php?type=creditsrank">积分排行</a></li>
+		<li><a href="stats.php?type=trade">交易排行</a></li>
+		<li><a href="stats.php?type=onlinetime">在线时间</a></li>		<li><a href="stats.php?type=team">管理团队</a></li>
+		<li><a href="stats.php?type=modworks">管理统计</a></li>	</ul>
+<div id="ad_footerbanner1"></div><div id="ad_footerbanner2"></div><div id="ad_footerbanner3"></div>
+{% endblock %}

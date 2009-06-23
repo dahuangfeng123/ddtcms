@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}我的网站{% endblock %}
+
+{% block sidebar %}
+<div id='user_intro' style='border:1px solid blue'>
+{% if user.is_authenticated %}
+{{user.username}},欢迎您的到来！
+{% else %}
+<p>您必须登录之后才能查看用户信息，请在右边登录。</p>
+{% endif %}
+</div>
+
+<div id='user_intro'>
+<ul>
+    <li><a href='/accounts/register'>注册新用户</a></li>
+    <li>看看新闻</li>
+    <li>去论坛</li>
+    <li></li>
+    <li><a href='/accounts/logout'>注销</a></li>
+</ul>
+</div>
+{% endblock %}
+
+{% block content %}
+<div>
+版主：列兵{{username}}，出列！<br/>
+{{username}}：是！<br/>
+版主：列兵{{username}}，论坛有多少人？<br/>
+{{username}}：一百……一百万多个吧？<br/>
+版主：错！是一千八百二十一万八千六百一十一人！其中一千八百二十一万八千六百一十人已沉迷论坛，彻底成了废人！<br/>
+{{username}}：是！<br/>
+版主：列兵{{username}}，论坛建立至今已九年，主版几经改变，一共有一千八百二十一万八千六百一十人沦为论坛的一员！列兵{{username}}，你必须记住，你是论坛第一千八百二十一万八千六百一十一名成员！<br/>
+{{username}}：是！<br/>
+版主：列兵{{username}}，有的论坛因为某位列兵是傻逼而骄傲，有的论坛因为某位回帖的是傻逼而骄傲，而论坛的骄傲就是发帖和回帖的都是傻逼中的战斗机、败类中的VIP的那一种！<br/>
+{{username}}：是！<br/>
+版主：列兵{{username}}，下面，同我们一起朗诵那首论坛战歌，
+会唱这首歌的人已经在非常男女中全部打飞机阵亡，
+我们从精液和手纸堆里只找到这首歌词的手抄本，
+但是我们希望——我们希望能听到从一千八百二十一万八千六百一十一个喉咙里吼出的歌声：<br/>
+一只鼠标一键盘，一群傻逼逛论坛；<br/>
+英姿飒爽巾帼缘，阳刚气质潇洒汉；<br/>
+指点江山码文字，中原亮剑驻雄关！<br/>
+扮愤青，斥走狗，论坛傻逼美名传！！！<br/>
+</div>
+
+
+{% endblock %}

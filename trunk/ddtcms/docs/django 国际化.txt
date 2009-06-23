@@ -1,0 +1,1 @@
+语言文件 po 和 mo 的互相转换 http://roamlog.cn/archives/mo-and-po-file.html

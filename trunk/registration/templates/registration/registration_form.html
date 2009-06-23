@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block title %}注册{% endblock %}
+
+{% block sidebar %}
+<div id='user_intro' style='border:1px solid blue'>
+{% if user.is_authenticated %}
+{{user.username}},欢迎您的到来！
+{% else %}
+<p>您必须登录之后才能查看用户信息，请在右边登录。</p>
+{% endif %}
+</div>
+
+<div id='user_intro'>
+<ul>
+    <li><a href='/accounts/register'>注册新用户</a></li>
+    <li>看看新闻</li>
+    <li>去论坛</li>
+    <li></li>
+    <li><a href='/accounts/logout'>注销</a></li>
+</ul>
+</div>
+{% endblock %}
+
+
+
+{% block maintitle %}用户登录{% endblock %}
+{% block content %}
+
+<div>
+
+    
+{% if user.is_authenticated %}
+{{user.username}},<p>您已经登录了，请<a href='/accounts/logout'>注销</a>之后再申请注册新账号。</p>
+{% else %}
+
+<form id="registerform" name="form1"   action="/accounts/register/" method="post">
+
+<table>
+    {{ form }}
+</table>
+
+<input type=submit value="提交注册信息"><a  href='#' onClick="ShowHidden('TOSC');">  查看《本站服务条款》</a>
+</form>
+{% endif %}
+
+
+</div>
+
+<div id='TOSC' class='para' style='display:none'>当您申请用户时，表示您已经同意遵守本规章。 
+<br />
+<br />欢迎您加入本站点参加交流和讨论，本站点为公共论坛，为维护网上公共秩序和社会稳定，请您自觉遵守以下条款： 
+<br />
+<br />一、不得利用本站危害国家安全、泄露国家秘密，不得侵犯国家社会集体的和公民的合法权益，不得利用本站制作、复制和传播下列信息：
+<br />　（一）煽动抗拒、破坏宪法和法律、行政法规实施的；
+<br />　（二）煽动颠覆国家政权，推翻社会主义制度的；
+<br />　（三）煽动分裂国家、破坏国家统一的；
+<br />　（四）煽动民族仇恨、民族歧视，破坏民族团结的；
+<br />　（五）捏造或者歪曲事实，散布谣言，扰乱社会秩序的；
+<br />　（六）宣扬封建迷信、淫秽、色情、赌博、暴力、凶杀、恐怖、教唆犯罪的；
+<br />　（七）公然侮辱他人或者捏造事实诽谤他人的，或者进行其他恶意攻击的；
+<br />　（八）损害国家机关信誉的；
+<br />　（九）其他违反宪法和法律行政法规的；
+<br />　（十）进行商业广告行为的。
+<br />
+<br />二、互相尊重，对自己的言论和行为负责。
+<br />三、禁止在申请用户时使用相关本站的词汇，或是带有侮辱、毁谤、造谣类的或是有其含义的各种语言进行注册用户，否则我们会将其删除。
+<br />四、禁止以任何方式对本站进行破坏。
+<br />五、如果您有违反国家相关法律法规的行为，本站概不负责，您的登录论坛信息均被记录无疑，必要时，我们会向相关的国家管理部门提供此类信息。 
+<br />六、本站保留最终解释权。
+</div>
+{% endblock %}
+
+		
+
+

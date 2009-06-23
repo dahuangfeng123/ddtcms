@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+
+{% block sidebar %}
+<div id='user_intro' style='border:1px solid blue'>
+{% if user.is_authenticated %}
+{{user.username}},欢迎您的到来！
+{% else %}
+<p>您必须登录之后才能查看用户信息，请在右边登录。</p>
+{% endif %}
+</div>
+
+<div id='user_intro'>
+<ul>
+    <li><a href='/accounts/register'>注册新用户</a></li>
+    <li>看看新闻</li>
+    <li>去论坛</li>
+    <li></li>
+    <li><a href='/accounts/logout'>注销</a></li>
+</ul>
+</div>
+{% endblock %}
+
+
+
+{% block content %}
+{% if user.is_authenticated %}
+您已经成功登录本站了，下面是您的个人信息：
+{% else %}
+<form id="loginform" name="loginform"   action="/accounts/login/" method="post">
+
+<table>
+    {{ form }}
+</table>
+
+<input type=submit value="登录">
+<input type="hidden" name="next" value="/accounts/profile" />
+</form>
+{% endif %}
+{% endblock %}

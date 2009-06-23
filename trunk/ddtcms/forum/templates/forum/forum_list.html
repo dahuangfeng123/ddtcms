@@ -1,0 +1,88 @@
+{% extends "forum_base.html" %}{% load i18n %}
+
+{% block title %}{% trans "Forums" %}{% endblock %}
+
+{% block content %}
+
+
+
+	<div id="announcement" onmouseover="if(!anncount) {clearTimeout(annst);annst = 0}" onmouseout="if(!annst) annst = setTimeout('announcementScroll()', anndelay);">
+		<div id="announcementbody"><ul><li><a href="http://bbs.myiq.cn/viewthread.php?tid=978&extra=page%3D1" target="_blank">[官方皮肤]工业粗粝风格RUINS<em>(2008-11-17)</em></a></li><li><a href="http://bbs.myiq.cn/viewthread.php?tid=765&extra=page%3D1" target="_blank">2008常用软件评选投票 - 支持iQ浏览器<em>(2008-11-6)</em></a></li><li><a href="http://bbs.myiq.cn/viewthread.php?tid=738&extra=page%3D1" target="_blank">[官方皮肤] 蓝色通透简洁风格Simple<em>(2008-11-5)</em></a></li></ul></div>
+	</div>
+	<script type="text/javascript">
+		var anndelay = 3000;
+		var anncount = 0;var annheight = 36;var annst = 0;
+		function announcementScroll() {
+			if(!annst) {
+				$('announcementbody').innerHTML += '<br style="clear: both" />' + $('announcementbody').innerHTML;$('announcementbody').scrollTop = 0;
+				if($('announcementbody').scrollHeight > annheight * 3) {
+					annst = setTimeout('announcementScroll()', anndelay);
+				} else {
+					$('announcement').onmouseover = $('announcement').onmouseout = null;
+				}
+				return;
+			}
+			if(anncount == annheight) {
+				if($('announcementbody').scrollHeight - annheight <= $('announcementbody').scrollTop) {
+					$('announcementbody').scrollTop = $('announcementbody').scrollHeight / 2 - annheight;
+				}
+				anncount = 0;annst = setTimeout('announcementScroll()', anndelay);
+			} else {
+				$('announcementbody').scrollTop++;anncount++;annst = setTimeout('announcementScroll()', 10);
+			}
+		}
+
+	</script>
+
+
+
+
+
+
+			<div class="mainbox forumlist">
+			<span class="headactions">
+								<img id="category_3_img" src="{{ MEDIA_URL }}themes/forum/images/collapsed_no.gif" title="收起/展开" alt="收起/展开" onclick="toggle_collapse('category_3');" />
+			</span>
+			<h3><a href="index.php?gid=3">iQ浏览器交流</a></h3>
+			<table id="category_3" summary="category3" cellspacing="0" cellpadding="0" style="">
+				<thead class="category">
+					<tr>
+						<th>&nbsp;</th>
+						<th>{% trans "Panel" %}</th>
+						<td class="nums">{% trans "Threads" %}</td>
+						<td class="nums">{% trans "Posts" %}</td>
+						<td class="lastpost">{% trans "Last Post" %}</td>
+					</tr>
+				</thead> 
+ 
+ 
+    			{% for forum in object_list %}
+    	         <tbody id="forum{{ forum.id }}">
+    				<tr>
+    					<td class="stat_pic"><div class="bold_pic"><a href="{{ forum.get_absolute_url }}"><img src="{{ MEDIA_URL }}themes/forum/images/iq_browser_icon.gif" alt=""/></a></div></td>
+    					<th class="new">
+    						<h2><a href="{{ forum.get_absolute_url }}">{{ forum.title }}</a><em> (<img src="{{ MEDIA_URL }}themes/forum/images/threadlist_icon07.gif" align="absmiddle"/> 今日: 20)</em></h2>
+    						<p>{{ forum.description }}</p>    <p class="moderators">版主: <a class="notabs" href="space.php?username=yuanfang8687">yuanfang8687</a>, <a class="notabs" href="space.php?username=iQ_browser">iQ_browser</a>, <a class="notabs" href="space.php?username=wjy910">wjy910</a>, <a class="notabs" href="space.php?username=liushuai">liushuai</a></p>							</th>
+    					{% blocktrans with forum.threads as thread_count and forum.posts as post_count %}
+    					<td class="nums bg_blue">{{ thread_count }}</td>
+    					<td class="nums">{{ post_count }}</td>
+    					{% endblocktrans %}
+    					<td class="lastpost bg_blue">
+    					    {% with forum.forum_latest_post as latest_post %}
+                               {% if latest_post %}<a href="{{ latest_post.get_absolute_url }}">{% trans "Re:" %}{{ latest_post.thread }}</a>
+    							<cite>by <a href="/accounts/profile/{{ latest_post.author }}">{{ latest_post.author }}</a> - {{ latest_post.time|timesince }}{% trans "ago" %}</cite>{% else %}{% trans "No Posts" %}{% endif %}
+                            {% endwith %}					    
+					    </td>
+				    </tr>
+			     </tbody>
+			    {% endfor %}
+		    </table>
+		    </div>
+		    <div id="ad_intercat_3"></div>
+		
+{%comment%}<p><a href="{% url forumsubs %}">{% trans "Update Subscriptions" %}</a></p>{%endcomment%}
+
+{% if request.user.is_authenticated %}<p><a href="{% url forum_subscriptions %}">{% trans "Update Subscriptions" %}</a></p>{%else%}ddd{% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{{ MEDIA_URL}}userprofile/css/blueprint/1screen.css" type="text/css" media="screen, projection" />
+<link rel="stylesheet" href="{{ MEDIA_URL }}userprofile/css/blueprint/1print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="{{ MEDIA_URL }}userprofile/css/blueprint/plugins/1fancy-type/1screen.css" type="text/css" media="screen, projection" />
+<!--[if IE]><link rel="stylesheet" href="{{ MEDIA_URL}}userprofile/css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
+<link rel="stylesheet" href="{{ MEDIA_URL}}userprofile/css/django-profile.css" type="text/css" media="screen, projection" />
+{% endblock %}
+
+{% block content %} 
+		{% block userprofile_navigation %}{% endblock %}
+		<div id="columnwrap">
+			<div id="content-main" class="span-22 prepend-1 append-1">
+			{% block userprofile_content %}{% endblock %}
+			</div>
+		</div>
+{% endblock %}

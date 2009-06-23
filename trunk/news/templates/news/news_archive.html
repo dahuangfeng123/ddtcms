@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}最新新闻列表{% endblock %}
+
+
+
+{% block maintitle %}<span><a href="post" title="添加一条新闻">发布新闻</a></span>最新新闻列表{% endblock %}
+{% block content %}
+
+
+<ol id="object-list">
+{% for object in latest %}
+<li>
+<h2><a href="{{ object.get_absolute_url }}">{{ object.title|escape }}</a></h2>
+<p class="post-date">{{ object.pub_date|date:"F j, Y" }}</p>
+<p class="summary">{{ object.summary|escape|linebreaks }}</p>
+</li>
+{% endfor%}
+</ol>
+
+{% endblock %}

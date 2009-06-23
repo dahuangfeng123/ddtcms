@@ -1,0 +1,8 @@
+{% get_comment_list for object as comment_list %}
+{% for comment in comment_list %}
+<p>{{comment.user_name}}:{{comment.comment}}</p>
+{% endfor %}
+<div id='commentform'>
+    <h2>发表你的评论：</h2>
+    {% render_comment_form for object %}
+</div>
