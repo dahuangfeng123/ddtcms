@@ -1,1 +1,0 @@
-activation_email_subject.txt
