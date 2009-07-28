@@ -151,7 +151,6 @@ INSTALLED_APPS = (
     'ddtcms.blog',
     'ddtcms.notice',
     'ddtcms.news',
-    'ddtcms.article',
     'ddtcms.polls',
     'ddtcms.forum',
     'ddtcms.faq',
