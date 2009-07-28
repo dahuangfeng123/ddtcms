@@ -3,42 +3,6 @@
 {% block title %}{% trans "Forums" %}{% endblock %}
 
 {% block content %}
-
-
-
-	<div id="announcement" onmouseover="if(!anncount) {clearTimeout(annst);annst = 0}" onmouseout="if(!annst) annst = setTimeout('announcementScroll()', anndelay);">
-		<div id="announcementbody"><ul><li><a href="http://bbs.myiq.cn/viewthread.php?tid=978&extra=page%3D1" target="_blank">[官方皮肤]工业粗粝风格RUINS<em>(2008-11-17)</em></a></li><li><a href="http://bbs.myiq.cn/viewthread.php?tid=765&extra=page%3D1" target="_blank">2008常用软件评选投票 - 支持iQ浏览器<em>(2008-11-6)</em></a></li><li><a href="http://bbs.myiq.cn/viewthread.php?tid=738&extra=page%3D1" target="_blank">[官方皮肤] 蓝色通透简洁风格Simple<em>(2008-11-5)</em></a></li></ul></div>
-	</div>
-	<script type="text/javascript">
-		var anndelay = 3000;
-		var anncount = 0;var annheight = 36;var annst = 0;
-		function announcementScroll() {
-			if(!annst) {
-				$('announcementbody').innerHTML += '<br style="clear: both" />' + $('announcementbody').innerHTML;$('announcementbody').scrollTop = 0;
-				if($('announcementbody').scrollHeight > annheight * 3) {
-					annst = setTimeout('announcementScroll()', anndelay);
-				} else {
-					$('announcement').onmouseover = $('announcement').onmouseout = null;
-				}
-				return;
-			}
-			if(anncount == annheight) {
-				if($('announcementbody').scrollHeight - annheight <= $('announcementbody').scrollTop) {
-					$('announcementbody').scrollTop = $('announcementbody').scrollHeight / 2 - annheight;
-				}
-				anncount = 0;annst = setTimeout('announcementScroll()', anndelay);
-			} else {
-				$('announcementbody').scrollTop++;anncount++;annst = setTimeout('announcementScroll()', 10);
-			}
-		}
-
-	</script>
-
-
-
-
-
-
 			<div class="mainbox forumlist">
 			<span class="headactions">
 								<img id="category_3_img" src="{{ MEDIA_URL }}themes/forum/images/collapsed_no.gif" title="收起/展开" alt="收起/展开" onclick="toggle_collapse('category_3');" />
