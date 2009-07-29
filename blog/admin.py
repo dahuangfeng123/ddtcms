@@ -16,18 +16,6 @@ class BlogEntryAdminForm(forms.ModelForm):
     class Meta:
         model = Entry
 
-    #queries = {'user':'admin'}
-    #category = forms.ChoiceField(choices=Category.objects.all().filter(**queries))
-    #category = forms.ChoiceField(choices=Category.objects.all())
-    #category = forms.ChoiceField(choices=[(c.id,c.name) for c in Category.objects.all()])
-    #category = forms.ChoiceField(choices=Category.objects.for_model(Entry))
-    #category = forms.ChoiceField(choices=BLOOD_CHOICES)
-    #category=forms.ModelChoiceField(queryset=Category.objects.all().filter(**queries))
-    #category=forms.ModelChoiceField(queryset=Category.objects.all())
-    #category=forms.ModelChoiceField(queryset=Category.objects.all().filter(**queries))
-    #def clean_title(self):
-    #    # do something that validates your data
-    #    return self.cleaned_data["title"]
 
 class EntryAdmin(admin.ModelAdmin):
     #form = BlogEntryAdminForm
@@ -63,22 +51,6 @@ class EntryAdmin(admin.ModelAdmin):
             return super(EntryAdmin, self).queryset(request).filter(**queries)
             
 
-            #app, model = "blog.entry".split('.')
-            #content_type=ContentType.objects.get(app_label=app, model=model)
-            #queries = {'category.content_type':content_type}
-
-               
-    #def save_model(self, request, obj, form, change):
-    #    obj.user = request.user
-    #    return super(EntryAdmin, self).save_model(request, obj, form, change)
-    
-    #def add_view(self, request, form_url='', extra_context=None):
-    #    ex_context={'category':Category.objects.for_model(Entry)}
-    #    return super(EntryAdmin, self).add_view(request, form_url='', extra_context=ex_context)
-
-    #def add_view(self, request, form_url='', extra_context=None):
-    #    ex_context={'category':Category.objects.for_model(Entry)}
-    #    return super(EntryAdmin, self).add_view(request, form_url='', extra_context=ex_context)
     
     #
     #CODE FROM :
