@@ -5,14 +5,6 @@ def genfilename(filext):
    randomfilename ="%s%s" % (randomfilename , filext)
    return randomfilename
 
-def randomfilename(filename):
-	if len(filename)>0:
-		base, ext = os.path.splitext(filename)
-		ran_filename = datetime.datetime.now().strftime("%Y%m%d%H%M%S") + str(random.randrange(0, 100, 2)).rjust(2,'0') + random.choice('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
-		ran_filename = "%s%s" % (ran_filename , ext)
-		return ran_filename
-	else:
-		return datetime.datetime.now().strftime("%Y%m%d%H%M%S") + str(random.randrange(0, 100, 2)).rjust(2,'0') +".tmp"
 
 def handle_uploaded_file(f):
     UPLOAD_TO = 'upload/photo/%s/' % (datetime.datetime.now().strftime('%Y/%m/%d'))

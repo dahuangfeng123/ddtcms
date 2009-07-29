@@ -14,9 +14,7 @@ from django.core.urlresolvers import reverse
 from django.template.defaultfilters import slugify
 from django.utils.functional import curry
 from django.utils.translation import ugettext_lazy as _
-# 2009-3-3 19:40:47 add by huyoo
-from ddtcms.utils.uploadfile import randomfilename
-# end add
+
 # Required PIL classes may or may not be available from the root namespace
 # depending on the installation method used.
 try:
@@ -73,8 +71,7 @@ if PHOTOLOGUE_PATH is not None:
         get_storage_path = getattr(module, parts[-1])
 else:
     def get_storage_path(instance, filename):
-        #return os.path.join(PHOTOLOGUE_DIR, 'photos', filename)
-        return os.path.join(PHOTOLOGUE_DIR, randomfilename(filename))
+        return os.path.join(PHOTOLOGUE_DIR, 'photos', filename)
 
 # Quality options for JPEG images
 JPEG_QUALITY_CHOICES = (
