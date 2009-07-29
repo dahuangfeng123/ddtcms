@@ -147,8 +147,8 @@ class Thread(models.Model):
     """
     forum = models.ForeignKey(Forum)
     title = models.CharField(_("Title"), max_length=100)
-    sticky = models.BooleanField(_("Sticky?"), blank=True, default=True)
-    closed = models.BooleanField(_("Closed?"), blank=True, default=True)
+    sticky = models.BooleanField(_("Sticky?"), blank=True, default=False)
+    closed = models.BooleanField(_("Closed?"), blank=True, default=False)
     posts = models.IntegerField(_("Posts"), default=0)
     views = models.IntegerField(_("Views"), default=0)
     latest_post_time = models.DateTimeField(_("Latest Post Time"), blank=True, null=True)
