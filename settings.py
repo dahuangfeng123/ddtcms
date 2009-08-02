@@ -141,7 +141,6 @@ INSTALLED_APPS = (
     'ddtcms.polls',
     'ddtcms.forum',
     'ddtcms.faq',
-    'ddtcms.todo',
     'ddtcms.member',
     'ddtcms.captcha',
     'ddtcms.link',
