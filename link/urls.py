@@ -3,10 +3,9 @@ from django.conf.urls.defaults import *
 
 from ddtcms.link.models import Link
 
-from ddtcms.home.views import common_dict
+
 info_dict = {
     'queryset': Link.objects.all(),
-    'extra_context':common_dict,    
 }
 
 urlpatterns = patterns('',

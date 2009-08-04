@@ -1,7 +1,7 @@
 {% load i18n navbar %}
 
 {%comment%}{{navbars}}    {%endcomment%}
-
+<div id="nav_main">
 {% for navbar in navbars %}
      <ul>
         {% for entry in navbar %}
@@ -9,20 +9,28 @@
         {% endfor %}
     </ul>
 {% endfor %}
+</div>
 
-{% spaceless %}
-{% for navbar in navbars %}
-    <ul class='navbar-two'>
-        {% for entry in navbar %}
-        {% if entry.children|length %}{% if entry.selected %}
-                {% for elemt in entry.children %}
-                <li{% if elemt.selected %} class="selected"{% endif %}><a href="{{ elemt.url }}" {% if elemt.selected %} class="selected"{% endif %} title="{{ elemt.title|escape }}">{% trans elemt.name %}</a></li>
-                {% endfor %} 
-        {% endif %}{% endif %}
-        {% endfor %}
-    </ul>
+<div id="nav_main2">
+{% for navbar in navbars %}    
+  <ul class='navbar-two'>{% spaceless %}
+  {% for entry in navbar %}
+  {% if entry.children|length %}{% if entry.selected %}
+    {% for elemt in entry.children %}
+    <li{% if elemt.selected %} class="selected"{% endif %}><a href="{{ elemt.url }}" {% if elemt.selected %} class="selected"{% endif %} title="{{ elemt.title|escape }}">{% trans elemt.name %}</a></li>
+    {% endfor %}
+  {% endif %}{% endif %}
+  {% endfor %}{% endspaceless %}</ul>
+  <div class="tx-macinasearchbox-pi1">		
+  <form action="en/home/search.html" method="post" name="searchform" id="searchform">
+  <input class="suchBox" name="tx_indexedsearch[sword]" type="text" value="Enter search word..." onclick="this.value=''" onblur="this.value='Enter search word...'" /><br />
+  <input type="hidden" name="tx_indexedsearch[_sections]" value="0" />
+  <input type="hidden" name="tx_indexedsearch[pointer]" value="0" />
+  <input type="hidden" name="tx_indexedsearch[ext]" value="0" />
+  <input type="hidden" name="tx_indexedsearch[lang]" value="1" />
+  </form></div>
 {% endfor %}
-{% endspaceless %}
+</div>
 {%comment%}<ul id='menu' class="navbar-{{ forloop.counter|cssnumber }}">
     {% for entry in navbar %}<li{% if entry.selected %} class="selected"{% endif %}><a href="{{ entry.url }}" {% if entry.selected %} class="selected"{% endif %} title="{{ entry.title|escape }}">{% trans entry.name %}</a></li>
     {% endfor %}

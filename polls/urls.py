@@ -3,10 +3,8 @@ from django.conf.urls.defaults import *
 
 from ddtcms.polls.models import Poll
 
-from ddtcms.home.views import common_dict
 info_dict = {
     'queryset': Poll.objects.all(),
-    'extra_context':common_dict,    
 }
 
 urlpatterns = patterns('',

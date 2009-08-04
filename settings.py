@@ -119,7 +119,7 @@ TEMPLATE_DIRS = (
 
 
 LOCALE_PATHS =(
-    './userprofile/locale/',
+#    './userprofile/locale/',
     './locale/',
     
 )
@@ -161,7 +161,7 @@ AUTH_PROFILE_MODULE='userprofile.profile'
 #LOGIN_URL = '/member/login/'
 #LOGOUT_URL = '/member/logout/'
 #LOGIN_REDIRECT_URL = '/member/profile/'
-
+SEND_REGISTER_MAIL = False # add 2009-2-2 20:03:13
 
 ACCOUNT_ACTIVATION_DAYS=10
 
