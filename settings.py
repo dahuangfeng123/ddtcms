@@ -61,6 +61,7 @@ STATIC_PATH='./media/'
 STATIC_FILE_UPLOAD_DIR        =STATIC_PATH+'upload/'
 STATIC_FILE_UPLOAD_TEMP_DIR   =STATIC_PATH+'upload/tmp/'
 STATIC_STYLE                  =STATIC_PATH+'styles/'
+STATIC_THEMES                 =STATIC_PATH+'themes/'
 STATIC_SCRIPT                 =STATIC_PATH+'scripts/'
 STATIC_IMAGE                  =STATIC_PATH+'images/'
 PHOTOLOGUE_DIR                ='upload/photo/%s/' % datetime.now().strftime("%Y/%m/%d")
@@ -111,7 +112,9 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    './templates/',   
+    #'./templates/',
+    './media/themes/yaml/templates/',
+
 )
 
 
@@ -154,7 +157,7 @@ INSTALLED_APPS = (
 )
 
 
-AUTH_PROFILE_MODULE='member.profile'
+AUTH_PROFILE_MODULE='userprofile.profile'
 #LOGIN_URL = '/member/login/'
 #LOGOUT_URL = '/member/logout/'
 #LOGIN_REDIRECT_URL = '/member/profile/'
