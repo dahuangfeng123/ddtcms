@@ -26,15 +26,13 @@
 <body>
 <div id="page_margins">
 	<div id="page">
-		
 			<div id="topnav">				
 				<!-- begin: skip link navigation -->
 				<a class="skip" href="#navigation" title="skip link">Skip to the navigation</a><span class="hideme">.</span>
 				<a class="skip" href="#content" title="skip link">Skip to the content</a><span class="hideme">.</span>
 				<!-- end: skip link navigation -->
 				<span>{% if user.is_authenticated %}
-					<a href="/accounts/profile/">{{user.username}}</a>
-					<a href="{% url profile_overview %}">{% trans "Profile" %}</a>
+      	    <a href="{% url profile_overview %}">{{user.username}}'s{% trans "Profile" %}</a>
 <a href="{% url logout %}">{% trans "Logout" %}</a>
 		         	{% else %}
 		          	<a href="{% url profile_overview %}">{% trans "Login" %}</a>
@@ -51,21 +49,8 @@
 		</div>
 		<!-- begin: main navigation #nav -->
 		<div id="nav"> <a id="navigation" name="navigation"></a>
-			<!-- skiplink anchor: navigation -->{% load navbar %}
-			<div id="nav_main">
-				{% navbars %}
-			</div>
-			<div id="nav_main2">
-				<ul><li><a href="en/home/news.html"><span>News</span></a></li><li><a href="en/home/search.html"><span>Search</span></a></li><li><a href="en/home/imprint.html"><span>Imprint</span></a></li></ul>
-				<div class="tx-macinasearchbox-pi1">		
-					<form action="en/home/search.html" method="post" name="searchform" id="searchform">
-					<input class="suchBox" name="tx_indexedsearch[sword]" type="text" value="Enter search word..." onclick="this.value=''" onblur="this.value='Enter search word...'" /><br />
-					<input type="hidden" name="tx_indexedsearch[_sections]" value="0" />
-					<input type="hidden" name="tx_indexedsearch[pointer]" value="0" />
-					<input type="hidden" name="tx_indexedsearch[ext]" value="0" />
-					<input type="hidden" name="tx_indexedsearch[lang]" value="1" />
-					</form></div>
-			</div>
+      	<!-- skiplink anchor: navigation -->
+      	{% load navbar %}{% navbars %}      	
 		</div>
 		<!-- end: main navigation -->
 		<!-- begin: main content area #main -->

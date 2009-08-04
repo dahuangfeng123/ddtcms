@@ -1,11 +1,9 @@
 from django.conf.urls.defaults import *
 from tagging.models import Tag
-from ddtcms.home.views import common_dict
 from ddtcms.news.models import News
 news_dict = {
 'queryset': News.objects.all(),
 'date_field': 'pub_date',
-'extra_context':common_dict,
 }
 
 

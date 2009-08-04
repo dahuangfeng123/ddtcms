@@ -29,7 +29,7 @@ def index(request):
         content='  匿名用户'
         
     return render_to_response('index.html',
-        common_dict,
+        {},
         context_instance=RequestContext(request))
         
 #    return render_to_response('index.html',{'sitename':'网站正在建设中。。。'})

@@ -2,7 +2,6 @@
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
-from ddtcms.home.views import common_dict
 
 def index(request):
 #    return HttpResponse("Hello, Django.")
@@ -17,8 +16,8 @@ def index(request):
     else:
         content='  匿名用户'
         
-    return render_to_response('index.html',common_dict)
+    return render_to_response('index.html')
 
 
 def post(request):
-		return render_to_response('blog/blog_post.html',RequestContext(request, {'extra_context':common_dict,}))
+		return render_to_response('blog/blog_post.html',RequestContext(request))
