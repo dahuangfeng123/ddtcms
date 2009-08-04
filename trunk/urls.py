@@ -47,19 +47,22 @@ urlpatterns = patterns('',
     #(r'^(?i)member/',          include('ddtcms.profiles.urls')),
     #(r'^(?i)member/',          include('ddtcms.member.urls')),
     (r'^(?i)photologue/',      include('photologue.urls')),
+    (r'^(?i)photologue/$',     direct_to_template, {'template': 'photologue/index.html' }),
+
     
     
     #(r'^blog/',    include('diario.urls.entries')),   
     
     (r'^accounts/', include('userprofile.urls')),
     #(r'^accounts/$', 'django.contrib.auth.views.login'),    
-    (r'^accounts/$', direct_to_template, {'extra_context': { 'profiles': get_profiles }, 'template': 'member/front.html' }),
+    (r'^accounts/$', direct_to_template, {'extra_context': { 'profiles': get_profiles }, 'template': 'userprofile/front.html' }),
         
     #(r'^accounts/profile/$', 'django.views.generic.simple.direct_to_template',{'template':'registration/profile.html'}),
     
     # serve static medias
     (r'^media/(?P<path>.*)$',   'django.views.static.serve',{'document_root': settings.STATIC_PATH}),
     (r'^styles/(?P<path>.*)$',  'django.views.static.serve',{'document_root': settings.STATIC_STYLE}),
+    (r'^themes/(?P<path>.*)$',  'django.views.static.serve',{'document_root': settings.STATIC_THEMES}),
     (r'^scripts/(?P<path>.*)$', 'django.views.static.serve',{'document_root': settings.STATIC_SCRIPT}),
     (r'^images/(?P<path>.*)$',  'django.views.static.serve',{'document_root': settings.STATIC_IMAGE}),
     (r'^upload/(?P<path>.*)$',   'django.views.static.serve',{'document_root': settings.STATIC_FILE_UPLOAD_DIR}),

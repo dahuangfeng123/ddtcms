@@ -3,8 +3,26 @@ from django.views.generic.simple import direct_to_template
 from userprofile.views import *
 from django.conf import settings
 
+
+from userprofile.models import Profile,Resume
+
+
+    
+    
+info_dict = {
+'queryset': Profile.objects.all(),
+'template_name':'userprofile/index.html',
+}
+
+
+pages_dict = {
+'queryset': Profile.objects.all(),
+'paginate_by':1,
+}
+
 urlpatterns = patterns('',
     # Private profile
+    
     url(r'^profile/$', overview, name='profile_overview'),
 
     url(r'^profile/edit/location/$', location, name='profile_edit_location'),
