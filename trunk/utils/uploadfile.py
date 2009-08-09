@@ -1,13 +1,21 @@
 import os,datetime,random
 from django.conf import settings
 def genfilename(filext):
-   randomfilename = datetime.datetime.now().strftime("%Y%m%d%H%M%S") + str(random.randrange(0, 100, 2)).rjust(2,'0') + random.choice('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
-   randomfilename ="%s%s" % (randomfilename , filext)
-   return randomfilename
+	randomfilename = datetime.datetime.now().strftime("%Y%m%d%H%M%S") + str(random.randrange(0, 100, 2)).rjust(2,'0') + random.choice('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+	randomfilename ="%s%s" % (randomfilename , filext)
+	return randomfilename
 
+def randomfilename(filename):
+	if len(filename)>0:
+		base, ext = os.path.splitext(filename)
+		ran_filename = datetime.datetime.now().strftime("%Y%m%d%H%M%S") + str(random.randrange(0, 100, 2)).rjust(2,'0') + random.choice('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+		ran_filename = "%s%s" % (ran_filename , ext)
+		return ran_filename
+	else:
+		return datetime.datetime.now().strftime("%Y%m%d%H%M%S") + str(random.randrange(0, 100, 2)).rjust(2,'0') +".tmp"
 
 def handle_uploaded_file(f):
-    UPLOAD_TO = 'upload/photo/%s/' % (datetime.datetime.now().strftime('%Y/%m/%d'))
+    UPLOAD_TO = 'attachment/%s/' % (datetime.datetime.now().strftime('%Y/%m/%d'))
     SAVE_TO   = os.path.join(settings.STATIC_PATH,UPLOAD_TO)
 
     if not os.path.exists(SAVE_TO):
