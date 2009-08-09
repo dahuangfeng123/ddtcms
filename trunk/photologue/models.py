@@ -50,6 +50,12 @@ from utils import EXIF
 from utils.reflection import add_reflection
 from utils.watermark import apply_watermark
 
+# Default limit for gallery.latest
+LATEST_LIMIT = getattr(settings, 'PHOTOLOGUE_GALLERY_LATEST_LIMIT', None)
+
+# max_length setting for the ImageModel ImageField
+IMAGE_FIELD_MAX_LENGTH = getattr(settings, 'PHOTOLOGUE_IMAGE_FIELD_MAX_LENGTH', 100)
+
 # Path to sample image
 SAMPLE_IMAGE_PATH = getattr(settings, 'SAMPLE_IMAGE_PATH', os.path.join(os.path.dirname(__file__), 'res', 'sample.jpg')) # os.path.join(settings.PROJECT_PATH, 'photologue', 'res', 'sample.jpg'
 
@@ -143,8 +149,8 @@ class Gallery(models.Model):
     def get_absolute_url(self):
         return reverse('pl-gallery', args=[self.title_slug])
 
-    def latest(self, limit=0, public=True):
-        if limit == 0:
+    def latest(self, limit=LATEST_LIMIT, public=True):
+        if not limit:
             limit = self.photo_count()
         if public:
             return self.public()[:limit]
@@ -208,7 +214,7 @@ class GalleryUpload(models.Model):
                                                  is_public=self.is_public,
                                                  tags=self.tags)
             from cStringIO import StringIO
-            for filename in zip.namelist():
+            for filename in sorted(zip.namelist()):
                 if filename.startswith('__'): # do not process meta files
                     continue
                 data = zip.read(filename)
@@ -247,7 +253,8 @@ class GalleryUpload(models.Model):
 
 
 class ImageModel(models.Model):
-    image = models.ImageField(_('image'), upload_to=get_storage_path)
+    image = models.ImageField(_('image'), max_length=IMAGE_FIELD_MAX_LENGTH, 
+                              upload_to=get_storage_path)
     date_taken = models.DateTimeField(_('date taken'), null=True, blank=True, editable=False)
     view_count = models.PositiveIntegerField(default=0, editable=False)
     crop_from = models.CharField(_('crop from'), blank=True, max_length=10, default='center', choices=CROP_ANCHOR_CHOICES)
