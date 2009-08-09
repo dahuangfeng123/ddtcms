@@ -14,6 +14,7 @@ class GalleryAdmin(admin.ModelAdmin):
 class PhotoAdmin(admin.ModelAdmin):
     list_display = ('title', 'date_taken', 'date_added', 'is_public', 'tags', 'view_count', 'admin_thumbnail')
     list_filter = ['date_added', 'is_public']
+    search_fields = ['title', 'title_slug', 'caption']
     list_per_page = 10
     prepopulated_fields = {'title_slug': ('title',)}
 
@@ -51,12 +52,18 @@ class PhotoSizeAdmin(admin.ModelAdmin):
         }),
     )
 
+
 class WatermarkAdmin(admin.ModelAdmin):
     list_display = ('name', 'opacity', 'style')
 
 
+class GalleryUploadAdmin(admin.ModelAdmin):
+    def has_change_permission(self, request, obj=None):
+        return False # To remove the 'Save and continue editing' button
+
+
 admin.site.register(Gallery, GalleryAdmin)
-admin.site.register(GalleryUpload)
+admin.site.register(GalleryUpload, GalleryUploadAdmin)
 admin.site.register(Photo, PhotoAdmin)
 admin.site.register(PhotoEffect, PhotoEffectAdmin)
 admin.site.register(PhotoSize, PhotoSizeAdmin)
