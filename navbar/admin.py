@@ -1,8 +1,8 @@
 from django.contrib import admin
 
-from navbar.models import NavBarEntry
+from navbar.models import NavBarItem
 
-class NavBarEntryAdmin(admin.ModelAdmin):
+class NavBarItemAdmin(admin.ModelAdmin):
         fieldsets = (
             (None, {'fields': ('name', 'title', 'url', 'order', 'parent')}),
             ('Advanced Permissions', {'classes': ('collapse',),
@@ -13,4 +13,4 @@ class NavBarEntryAdmin(admin.ModelAdmin):
         search_fields = ('url', 'name', 'title')
         filter_horizontal = ("groups",)
 
-admin.site.register(NavBarEntry, NavBarEntryAdmin)
+admin.site.register(NavBarItem, NavBarItemAdmin)

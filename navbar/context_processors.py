@@ -35,6 +35,14 @@ def crumbs(request):
         crumbs = crumbs[len(rooturl.strip('/').split('/')):]
         if CRUMBS_HOME:
             crumbs[0]['name'] = CRUMBS_HOME
+    
+    navbars = get_navbar(request.user)
+    for crumb in crumbs:
+        for navbar in navbars:
+            if crumb['path'] == navbar.url:
+                crumb['name'] = navbar.name
+                break
+
     return { 'crumbs': crumbs }
 
 def navbar(request):
