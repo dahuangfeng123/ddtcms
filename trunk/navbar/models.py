@@ -32,12 +32,12 @@ def IsNotCircular(field_data, all_data):
     pid = int(all_data['parent'])
     try:
         while pid:
-            parent = NavBarEntry.objects.get(pk=pid)
+            parent = NavBarItem.objects.get(pk=pid)
             pid = parent.parent_id
             if pid is None: return
             if pid == cid:
                 raise ValidationError(u"Creates a cyclical reference.")
-    except NavBarEntry.DoesNotExist:
+    except NavBarItem.DoesNotExist:
         raise ValidationError("Could not find parent: " + str(pid) +
                               " Corrupt DB?")
 
@@ -75,7 +75,7 @@ class NavBarRootManager(models.Manager):
         return all.filter(parent__isnull=True)
 
 
-class NavBarEntry(models.Model):
+class NavBarItem(models.Model):
     name   = models.CharField(max_length=50,
                               help_text=_("text seen in the menu"))
     title  = models.CharField(max_length=50, blank=True,
@@ -103,7 +103,7 @@ class NavBarEntry(models.Model):
         verbose_name = _('navigation bar element')
         verbose_name_plural = _('navigation bar elements')
         #order_with_respect_to = 'parent' # doesn't woth with self relations
-        ordering = ('parent__id', 'order', 'name', 'url')
+        ordering = ('parent__id', 'order', 'id','name')
 
     def __unicode__(self):
         return self.name
@@ -111,7 +111,7 @@ class NavBarEntry(models.Model):
     def save(self):
         cache.delete('site_navtree')
         cache.delete('site_navtree_super')
-        return super(NavBarEntry, self).save()
+        return super(NavBarItem, self).save()
 
 def Qperm(user=None):
     exQ = Q()
@@ -143,7 +143,7 @@ def generate_navtree(user=None, maxdepth=-1):
         if invdepth == 0 : return []
         return [ navent(ent, invdepth, parent)
                         for ent in base.filter(permQ).distinct() ]
-    tree = navlevel(NavBarEntry.top, maxdepth)
+    tree = navlevel(NavBarItem.top, maxdepth)
     urls = sorted(urls.iteritems(), key=lambda x: x[0], reverse=True)
     return {'tree': tree, 'byurl': urls}
 
@@ -163,4 +163,4 @@ def get_navtree(user=None, maxdepth=-1):
     return data
 
 def get_navbar(user=None):
-    return NavBarEntry.top.filter(Qperm(user))
+    return NavBarItem.top.filter(Qperm(user))
