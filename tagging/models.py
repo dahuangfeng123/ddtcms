@@ -19,6 +19,9 @@ from tagging.utils import LOGARITHMIC
 
 qn = connection.ops.quote_name
 
+
+from django.core import urlresolvers
+
 ############
 # Managers #
 ############
@@ -478,3 +481,15 @@ class TaggedItem(models.Model):
 
     def __unicode__(self):
         return u'%s [%s]' % (self.object, self.tag)
+        
+    def get_content_object_url(self):
+        """
+        Get a URL suitable for redirecting to the content object.
+        """
+        return urlresolvers.reverse(
+            "tag-url-redirect",
+            args=(self.content_type_id, self.object_id)
+        )
+    
+    def get_absolute_url(self):
+        return self.get_content_object_url()
