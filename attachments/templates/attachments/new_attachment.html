@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+
+{% block title %}添加附件到对象: {{ object }}{% endblock %}
+
+{% block content %}
+    
+    <h2>添加附件到: {{ object }}</h2>
+    
+    <form style="margin-top: 1em;" enctype="multipart/form-data" id="attachment_form" method="POST" action="">
+        <table>
+            {{ attachment_form }}
+            <tr><td></td><td><input type="submit" value="上传"/></td></tr>
+        </table>
+    </form>
+
+{% endblock %}
