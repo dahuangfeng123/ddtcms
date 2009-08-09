@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block 1css.custom %}
+<link rel="stylesheet" href="{{ MEDIA_URL}}css/django-profile.css" type="text/css" media="screen, projection" />
+{% endblock %}
+
+
+
+{% block js.shared %}
+<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery-1.3.2.min.js"></script>
+{% endblock js.shared %}
+
+{% block js.custom %}
+
+{% endblock %}
+
+{% block content %}
+	
+	
+	<div class="subcolumns">
+		
+	    <div class="c25l">
+	      <div class="subcl">	      	
+	      	<div id="userprofile_navigation">
+	      		{% block userprofile_navigation %}{% include "member/menu.html" %}{% endblock %}	
+			</div>
+	      </div>
+	    </div>
+	
+	    <div class="c75r">
+	      <div class="subcr">		
+	      		
+			<div class="subcolumns">
+				<div class="c62l">
+					<div class="subcl">
+						<div id="userprofile_content">
+							{% block userprofile_content %}{% endblock %}		
+						</div>
+					</div>
+				</div>
+				
+				<div class="c38r">
+					<div class="subcr">
+						<div id="userprofile_content_related">
+							{% block userprofile_content_related %}{% endblock %}
+						</div>
+					</div>
+				</div>
+			</div>	
+			
+	      </div>
+	    </div>
+	    
+  	</div>	
+{% endblock %}

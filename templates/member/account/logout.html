@@ -1,0 +1,12 @@
+{% extends "member/base.html" %}
+{% load i18n %}
+
+{% block title %}下岗休息{% endblock %}
+{% block robots %}noindex,nofollow{% endblock %}
+
+{% block userprofile_content %}
+<div class="notice">
+	<h3>下岗休息</h3>
+	<p class="large">您已经下岗了. (<a href="{% url profile_overview %}">重新上岗执勤</a>)</p>
+</div>
+{% endblock %}

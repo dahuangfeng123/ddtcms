@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load i18n themes news_tags avatars%}
+{% block title %}最新新闻列表{% endblock %}
+{% block css.custom %}<link href="{% theme_media_url %}css/2008/home.css" rel="stylesheet" media="screen" type="text/css" />{% endblock css.custom %}
+{% block css.shared %}{% endblock css.shared %}
+
+{% block maintitle %}<span><a href="post" title="添加一条新闻">发布新闻</a></span>最新新闻列表{% endblock %}
+{% block content %}
+<div class="channel-nav w960 center clear">
+
+
+<div id="hot_yulu" class="box yulu_list">
+	<h1><span class="inner link_red">
+		<span class="float_right link_right" > <a href="http://www.yandui.com/search/SeacrchAna.aspx" title="按经典查看全部语录" style="color:Green;">语录连连看</a>
+			<a href="javascript:SetAnaViewMode(1);" title="完整视图">完整视图</a>
+			<a href="javascript:SetAnaViewMode(0);" title="精简视图" class="current">精简视图</a></span>
+				<a href="javascript:;" title="言友关注经典语录" id="ViewCommendAnaInfoTitle">言友关注语录</a> <span id="rss_commend"></span> 
+		</span></h1>
+	<div class="rang">
+		一周：
+		<a href="javascript:SwitchCommendAna(1);" title="言友关注经典语录" class="current" id="AttentionAnaWhere">言友关注</a> . 
+		<a href="javascript:SwitchCommendAna(2);" title="喜欢最多经典语录" id="LikeAnaWhere">喜欢最多</a> . 
+		<a href="javascript:SwitchCommendAna(3);" title="收藏最多经典语录" id="CollectionAnaWhere">收藏最多</a> . 
+		<a href="javascript:SwitchCommendAna(4);" title="评论最多经典语录" id="CommentAnaWhere">评论最多</a>
+	</div>
+	<div class="content" id="ViewCommendAnaInfo">
+    {% for saying in hot_saying_list %}
+		<div class="item">
+			<div class="ballot">
+				<strong><a name="AnaLikeCount_{{ saying.id }}">2469</a></strong>
+				<a href="javascript:LikeAna({{ saying.id }},'');" title="喜欢">喜欢</a>
+				</div>
+				<a href="http://www.yandui.com/renwu/9537/" target="_blank" title="几米"><img src="http://www.yandui.com/pic/1168/RenWuBigImg.jpg" alt="几米" class="user f_l_img" /></a> 
+				<div class="list_text">
+					<h2><span class="person_name">
+						<a href="javascript:ShowAnaListParticularInfo({{ saying.id }});" id="AnaListParticularInfo_Arrowhead_Open_{{ saying.id }}" class="open_list" title="展开">&nbsp;</a>
+						<a href="javascript:ShowAnaListParticularInfo({{ saying.id }});" id="AnaListParticularInfo_Arrowhead_Close_{{ saying.id }}" class="display_off" title="收起">&nbsp;</a>        
+						<a href="http://www.yandui.com/renwu/9537/" title="几米">几米</a>                        
+						</span>说:						
+						<img src="/img/sl.gif" />                            
+						<span class="yulu_heading">                                
+							<a href="http://www.yandui.com/yulu/{{ saying.id }}/" title="{{ saying.content }}" target="_blank">{{ saying.content }}... </a>
+							<a href="/Ana/List/AnaSoundList.aspx?AnaId={{ saying.id }}" title="播放配音" class="have_audio">&nbsp;</a>
+						</span> 
+						<img src="/img/sr.gif" /> </h2>        
+						<div id="AnaListParticularInfo_{{ saying.id }}" class="display_off">
+							<p class="context">—— (不详) </p><p>来源：网络 </p><p><img src="/img/tag_icon.gif" alt="标签" /> 标签：<a href="http://www.yandui.com/tags/爱情语录/" title="爱情语录">爱情语录</a> </p>								
+							<p class="poster">
+								<img src="http://www.yandui.com/users/269/img/user_bigImg.jpg" class="user_small" alt="" />
+								<a href="http://www.yandui.com/people/269" title="Hello K K">Hello K K</a> -- 2007-12-24发布</p>								
+							<p class="opinion">
+								
+								<a href="http://www.yandui.com/yulu/{{ saying.id }}/#comment_content" title="评论" class="comment_btn1">评论[6]</a>
+			                        <a href="javascript:CollectionAna({{ saying.id }},'');" title="收藏" class="collection_btn1">收藏[157]</a>
+			                        <a href="javascript:LikeAna({{ saying.id }},'');" title="喜欢[2469]" class="like_btn1" name="AnaLikeCount_{{ saying.id }}">喜欢[2469]</a>
+			                        <a href="javascript:NoLikeAna({{ saying.id }},'');" title="不喜欢[0]" class="dislike_btn1">不喜欢[0]</a>
+			                        <a href="javascript:AnaInformation({{ saying.id }});" title="举报[0]" class="report_btn1">举报[0]</a>
+								</p>							
+								</div>
+								<div class="clear"></div>
+		    </div>		
+       </div>					
+		{% endfor %}						
+								
+      </div>
+
+</div>	
+</div>	
+{% endblock %}

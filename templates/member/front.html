@@ -1,0 +1,12 @@
+{% extends "member/index.html" %}
+{% load i18n %}
+{% block title %}用户档案首页{% endblock %}
+
+{% block content %}
+<h2>战友花名册...</h2>
+{% for profile in profiles %}
+	{% include "member/profile/usercard.html" %}
+{% endfor %}
+
+{% endblock %}
+

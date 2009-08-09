@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Blog - {{ object.title|escape }}{% endblock %}
+{% block sidebar %}
+<a href="/todo/"> 返回 </a>
+{% endblock %}
+
+
+
+{% block content %}
+
+
+
+	<div class="subcolumns">
+		
+	    <div class="c25l">
+	      <div class="subcl">	      	
+	      	<div id="left_navigation">
+	      		<h2>操作菜单</h2>
+	      		<ul>
+	      			<li><a href="">添加待办事项</a></li>
+	      		</ul>
+	      		<h2>存档记录</h2>
+	      		<ul>
+	      			<li>全部待办事项（0项）</li>
+	      			<li>2009-01 已完成的事项（0项）</li>
+	      			<li>2009-02 未完成的事项（0项）</li>
+	      		</ul>
+			</div>
+	      </div>
+	    </div>
+	
+	    <div class="c75r">
+	      <div class="subcr">		
+	      		
+			<div class="subcolumns">
+				<div class="c62l">
+					<div class="subcl">
+						<div id="userprofile_content">
+							{% block userprofile_content %}
+							<h2>{{ object.name }}</h2>
+
+							{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+							
+							
+							<ul>
+							    {% for task in object.task_set.all %}
+							    <li>待办任务{{ forloop.counter }}:{{task.name}} {% if task.completed%}已完成，更改为未完成{%else%}未完成，更改为完成{% endif %}，上次更新于{{task.lastupdated|timesince}}前</li>，删除?<input type=checkbox value=true>
+							    {% endfor %}
+							</ul>
+
+							{% endblock %}		
+						</div>
+					</div>
+				</div>
+				
+				<div class="c38r">
+					<div class="subcr">
+						<div id="userprofile_content_related">
+							{% block userprofile_content_related %}{% endblock %}
+						</div>
+					</div>
+				</div>
+			</div>	
+			
+	      </div>
+	    </div>
+	    
+  	</div>	
+{% endblock %}

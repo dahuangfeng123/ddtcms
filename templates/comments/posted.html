@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}评论发表成功!{% endblock %}
+{% block css.custom %}
+<link href="{{MEDIA_URL}}themes/yaml/css/layout_2col_right_31.css" rel="stylesheet" type="text/css"/>
+<!--[if lte IE 7]>
+<link href="{{MEDIA_URL}}themes/yaml/css/patches/patch_2col_right_31.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+{% endblock css.custom %}
+
+{% block breadcrumbs %}&raquo; <a href="{% url news-index %}">新闻中心</a>{% for title, url in object.category.get_url_name %} &raquo; <a href='{{ url }}'>{{ title }}</a>{% endfor %} &raquo; <a href='{{ object.get_absolute_url }}'>{{ object.title|escape }}</a> {% endblock %}
+
+
+{% block content %}
+
+     <div >      
+        <h2>恭喜，您的评论已经发表成功!</h2>
+        <p>在编辑和管理员对您的评论进行审核后，您将可以看到您发表的评论。</p>
+        <p>感谢您的参与，<a href="{{comment.get_absolute_url}}">请回到您刚才查看的页面</a></p>
+     </div>     
+   
+{% endblock %}
+

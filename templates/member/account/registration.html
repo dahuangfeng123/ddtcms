@@ -1,0 +1,57 @@
+{% extends "member/base_2col.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "User registration" %}{% endblock %}
+{% block robots %}noindex,nofollow{% endblock %}
+
+{% block js.custom %}
+<script type="text/javascript">
+	$(function() {
+		$("input#id_username").focus();
+		$("input[type='text'], input[type='password']").addClass("text");
+	});
+</script>
+{% endblock %}
+
+{% block userprofile_content %}
+	<form class="yform" action="" method="post" accept-charset="utf-8">
+	<fieldset>
+		<legend>登记入伍</legend>
+		<label for="id_username">姓名（用户名）</label>
+		<p>{{ form.username }}
+			{% if form.username.errors %}
+				<span class="quiet red"><br />* {{ form.username.errors|join:"; " }}</span>
+			{% endif %}
+		</p>
+		<label for="id_email">邮件{% if not form.email.field.required %} (可选){% endif %}</label>
+		<p>{{ form.email }}
+			{% if form.email.errors %}
+				<span class="quiet red"><br />* {{ form.email.errors|join:"; " }}</span>
+			{% endif %}
+		</p>
+		<label for="id_password1">密码</label>
+		<p>{{ form.password1 }}
+			{% if form.password1.errors %}
+				<span class="quiet red"><br />* {{ form.password1.errors|join:"; " }}</span>
+			{% endif %}
+		</p>
+		<label for="id_password2">密码（重复）</label>
+		<p>{{ form.password2 }}
+			{% if form.password2.errors %}
+				<span class="quiet red"><br />* {{ form.password2.errors|join:"; " }}</span>
+			{% endif %}
+		</p>
+		{% if form.non_field_errors %}
+			<ul class="quiet red">{{ form.non_field_errors.as_ul }}</ul>
+		{% endif %}
+	</fieldset>
+	<div class="type-button"><input type="submit" value="参军入伍" id="submit" name="submit"/></div>
+	</form>
+{% endblock %}
+
+{% block userprofile_content_related %}
+	<div class="box">
+		<h3>加入我们,参军入伍</h3>
+		<p> 加入本社区是简单快捷的. 您仅仅需要填写这个表单来获得访问私人的内容的权限.</p>
+	</div>
+{% endblock %}

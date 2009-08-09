@@ -1,0 +1,421 @@
+{% extends 'base.html' %}
+{% load i18n themes news_tags%}
+
+{% block title %}首页{% endblock %}
+{% block js.custom %}<script type="text/javascript" src="{{ MEDIA_URL }}themes/yaml/js/yaml.index.js"></script>
+	<script type="text/javascript" src="{{ MEDIA_URL }}themes/yaml/js/addfav.js"></script>
+	<script type="text/javascript" src="{{ MEDIA_URL }}js/tab.js"></script>
+{% endblock js.custom %}
+
+{% block content %}
+<div  class="subcolumns coolsubcol">
+	即时新闻：<marquee onmouseover="stop();" onmouseout="start();" scrollamount="6" width="80%">
+	{% for notice in notice_list %}
+   <a href="{{ notice.get_absolute_url }}" target="_blank">{{ notice.title }}</a>{% endfor %}</marquee>
+</div>
+
+<div class="subcolumns">
+	<div id="banner">
+		 
+			<a href="{% url signup %}"><img  src="{{ MEDIA_URL }}themes/yaml/images/20081229154340ad02news.gif"  /></a>
+		 
+	</div>
+</div>
+
+
+
+<div class="subcolumns">
+	<div class="c75l">
+	  <div class="subcl">
+	  	<div class="subcolumns">
+            <div class="c50l">
+              <div class="subcl">
+              	<div id="recommended">
+					<div class="big_pic">
+						{% for pic_news in pic_news_list %}
+						<div id="pic_{{ forloop.counter }}" {% if not forloop.first %}style="display:none;"{% endif %}><a  href="{{pic_news.get_absolute_url}}" blockid="1121"><img src="{{ pic_news.pic }}" alt="{{ pic_news.title }}" onmouseover="pauseSwitch();"  onmouseout="goonSwitch();"/></a></div>{% endfor %}
+
+
+						<div id="pictitle" onmouseover="pauseSwitch();"  onmouseout="goonSwitch();"></div>
+						<ul id="picnum"></ul>
+						<div class="bg" onmouseover="pauseSwitch();"  onmouseout="goonSwitch();"></div>
+						<script type="text/javascript">
+						var maxpic = {{pic_news_list.count}} ;
+						var CurScreen = 1 ;
+
+						var piclist = new Array();
+						{% for pic_news in pic_news_list %}
+						piclist[{{ forloop.counter }}]=Array();
+						piclist[{{ forloop.counter }}]['title'] = '{{ pic_news.title }}' ;
+						piclist[{{ forloop.counter }}]['stitle'] = '<a href="{{pic_news.get_absolute_url}}">{{ pic_news.subtitle }}</a>' ;
+						piclist[{{ forloop.counter }}]['link1'] = '{{pic_news.get_absolute_url}}' ;
+						{% endfor %}
+
+
+						var refreshSwitchTimer = null;
+						switchPic(CurScreen);
+						refreshSwitchTimer = setTimeout('reSwitchPic();', 3500);
+						<!---->
+							function switchPic(screen) {
+							if (screen > maxpic) {
+								screen = 1 ;
+							}
+							for (i=1;i<=maxpic;i++) {
+								document.getElementById("pic_"+i).style.display = "none" ;
+							}
+							document.getElementById("pic_"+screen).style.display = "block" ;
+							showpicnum(screen);
+							showpictitle(screen);
+							CurScreen = screen  ;
+							}
+							function showpicnum(screen) {
+							var NavStr = "" ;
+							for (i=maxpic;i>=1;i--) {
+								if (i == screen) {
+									NavStr += '<li onmouseover="pauseSwitch();" onmouseout="goonSwitch();"><a href="javascript://" target="_self" class="active">'+i+'</a></li>' ;
+								}
+								else {
+									NavStr += '<li onmouseover="pauseSwitch();" onmouseout="goonSwitch();" onclick="goManSwitch('+i+');"><a href="javascript://" target="_self">'+i+'</a></li>' ;
+								}
+
+							}
+							document.getElementById("picnum").innerHTML = NavStr ;
+							}
+							function showpictitle(screen) {
+							var titlestr = "" ;
+							titlestr = '<h3><a href="'+piclist[screen]['link1']+'" target="_blank">'+piclist[screen]['title']+'</a></h3><p>'+piclist[screen]['stitle']+'</p>' ;
+							document.getElementById("pictitle").innerHTML = titlestr ;
+							}
+							function reSwitchPic() {
+							refreshSwitchTimer = null;
+							switchPic(CurScreen+1);
+							refreshSwitchTimer = setTimeout('reSwitchPic();', 3500);
+							}
+							function pauseSwitch() {
+							clearTimeout(refreshSwitchTimer);
+							}
+							function goonSwitch() {
+							clearTimeout(refreshSwitchTimer);
+							refreshSwitchTimer = setTimeout('reSwitchPic();', 3500);
+							}
+							function goManSwitch(index) {
+							clearTimeout(refreshSwitchTimer);
+
+							CurScreen = index - 1 ;
+							reSwitchPic();
+							}
+							</script>
+				<!-- --></div>
+
+				
+					
+				</div>
+				
+
+				<div id="Tab2">
+	<div class="Tab2_th">
+       <!--TAB-->
+          <div class="menu">
+            <ul id="menu2">
+              <li  id="Tablstbox21" onmouseover="tab('Tablstbox2',1,2)"  class="current">一周新闻排行</li>
+              <li  id="Tablstbox22" onmouseover="tab('Tablstbox2',2,2)">推荐新闻</li>
+            </ul>
+          </div>
+       <!--TAB-->
+    </div>
+    <div class="Tablstbox2" id="main2">
+    <div  class="cont" id="Tablstbox2_cont1">
+            <ul>
+             <li>[行业资讯]&nbsp;<a href="http://www.xinnong.com/news/20090619/819689.html" target="_blank">预测：猪肉价格不会“报复性”增长</a></li>
+<li>[行业资讯]&nbsp;<a href="http://www.xinnong.com/news/20090622/819830.html" target="_blank">全国猪肉价格稳步回升</a></li>
+<li>[行业资讯]&nbsp;<a href="http://www.xinnong.com/news/20090619/819686.html" target="_blank">未来十年农产品价格可能继续上涨</a></li>
+<li>[行业资讯]&nbsp;<a href="http://www.xinnong.com/news/20090619/819759.html" target="_blank"><strong>6月19日：未来三天全国天气预报</strong></a></li>
+<li>[行业资讯]&nbsp;<a href="http://www.xinnong.com/news/20090622/819921.html" target="_blank"><strong>6月22日：未来三天全国天气预报</strong></a></li>
+<li>[行业资讯]&nbsp;<a href="http://www.xinnong.com/news/20090622/819879.html" target="_blank">农业部大力发展无公害农产品</a></li>
+
+            </ul>
+    </div>
+    <div  class="cont" id="Tablstbox2_cont2"  style="display:none;">
+            <ul class="block">
+              <li>[鸡]&nbsp;<a href="http://www.xinnong.com/ji/news/820522.html" target="_blank">肉鸡市场持续降温 价格普遍下滑</a></li>
+<li>[鸡]&nbsp;<a href="http://www.xinnong.com/ji/news/820521.html" target="_blank">6月26日肉鸡行情概述及6月27日肉鸡行情预测</a></li>
+<li>[鸡]&nbsp;<a href="http://www.xinnong.com/ji/news/820520.html" target="_blank">持续下滑，蛋鸡养殖业受到市场打压</a></li>
+<li>[牛]&nbsp;<a href="http://www.xinnong.com/niu/news/820519.html" target="_blank">四项措施扎实推进第二批“双带”资金肉牛补栏工作</a></li>
+<li>[牛]&nbsp;<a href="http://www.xinnong.com/niu/news/820518.html" target="_blank">“生态奶牛城”再现杭州</a></li>
+<li>[猪]&nbsp;<a href="http://www.xinnong.com/zhu/news/820517.html" target="_blank">6月25日猪肉价格继续</a></li>
+
+            </ul>
+    </div>
+     </div>
+</div>
+        <!---->
+				
+				
+				
+
+              </div>
+            </div>
+
+            <div class="c50r">
+              <div class="subcr">
+                <div class="headline">
+				    <h2>推荐头条</h2>
+                	{% for headline_news in headline_news_list %}
+					<h3><a href="{{headline_news.get_absolute_url}}" target="_blank">{{ headline_news.title|slice:"0:13" }}</a></h3>
+					<p>{{headline_news.summary|slice:"0:32"}}...<a href="{{headline_news.get_absolute_url}}" target="_blank">[查阅全文]</a></p>
+					{% endfor %}
+					<h2>最新新闻</h2>
+					<ul>						
+						{% for news in latest_news %}
+						<li>{%comment%}{{ news.pub_date|date:"Y-m-d" }}{%endcomment%}{{ news.category }}: <a href="{{news.get_absolute_url}}" title="{{ news.title }}" target="_blank">{{ news.title|slice:"0:15" }}</a>  </li>
+						{% endfor %}
+					</ul>
+				</div>
+              </div>
+            </div>
+          </div>
+	  </div>
+	</div>
+
+	<div class="c25r">
+	  <div class="subcr">
+	  	
+
+	  
+		<div class="special">
+			<div class="floatbox"><h2>军事专题</h2>
+			
+				<p>
+				<ul>
+					<li><a href="/special/#" target=_blank><strong>军事专题标题</strong>军事专题相关描述</a> </li> 
+					<li><a href="/special/#" target=_blank><strong>军事专题标题</strong>军事专题相关描述</a> </li> 
+					<li><a href="/special/#" target=_blank><strong>军事专题标题</strong>军事专题相关描述</a> </li> 
+					<li><a href="/special/#" target=_blank><strong>军事专题标题</strong>军事专题相关描述</a> </li> 
+					<li><a href="/special/#" target=_blank><strong>军事专题标题</strong>军事专题相关描述</a> </li> 
+		        </ul> 
+				</p>
+			  </div>
+			</div>        
+	    </div>
+	    
+	    <div>
+			<div class="notice">
+				<ul>
+					<li><a href="/notice/#" target=_blank><strong>网站通知网站通知</strong></a> </li> 
+					<li><a href="/notice/#" target=_blank><strong>网站通知网站通知</strong></a> </li> 
+					<li><a href="/notice/#" target=_blank><strong>网站通知网站通知</strong></a> </li> 
+		        </ul> 
+
+
+			</div>        
+	    </div>
+	  
+	  
+	</div>
+</div>
+
+<div class="subcolumns coolsubcol">
+	
+	<div class="subc">
+		<h2><span class="float_right"><A href="#{%comment%}/photologue/{%endcomment%}">更多图片...</A></span>军事图片</h2>
+		<div class="floatbox">			
+			{% for photo in latest_photos %}
+			<p class="icaption_left">
+				<a href="{{ photo.get_absolute_url }}" ><img src="{{ photo.get_thumbnail_url }}" alt="{{ photo.caption }}" width="132" height="99"/><strong><b>图{{ forloop.counter }}:</b> {{ photo.title }} </strong></a>
+			</p>
+			{% endfor %}			 
+		</div>
+	</div>	
+</div>
+
+<div class="subcolumns coolsubcol">
+
+	<div class="c33l">
+	  <div class="subcl">
+	    <h3>时政要闻</h3>
+
+		{% get_posts_by_category "szyw" 5 as news_items %}
+	
+		<ul>
+			{% for item in news_items %}
+			<li>{{ item.pub_date|date:"m-d" }} <a href="{{ item.get_absolute_url }}">{{ item.title }}</a></li>		
+			{% endfor %}
+
+		</ul>
+	  </div>
+	</div>
+
+	<div class="c33l">
+	  <div class="subcl">
+	    <h3>政工动态</h3>
+
+		<ul>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+		</ul>
+	  </div>
+	</div>
+
+	<div class="c33r">
+	  <div class="subcr">
+	    <h3>后勤工作</h3>
+
+		<ul>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+		</ul>
+	  </div>
+	</div>
+</div>
+
+<div class="subcolumns coolsubcol">
+
+
+	<div class="c33l">
+	  <div class="subcl">
+	    <h3>行政管理</h3>
+
+		<ul>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+		</ul>
+	  </div>
+	</div>
+
+	<div class="c33l">
+	  <div class="subcl">
+	    <h3>军事训练</h3>
+
+		<ul>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+		</ul>
+	  </div>
+	</div>
+
+	<div class="c33r">
+	  <div class="subcr">
+	    <h3>安全工作</h3>
+
+		<ul>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+		</ul>
+	  </div>
+	</div>
+</div>
+
+
+<div class="subcolumns coolsubcol">
+
+<div class="reportnav">
+	<div class="menu">
+            <ul id="menu16">
+            	<li>机关要事：</li>
+              <li  id="jgys1" onmouseover="tab('jgys',1,3)" class="current">业务处</li>
+              <li  id="jgys2" onmouseover="tab('jgys',2,3)">政治处</li>
+              <li  id="jgys3" onmouseover="tab('jgys',3,3)">管理处</li>
+            </ul>
+          </div>
+				
+			</div>
+			<div class="cont" id="jgys_cont1">
+				<a href="index.html" target="_blank">甲型H1N1流感疫情全球蔓延</a>
+				<ul>
+				<li>·<a href="index.html" target="_blank">法航空客A330飞机坠毁</a></li>
+				<li>·<a href="index.html" target="_blank">百年通用汽车遭遇破产危机</a></li>
+				<li>·<a href="index.html" target="_blank">成都一公交车燃烧伤亡惨重</a></li>
+				</ul>
+			</div>
+			<div class="cont" id="jgys_cont2" style="display:none;">
+				<ul>
+				<li>·<a href="6D000A94367.html" target="_blank">胡锦涛就加蓬总统邦戈逝世向加蓬代总统致唁电</a></li>
+				<li>·<a href="AB000921339.html" target="_blank">孟建柱：公安领导干部要做到知错就改</a></li>
+				</ul>
+			</div>
+			<div class="cont" id="jgys_cont3" style="display:none;">
+				<ul>
+				<li>·<a href="6D000A94367.html" target="_blank">胡锦涛就加蓬总统邦戈逝世向加蓬代总统致唁电</a></li>
+				<li>·<a href="AB000921339.html" target="_blank">孟建柱：公安领导干部要做到知错就改</a></li>
+				<li>·<a href="6D000A94367.html" target="_blank">胡锦涛就加蓬总统邦戈逝世向加蓬代总统致唁电</a></li>
+				<li>·<a href="AB000921339.html" target="_blank">孟建柱：公安领导干部要做到知错就改</a></li>
+				<li>·<a href="6D000A94367.html" target="_blank">胡锦涛就加蓬总统邦戈逝世向加蓬代总统致唁电</a></li>
+				<li>·<a href="AB000921339.html" target="_blank">孟建柱：公安领导干部要做到知错就改</a></li>
+				</ul>
+			</div>
+
+
+		
+
+</div>
+
+
+<div class="subcolumns coolsubcol">
+
+	<div class="c75l">
+	  <div class="subcl">
+	    <h3>XX</h3>
+
+		<ul>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+		</ul>
+	  </div>
+	</div>
+
+	<div class="c25r">
+	  <div class="subcr">
+	    <h3>热门XX排行</h3>
+
+		<ul>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+			<li><a href=" ">待添加...</a>2009-2-2</li>
+		</ul>
+	  </div>
+	</div>
+</div>
+{% endblock %}
+
+{% block extended_content %}
+<div id="extended">
+	<div class="page_margins">
+		<div class="page">
+			<div id="links">
+				<h3>友情链接(申请链接请拨电话：0781-87725)</h3>
+				<ul  class="text">{% for link in links %}
+					<li><a href="{{ link.url }}" target="_blank">{{ link.title }}</a></li>{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock extended_content%}
