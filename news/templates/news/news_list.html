@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load markup news_tags %}
+
+{% block title %}
+	News
+{% endblock %}
+
+{% block breadcrumbs %}&raquo; <a href="{% url news-index %}">新闻中心</a>{% for title, url in category.get_url_name %} &raquo; <a href='{{ url }}'>{{ title }}</a>{% endfor %}  {% endblock %}
+
+
+{% block content %}
+<h1>News</h1>
+
+	<h2>{{ category.name }}</h2>
+	{% get_posts_by_category category.slug 5 as news_items %}
+	{% for item in news_items %}
+		<li>{{ item.pub_date|date:"Y-m-j" }} <a href="{{ item.get_absolute_url }}">{{ item.title }}</a></li>		
+	{% endfor %}
+	
+	{% if is_paginated %}
+		<p>
+			{% if has_previous %}
+				<a href="?page={{ previous }}">&laquo; Previous</a> |
+			{% endif %}
+			
+			{% for p in page_range %}
+				{% ifequal page p  %}
+					<span class="current page">{{ p }}</span>
+				{% else %}
+					<a href="?page={{ p }}">{{ p }}</a>
+				{% endifequal %}
+			{% endfor %}
+			
+			{% if has_next %}
+				| <a href="?page={{ next }}">Next &raquo;</a>
+			{% endif %}
+		</p>
+	{% endif %}
+	
+{% endblock %}
