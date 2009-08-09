@@ -4,8 +4,8 @@ from django.http import HttpResponseRedirect
 from django.template import RequestContext
 
 from ddtcms.home.views import common_dict
-from ddtcms.blog.models import Entry
-from ddtcms.blog.forms import CreateEntryForm
+from ddtcms.blog.models import Blog
+from ddtcms.blog.forms import CreateBlogForm
 
 def index(request):
 #    return HttpResponse("Hello, Django.")
@@ -24,7 +24,7 @@ def index(request):
 
 
 def post(request, success_url=None,
-             form_class=CreateEntryForm,
+             form_class=CreateBlogForm,
              template_name='blog/blog_post.html',
              extra_context=None):
     

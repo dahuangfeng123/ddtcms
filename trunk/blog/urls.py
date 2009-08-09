@@ -1,10 +1,10 @@
 from django.conf.urls.defaults import *
 from ddtcms.home.views import common_dict
-from ddtcms.blog.models import Entry
-from ddtcms.category.models import Category
+from ddtcms.blog.models import Blog
+from ddtcms.blog.models import Category
 
 common_dict.update({'app_label':'blog',
-    'latest_entry_list':Entry.objects.all()[:5],
+    'latest_Blog_list':Blog.objects.all()[:5],
     'category_list'  : Category.objects.all(),
         
     })
@@ -14,7 +14,7 @@ common_dict.update({'app_label':'blog',
     
     
 blog_dict = {
-'queryset': Entry.objects.all(),
+'queryset': Blog.objects.all(),
 'extra_context':common_dict,
 }
 
@@ -30,8 +30,7 @@ category_dict = {
 
 
 pages_dict = {
-'queryset': Entry.objects.all(),
-'extra_context':common_dict,
+'queryset': Blog.objects.all(),
 'paginate_by':3,
 }
 
@@ -47,7 +46,7 @@ archive_dict.update({'date_field': 'pub_date',})
 from django.core.paginator import Paginator, InvalidPage
 
 #
-# paginator = Paginator(Entry.objects.all().order_by('-pub_date'), 3)
+# paginator = Paginator(Blog.objects.all().order_by('-pub_date'), 3)
 #  latest_post_list = paginator.page(1).object_list
 #  catalog_list = Category.objects.all()  
 #  page_list = [i for i in paginator.page_range ]

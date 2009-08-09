@@ -6,16 +6,16 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User
 
 
-from ddtcms.blog.models import Entry
-from ddtcms.category.models import Category
+from ddtcms.blog.models import Blog
+from ddtcms.blog.models import Category
 
 from ddtcms.captcha.forms import *
 
 attrs_dict = { 'class': 'required' }
 
-CATEGORY_CHOICES = Category.objects.for_model(Entry)
+CATEGORY_CHOICES = {}
 
-class CreateEntryForm(forms.Form):
+class CreateBlogForm(forms.Form):
 
     username = forms.RegexField(regex=r'^\w+$',
                                 max_length=30,

@@ -2,11 +2,11 @@
 from django.contrib import admin
 from django.contrib.contenttypes.models import ContentType
 from django import forms
-from ddtcms.blog.models import Entry
-from ddtcms.category.models import Category
+from ddtcms.blog.models import Blog
+from ddtcms.blog.models import Category
 
 
-class BlogEntryAdminForm(forms.ModelForm):
+class BlogBlogAdminForm(forms.ModelForm):
     BLOOD_CHOICES = (
         (u'A型', u'A型'),
         (u'B型', u'B型'),
@@ -14,11 +14,23 @@ class BlogEntryAdminForm(forms.ModelForm):
         (u'AB型',u'AB型'),
     )
     class Meta:
-        model = Entry
+        model = Blog
 
+    #queries = {'user':'admin'}
+    #category = forms.ChoiceField(choices=Category.objects.all().filter(**queries))
+    #category = forms.ChoiceField(choices=Category.objects.all())
+    #category = forms.ChoiceField(choices=[(c.id,c.name) for c in Category.objects.all()])
+    #category = forms.ChoiceField(choices=Category.objects.for_model(Blog))
+    #category = forms.ChoiceField(choices=BLOOD_CHOICES)
+    #category=forms.ModelChoiceField(queryset=Category.objects.all().filter(**queries))
+    #category=forms.ModelChoiceField(queryset=Category.objects.all())
+    #category=forms.ModelChoiceField(queryset=Category.objects.all().filter(**queries))
+    #def clean_title(self):
+    #    # do something that validates your data
+    #    return self.cleaned_data["title"]
 
-class EntryAdmin(admin.ModelAdmin):
-    #form = BlogEntryAdminForm
+class BlogAdmin(admin.ModelAdmin):
+    #form = BlogBlogAdminForm
     
     #http://code.djangoproject.com/wiki/NewformsHOWTO
     #Lllama's handy how-do-I guide to newforms admin.
@@ -29,10 +41,10 @@ class EntryAdmin(admin.ModelAdmin):
         #Add in the request object, so that it may be referenced
         #later in the formfield_for_dbfield function.
         self.request = request
-        return super(EntryAdmin, self).__call__(request, url)
+        return super(BlogAdmin, self).__call__(request, url)
     
     def formfield_for_dbfield(self, db_field, **kwargs):
-        field = super(EntryAdmin, self).formfield_for_dbfield(db_field, **kwargs) # Get the default field
+        field = super(BlogAdmin, self).formfield_for_dbfield(db_field, **kwargs) # Get the default field
         if db_field.name == 'category': 
             #Add the null object
             my_choices = [('', '---------')]
@@ -45,12 +57,28 @@ class EntryAdmin(admin.ModelAdmin):
     
     def queryset(self, request):
         if request.user.is_superuser:
-            return super(EntryAdmin, self).queryset(request)
+            return super(BlogAdmin, self).queryset(request)
         else:
             queries = {'user':request.user}
-            return super(EntryAdmin, self).queryset(request).filter(**queries)
+            return super(BlogAdmin, self).queryset(request).filter(**queries)
             
 
+            #app, model = "blog.Blog".split('.')
+            #content_type=ContentType.objects.get(app_label=app, model=model)
+            #queries = {'category.content_type':content_type}
+
+               
+    #def save_model(self, request, obj, form, change):
+    #    obj.user = request.user
+    #    return super(BlogAdmin, self).save_model(request, obj, form, change)
+    
+    #def add_view(self, request, form_url='', extra_context=None):
+    #    ex_context={'category':Category.objects.for_model(Blog)}
+    #    return super(BlogAdmin, self).add_view(request, form_url='', extra_context=ex_context)
+
+    #def add_view(self, request, form_url='', extra_context=None):
+    #    ex_context={'category':Category.objects.for_model(Blog)}
+    #    return super(BlogAdmin, self).add_view(request, form_url='', extra_context=ex_context)
     
     #
     #CODE FROM :
@@ -101,4 +129,5 @@ class EntryAdmin(admin.ModelAdmin):
 
 
 
-admin.site.register(Entry,EntryAdmin)
+admin.site.register(Blog,BlogAdmin)
+admin.site.register(Category)

@@ -1,8 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
-from ddtcms.category.models import Category
+
 import datetime
+from blog.managers import BlogManager
+
 # attempt to load the django-tagging TagField from default location,
 # otherwise we substitude a dummy TagField.
 try:
@@ -18,12 +20,41 @@ except ImportError:
             return 'CharField'
     tagfield_help_text = _('Django-tagging was not found, tags will be treated as plain text.')
 
-
-
-
-
 # Create your models here.
-class Entry(models.Model):
+class Category(models.Model):
+        user          = models.ForeignKey(User, blank=True, null=True, related_name="blog_categories")
+        name          = models.CharField(_('name'), max_length=50)
+        slug          = models.SlugField(max_length=50,help_text='alias to the name,use english')
+        parent        = models.ForeignKey('self',null=True,blank=True,related_name='category_child')
+        depth         = models.PositiveSmallIntegerField(_("category's depth"), blank=True,null=True)
+        display_order = models.PositiveSmallIntegerField(_('order'), default=1)
+
+
+        class Meta:
+                verbose_name = _('Blog Category')
+                verbose_name_plural = _('Blog Categories')
+
+
+    
+        def __unicode__(self):
+                return self.name
+                
+        def get_absolute_url(self):
+        	return "/blog/%s/" %  self.slug
+    
+ 
+    
+	def get_children(self):
+		return self.category_child.all()
+    
+	def is_root(self):
+		if self.parent == None:
+			return True
+		return False
+
+
+
+class Blog(models.Model):
     title         = models.CharField(max_length=200)
     pub_date      = models.DateTimeField('date published',blank=True,default=datetime.datetime.now)
     content       = models.TextField()
@@ -35,15 +66,15 @@ class Entry(models.Model):
                   )
     summary       = models.TextField(help_text="One paragraph. Don't add tag.")
     tags          = TagField(help_text=tagfield_help_text, verbose_name=_('tags'))
-    views         = models.IntegerField(_("Views"), default=0)
-    comments      = models.IntegerField(_("Comments"), default=0)
+    views         = models.PositiveIntegerField(_("Views"), default=0)
+    comments      = models.PositiveIntegerField(_("Comments"), default=0)
 
-
+    objects       = BlogManager()
 
     class Meta:
         ordering      = ('-pub_date',)
-        verbose_name = _('Entry')
-        verbose_name_plural = _('Entries')
+        verbose_name = _('Blog')
+        verbose_name_plural = _('Blogs')
 #        get_latest_by = 'pub_date'
 #        db_table      = "blog_entry"
 
