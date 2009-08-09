@@ -1,0 +1,32 @@
+{% load attachment_tags %}
+{% load i18n %}
+	
+
+	{% get_attachments for object as attachment_list %}
+	{% if attachment_list %}
+	<table border="0" cellpadding="0" cellspacing="0" class="full">
+	<tr>
+		<td colspan="2" >
+			<h3>附件列表(Attached Files):</h3>
+			<table class="full" >
+				{%  for attachment in attachment_list %}
+					<tr  class="{% cycle odd,even %}" >
+						<td>{%if attachment.is_image %}
+							<p>下图上传于:{{ attachment.attached_timestamp }}
+							<br/><img src="{{ attachment.file_url}}"  alt="{{attachment.summary}}" onclick="if(this.width>=720) window.open('{{ attachment.file_url}}');" onload="if(this.width>'720'){this.width='720';this.alt+='\n点击查看大图';}if(this.height>'720')this.height='720';" >
+						    <br/>Fig.{{  forloop.counter }}:{{attachment.title}}</p>
+							{%else%}<dt>附件上传于:{{ attachment.attached_timestamp }}</dt>
+							<dd><a href="{{ attachment.file_url }}">{{ attachment.title  }}</a></dd>{% endif%}
+						</td>
+					</tr>								
+				{% endfor %}
+			</table>
+		</td>
+	</tr>
+	</table> 
+	{% endif %}
+	
+	<div style="text-align:right"><form action="{% new_attachment_url object %}" method="GET">
+		<input class="submit-btn" type="submit" value="添加附件" />
+	</form></div>
+
