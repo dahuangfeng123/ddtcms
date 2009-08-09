@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}待办事项{% endblock %}
+
+
+{% block maintitle %}待办事项{% endblock %}
+
+
+{% block content %}
+
+
+
+	<div class="subcolumns">
+		
+	    <div class="c25l">
+	      <div class="subcl">	      	
+	      	<div id="left_navigation">
+	      		<h2>操作菜单</h2>
+	      		<ul>
+	      			<li><a href="">添加待办事项</a></li>
+	      			<li></li>
+	      			<li><a href="{%url todo_manage%}">管理待办事项</a></li>
+	      		</ul>
+	      		<h2>存档记录</h2>
+	      		<ul>
+	      			<li>全部待办事项（0项）</li>
+	      			<li>2009-01 已完成的事项（0项）</li>
+	      			<li>2009-02 未完成的事项（0项）</li>
+	      		</ul>
+			</div>
+	      </div>
+	    </div>
+	
+	    <div class="c75r">
+	      <div class="subcr">		
+	      		
+			<div class="subcolumns">
+				<div class="c62l">
+					<div class="subcl">
+						<div id="userprofile_content">
+							{% block userprofile_content %}
+							<h2>待办事项列表</h2>
+							<ol id="object-list">
+								{% for object in latest %}
+								<li>
+									<h3><a href="{{ object.get_absolute_url }}">{{ object.name|escape }}</a></h3>
+									<p><span class="post-date">创建于{{object.pub_date|timesince}}之前</span></p>
+									<p><span class="summary info">{{ object.desc }}</span></p>
+								</li>
+								{% endfor %}
+							</ol>
+							{% endblock %}		
+						</div>
+					</div>
+				</div>
+				
+				<div class="c38r">
+					<div class="subcr">
+						<div id="userprofile_content_related">
+							{% block userprofile_content_related %}{% endblock %}
+						</div>
+					</div>
+				</div>
+			</div>	
+			
+	      </div>
+	    </div>
+	    
+  	</div>	
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}通知 - {{ object.title|escape }}{% endblock %}
+
+{% block content %}
+<h2>{{ object.title|escape }}</h2>
+
+<dl>
+<dt>Posted On:</dt>
+<dd>{{ object.pub_date|date:"Y-m-d h:i:s" }}</dd>
+</dl>
+<p>
+	
+{% autoescape off %}
+{{ object.content|linebreaks }}
+{% endautoescape %}
+
+</p>
+{% endblock %}

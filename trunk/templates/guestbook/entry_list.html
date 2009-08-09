@@ -1,0 +1,62 @@
+{% extends 'base.html' %}{% load i18n themes%}
+{% block title %}Guestbook{% endblock %}
+
+{% block content %}
+
+
+
+	<div class="subcolumns">
+		
+	    <div class="c25l">
+	      <div class="subcl">	      	
+	      	<div id="left_navigation">
+	      		<h2>操作菜单</h2>
+	      		<ul>
+	      			<li><a href="">添加新留言</a></li>
+	      		</ul>
+	      		<h2>链接分类</h2>
+	      		<ul>
+	      			<li>分类1</li>
+	      			<li>分类1</li>
+	      			<li>分类1</li>
+	      		</ul>
+			</div>
+	      </div>
+	    </div>
+	
+	    <div class="c75r">
+	      <div class="subcr">		
+	      		
+            <div><h1>Guestbook</h1>
+{% for entry in entry_list %}
+    <div class="entry_{% cycle odd,even %}">
+                    <p><b>{% if entry.url %}<a href="{{ entry.url }}">{% endif %}{{ entry.user }}{% if entry.url %}</a>{% endif %}</b> 于 {{ entry.submit_date|date:"Y-m-d G:i" }} 发表了留言:</p>
+        {{ entry.text|linebreaks }}
+    </div>
+{% endfor %}
+
+<form action="{% url guestbook-post %}" method="POST">
+    {% for field in form %}
+      {% if field.is_hidden %}
+        {{ field }}
+      {% else %}
+        <p
+          {% if field.errors %} class="error"{% endif %}
+          {% ifequal field.name "honeypot" %} style="display:none;"{% endifequal %}>
+          {% if field.errors %}{{ field.errors }}{% endif %}
+          {{ field.label_tag }} {{ field }}
+        </p>
+      {% endif %}
+    {% endfor %}
+    <p class="submit">
+      <input type="submit" name="submit" class="submit-post" value="Post" />
+      <input type="submit" name="submit" class="submit-preview" value="Preview" />
+    </p>
+</form>
+                </div>				
+			
+	      </div>
+	    </div>
+	    
+  	</div>	
+{% endblock %}

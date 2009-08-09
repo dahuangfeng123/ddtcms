@@ -1,0 +1,71 @@
+{% extends "member/base_2col.html" %}
+{% load i18n %}
+
+{% block title %}选择您的头像的位置{% endblock %}
+{% block robots %}noindex,nofollow{% endblock %}
+
+{% block js.custom %}
+<script type="text/javascript">
+	$(function() {
+	//avatar
+		$("a.delavatar").click(function() {
+			$.getJSON($(this).attr("href"), function(data) {
+				if (data.success) {
+					$("img#avatarimg").attr("src", "{{ generic96 }}");
+					$("p#avatardelete").remove();
+				}
+			});
+			return false;
+		});
+	});
+</script>
+{% endblock %}
+
+{% block userprofile_navigation %}
+{% include "member/menu.html" %}
+{% endblock %}
+
+{% block userprofile_content %}
+	<form class="yform" action="" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+		{% if form.errors %}
+			{% for error,desc in form.errors.items %}
+				<p class="error">{{desc|join:"; "}}</p>
+			{% endfor %}
+		{% endif %}
+		<fieldset>
+			<legend>选择您的头像的位置</legend>
+			<ul>
+			<li>
+				<label for="id_photo">从磁盘选择一个图像:</label>
+				<p>{{ form.photo }}
+				<input type="submit" value="完成" />
+				</p>
+			</li>
+			<li>
+				<label for="id_url">从远程的URL选择一个图像,请您将图像的URL填入下面的输入框内,我们将根据URL地址把图片下载到服务器上来:</label>
+				<p>{{ form.url }}
+				<input type="submit" value="完成" />
+				</p>
+			</li>
+			{% if AVATAR_WEBSEARCH %}
+			<li>
+				<a class="large" href="{{ request.path_info }}search/">在 Picasa Web 搜索一个图像</a>
+			</li>
+			{% endif %}
+			</ul>
+		</fieldset>
+		</form>
+{% endblock %}
+
+{% block userprofile_content_related %}
+  <div class="box">
+    <h3>头像选择页面</h3>
+		<p>您有几种选择去选取图像作为您的档案中的个性头像.</p>
+  </div>
+
+	{% load avatars %}
+  <div class="center">
+		<img class="border" id="avatarimg" src="{% avatar 96 %}" />
+    {% if user.get_profile.has_avatar %}<p id="avatardelete" style="text-align: center;"><a href="{{ request.path_info }}delete/" class="delavatar">删除</a></p>{% endif %}
+	</div>
+{% endblock %}
