@@ -113,7 +113,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'ddtcms.urls'
 
-# the theme name 'default, yaml'
+# the theme name ' yaml,'
 THEME_NAME = 'yaml'
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -126,7 +126,7 @@ TEMPLATE_DIRS = (
 
 
 LOCALE_PATHS =(
-    './locale/',
+    './locale/',    
 )
 
 
@@ -179,9 +179,9 @@ NAVBAR_TREE_MAX_DEPTH = 3
 NAVBAR_TREE_SHOW_DEPTH = 0
 NAVBAR_TREE_MARK_SELECTED = True
 
-NAVBAR_MAX_DEPTH=3
-NAVBAR_MARK_SELECTED=True
-NAVBAR_SHOW_DEPTH=0
+NAVBAR_MAX_DEPTH = 3
+NAVBAR_MARK_SELECTED = True
+NAVBAR_SHOW_DEPTH = 0
 CRUMBS_HOME = False
 #NAVBAR_CRUMBS_HOME = 'Home'
 #navbar settings END

@@ -3,7 +3,6 @@
 
 {% block title %}首页{% endblock %}
 {% block js.custom %}<script type="text/javascript" src="{{ MEDIA_URL }}themes/yaml/js/yaml.index.js"></script>
-	<script type="text/javascript" src="{{ MEDIA_URL }}themes/yaml/js/addfav.js"></script>
 	<script type="text/javascript" src="{{ MEDIA_URL }}js/tab.js"></script>
 {% endblock js.custom %}
 
@@ -112,49 +111,46 @@
 				</div>
 				
 
-				<div id="Tab2">
-	<div class="Tab2_th">
-       <!--TAB-->
-          <div class="menu">
-            <ul id="menu2">
-              <li  id="Tablstbox21" onmouseover="tab('Tablstbox2',1,2)"  class="current">一周新闻排行</li>
-              <li  id="Tablstbox22" onmouseover="tab('Tablstbox2',2,2)">推荐新闻</li>
-            </ul>
-          </div>
-       <!--TAB-->
-    </div>
-    <div class="Tablstbox2" id="main2">
-    <div  class="cont" id="Tablstbox2_cont1">
-            <ul>
-             <li>[行业资讯]&nbsp;<a href="http://www.xinnong.com/news/20090619/819689.html" target="_blank">预测：猪肉价格不会“报复性”增长</a></li>
-<li>[行业资讯]&nbsp;<a href="http://www.xinnong.com/news/20090622/819830.html" target="_blank">全国猪肉价格稳步回升</a></li>
-<li>[行业资讯]&nbsp;<a href="http://www.xinnong.com/news/20090619/819686.html" target="_blank">未来十年农产品价格可能继续上涨</a></li>
-<li>[行业资讯]&nbsp;<a href="http://www.xinnong.com/news/20090619/819759.html" target="_blank"><strong>6月19日：未来三天全国天气预报</strong></a></li>
-<li>[行业资讯]&nbsp;<a href="http://www.xinnong.com/news/20090622/819921.html" target="_blank"><strong>6月22日：未来三天全国天气预报</strong></a></li>
-<li>[行业资讯]&nbsp;<a href="http://www.xinnong.com/news/20090622/819879.html" target="_blank">农业部大力发展无公害农产品</a></li>
-
-            </ul>
-    </div>
-    <div  class="cont" id="Tablstbox2_cont2"  style="display:none;">
-            <ul class="block">
-              <li>[鸡]&nbsp;<a href="http://www.xinnong.com/ji/news/820522.html" target="_blank">肉鸡市场持续降温 价格普遍下滑</a></li>
-<li>[鸡]&nbsp;<a href="http://www.xinnong.com/ji/news/820521.html" target="_blank">6月26日肉鸡行情概述及6月27日肉鸡行情预测</a></li>
-<li>[鸡]&nbsp;<a href="http://www.xinnong.com/ji/news/820520.html" target="_blank">持续下滑，蛋鸡养殖业受到市场打压</a></li>
-<li>[牛]&nbsp;<a href="http://www.xinnong.com/niu/news/820519.html" target="_blank">四项措施扎实推进第二批“双带”资金肉牛补栏工作</a></li>
-<li>[牛]&nbsp;<a href="http://www.xinnong.com/niu/news/820518.html" target="_blank">“生态奶牛城”再现杭州</a></li>
-<li>[猪]&nbsp;<a href="http://www.xinnong.com/zhu/news/820517.html" target="_blank">6月25日猪肉价格继续</a></li>
-
-            </ul>
-    </div>
-     </div>
-</div>
-        <!---->
+				<div id="tab1" class="report">
+					<div class="reportnav">
+						<!--TAB-->
+						<div class="menu">
+						<ul id="menu2">
+						<li  id="Tablstbox21" onmouseover="tab('Tablstbox2',1,2)"  class="current">一周新闻排行</li>
+						<li  id="Tablstbox22" onmouseover="tab('Tablstbox2',2,2)">推荐新闻</li>
+						</ul>
+						</div>
+						<!--TAB-->
+					</div>
+					<div class="Tablstbox2" id="main2">
+						<div  class="cont" id="Tablstbox2_cont1">
+							<ul>
+								<li>[行业资讯]&nbsp;<a href="#" target="_blank">新闻标题不超过100字节</a></li>
+								<li>[行业资讯]&nbsp;<a href="#" target="_blank">新闻标题不超过100字节</a></li>
+								<li>[行业资讯]&nbsp;<a href="#" target="_blank">新闻标题不超过100字节</a></li>
+								<li>[行业资讯]&nbsp;<a href="#" target="_blank">新闻标题不超过100字节</a></li>
+								<li>[行业资讯]&nbsp;<a href="#" target="_blank">新闻标题不超过100字节</a></li>
+							</ul>
+						</div>
+						<div  class="cont" id="Tablstbox2_cont2"  style="display:none;">
+							<ul class="block">
+								<li>[推荐新闻]&nbsp;<a href="#" target="_blank">新闻标题不要超过100字节</a></li>
+								<li>[推荐新闻]&nbsp;<a href="#" target="_blank">新闻标题不要超过100字节</a></li>
+								<li>[推荐新闻]&nbsp;<a href="#" target="_blank">新闻标题不要超过100字节</a></li>
+								<li>[推荐新闻]&nbsp;<a href="#" target="_blank">新闻标题不要超过100字节</a></li>
+								<li>[推荐新闻]&nbsp;<a href="#" target="_blank">新闻标题不要超过100字节</a></li>
+							</ul>
+						</div>
+						
+					</div>
+				</div>
+				<!---->
 				
 				
 				
 
-              </div>
-            </div>
+              </div><!--subcl-->
+            </div><!--c50l-->
 
             <div class="c50r">
               <div class="subcr">
@@ -179,11 +175,20 @@
 
 	<div class="c25r">
 	  <div class="subcr">
-	  	
-
+	    
+	    <div>
+			<div class="notice">
+				<ul>
+					<li><a href="/notice/#" target=_blank><strong>网站通知网站通知</strong></a> </li> 
+					<li><a href="/notice/#" target=_blank><strong>网站通知网站通知</strong></a> </li> 
+					<li><a href="/notice/#" target=_blank><strong>网站通知网站通知</strong></a> </li> 
+		        </ul>
+			</div>        
+	    </div>
 	  
 		<div class="special">
-			<div class="floatbox"><h2>XX专题</h2>
+			<div class="floatbox">
+				<h2>XX专题</h2>
 			
 				<p>
 				<ul>
@@ -196,21 +201,8 @@
 				</p>
 			  </div>
 			</div>        
-	    </div>
+	    </div>	  
 	    
-	    <div>
-			<div class="notice">
-				<ul>
-					<li><a href="/notice/#" target=_blank><strong>网站通知网站通知</strong></a> </li> 
-					<li><a href="/notice/#" target=_blank><strong>网站通知网站通知</strong></a> </li> 
-					<li><a href="/notice/#" target=_blank><strong>网站通知网站通知</strong></a> </li> 
-		        </ul> 
-
-
-			</div>        
-	    </div>
-	  
-	  
 	</div>
 </div>
 
@@ -327,42 +319,41 @@
 
 
 <div class="subcolumns coolsubcol">
-
+<div id="tab2" class="report">
 <div class="reportnav">
 	<div class="menu">
-            <ul id="menu16">
-            	<li>QQQQQQQQQ:</li>
-              <li  id="jgys1" onmouseover="tab('jgys',1,3)" class="current">XXXX</li>
-              <li  id="jgys2" onmouseover="tab('jgys',2,3)">YYYYY</li>
-              <li  id="jgys3" onmouseover="tab('jgys',3,3)">ZZZZZ</li>
-            </ul>
-          </div>
-				
-			</div>
-			<div class="cont" id="jgys_cont1">
-				<a href="" target="_blank">甲型H1N1流感疫情全球蔓延</a>
-				<ul>
-				<li>·<a href="" target="_blank">法航空客A330飞机坠毁</a></li>
-				<li>·<a href="" target="_blank">百年通用汽车遭遇破产危机</a></li>
-				<li>·<a href="" target="_blank">成都一公交车燃烧伤亡惨重</a></li>
-				</ul>
-			</div>
-			<div class="cont" id="jgys_cont2" style="display:none;">
-				<ul>
-				<li>·<a href="6D000A94367.html" target="_blank">胡锦涛就加蓬总统邦戈逝世向加蓬代总统致唁电</a></li>
-				<li>·<a href="6D000A94367.html" target="_blank">孟建柱：公安领导干部要做到知错就改</a></li>
-				</ul>
-			</div>
-			<div class="cont" id="jgys_cont3" style="display:none;">
-				<ul>
-				<li>·<a href="6D000A94367.html" target="_blank">胡锦涛就加蓬总统邦戈逝世向加蓬代总统致唁电</a></li>
-				<li>·<a href="6D000A94367.html" target="_blank">孟建柱：公安领导干部要做到知错就改</a></li>
-				<li>·<a href="6D000A94367.html" target="_blank">胡锦涛就加蓬总统邦戈逝世向加蓬代总统致唁电</a></li>
-				<li>·<a href="6D000A94367.html" target="_blank">孟建柱：公安领导干部要做到知错就改</a></li>
-				<li>·<a href="6D000A94367.html" target="_blank">胡锦涛就加蓬总统邦戈逝世向加蓬代总统致唁电</a></li>
-				<li>·<a href="6D000A94367.html" target="_blank">孟建柱：公安领导干部要做到知错就改</a></li>
-				</ul>
-			</div>
+		<ul id="menu16">
+			<li>某个分类:</li>
+			<li  id="jgys1" onmouseover="tab('jgys',1,3)" class="current">标签一</li>
+			<li  id="jgys2" onmouseover="tab('jgys',2,3)">标签二</li>
+			<li  id="jgys3" onmouseover="tab('jgys',3,3)">标签三</li>
+		</ul>
+	</div>
+</div>
+
+<div class="cont" id="jgys_cont1">
+	<ul>
+	<li>·<a href="" target="_blank">法航空客A330飞机坠毁</a></li>
+	<li>·<a href="" target="_blank">百年通用汽车遭遇破产危机</a></li>
+	<li>·<a href="" target="_blank">成都一公交车燃烧伤亡惨重</a></li>
+	</ul>
+</div>
+<div class="cont" id="jgys_cont2" style="display:none;">
+	<ul>
+	<li>·<a href="6D000A94367.html" target="_blank">胡锦涛就加蓬总统邦戈逝世向加蓬代总统致唁电</a></li>
+	<li>·<a href="6D000A94367.html" target="_blank">孟建柱：公安领导干部要做到知错就改</a></li>
+	</ul>
+</div>
+<div class="cont" id="jgys_cont3" style="display:none;">
+	<ul>
+	<li>·<a href="6D000A94367.html" target="_blank">胡锦涛就加蓬总统邦戈逝世向加蓬代总统致唁电</a></li>
+	<li>·<a href="6D000A94367.html" target="_blank">孟建柱：公安领导干部要做到知错就改</a></li>
+	<li>·<a href="6D000A94367.html" target="_blank">胡锦涛就加蓬总统邦戈逝世向加蓬代总统致唁电</a></li>
+	<li>·<a href="6D000A94367.html" target="_blank">孟建柱：公安领导干部要做到知错就改</a></li>
+	<li>·<a href="6D000A94367.html" target="_blank">胡锦涛就加蓬总统邦戈逝世向加蓬代总统致唁电</a></li>
+	<li>·<a href="6D000A94367.html" target="_blank">孟建柱：公安领导干部要做到知错就改</a></li>
+	</ul>
+</div></div>
 
 
 		

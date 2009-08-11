@@ -19,7 +19,7 @@
 {
 	/*  div{border:1px solid green}*/ 
 	 body { padding: 10px 0 0px 0; }
-	.page_margins { max-width: 80em; }
+	.page_margins { max-width: 780px; }
 	.page {margin: 0px 20px;background: #f9f9f9; }
 	
 	#topnav, #header, #nav,#breadcrumbs, #main, #extended, #footer { overflow:hidden; min-width: 760px; }
@@ -140,6 +140,6 @@
 		display: block;
 	}
 
-
 	
+
 }

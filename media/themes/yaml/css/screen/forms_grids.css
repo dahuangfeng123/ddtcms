@@ -1,0 +1,27 @@
+@charset "UTF-8";
+@media all
+{
+
+  form.yform fieldset {
+    border: 1px #ddd solid;
+    background: #fafafa;
+    margin: 0 0 1em 0;
+    padding: 0.5em 1em;
+  }
+
+  form.yform legend {
+    font-size: 125%; font-weight: normal; color: #000;
+  }
+
+  form.yform label {
+    font-weight: normal !important;
+    color: #008000;
+    font-size: 12px;
+  }
+  
+  form.yform .required label, form.yform label.required {
+    font-weight: bold !important;
+  }
+
+
+}

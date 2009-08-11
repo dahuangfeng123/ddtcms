@@ -124,20 +124,22 @@
 
   /*--- Links ----------------------------------------------------------------------------------------- */
 
-  a { color: #4D87C7; background:transparent; text-decoration:none; }
-  a:visited  { color: #036; }
+  a { color: SteelBlue;  text-decoration:none; }
+  a:visited  { color: gray; }
 
   a:focus,
   a:hover,
   a:active { color:#182E7A; text-decoration:underline; }
   
-  a.refout { padding-left: 11px; background:url(../images/external_link.gif) top left no-repeat; color: #679A06; }
-/*  a[class^="refout"]
+  .refout   a,   .refout   a:link,  a.refout,a.refout:link,a.refout:visited{ 
+	padding-left: 11px; background:url(../images/external_link.gif) top left no-repeat; color: #679A06;
+  } 
+  a[class^="refout"]
   {
 	padding-left: 11px; 
 	background:url(../images/external_link.gif) top left no-repeat; 
 	color: #679A06;
-  }*/
+  }/**/
   /* --- images (with optional captions) | Bilder (mit optionaler Bildunterschrift) ------------------ */
 
   p.icaption_left { float:left; display:inline; margin: 0 1em 0.15em 0; }

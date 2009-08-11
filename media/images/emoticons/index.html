@@ -1,0 +1,172 @@
+   <!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "DTD/xhtml1-transitional.dtd">
+  <html>
+    <head>
+      <title>Guestbook</title>
+
+<style type="text/css">
+<!--
+.link { color: #A2A6ed; font-family:ARIAL,SANS-SERIF; font-size:12px; text-decoration:none }
+a { color: #0000FF; font-family: VERDANA,ARIAL,SANS-SERIF; font-size: 12px; text-decoration:none }
+.bottomlink { color: #ffffCf; font-family: VERDANA,ARIAL,SANS-SERIF; font-size: 11px; text-decoration: none }
+.name { color: #ffffff; font-family: TAHOMA,VERDANA,ARIAL,SANS-SERIF; font-size: 14px; font-weight: bold }
+.text { color: #000000; font-family: VERDANA,ARIAL,SANS-SERIF; font-size: 12px }
+.comment { color: #000000; font-family: VERDANA,ARIAL,SANS-SERIF; font-size: 12px }
+.commenthead { color: #000000; font-family: VERDANA,ARIAL,SANS-SERIF; font-size: 12px; font-weight: bold }
+.info { color: #ffffff; font-family: VERDANA,ARIAL,SANS-SERIF; font-size: 10px }
+.next { color: #ffffff; font-family: VERDANA,ARIAL,SANS-SERIF; font-size: 10px }
+.preview { color: #FFFFCF; font-family: TAHOMA,VERDANA,ARIAL,SANS-SERIF; font-size: 14px; font-weight: bold }
+.empty { color: #FFFFFF; font-family: VERDANA,ARIAL,SANS-SERIF; font-size: 12px }
+.topleft { color: #ffffff; font-family: VERDANA,ARIAL,SANS-SERIF; font-size: 10px }
+.rating { color: #FFFFFF; font-family: VERDANA,ARIAL,SANS-SERIF; font-size: 10px }
+.formhead { color: #ffffff; font-family: VERDANA,ARIAL,SANS-SERIF; font-size: 10px; font-weight: bold }
+.formname { color: #ffffff; font-family: VERDANA,ARIAL,SANS-SERIF; font-size: 10px }
+.optional { color: #ffffff; font-family: VERDANA,ARIAL,SANS-SERIF; font-size: 10px }
+.sizes { color: #CCAAFF; font-family: VERDANA,ARIAL,SANS-SERIF; font-size: 10px }
+.select { color: #CCCCCC; font-family: VERDANA,ARIAL,SANS-SERIF; font-size: 11px }
+.copy { color: #A2A6dd; font-family: VERDANA,ARIAL,SANS-SERIF; font-size: 10px }
+.vgblink { font-size: 11px; font-family: VERDANA,ARIAL,SANS-SERIF; font-weight: bold; color:#A2A6ed }
+.custom { color: #BBBBBB; font-family: VERDANA,ARIAL,SANS-SERIF; font-size: 12px; font-weight: bold }
+.customval { color: #BBBBBB; font-family: VERDANA,ARIAL,SANS-SERIF; font-size: 12px }
+.option { color: #AAAAAA; font-family: VERDANA,ARIAL,SANS-SERIF; font-size: 12px; font-weight: bold }
+.active { color: #FFFFCF; font-family: TAHOMA,VERDANA,ARIAL,SANS-SERIF; font-size: 14px; font-weight: bold }
+.status { color: #FFFFFF; font-family: ARIAL,SANS-SERIF; font-size: 14px; font-weight: bold }
+.error { color: #FF8080; font-family: ARIAL,SANS-SERIF; font-size: 14px }
+.menu { color: #FFFFCF; font-family: ARIAL,SANS-SERIF; font-size: 14px; font-weight: bold }
+.number { color: #FFFFCF; font-family: TAHOMA,VERDANA,ARIAL,SANS-SERIF; font-size: 14px; font-weight: bold }
+.stats { color: #FFFFCF; font-family: VERDANA,ARIAL,SANS-SERIF; font-size: 12px; font-weight: bold }
+.value { color: #B0B8D8; font-family: VERDANA,ARIAL,SANS-SERIF; font-size: 10px }
+.novalue { color: #B0B8D8; font-family: VERDANA,ARIAL,SANS-SERIF; font-size: 10px }
+.date { color: #CFDFF0; font-family: VERDANA,ARIAL,SANS-SERIF; font-size: 10px }
+.privhead { color: #000000; font-family: VERDANA,ARIAL,SANS-SERIF; font-size: 12px; text-decoration: underlined; font-weight: bold }
+.privlink { color: #0000FF; font-family: VERDANA,ARIAL,SANS-SERIF; font-size: 12px; text-decoration:none }
+.commentlink { color: #0000FF; font-family: ARIAL,SANS-SERIF; font-size: 10px; text-decoration:none; font-weight: bold }
+.bbcodelink { color: #FFFFFF; font-family: ARIAL,SANS-SERIF; font-size: 12px; text-decoration:nonetextarea { overflow: auto }
+-->
+</style>
+ 
+   </head>
+
+   <body style='margin: 0px; padding: 0px; background:url(skins/Standard_English/images/background.jpg) repeat-y; background-color: #00309F; scrollbar-base-color:#4C4CB6; scrollbar-3dlight-color:#6080DF; scrollbar-arrow-color:#8373DF; scrollbar-darkshadow-color:#000000; scrollbar-face-color:#4C4CB6; scrollbar-highlight-color:#7878BF; scrollbar-shadow-color:#000000; scrollbar-track-color:#000050'>
+    <table border="0" width="100%" cellspacing="0" cellpadding="0">
+    <tr>
+      <td align="left" valign="top"><img src="skins/Standard_English/images/title.gif" alt="" /><br />
+&nbsp; <a onfocus="if(document.all) this.blur()" href='index' class='link'>Show guestbook</a><span class='select'> | </span>
+<span class='menu'>Sign guestbook</span><span class='select'> | </span> <a onfocus="if(document.all) this.blur()" href='index?stats=0' class='link'>Statistics</a><span class='select'> | </span><a href='http://www.pythonchallenge.com' class='link'>Back to main index</a>
+</td>
+    </tr>
+        <tr>
+      <td><center><br />
+<script type='text/javascript'>
+<!--
+function isEmpty(inString) {
+  var Empty = true;
+  for (var i=0;i<inString.length;i++) {
+    if ((inString.charAt(i) != ' ') &&
+        (inString.charAt(i) != '\t') &&
+        (inString.charAt(i) != '\r') &&
+        (inString.charAt(i) != '\n')) {
+      Empty = false;
+    }
+  }
+  return Empty;
+}
+
+function icon(zeichen) {
+  document.form.ENTRY.value += zeichen;
+  document.form.ENTRY.focus();
+}
+
+function check() {
+  if(isEmpty(document.form.NAME.value))  {
+    alert('You must enter a name !');
+    document.form.NAME.focus();
+    return false;
+  }
+  if(isEmpty(document.form.ENTRY.value)) {
+    alert('You must enter a text !');
+    document.form.ENTRY.focus();
+    return false;
+  }
+  var pfx = 'pass=';
+  if (document.form.NAME.value.substring(0,pfx.length).toLowerCase() != pfx) {
+  if(document.form.COUNTRY.value == '') {
+    alert('You must choose a country !');
+    document.form.COUNTRY.focus();
+    return false;
+  }
+  }
+  return true;
+}
+//-->
+</script>
+<form name='form' action='index' method='post'  onsubmit='return check()'>
+<table border="0" cellspacing="0" cellpadding="0" bgcolor="#AA55DD">
+<tr>
+<td>
+<table border="0" cellspacing="2" cellpadding="0">
+<tr>
+  <td>
+
+  <table border="0" cellspacing="0" cellpadding="3" bgcolor="#7755BB">
+  <tr>
+    <td valign="top" colspan="2">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#9977DD">
+    <tr>
+    <td>
+    <table border="0" cellspacing="2" width="100%">
+    <tr>
+      <td align="left" bgcolor="#7755BB"><span class="formhead"><img src="skins/Standard_English/os/osx.gif" vspace="5" height="10" width="1" align="right" alt="" />&nbsp;Your data</span><span class='optional'> (*=optional):&nbsp;</span></td>
+      </tr>
+      <tr>
+      <td align="left" bgcolor="#7755BB">
+      <table border="0">
+      <tr>
+        <td><span class="formname">Name:</span></td>
+        <td><input type='text' name='NAME' value='' maxlength='40' size="30" /></td>
+      </tr>
+      <tr><td><span class='formname'>Country:</span></td><td><select name='COUNTRY' ><option value=''> &nbsp; </option><option value='85'>Afghanistan</option><option value='2'>Albania</option><option value='129'>Algeria</option><option value='195'>American Samoa</option><option value='3'>Andorra</option><option value='130'>Angola</option><option value='196'>Anguilla</option><option value='47'>Antigua and Barbuda</option><option value='70'>Argentina</option><option value='4'>Armenia</option><option value='197'>Aruba</option><option value='181'>Australia</option><option value='5'>Austria</option><option value='86'>Azerbaijan</option><option value='48'>Bahamas</option><option value='87'>Bahrain</option><option value='88'>Bangladesh</option><option value='49'>Barbados</option><option value='6'>Belarus</option><option value='7'>Belgium</option><option value='50'>Belize</option><option value='131'>Benin</option><option value='198'>Bermuda</option><option value='89'>Bhutan</option><option value='71'>Bolivia</option><option value='8'>Bosnia and Herzegovina</option><option value='132'>Botswana</option><option value='199'>Bouvet Island</option><option value='72'>Brazil</option><option value='200'>British Indian Ocean Territory</option><option value='90'>Brunei</option><option value='9'>Bulgaria</option><option value='133'>Burkina Faso</option><option value='134'>Burundi</option><option value='92'>Cambodia</option><option value='135'>Cameroon</option><option value='51'>Canada</option><option value='10'>Cap Verde</option><option value='202'>Cayman Islands</option><option value='136'>Central African Republic</option><option value='137'>Chad</option><option value='73'>Chile</option><option value='93'>China</option><option value='203'>Christmas Island</option><option value='204'>Cocos Islands</option><option value='74'>Colombia</option><option value='138'>Comoros</option><option value='205'>Cook Islands</option><option value='52'>Costa Rica</option><option value='11'>Croatia</option><option value='53'>Cuba</option><option value='82'>Cyprus</option><option value='12'>Czech Republic</option><option value='140'>Democratic Republic of the Congo</option><option value='13'>Denmark</option><option value='142'>Djibouti</option><option value='55'>Dominican Republic</option><option value='54'>Dominica</option><option value='94'>East Timor</option><option value='75'>Ecuador</option><option value='143'>Egypt</option><option value='56'>El Salvador</option><option value='144'>Equatorial Guinea</option><option value='145'>Eritrea</option><option value='14'>Estonia</option><option value='146'>Ethiopia</option><option value='207'>Falkland Islands</option><option value='206'>Faroe Islands</option><option value='182'>Fiji</option><option value='15'>Finland</option><option value='16'>France</option><option value='208'>French Guiana</option><option value='209'>French Polynesia</option><option value='147'>Gabon</option><option value='148'>Gambia</option><option value='17'>Georgia</option><option value='18'>Germany</option><option value='149'>Ghana</option><option value='210'>Gibraltar</option><option value='19'>Greece</option><option value='211'>Greenland</option><option value='57'>Grenada</option><option value='212'>Guadeloupe</option><option value='213'>Guam</option><option value='58'>Guatemala</option><option value='214'>Guernsey</option><option value='151'>Guinea Bissau</option><option value='150'>Guinea</option><option value='76'>Guyana</option><option value='59'>Haiti</option><option value='215'>Heard und McDonald Islands</option><option value='45'>Holy See (Vatican City)</option><option value='60'>Honduras</option><option value='216'>Hong Kong</option><option value='20'>Hungary</option><option value='21'>Iceland</option><option value='95'>India</option><option value='96'>Indonesia</option><option value='97'>Iran</option><option value='98'>Iraq</option><option value='22'>Ireland</option><option value='217'>Isle of Man</option><option value='99'>Israel</option><option value='23'>Italy</option><option value='141'>Ivory Coast</option><option value='61'>Jamaica</option><option value='100'>Japan</option><option value='218'>Jersey</option><option value='101'>Jordan</option><option value='102'>Kazakhstan</option><option value='152'>Kenya</option><option value='183'>Kiribati</option><option value='105'>Kuwait</option><option value='106'>Kyrgyzstan</option><option value='107'>Laos</option><option value='24'>Latvia</option><option value='108'>Lebanon</option><option value='153'>Lesotho</option><option value='154'>Liberia</option><option value='155'>Libya</option><option value='25'>Lichtenstein</option><option value='26'>Lithuania</option><option value='27'>Luxemburg</option><option value='219'>Macao</option><option value='28'>Macedonia</option><option value='156'>Madagascar</option><option value='157'>Malawi</option><option value='109'>Malaysia</option><option value='110'>Maldives</option><option value='158'>Mali</option><option value='29'>Malta</option><option value='184'>Marshall Islands</option><option value='220'>Martinique</option><option value='159'>Mauretania</option><option value='160'>Mauritius</option><option value='221'>Mayotte</option><option value='62'>Mexico</option><option value='185'>Micronesia</option><option value='30'>Moldova</option><option value='31'>Monaco</option><option value='111'>Mongolia</option><option value='222'>Montserrat</option><option value='161'>Morocco</option><option value='162'>Mozambique</option><option value='91'>Myanmar</option><option value='163'>Namibia</option><option value='186'>Nauru</option><option value='112'>Nepal</option><option value='223'>Netherlands Antilles</option><option value='32'>Netherlands</option><option value='224'>New Caledonia</option><option value='187'>New Zealand</option><option value='63'>Nicaragua</option><option value='165'>Nigeria</option><option value='164'>Niger</option><option value='225'>Niue</option><option value='226'>Norfolk Island</option><option value='103'>North Korea</option><option value='227'>Northern Mariana Islands</option><option value='33'>Norway</option><option value='113'>Oman</option><option value='114'>Pakistan</option><option value='188'>Palau</option><option value='64'>Panama</option><option value='189'>Papua New Guinea</option><option value='77'>Paraguay</option><option value='78'>Peru</option><option value='115'>Philippines</option><option value='229'>Pitcairn Islands</option><option value='34'>Poland</option><option value='35'>Portugal</option><option value='228'>Puerto Rico</option><option value='116'>Qatar</option><option value='139'>Republic of Congo</option><option value='230'>Reunion Island</option><option value='36'>Romania</option><option value='83'>Russia</option><option value='166'>Rwanda</option><option value='231'>Saint Helena</option><option value='65'>Saint Kitts and Nevis</option><option value='66'>Saint Lucia</option><option value='67'>Saint Vincent and the Grenadines</option><option value='232'>Saint-Pierre and Miquelon</option><option value='37'>San Marino</option><option value='167'>Sao Thome and Principe</option><option value='117'>Saudi Arabia</option><option value='168'>Senegal</option><option value='46'>Serbia and Montenegro</option><option value='169'>Seychelles</option><option value='170'>Sierra Leone</option><option value='118'>Singapore</option><option value='38'>Slovakia</option><option value='39'>Slovenia</option><option value='191'>Solomon Islands</option><option value='171'>Somalia</option><option value='172'>South Africa</option><option value='233'>South Georgia/Sandwich Islands</option><option value='104'>South Korea</option><option value='40'>Spain</option><option value='119'>Sri Lanka</option><option value='173'>Sudan</option><option value='79'>Suriname</option><option value='234'>Svalbard and Jan Mayen Islands</option><option value='174'>Swaziland</option><option value='41'>Sweden</option><option value='42'>Switzerland</option><option value='120'>Syria</option><option value='121'>Taiwan</option><option value='122'>Tajikistan</option><option value='175'>Tanzania</option><option value='123'>Thailand</option><option value='176'>Togo</option><option value='235'>Tokelau</option><option value='192'>Tonga</option><option value='68'>Trinidad and Tobago</option><option value='177'>Tunisia</option><option value='84'>Turkey</option><option value='124'>Turkmenistan</option><option value='236'>Turks und Caicos Islands</option><option value='193'>Tuvalu</option><option value='178'>Uganda</option><option value='43'>Ukraine</option><option value='125'>United Arab Emirates</option><option value='44'>United Kingdom</option><option value='69'>United States of America</option><option value='80'>Uruguay</option><option value='126'>Uzbekistan</option><option value='194'>Vanuatu</option><option value='81'>Venezuela</option><option value='127'>Vietnam</option><option value='201'>Virgin Islands (British)</option><option value='237'>Virgin Islands (USA)</option><option value='238'>Wallis und Futuna</option><option value='190'>Western Samoa</option><option value='128'>Yemen</option><option value='179'>Zambia</option><option value='180'>Zimbabwe</option><option value='1'>other Country</option></select></td></tr>            <tr><td valign='top'><span class='formname'>Email*:</span></td><td><input type='text' name='EMAIL' maxlength='40' value='' size='30' /></td></tr>      <tr><td><span class='formname'>Homepage*:</span></td><td><input type='text' name='HOMEPAGE' maxlength='40' value='http://' size='30' /></td></tr>                                    <tr><td><span class='formname'>Enter Code:</span></td><td><table><tr><td><input type='text' name='TICKET' maxlength='5' size='8' /><input type='hidden' name='TICKETID' value='3032' /></td><td> <img src='screen?vgbtekcit=3032&amp;vgbbgcol=cccccc&amp;vgbtxcol=442211' alt='' title='' border='1' /></td></tr></table></td></tr>     </table>
+      </td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+    </table>
+    </td>
+
+      
+  </tr>
+      
+      <tr>
+        <td colspan="2" align="center">
+        <table border="0" align="center" cellpadding="2">
+        <tr>
+          <td valign="top" align="center">
+          <span class="formname">Emoticons:</span><br /><table style="border: 3px solid #AAAAAA; background-color: #CCCCCC" cellspacing="0" cellpadding="2"><tr><td><table border="0" align="center" cellpadding="0"><tr><td><a href="javascript:icon(':-)')"><img alt='' border='0' src='skins/Standard_English/emoticons/smile.gif'  /></a></td><td><a href="javascript:icon(':-D')"><img alt='' border='0' src='skins/Standard_English/emoticons/laugh.gif'  /></a></td><td><a href="javascript:icon(';-)')"><img alt='' border='0' src='skins/Standard_English/emoticons/wink.gif'  /></a></td><td><a href="javascript:icon(':-(')"><img alt='' border='0' src='skins/Standard_English/emoticons/sad.gif'  /></a></td></tr><tr><td><a href="javascript:icon(':-/')"><img alt='' border='0' src='skins/Standard_English/emoticons/angry.gif'  /></a></td><td><a href="javascript:icon(':-*')"><img alt='' border='0' src='skins/Standard_English/emoticons/sick.gif'  /></a></td><td><a href="javascript:icon('8-)')"><img alt='' border='0' src='skins/Standard_English/emoticons/cool.gif'  /></a></td><td><a href="javascript:icon(':-0')"><img alt='' border='0' src='skins/Standard_English/emoticons/ohmy.gif'  /></a></td></tr><tr><td><a href="javascript:icon('8-0')"><img alt='' border='0' src='skins/Standard_English/emoticons/love.gif'  /></a></td><td><a href="javascript:icon(':-|')"><img alt='' border='0' src='skins/Standard_English/emoticons/unsure.gif'  /></a></td><td><a href="javascript:icon(':-!')"><img alt='' border='0' src='skins/Standard_English/emoticons/important.gif'  /></a></td><td><a href="javascript:icon(':-?')"><img alt='' border='0' src='skins/Standard_English/emoticons/question.gif'  /></a></td></tr><tr><td><a href="javascript:icon('#-)')"><img alt='' border='0' src='skins/Standard_English/emoticons/crazy.gif'  /></a></td><td><a href="javascript:icon(':-U')"><img alt='' border='0' src='skins/Standard_English/emoticons/special1.gif'  /></a></td><td><a href="javascript:icon(':-B')"><img alt='' border='0' src='skins/Standard_English/emoticons/special2.gif'  /></a></td><td><a href="javascript:icon(':-}')"><img alt='' border='0' src='skins/Standard_English/emoticons/tongue.gif'  /></a></td></tr></table></td></tr></table>          <br />
+          <input type='submit' value='Send' name='send' style='width: 100px;' />          <p></p>
+          <input type='submit' value='Preview' name='preview' style='width: 100px;' />          </td>
+
+          <td valign="top" align="left">
+          <span class="formname">
+          &nbsp;Text:
+          </span><br />
+          <textarea name='ENTRY' cols='40' rows='12'></textarea><br />
+                    </td>
+        </tr>
+        </table>
+        </td>
+      </tr>
+      </table>
+      </td>
+   </tr>
+   </table>
+   </td>
+ </tr>
+ </table>
+ </form> </center></td>
+    </tr>
+    </table>
+    <center><img src='skins/Standard_English/images/line.gif' height="2" width="300" vspace="10" alt="" /><br />
+    <span class='copy'></span><br /><br />&nbsp;</center>
+</body></html>

@@ -64,9 +64,9 @@ ul, ol, dl,dt,dd { margin: 0 0 1em 0; }
   h2 { border-bottom:1px  #ab1c1c solid; margin:3px 0;font-weight:bold; color:#8B0000;}
   h3 { text-decoration:underline;font-weight:bold; color:#dd1100;}
   
-  a:hover{ color:#000;background:#506400; }
+  a:hover{ color:black;background-color:skyblue; }
   
-  	.notice ul {width:160px;padding:3px 2px 3px 25px;margin:0;background:url(../images/notice_v.gif) no-repeat  6px 3px ; }
+  	.notice ul {padding:3px 2px 3px 25px;margin:0;background:url(../images/notice_v.gif) no-repeat  6px 3px ; }
 	.notice li {margin-bottom:1px; overflow:hidden; line-height:1.2em;}
 	.notice li a {display:block; padding:2px 1px; height:1.1em; position:relative;}
  
@@ -84,7 +84,7 @@ ul, ol, dl,dt,dd { margin: 0 0 1em 0; }
 	
 	.comments_list dt{font-weight:normal}
 	
-	#recommended{border:0px solid red; width:255px;  float:left;}
+	#recommended{border:0px solid red; width:255px;}
 	#recommended .bigpic{ width:255px; height:180px;}
 	
 	.big_pic{position:relative;width:255px; height:180px;overflow:hidden;}
@@ -134,34 +134,44 @@ ul, ol, dl,dt,dd { margin: 0 0 1em 0; }
 dl{margin:0px}
 dt.img{padding-left:18px;background: transparent url("../../images/jpg.gif") no-repeat top left;}
 .subcolumns{border:0px solid blue}
-/*.c50l, .c25l, .c33l, .c38l, .c66l, .c75l, .c62l {border:1px solid blue}
-.c50r, .c25r, .c33r, .c38r, .c66r, .c75r, .c62r {border:1px solid green} 
-.subc  { padding: 0 ; }
-.subcl { padding: 0 ; }
-.subcr { padding: 0 ; }*/
-
 .vcard{float:left}
 .vcard img{ margin:1px;width:64px; height:64px; overflow:hidden;}
 
 #banner img{ margin:1px;width:740px; height:84px; overflow:hidden;}
 	
-.report{height:335px;border-bottom:1px solid #c3d2e5  ;}
-.reportnav{height:25px;background:url(../images/title05.jpg) repeat-x;}
-.reportnav span{float:left;display:block;width:70px;line-height:24px;font-weight:bold;color:#000; text-align:center;border-right:1px solid #c3d2e5  ;cursor:pointer;background:url(http://news.tom.com/images/2009v2/title04.jpg) repeat-x;}
-.reportnav span.current{border-bottom:1px solid #fff;color:#dd1100  ; border-right:1px solid #c3d2e5  ;background:#fff;}
-.report .cont{width:175px;margin:3px auto 0;height:133px;}
+.report{border-bottom:1px solid #c3d2e5;}
+.reportnav{background:url(../images/title05.jpg) repeat-x;}
+.reportnav span{
+				float:left;
+				display:block;
+				width:70px;
+				font-weight:bold;
+				color:#000; 
+				text-align:center;
+				border-right:1px solid #c3d2e5;
+				cursor:pointer;
+				background:url(../images/title04.jpg) repeat-x;}
+				
+.reportnav span.current{
+				border-bottom:1px solid #fff;
+				color:#dd1100; 
+				border-right:1px solid #c3d2e5;
+				background:#fff;}
+				
+.report .cont{margin:3px 0;}
 .report .cont ul{padding-top:3px;}
 .report .cont ul li{line-height:21px;}
-.atten{width:160px;margin:0 auto;padding-top:23px; background:url(../images/title03.jpg) no-repeat;}
-.atten dl dt{line-height:22px;font-weight:bold;}.atten dl dt a{color:#c82303;}
-.atten dl dd{line-height:20px;}.atten dl dd em{color:#940001  ;}
-.atten .digg{padding:5px 0 0 5px;}
-.atten .number{width:50px;height:52px;background:url(../images/num.gif);cursor:pointer;}
-.atten .number strong{display:block;width:55px;padding:1px;height:30px;line-height:30px;text-align:center;font-size:18px;}
-.atten .number span{display:block;width:55px;padding:0 1px;height:20px;line-height:20px;text-align:center;font-size:12px;}
-.atten .number.tread{margin:-52px 0 0 86px;}
-.atten .number.push{margin:0 0 0 16px;color:#f00;}
-.current{line-height:24px;font-weight:bold;color:#000; text-align:center;border-right:1px solid #c3d2e5;
-cursor:pointer;
-border-bottom:1px solid #fff;color:#dd1100  ; border-right:1px solid #c3d2e5  ;background:#e7e7e7;}
+
+
+.current{
+		font-weight:bold;
+		text-align:center;
+		cursor:pointer;
+		color:#dd1100; 
+		border-right:1px solid #c3d2e5;
+		background:#e7e7e7;}
+
+
+
+
 }
