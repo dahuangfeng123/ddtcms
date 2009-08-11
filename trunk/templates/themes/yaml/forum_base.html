@@ -1,0 +1,131 @@
+{% load i18n themes%}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+	<title> {% block title %}title{% endblock %} - {{SITE_NAME}}</title>
+	{% block meta %}
+	<meta http-equiv="content-type" content="{% block meta.content-type %}text/html;charset=UTF-8{% endblock meta.content-type %}" />
+	<meta name="description" content="{% block meta.description %}{{ SITE_NAME }}{% endblock meta.description %}" />
+	<meta name="keywords" content="{% block meta.keywords %}{{ SITE_NAME }}{% endblock meta.keywords %}" />
+	<meta name="robots" content="{% block meta.robots %}index,follow{% endblock meta.robots %}" />
+	<meta name="generator" content="django" />
+	<meta name="copyright" content="http://www.{{SITE_NAME}}/" />
+	{% endblock meta %}
+
+	{% block css %}
+	{% block css.shared %}
+	<link href="{% theme_media_url %}css/layout_forum.css" rel="stylesheet" type="text/css"/>
+	<!--[if lte IE 7]>
+	<link href="{% theme_media_url %}css/patches/patch_forum.css" rel="stylesheet" type="text/css" />
+	<![endif]-->	
+	{% endblock css.shared %}
+	{% block css.custom %}{% endblock css.custom %}
+	{% endblock css%}
+
+	{% block js %}
+	{% block js.shared %}{% endblock js.shared %}
+	{% block js.custom %}{% endblock js.custom %}
+	{% endblock js%}
+</head>
+<body{% block bodyonload %}{% endblock bodyonload %}>
+	{% block header %}	
+	
+	<div id="header">
+		<div class="page_margins">
+			<div class="page">
+							
+				<div class="subcolumns">
+	
+					<div class="c50l">
+					  	<div class="subcl">
+					  		<h2><a href="/"><img src="{% theme_media_url %}images/logo.gif" alt="{{SITE_NAME}}" border="0" /></a></h2>
+					  	</div>
+					</div>
+				
+					<div class="c50r">
+						<div class="subcr txtalr">
+
+							<a href="/">首页</a> 
+							| <a href="/news/">新闻</a> 
+							| <a href="/blog/">博客</a> 
+							| <a href="/faq/">帮助</a> 
+							| <a href="http://code.google.com/p/ddtcms/">DDTCMS</a>
+				  	
+					  	</div>
+					</div>
+				</div>
+			
+			</div>
+		</div>	
+	</div>
+
+	<div id="nav"> 
+		<div class="page_margins">
+			<div class="page">
+			<a id="navigation" name="navigation"></a><!-- skiplink anchor: navigation -->
+			<div id="nav_main1">
+	
+				<ul>
+					<li><a href="{% url signup %}" class="notabs">注册</a></li>
+					<li><a href="{% url profile_overview %}">登录</a></li>
+					<li><a href="/tags/">标签</a></li>
+					<li><a href="/faq/">帮助</a></li>
+				</ul>
+			</div>
+			</div>
+		</div>			
+	</div>
+	
+	{% endblock header%}
+	
+	{% block content %}{% endblock %}
+
+	{% block extended_content %}{% endblock extended_content%}
+	
+	{% block footer %}
+	<div id=footer>
+		<div class="page_margins">
+			<div class="page">
+	
+				<div class="subcolumns">
+	
+					<div class="c50l">
+					  	<div class="subcl">
+					  		<div id="footlinks">
+				
+							<p>
+								<a href="/member/?action=clearcookies&amp;formhash=490f1305">清除Cookies</a> 
+							 ┆ <a href="archiver/" target=_blank>纯文字版</a>
+							 ┆ <a href="#top">返回页首</a> 
+							
+							</p> 
+							
+							</div>
+					  	</div>
+					</div>
+				
+					<div class="c50r">
+						<div class="subcr txtalr">
+
+							<div id="copyright">
+								&copy; 2008 - 2009 {{SITE_NAME}}&trade; Website. All rights reserved.
+								<br/>Powered by <a href="http://code.google.com/p/ddtcms/" class="refout">DDTCMS</a> <EM>{{DDTCMS_VERSION}}</EM> .
+							</div>
+				  	
+					  	</div>
+					</div>
+				</div>
+				
+				
+		
+				
+	
+			</div><!--page-->
+		</div><!--page_margins-->
+	</div>
+
+
+
+	{% endblock footer%}
+</body>
+</html>
