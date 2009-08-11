@@ -8,13 +8,13 @@ admin.autodiscover()
 from django.views.generic.simple import direct_to_template
 from django.contrib.sitemaps import FlatPageSitemap, GenericSitemap
 from ddtcms.blog.sitemaps import BlogSitemap
-from ddtcms.blog.models import Entry
+from ddtcms.blog.models import Blog
 
-from userprofile.views import get_profiles
+from ddtcms.member.views import get_profiles
 
 
 info_dict = {
-    'queryset': Entry.objects.all(),
+    'queryset': Blog.objects.all(),
     'date_field': 'pub_date',
 }
 
@@ -43,47 +43,44 @@ urlpatterns = patterns('',
     (r'^(?i)captcha/',         include('ddtcms.captcha.urls')),
     (r'^(?i)notice/',          include('ddtcms.notice.urls')),
     (r'^(?i)link/',            include('ddtcms.link.urls')),
-    (r'^(?i)category/',        include('ddtcms.category.urls')),
+    (r'^(?i)people/',          include('ddtcms.people.urls')),
+    (r'^(?i)todo/',            include('ddtcms.todo.urls')),
+    (r'^(?i)guestbook/',       include('ddtcms.guestbook.urls')),
     
-    #(r'^(?i)member/',          include('ddtcms.profiles.urls')),
-    #(r'^(?i)member/',          include('ddtcms.member.urls')),
+    (r'^(?i)member/',          include('ddtcms.member.urls')),
+    (r'^(?i)member/$',         direct_to_template, {'extra_context': { 'profiles': get_profiles }, 'template': 'member/front.html' }),
+    
     (r'^(?i)photologue/',      include('photologue.urls')),
     (r'^(?i)photologue/$',     direct_to_template, {'template': 'photologue/index.html' }),
 
+    (r'^(?i)attachments/',     include('attachments.urls')),
+    (r'^(?i)tags/',            include('tagging.urls')),
     
     
-    #(r'^blog/',    include('diario.urls.entries')),   
-    
-    (r'^accounts/', include('userprofile.urls')),
-    #(r'^accounts/$', 'django.contrib.auth.views.login'),    
-    (r'^accounts/$', direct_to_template, {'extra_context': { 'profiles': get_profiles }, 'template': 'userprofile/front.html' }),
-        
-    #(r'^accounts/profile/$', 'django.views.generic.simple.direct_to_template',{'template':'registration/profile.html'}),
     
     # serve static medias
-    (r'^media/(?P<path>.*)$',   'django.views.static.serve',{'document_root': settings.STATIC_PATH}),
-    (r'^styles/(?P<path>.*)$',  'django.views.static.serve',{'document_root': settings.STATIC_STYLE}),
-    (r'^themes/(?P<path>.*)$',  'django.views.static.serve',{'document_root': settings.STATIC_THEMES}),
-    (r'^scripts/(?P<path>.*)$', 'django.views.static.serve',{'document_root': settings.STATIC_SCRIPT}),
-    (r'^images/(?P<path>.*)$',  'django.views.static.serve',{'document_root': settings.STATIC_IMAGE}),
-    (r'^upload/(?P<path>.*)$',   'django.views.static.serve',{'document_root': settings.STATIC_FILE_UPLOAD_DIR}),
+    (r'^(?i)media/(?P<path>.*)$',   'django.views.static.serve',{'document_root': settings.MEDIA_ROOT}),
+    (r'^(?i)themes/(?P<path>.*)$',  'django.views.static.serve',{'document_root': settings.STATIC_THEMES}),
+    (r'^(?i)images/(?P<path>.*)$',  'django.views.static.serve',{'document_root': settings.STATIC_IMAGE}),
+    (r'^(?i)css/(?P<path>.*)$',  'django.views.static.serve',{'document_root': settings.STATIC_CSS}),	
+    (r'^(?i)js/(?P<path>.*)$',  'django.views.static.serve',{'document_root': settings.STATIC_JS}),    		
+    (r'^(?i)upload/(?P<path>.*)$',   'django.views.static.serve',{'document_root': settings.STATIC_FILE_UPLOAD_DIR}),
+    (r'^(?i)editor/(?P<path>.*)$',   'django.views.static.serve',{'document_root': settings.STATIC_EDITOR_DIR}),
+    (r'^(?i)attachment/(?P<path>.*)$',   'django.views.static.serve',{'document_root': settings.STATIC_FILE_UPLOAD_DIR+"attachment/"}),
         
-    (r'^sitemap.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),    
-    #(r'^sitemap.xml$', 'django.contrib.sitemaps.views.index', {'sitemaps': sitemaps}),
-    (r'^sitemap-(?P<section>.+).xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
+    (r'^(?i)sitemap.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),    
+    #(r'^(?i)sitemap.xml$', 'django.contrib.sitemaps.views.index', {'sitemaps': sitemaps}),
+    (r'^(?i)sitemap-(?P<section>.+).xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
     
     # user django comments system    
-    (r'^comments/', include('django.contrib.comments.urls')),
-
-    # Uncomment this for admin0.96:
-    #(r'^admin/', include('django.contrib.admin.urls')),
+    (r'^(?i)comments/', include('django.contrib.comments.urls')),
     
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs'
     # to INSTALLED_APPS to enable admin documentation:
-    (r'^admin/docs/', include('django.contrib.admindocs.urls')),
+    (r'^(?i)admin/docs/', include('django.contrib.admindocs.urls')),
     
     # Uncomment the next line to enable the admin1.0beta:
-    (r'^admin/(.*)', admin.site.root),
+    (r'^(?i)admin/(.*)', admin.site.root),
 
 
 )

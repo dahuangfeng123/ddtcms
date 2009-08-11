@@ -9,7 +9,7 @@
 <![endif]-->
 {% endblock css.custom %}
 
-{% block breadcrumbs %}&raquo; <a href="{% url news-index %}">新闻中心</a>{% for title, url in object.category.get_url_name %} &raquo; <a href='{{ url }}'>{{ title }}</a>{% endfor %} &raquo; <a href='{{ object.get_absolute_url }}'>{{ object.title|escape }}</a> {% endblock %}
+{% block breadcrumbs %} <a href="/">首页</a>&raquo; <a href="{% url news-index %}">新闻中心</a>{% for title, url in object.category.get_url_name %} &raquo; <a href='{{ url }}'>{{ title }}</a>{% endfor %} &raquo; <a href='{{ object.get_absolute_url }}'>{{ object.title|escape }}</a> {% endblock %}
 
 
 {% block content %}
@@ -26,7 +26,7 @@
 					</div>
 					<div class="info">	
 						<h2>{{ object.title|escape }} </h2>
-						<p>分类：<a href="{{object.category.get_absolute_url}}" title="查看该分类中所有文章">{{object.category}}</a>  | 出处：{{ object.provenance }} | 提交人：{{ object.deliverer }}  | 查阅次数：{{ object.views}} | 责任编辑：{{ object.editor }} 	</p>
+						<p>分类：<a href="{{object.category.get_absolute_url}}" title="查看该分类中所有文章">{{object.category}}</a>  | 出处：{{ object.source }} |   | 查阅次数：{{ object.views}}  | [字号：大 中 小] 	</p>
 					
 						<dl>
 							<dt>标签(Tags):</dt>
@@ -43,15 +43,16 @@
 						{{ object.content|escape|linebreaks }}
 					{% endautoescape %}</p>
 					<p class="center">{% news_attachments object %}</p>			
-					<p class="right">[<a href="#post-comment">我来说两句</a>]</p>
+					<p class="right">(提交人：{{ object.deliverer }}，责任编辑：{{ object.editor }})<br />[<a href="#post-comment">我来说两句</a>(1条)]</p>
 				</div>	
 				
+		
 			</div>
 			
 			
 			<div class="info">
-				更旧的：{% if object.get_previous %}<a href="{{ object.get_previous.get_absolute_url }}"  title="">{{ object.get_previous }}</a>{%else%}没有了{% endif %} &nbsp;&nbsp;&nbsp;&nbsp;
-				更新的：{% if object.get_next %}<a href="{{ object.get_next.get_absolute_url }}"  title="">{{ object.get_next }}</a>{%else%}没有了{% endif %} 		
+				往前的：{% if object.get_previous %}<a href="{{ object.get_previous.get_absolute_url }}"  title="">{{ object.get_previous }}</a>{%else%}没有了{% endif %} &nbsp;&nbsp;&nbsp;&nbsp;
+				往后的：{% if object.get_next %}<a href="{{ object.get_next.get_absolute_url }}"  title="">{{ object.get_next }}</a>{%else%}没有了{% endif %} 		
 			</div>
 			
 		
@@ -68,8 +69,9 @@
 			{% get_comment_count for object as comment_count %}
 			<h2>评论列表<span id="commentAllCountin">({{ comment_count }}条)</span>:</h2>
 			{% get_comment_list for object as comment_list %}
-			<dl>{% for comment in comment_list %}
-				<dt>{{comment.user_name}}发表评论:</dt><dd>{{comment.comment}}({{ comment.submit_date|date:"Y-m-d P" }})</dd>
+			<dl class="comments_list">{% for comment in comment_list %}
+				<dt class="dimmed">战友 {{comment.user_name}} 在{{ comment.submit_date|date:"Y-m-d P" }}发表了评论:</dt>
+				<dd class="green">{{comment.comment}}</dd>
 		   {% endfor %}</dl>
 		   
 			<div id='commentform'><a name="post-comment"></a>

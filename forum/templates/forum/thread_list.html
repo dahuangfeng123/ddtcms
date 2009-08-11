@@ -3,6 +3,7 @@
 
 {% block title %}{{ forum.title }}{% endblock %}
 
+
 {% block extrahead %}
 <link rel="alternate" type="application/rss+xml" title="{{ forum.title }} Posts via RSS" href="{% url forum_index %}rss/{{ forum.slug }}/" />
 <link rel="alternate" type="application/atom+xml" title="{{ forum.title }} Posts via ATOM" href="{% url forum_index %}atom/{{ forum.slug }}/" />
@@ -15,100 +16,103 @@
 
 {% block content %}
 
-{% if forum.child.all %}
-<table id='djangoForumList'>
-<tr>
-<th>Sub-Forum</th>
-<th>Last Post</th>
-</tr>
-{% for subforum in forum.child.all %}
-<tr>
-<td class='djangoForumListDetails'><p><strong><a href='{{ subforum.get_absolute_url }}'>{{ subforum.title }}</a></strong><br /><span class='djangoForumStats'>{{ subforum.threads }} thread{{ subforum.threads|pluralize }}, {{ subforum.posts }} post{{ subforum.posts|pluralize }}</span></p>
-<p>{{ subforum.description }}</p></td>
-{% with subforum.forum_latest_post as latest_post %}
-<td class='djangoForumListLastPost'>{% if latest_post %}{{ latest_post.time|timesince }} ago by {{ latest_post.author }} (<a href='{{ latest_post.get_absolute_url }}'>view</a>){% else %}No Posts{% endif %}</td>
-{% endwith %}
-</tr>
-{% endfor %}
-</table>
-<br />
-{% endif %}
-
-
-<div class="mainbox threadlist">
-	<h1>
-		<a href="forumdisplay.php?fid=6" class="bold">使用交流</a>
-	</h1>
-	<form method="post" name="moderate" action="topicadmin.php?action=moderate&amp;fid=6">
-		<input type="hidden" name="formhash" value="0d4adb89" />
-<table summary="forum_6"  cellspacing="0" cellpadding="0">
-<thead class="category">
-<tr>
-	<td class="folder">?</td>
-	<td class="icon">?</td>
-	<th>{% trans "Thread" %}</th>
-	<td class="author">{% trans "Author" %}</td>
-	<td class="nums">{% trans "Reply" %}/{% trans "Views" %}</td>
-	<td class="lastpost">{% trans "Last Post" %}</td>
-</tr>
-</thead>
-
-
-
-{% for t in thread_list %}
-<tbody id="normalthread_{{ t.id }}" >
-<tr>
-<td class="folder">{% if t.sticky %}Sticky {% endif %}{% if t.closed %} (Closed){% endif %}<a href="{{ t.get_absolute_url }}" title="新窗口打开" target="_blank"><img src="{{ MEDIA_URL }}themes/forum/images/folder_common.gif" /></a></td>
-<td class="icon">&nbsp;</td>
-
-
-<th class="common" >
-<label>{% if t.agree %}<img src="{{ MEDIA_URL }}themes/forum/images/agree.gif" alt="" />{% else %}{% endif %}
-{% if t.sticky %}<img src="{{ MEDIA_URL }}themes/forum/images/pin_1.gif" alt="本版置顶" />{% else %}{% endif %}
-{% if t.jinghua %}<img src="{{ MEDIA_URL }}themes/forum/images/digest_1.gif" alt="精华 1" /> {% else %}{% endif %}
-</label>
-<span id="thread_{{ t.id }}"><a href="{{ t.get_absolute_url }}">{{ t.title|escape }}</a></span>
-</th>
-
-
-<td class="author bg_blue">
-<cite>
-<a href="space.php?action=viewpro&amp;uid=87212">{{ t.author }}</a>
-</cite>
-<em>2008-11-18</em></td>
-<td class="nums"><strong>{{ t.posts }}</strong> / <em>{{ t.views }}</em></td>
-<td class="lastpost bg_blue">
-    {% with t.thread_latest_post as latest_post %}
-    <em><a href="{{ latest_post.get_absolute_url }}">{{ latest_post.time|timesince }} ago</a></em><cite>by <a href="space.php?action=viewpro&amp;username=5m44595">{{ latest_post.author }}</a></cite></td>
-    {% endwith %}
-</tr>
-</tbody>
-{% endfor %}
-
-</table>
-</form>
-</div>
-
-
-{% if is_paginated %}
-<ul>
-  <li class="djangoForumPagination"><a href="?page=1">{% trans "First" %}</a></li>
-{% for page_number in paginator.page_range %}
-  <li class="djangoForumPagination"><a href="?page={{ page_number }}">{{ page_number }}</a></li>  
-{% endfor %}
-  <li class="djangoForumPagination"><a href="?page={{ paginator.num_pages }}">{% trans "Last" %}</a></li>  
-</ul>
-{% endif %}
-
-<h2>Create a Thread</h2>
-{% if user.is_authenticated %}
-<form method='post' action='new/'>
-<p><label>Posting As</label><span>{{ user.username }}</span></p>
-{{ form.as_p }}
-<p><input type='submit' value='Post' /></p>
-</form>
+{% if child_forums %}
+	<table  class="full">
+		<tr>
+		<th>板块</th>
+		<th>最后发表</th>
+		</tr>
+		{% for subforum in child_forums %}
+		<tr>
+		<td><p><strong><a href='{{ subforum.get_absolute_url }}'>{{ subforum.title }}</a></strong><br /><span class='djangoForumStats'>{{ subforum.threads }} thread{{ subforum.threads|pluralize }}, {{ subforum.posts }} post{{ subforum.posts|pluralize }}</span></p>
+		<p>{{ subforum.description }}</p></td>
+		{% with subforum.forum_latest_post as latest_post %}
+		<td>{% if latest_post %}{{ latest_post.time|timesince }} 前由 {{ latest_post.author }} 发表 (<a href='{{ latest_post.get_absolute_url }}'>查看</a>){% else %}无命中{% endif %}</td>
+		{% endwith %}
+		</tr>
+		{% endfor %}
+	</table>
 {% else %}
-<p>Please login to create a thread.</p>
+	<h1><a href="#" class="bold">{{ forum.title }}</a></h1>
+	<table cellspacing="0" cellpadding="0" class="full">
+	<thead>
+	<tr>
+		<td class="folder">图例</td>
+		<td class="icon">?</td>
+		<th>帖子</th>
+		<td class="author">作者</td>
+		<td class="nums">主题/回帖</td>
+		<td  style='width: 220px;' class="lastpost">最后发表</td>
+	</tr>
+	</thead>
+
+
+
+	{% for t in thread_list %}
+	<tbody id="normalthread_{{ t.id }}" >
+	<tr>
+	<td class="folder">
+	    {% if t.sticky %}Sticky {% endif %}
+	    {% if t.closed %}<img src="{{ MEDIA_URL }}themes/yaml/images/forum/folder_lock.gif" />{% endif %}
+	    <a href="{{ t.get_absolute_url }}" title="新窗口打开" target="_blank"><img src="{{ MEDIA_URL }}themes/yaml/images/forum/folder_common.gif" /></a></td>
+	<td class="icon">&nbsp;</td>
+
+
+	<th class="common" >
+	<label>{% if t.agree %}<img src="{{ MEDIA_URL }}themes/yaml/images/forum/agree.gif" alt="" />{% else %}{% endif %}
+	{% if t.sticky %}<img src="{{ MEDIA_URL }}themes/yaml/images/forum/pin_1.gif" alt="本版置顶" />{% else %}{% endif %}
+	{% if t.jinghua %}<img src="{{ MEDIA_URL }}themes/yaml/images/forum/digest_1.gif" alt="精华 1" /> {% else %}{% endif %}
+	</label>
+	<span id="thread_{{ t.id }}"><a href="{{ t.get_absolute_url }}">{{ t.title|escape }}</a></span>
+	</th>
+	
+	
+	<td class="author bg_blue">
+	<cite>
+	<a href="space/?action=viewpro&amp;uid=87212">{{ t.author }}</a>
+	</cite>
+	<em>2008-11-18</em></td>
+	<td class="nums"><strong>{{ t.posts }}</strong> / <em>{{ t.views }}</em></td>
+	<td class="lastpost bg_blue">
+	    {% with t.thread_latest_post as latest_post %}
+	    <em><a href="{{ latest_post.get_absolute_url }}">{{ latest_post.time|timesince }}前</a></em><cite>由 <a href="space/?action=viewpro&amp;username=5m44595">{{ latest_post.author }}</a></cite> 命中</td>
+	    {% endwith %}
+	</tr>
+	</tbody>
+	{% endfor %}
+	
+	</table>
+
+	{% if is_paginated %}
+	<ul class='list'>
+	  <li class="djangoForumPagination"><a href="?page=1">{% trans "First" %}</a></li>
+	{% for page_number in paginator.page_range %}
+	  <li class="djangoForumPagination"><a href="?page={{ page_number }}">{{ page_number }}</a></li>  
+	{% endfor %}
+	  <li class="djangoForumPagination"><a href="?page={{ paginator.num_pages }}">{% trans "Last" %}</a></li>  
+	</ul>
+	{% endif %}
+	<div>靶标:
+	<img src="{{ MEDIA_URL }}themes/yaml/images/forum/folder_common.gif" />没有新帖
+	<img src="{{ MEDIA_URL }}themes/yaml/images/forum/folder_lock.gif" />被锁定
+	<img src="{{ MEDIA_URL }}themes/yaml/images/forum/folder_new.gif" />新帖
+	<img src="{{ MEDIA_URL }}themes/yaml/images/forum/folder_hot.gif" />热帖
+	</div>
+
+
+	<h2>我要栽个靶子</h2>
+	{% if user.is_authenticated %}
+	<form method='post' enctype="multipart/form-data" action='new/'>
+	<p><label>作为</label><span>{{ user.username }}</span></p>
+<table>
+{{ form.as_table }}
+ </table>
+	<p><input type='submit' value='Post' /></p>
+	</form>
+	{% else %}
+	<p>请<a href="{% url forum_new_thread forum=forum.slug %}">登录</a>后再来栽个靶子.</p>
+	{% endif %}
 {% endif %}
+
 
 {% endblock %}
