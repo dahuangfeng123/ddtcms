@@ -1,0 +1,176 @@
+{% extends "forum_base.html" %}
+{% load i18n %}{% load markup attachment_inclusion_tag %}
+{% block title %}{{ thread.title|escape }} ({{ forum.title }}){% endblock %}
+{% block pagetitle %}{{ forum.title }} &raquo; {{ thread.title|escape }}{% endblock %}
+
+
+{% block breadcrumbs %}{% for title, url in thread.forum.get_url_name %} &raquo; <a href='{{ url }}'>{{ title }}</a>{% endfor %} &raquo; <a href='{{ thread.get_absolute_url }}'>{{ thread.title|escape }}</a> ({{ thread.posts }} post{{ thread.posts|pluralize }}){% endblock %}
+
+{% block content %}
+
+
+
+<h1><a href="{{ thread.forum.get_absolute_url }}">[{{ thread.forum }}]</a> {{ thread.title }}</h1>
+<strong title="复制帖子链接到剪贴板" id="postnum_{{ thread.id }}" onclick="setcopy('#', '帖子链接已经复制到剪贴板')">复制靶位地址</strong>
+<div class="pages_btns">
+	<span><a href="{{ thread.forum.get_absolute_url }}new/"><img src="{{ MEDIA_URL }}themes/yaml/images/forum/newtopic.gif" border="0" alt="发新话题" title="发新话题" /></a></span>
+	<a href="{{ thread.get_previous.get_absolute_url }}">上一主题</a><a href="{{ thread.get_next.get_absolute_url }}">下一主题</a>
+	<span><a href="reply"><img src="{{ MEDIA_URL }}themes/yaml/images/forum/reply.gif" border="0" alt="" /></a></span>
+
+
+<span>
+	<a href="" target="_blank" class="notabs">打印</a>
+</span>
+
+{% for post in post_list %}
+<div>
+	<a id="post{{ post.id }}" name="post{{ post.id }}"></a>
+	<table border="0" cellpadding="0" cellspacing="0" class="full">
+
+	<thead>
+		<tr><th scope="col" colspan="2">回复：{{ thread.title }}</th></tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th scope="col" width="200" align="center">
+				<a href="/accounts/profile/{{ post.author }}" target="_blank" id="userinfo{{ post.author.id }}">{{ post.author }}</a></cite>
+			</th>
+			<th scope="col">
+			    <span style='float:right'>第{% ifequal post.floor 1 %}{{ post.floor }}枪，靶主 {% else %}{{ post.floor }}枪{% endifequal %}</span>
+				发表于{{ post.time|date:"Y-m-d P" }}
+				 <a href="#">发短消息</a>
+				 <a href="/accounts/profile/{{ post.author }}/buddy/new/{{ post.author }}/" target="_blank" id="ajax_buddy_0" onclick="ajaxmenu(event, this.id, null, 0)">加为好友</a>
+				 <a href="/thread/&amp;tid={{ thread.id }}&amp;page=1&amp;authorid=179007">只看该作者</a>
+				 
+			</th>
+		</tr>
+		<tr>
+			<th scope="row" class="sub"  valign="top">
+				<cite>
+				
+				<div id="avatar"><div class="avatar"><img class="avatar" src="{{ MEDIA_URL }}member/avatars/noavatar.gif" alt="" /></div></div>
+				<p class="post_level"><em>新会员</em></p>
+				<p class="post_level_img"><img src="{{ MEDIA_URL }}themes/yaml/images/forum/star_level1.gif" alt="Rank: 1" /></p>
+
+
+
+				<dl>
+				<dt><dt>UID:</dt> <dd>{{ post.author.id }}</dd>
+				<dt>帖子:</dt> <dd>1</dd>
+				<dt>积分:</dt> <dd>3</dd>
+				<dt>注册时间:</dt> <dd>{{post.author.date_joined|date:"y-m-d P"}}</dd>
+				<dt>最后登录:</dt> <dd>{{post.author.last_login|date:"y-m-d P"}}</dd>
+				</dl>
+			</th>
+			<td id="postcontent_{{ post.id }}" valign="top">
+			{% autoescape off %}{% endautoescape %}
+			{{ post.body|removetags:"script font H1"|safe }}
+
+
+			<div>{% forum_post_attachments post %}</div>
+			<hr/>
+			<div style="text-align:right;display:none">
+				<img src="{{ MEDIA_URL }}themes/yaml/images/forum/btn_zc.png" border="0" alt="支持" title="支持" />&nbsp;&nbsp;&nbsp;&nbsp;
+				<img src="{{ MEDIA_URL }}themes/yaml/images/forum/btn_fd.png" border="0" alt="反对" title="反对" />
+			</div>
+
+
+			<fieldset>
+              <legend> 原创声明 </legend>
+              <div>
+              	<p class='highlight'>本文内容为我个人原创，绝无抄袭。</p>
+                <p class='dimmed'>本站欢迎各位发表原创内容，本版版主将根据原创内容质量酌情为作者加分，以表彰作者为创作做出的贡献。</p>
+              </div>
+            </fieldset>
+
+			<img src="{{ MEDIA_URL }}themes/yaml/images/forum/signature.gif" border="0" alt="签名档" title="签名档" />
+			<hr/>
+			<p>{{post.author.get_profile.intro}}</p>
+
+			</td>
+		</tr>
+		<tr>
+			<th scope="row" class="sub">帖子操作</th>
+			<td>
+				<div>
+				<span style='float:right'><strong onclick="scroll(0,0)" title="顶部" style="cursor:hand"><img src="{{ MEDIA_URL }}themes/yaml/images/forum/icon_top.gif" align="absmiddle"/>顶部</strong></span>
+				
+				<a href="{{ thread.get_absolute_url }}edit/?pid={{ post.id }}">修正本次射击</a>
+
+				
+
+				</div>
+			</td>
+		</tr>
+	</tbody>
+	</table>
+</div>
+{% endfor %}
+
+
+		<div class="pages_btns">
+			<span class="postbtn"><a href="{{ thread.forum.get_absolute_url }}new/"><img src="{{ MEDIA_URL }}themes/yaml/images/forum/newtopic.gif" border="0" alt="发新话题" title="发新话题" /></a></span>
+			<a href="{{ thread.get_previous }}">上一主题</a><a href="{{ thread.get_next }}">下一主题</a>
+			<span class="replybtn"><a href="reply"><img src="{{ MEDIA_URL }}themes/yaml/images/forum/reply.gif" border="0" alt="" /></a></span>
+
+
+		<select onchange="if(this.options[this.selectedIndex].value != '') {
+		window.location=('forum/'+this.options[this.selectedIndex].value+'&sid=eDmmlx') }">
+		<option value="">最近访问的版块 ...</option>
+		<option value="6">使用交流</option><option value="2">iQ浏览器公告</option>		</select>
+
+
+
+		{% if is_paginated %}
+		<ul>
+		  <li><a href="?page=1">{% trans "First" %}</a></li>
+		{% for page_number in paginator.page_range %}
+		  <li><a href="?page={{ page_number }}">{{ page_number }}</a></li>
+		{% endfor %}
+		  <li><a href="?page={{ paginator.num_pages }}">{% trans "Last" %}</a></li>
+		</ul>
+		{% endif %}
+
+		<h2>{% if request.user.is_authenticated %}<p><a href="{% url forum_subscriptions %}">{% trans "Update Subscriptions" %}</a></p>{% endif %}</h2>
+		<h2>发布一个回帖</h2>
+		{% if thread.closed %}
+		<p>Sorry, this thread is closed. No further replies are permitted.</p>
+		{% else %}
+		{% if user.is_authenticated %}
+
+<form  enctype="multipart/form-data" method='post' action='reply/'>
+<p><label>作为</label><span>{{ user.username }}</span></p>
+<table>
+{{ form.as_table }}
+<tr><th> </th><td><input type='submit' value=' 发     表 ' /></td></tr>
+</table>
+</form>
+
+
+		{% else %}
+		<p>发布回帖请<a href='{%url forum_reply_thread thread.id%}'>登录</a>.</p>
+		{% endif %}
+		{% endif %}
+
+
+
+{% endblock %}
+
+
+			{% block extended_content %}
+			<div id="footlinks">
+			<p></p>
+			<p>
+			 <a href="/clearcookies">清除Cookies</a>
+			 ┆ <a href="archiver/" target="_blank">纯文字版</a> ┆ <a href="#top">返回页首</a> ┆ <span id="styleswitcher" class="dropmenu" onmouseover="showMenu(this.id)">界面风格</span>
+			<script type="text/javascript">
+			function setstyle(styleid) {
+			location.href = 'view/thread/?tid=936&page=1&styleid=' + styleid;
+			}
+			</script>
+			<div id="styleswitcher_menu" class="popupmenu_popup" style="display: none;">
+			<ul><li><a href="#" onclick="setstyle(1)">YAML</a></li><li class="current"><a href="#" onclick="setstyle(7)">IQ_Browser</a></li></ul>
+			</div>
+			</p>
+			</div>
+			{% endblock extended_content%}

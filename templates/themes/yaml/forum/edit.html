@@ -1,0 +1,41 @@
+{% extends "forum_base.html" %}
+{% load i18n attachment_tags%}
+
+{% block title %}{% blocktrans with thread.title as title %}Reply to thread  "{{ title }}"{% endblocktrans %}{% endblock %}
+
+{% block pagetitle %}{% blocktrans with thread.title as title %}Reply to Thread "{{ title }}"{% endblocktrans %}{% endblock %}
+
+{% block breadcrumbs %}{% for title, url in thread.forum.get_url_name %} &raquo; <a href='{{ url }}'>{{ title }}</a>{% endfor %} &raquo; <a href='{{ thread.get_absolute_url }}'>{{ thread.title|escape }}</a> &raquo; Edit{% endblock %}
+
+{% block js.custom %}
+	<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery-1.2.6.min.js" ></script>
+	<script type="text/javascript" src="{{ MEDIA_URL }}js/attachment.js" ></script>
+{% endblock js.custom %}
+{% block content %}
+
+<h2>{% trans "Edit Post" %}</h2>
+<form  enctype="multipart/form-data" method='post' action='./'>
+{% if form.errors %}<ul>{{ form.errors.as_ul }}</ul>{% endif %}
+<p><label>作为</label><span>{{ user.username }}</span></p>
+<table>
+{{ form.as_table }}
+<tr><th>已有附件列表</th><td><div>
+    {% get_attachments for post as post_attachments %}
+    <ul class="post_attachments">
+    {% if post_attachments %}    
+    {% for attch in post_attachments %}
+    <li><a href="{{ attch.file_url }}" target='_blank'>{{ attch.title  }}</a>
+        <span class="small">上传于{{attch.attached_timestamp|timesince}}之前</span>
+        {% if user.is_authenticated %} <a class="attachment_delete" name="a_del_attachment" rel="{{attch.id}}" href="javascript:void 0;">删除</a> {% endif %}     
+    </li>                
+    {% endfor %}
+    {% else %}  
+    <li>该帖子没有附件</li>
+    {% endif %}  
+    </ul>
+    </div></td></tr>
+<tr><th> </th><td align='center'><input type='submit' value='提交修改' /></td></tr>
+</table>	
+</form>
+
+{% endblock %}

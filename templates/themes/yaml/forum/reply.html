@@ -1,0 +1,23 @@
+{% extends "forum_base.html" %}
+{% load i18n %}
+
+{% block title %}{% blocktrans with thread.title as title %}Reply to thread  "{{ title }}"{% endblocktrans %}{% endblock %}
+
+{% block pagetitle %}{% blocktrans with thread.title as title %}Reply to Thread "{{ title }}"{% endblocktrans %}{% endblock %}
+
+{% block breadcrumbs %}{% for title, url in thread.forum.get_url_name %} &raquo; <a href='{{ url }}'>{{ title }}</a>{% endfor %} &raquo; <a href='{{ thread.get_absolute_url }}'>{{ thread.title|escape }}</a> &raquo; Reply{% endblock %}
+
+
+{% block content %}
+
+<h2>{% trans "Reply to Thread" %}</h2>
+<form  enctype="multipart/form-data" method='post' action='./'>
+{% if form.errors %}<ul>{{ form.errors.as_ul }}</ul>{% endif %}
+<p><label>作为</label><span>{{ user.username }}</span></p>
+<table>
+{{ form.as_table }}
+<tr><th> </th><td align='center'><input type='submit' value=' 发     表 ' /></td></tr>
+</table>	
+</form>
+
+{% endblock %}
