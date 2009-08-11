@@ -5,70 +5,88 @@
  * (en) Screen layout for YAML examples
  * (de) Bildschirmlayout für YAML-Beispiele
  *
- * @copyright       Copyright 2005-2008, Dirk Jesse
+ * @copyright       Copyright 2005-2009, Dirk Jesse
  * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
  *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
  * @link            http://www.yaml.de
  * @package         yaml
- * @version         3.0.6
- * @revision        $Revision: 202 $
- * @lastmodified    $Date: 2008-06-07 14:29:18 +0200 (Sa, 07 Jun 2008) $
+ * @version         3.1
+ * @revision        $Revision: 343 $
+ * @lastmodified    $Date: 2009-01-19 23:41:32 +0100 (Mo, 19. Jan 2009) $
  */
 
 @media screen, projection
 {
-  /*------------------------------------------------------------------------------------------------------*/
-
   /**
    * (en) Formatting YAML's  basic layout elements
-   * (de) Gestaltung des YAML Basis-Layouts
    */
 
+  /**
+  * Design of the Basic Layout | Gestaltung des YAML Basis-Layouts
+  *
+  * @section layout-basics
+  */
+
+  /* Page margins and background | Randbereiche & Seitenhintergrund */
+  body { background: #00b7ee url("../../images/bg_body.jpg") repeat-x top left fixed; padding: 10px 0; }
+  body { text-align: center; }
+  
+  /* (en) Layout: width, background, borders */
+  .page_margins { min-width: 760px; max-width: 80em; }	
+  .page_margins { text-align:left; margin: 0 auto;  padding: 0px; background: #fff; }  
+
+  .page {margin: 0px 20px;padding: 0px;background: #fff; }
+  
+  /* Layout: Width, Background, Border | Layout: Breite, Hintergrund, Rahmen */
+  /* Design of the Main Layout Elements | Gestaltung der Hauptelemente des Layouts */
+  #header {
+    color: #000;
+  }
+  #topnav { color: #aaa; }
+
+  #main { background: #fff;padding:10px 0; }
+  
+  
+
+  #footer {
+    color:#666;
+    background: #f9f9f9;
+    padding: 0px;
+    border-top: 2px #f9f9f9 solid;    
+    line-height: 1.5em;
+  }
+
+
+ /**
+  * Design of Additional Layout Elements | Gestaltung weiterer Layoutelemente
+  *
+  * @section layout-misc
+  */
   /* (en) Marginal areas & page background */
   /* (de) Randbereiche & Seitenhintergrund */
-  body { background: #4d87c7 url("../../../images/bg_blue.gif") repeat-x top left fixed; padding: 10px 0; }
+  
 
   /* (en) Centering layout in old IE-versions */
   /* (de) Zentrierung des Layouts in alten IE-versionen */
-  body { text-align: center; }
-  #page_margins { text-align:left; margin: 0 auto; }
-
-  /* (en) Layout: width, background, borders */
-  /* (de) Layout: Breite, Hintergrund, Rahmen */
-  #page_margins { min-width: 740px; max-width: 80em; background: #fff; }
-  #page{ padding: 10px; }
+  
 
   /* (en) Designing main layout elements */
-  /* (de) Gestaltung der Hauptelemente des Layouts */
-  #header {
-    color: #000;
-    background: #fff repeat-x top left;
-    padding: 45px 2em 1em 20px; 
-  }
 
-  #topnav { color: #aaa; background: transparent; }
+  
+
+  
 
   /* (en) adjustment of main navigation */
-  /* (de) Anpassung der Hauptnavigation */
-  #nav ul { margin-left: 20px; }
-  #nav_main { background-color: #336; }
 
-  #main { background: #fff;padding:10px 0; }
 
-  #footer { 
-    color:#666; 
-    background: #f9f9f9;
-    padding: 10px 20px;
-    border-top: 5px #efefef solid;
-
-  }
+  
 
   /*------------------------------------------------------------------------------------------------------*/
 
   /**
    * (en) Formatting content container
    * (de) Formatierung der Inhalts-Container
-   *
+   * @section layout-main
    * |-------------------------------|
    * | #header                       |
    * |-------------------------------|
@@ -90,30 +108,42 @@
   #col3_content { padding: 10px; }
 
   /*------------------------------------------------------------------------------------------------------*/
-
+ 
   /**
-   * (en) Modifying "shiny buttons" navigation
-   * (en) Anpassung der "Shiny Buttons" Navigation
+   * (en) Styling of layout specific elements
    */
 
-  #nav * { border: 0px none !important; }
-  #nav_main { background: #efefef; }
-  #nav_main ul { margin-left: 10px; }
-  #nav_main ul li { line-height: 1.2em; }
-  
-  #nav_main ul li a,
-  #nav_main ul li strong { color: #666; font-weight: normal; padding: 0.5em 0.8em 0.5em 0.8em; }
-  
-  #nav_main ul li a:focus,
-  #nav_main ul li a:hover,
-  #nav_main ul li a:active  { background: #182E7A; color: #fff; }
-  
-  #nav_main ul li#current { background: transparent; }
-  
-  #nav_main ul li#current strong,
-  #nav_main ul li#current a,
-  #nav_main ul li#current a:focus,
-  #nav_main ul li#current a:hover,
-  #nav_main ul li#current a:active { color: #4D87C7; font-weight: bold; }
+  #header h1 {
+    font-weight:bold;
+    font-size:2.5em;
+    letter-spacing:-2px;
+    line-height:65%;
+    color:#000;
+  }
 
+  #header span { color:#999; }
+
+  #topnav a { color: #999; font-weight: normal; background:transparent; text-decoration:none; }
+  #topnav a:focus,
+  #topnav a:hover,
+  #topnav a:active { text-decoration:underline; background-color: transparent; }
+
+  #footer a { color: #999; background:transparent; font-weight: bold; }
+  #footer a:focus,
+  #footer a:hover,
+  #footer a:active {color: #4D87C7; background-color: transparent; text-decoration:underline; }
+  
+  .c40l, .c60l {float: left; }
+  .c40r, .c60r {float: right; margin-left: -5px; }
+  .c40l, .c40r { width: 40%; }
+  .c60l, .c60r { width: 60%; }
+
+
+
+  .equalize .c38l,.equalize .c62l,
+  .equalize .c40r,.equalize .c60r {
+    display:table-cell; vertical-align:top;
+    float:none; margin:0; overflow:hidden;
+  }
+  
 }

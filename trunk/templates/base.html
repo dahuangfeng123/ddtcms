@@ -1,173 +1,157 @@
-﻿{% load i18n %}<!DOCTYPE html PUBLIC  "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+﻿{% load i18n themes%}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
 <head>
-<title> {% block title %}title{% endblock %} - {{SITE_NAME}}</title>
-<meta name="robots" content="{% block robots %}index,follow{% endblock %}" />
-<meta name="generator" content="django" />
-<meta name="keywords" content="{% block keywords %}糯米糊糊,huyoo353,我们一直在努力。很久很久很久后{% endblock %}" />
-<meta name="description" content="{% block description %}糯米糊糊,huyoo353,ddtcms,Django Dream Team's CMS{% endblock %}" />
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-{% block styles %}<link type="text/css" rel="stylesheet"  href="{{ MEDIA_URL }}themes/default/css/default.css" />{% endblock%}
-{% block extracss %}{% endblock %}
-<script type="text/javascript" language="javascript" src="{{ MEDIA_URL }}scripts/function.js" ></script>
-<script type="text/javascript" language="javascript" src="{{ MEDIA_URL }}userprofile/js/jquery-1.2.6.min.js"></script>
-{% block extrajs %}{% endblock %}
-{% block extrahead %}{% endblock %}
-</head>
-<body>
-
-<div id="wrapper">
-<div id="topwrapper">
-<div id="mininav">
-  <div>    
-    <div id="notice">
-        <marquee onmouseover="this.stop();" onmouseout="this.start();" trueSpeed scrollAmount="1" scrollDelay="21">{% block notice %}公告：网站正在测试中。。。{% endblock %}</marquee>
-	</div>
+	<title> {% block title %}title{% endblock %} - {{SITE_NAME}}</title>
+	{% block meta %}
+	<meta http-equiv="content-type" content="{% block meta.content-type %}text/html;charset=UTF-8{% endblock meta.content-type %}" />
+	<meta name="description" content="{% block meta.description %}{{ SITE_NAME }}{% endblock meta.description %}" />
+	<meta name="keywords" content="{% block meta.keywords %}{{ SITE_NAME }} {% endblock meta.keywords %}" />
+	<meta name="robots" content="{% block meta.robots %}index,follow{% endblock meta.robots %}" />
+	<meta name="generator" content="django" />
+	<meta name="copyright" content="http://www.{{SITE_NAME}}.com/" />	
+	{% endblock meta %}
 	
-	<div id="tool">
-	    
-	     {% if user.is_authenticated %}
-           <a href="/accounts/profile/">{{user.username}}</a>,{% trans "Welcome back!" %} <a href="{% url logout %}">{% trans "Logout" %}</a>
-         {% else %}
-          <a href="{% url login %}">{% trans "Login" %}</a>  <a href="{% url signup %}">{% trans "Register" %}</a>
-         {% endif %}
-         | <a href="/faq/">帮助</a> 
-         | <a href="/accounts/click/">看东东</a> <a href="/search/">找西西</a> 
-         | <a href="/accounts/publish/">发布信息</a> 
-         | <a href="javascript:window.external.AddFavorite('', '{{SITE_NAME}}')" target=_self>收藏</a> 
-       
+	{% block link %}
+	{% block link.shared %}
+	<link href="{{MEDIA_URL}}images/favicon.ico" type="image/x-icon" rel="shortcut icon" >
+	<link href="{{MEDIA_URL}}images/favicon.ico" type="image/ico" rel="icon"  >
+	<link href="{{MEDIA_URL}}images/favicon.ico" type="image/x-icon" rel="bookmark" >
+	<link href="" title="存档" type="application/rss+xml" rel="archives" >
+	<link href="/opensearch.xml" title="搜索" type="application/opensearchdescription+xml" rel="search" >
+	<link href="/rss/news.rss" title="资讯" type="application/rss+xml" rel="alternate" >
+	<link href="/rss/comment.rss" title="评论" type="application/rss+xml" rel="alternate" >
+	<link href="/rss/blog.rss" title="日志" type="application/rss+xml" rel="alternate" >
+	<link href="/rss/topic.rss" title="话题" type="application/rss+xml" rel="alternate" >
+	{% endblock link.shared%}	
+	{% block link.custom %}
+	{% endblock link.custom%}
+	{% endblock link%}
+
+	{% block css %}
+	{% block css.shared %}
+	<link href="{% theme_media_url %}css/layout_grids.css" rel="stylesheet" type="text/css"/>
+	<!--[if lte IE 7]>
+	<link href="{% theme_media_url %}css/patches/patch_grids.css" rel="stylesheet" type="text/css" />
+	<![endif]-->
+	{% endblock css.shared %}
+	{% block css.custom %}
+	{% endblock css.custom %}
+	{% endblock css%}
+
+	{% block js %}
+	{% block js.shared %}{% endblock js.shared %}
+	{% block js.custom %}{% endblock js.custom %}
+	{% endblock js%}
+	
+	{% block head.extra %}{% endblock head.extra%}
+</head>
+<body{% block bodyonload %}{% endblock bodyonload %}>
+	<div id="topnav">
+	    <div class="page_margins">
+	        <div class="page">
+	            <!-- start: skip link navigation -->
+	            <a class="skip" href="#navigation" title="skip link">Skip to the navigation</a><span class="hideme">.</span>
+	            <a class="skip" href="#content" title="skip link">Skip to the content</a><span class="hideme">.</span>
+	            <!-- end: skip link navigation -->
+	            <span style="float:right">
+	            	{% if user.is_authenticated %}
+	            	<a href="{% url profile_overview %}">{{user.username}}'s {% trans "Profile" %}</a> | <a href="{% url logout %}">{% trans "Logout" %}</a>
+	            	{% else %}
+			        <span class="highlight">
+			        <a href="{% url profile_overview %}" title="登录">上岗</a> 
+			        <a href="{% url signup %}" title="欢迎加入我们的队伍">注册新用户</a></span>
+                    <a href="{% url password_reset %}" title="请和管理员联系" style="cursor:help;">忘记密码</a>
+	            	{% endif %}      
+	            </span>        
+	            ★{{SITE_NAME}}
+	        </div>
+	    </div>
 	</div>
-   </div>
-</div>
 
-<div id="header">
+	<div id="header">
+		<div class="page_margins">
+		<div class="page">
+			<img src="{{MEDIA_URL}}themes/yaml/images/logo.gif"/>
+		</div>
+		</div>
+	</div>
 
-    <div id='logo'> <a href="/" ><img src="/images/logo.gif" alt="{{SITE_NAME}}"/></a>
-        </div>
-    
-    <div>
-        <h2><a href="/" title="首页">{{SITE_NAME}}</a></h2>
-        <p>网站正在建设中。。。(管理帐户/密码： admin/admin)</p>
-        
-    </div>
-    <div class='clearBOX'></div>
-   {% load navbar %}
-    <div id="nav"  class="top-menu">            
-            {% navbars %}
-    </div>
+	<!-- begin: navigation #nav -->
+	<div id="nav"> 
+		<div class="page_margins">
+			<div class="page">
+			<a id="navigation" name="navigation"></a><!-- skiplink anchor: navigation -->
+			{% load navbar %}{% navbars %}		
+			</div>
+		</div>			
+	</div>
+	<!-- end: navigation #nav-->
+	<!-- end: breadcrumbs -->
+	<div id="breadcrumbs">
+		<div class="page_margins">
+			<div class="page">
+				<span class='float_right'>欢迎您的光临！          
+				{{ SITE_TIME|date:"Y年m月d日 D" }}</span>
+				您的足迹: {% block breadcrumbs %}{% for crumb in crumbs %}<a href="{{ crumb.path }}">{% trans crumb.name %}</a>{% if not forloop.last %}&raquo;{% endif %}{% endfor %}{% endblock %}
+			</div>
+		</div>
+	</div>
+	<!-- end: breadcrumbs -->
 
-    <div class="breadcrumbs"><span style='float: right;'>欢迎您的光临！</span>您的位置（crumbs）: {% for crumb in crumbs %}<a href="{{ crumb.path }}"> {% trans crumb.name %} </a>{% if not forloop.last %} &raquo; {% endif %}{% endfor %}</div>
+	<!-- begin: main content area #main -->
+	<div id="main">
+		<div class="page_margins">
+			<div class="page">
+				<a id="content" name="content"></a><!-- skiplink anchor: Content -->		
+				{% block content %}
+				{% endblock %}			
+			</div>
+		</div>				
+	</div>
+	<!-- end: #main -->
 
-</div>
-</div>
+	{% block extended_content %}
+	{% endblock extended_content%}
 
-<div id="midwrapper">  
-<div id="pagebody"><!--页面主体-->
-{% block pagebody %} 
- <div id="sidebar"><!--侧边栏-->
-        {% block sidebar %}
-        <div class="box-top"><h3>{% trans "SideBar" %}</h3><span></span></div>
-        <div class="box">
-
-        
-        <div>
-            <div class="box-top1"><span></span></div>
-            <div class="box1">
-                <h2>{% trans "NavTree" %}</h2>
-                 {% navtree   %}
-                <div class="clear"></div>
-            </div>
-            <div class="box-bot"><span></span></div>
-        </div>
-        <div class="clear"></div>          
-        
-        <div>
-            <div class="box-top1"><span></span></div>
-            <div class="box1">
-                <h2>{% trans "SideBar" %}</h2>
-                请在模板中更新
-               <div id='user_intro'>
-                {% if user.is_authenticated %}
-                {{user.username}},欢迎您的到来！
-                {% else %}
-                <p>您必须登录之后才能查看用户信息，请在右边登录。</p>
-                {% endif %}
-                </div>
-                <div class="clear"></div>
-            </div>
-            <div class="box-bot"><span></span></div>
-        </div>
-        <div class="clear"></div>  
-        
-        <div>
-            <div class="box-top1"><span></span></div>
-            <div class="box1">
-                <h2>{% trans "User Profile" %}</h2>
-                请在模板中更新
-               <ul>
-            <li><a href='/accounts/register'>注册新用户</a></li>
-            <li>看看新闻</li>
-            <li>去论坛</li>
-            <li></li>
-            <li><a href='/accounts/logout'>注销</a></li>
-           </ul>
-                <div class="clear"></div>
-            </div>
-            <div class="box-bot"><span></span></div>
-        </div>
-        <div class="clear"></div>  
-        
-        <div>
-            <div class="box-top1"><span></span></div>
-            <div class="box1">
-                <h2>{% trans "Support" %}</h2>
-               <ul>            
-            <li><a href="http://www.python.org"><img src="/images/python-powered.png" alt="python"/></a></li>
-            <li><a href="http://www.djangoproject.com"><img src='/images/a-DJANGO-site.gif' alt='Site based on Django'/></a></li>
-           </ul>
-                <div class="clear"></div>
-            </div>
-            <div class="box-bot"><span></span></div>
-        </div>
-        <div class="clear"></div>  
-        
-        
-        </div>
-        <div class="box-bot"><span></span></div>
-
-        {% endblock %}
- </div>
- 
- 
- 
- <div id="mainbody"><!--主体内容-->
-        <div class="box-top"><h1>{% block maintitle %}大标题{% endblock %}</h1></div>
-        <div class="box">
-        {% block content %}
-
-        {% endblock %}
-         
-        </div>
-        <div class="box-bot"><span></span></div>
- </div>
-{% endblock %}
-</div>
-
-</div>
-
-
-<div id='botmwrapper'>
-<div id='footer'>
-    <a href="/faq/about">关于我们</a> -  
-    <a href="/faq/contact">联系方式</a> -  
-    <a href="/links/">友情链接</a> - 
-    <a href="/sitemap.xml">网站地图</a> -    
-    <a href="/admin/">后台管理</a> - 
-    <a href="/faq/">帮助</a> - 
-    <a href="/forum/">论坛</a><br />
-    Copyright &copy; 2008 <a href="http://blog.csdn.net/huyoo/">http://blog.csdn.net/huyoo/</a> [huyoo353@126.com]. All rights reserved. Powered By <a href="http://www.djangoproject.com">Django</a>.
-</div>
-</div>
-</div><!--wrapper-->
+	<!-- begin: #footer -->
+	{%comment%}{%endcomment%}<div id="footer">
+		<div class="page_margins">
+		  <div class="page">
+		  	<div class="subcolumns">
+				<div class="c62l">
+				  <div class="subcl">
+					<a href="/faq/aboutus">关于我们</a> -
+					<a href="/faq/contact">联系方式</a> -
+					<a href="#">打印</a> -
+					<a href="/link/">友情链接</a> -
+					<a href="/sitemap.xml">网站地图</a> -
+					<a href="/admin/">后台管理</a> -
+					<a href="/faq/">帮助</a> -
+					<a href="/forum/">论坛</a><br />
+					{{ SITE_NAME }} 版权所有 &copy;  2008. 保留所有权利. <br />
+					地址：XX省XX市 电话：0123456789,本站由 <strong>站长</strong> 创建.ICP备000000000号.
+				  </div>
+				</div>
+			
+				<div class="c38r">
+				  <div class="subcr" style="text-align:right;color: #666;">
+				   <p>内容管理系统基于 <strong>DDTCMS</strong> CMS 项目.<br/>页面布局样式基于 <strong>YAML</strong> CSS 架构.<br/> 网站服务运行基于 <strong>Django</strong> WEB 架构.</p>
+				  </div>
+				</div>
+			</div>
+		  	
+		  </div>
+		</div>
+  	</div>
+	<!-- end: #footer -->
 </body>
 </html>
+
+
+
+
+
+
+
+

@@ -17,7 +17,7 @@
 <div class="subcolumns">
 	<div id="banner">
 		 
-			<a href="{% url signup %}"><img  src="{{ MEDIA_URL }}themes/yaml/images/20081229154340ad02news.gif"  /></a>
+			<a href="{% url signup %}"><img  src="{{ MEDIA_URL }}themes/yaml/images/banner-header.jpg"  /></a>
 		 
 	</div>
 </div>
@@ -183,15 +183,15 @@
 
 	  
 		<div class="special">
-			<div class="floatbox"><h2>军事专题</h2>
+			<div class="floatbox"><h2>XX专题</h2>
 			
 				<p>
 				<ul>
-					<li><a href="/special/#" target=_blank><strong>军事专题标题</strong>军事专题相关描述</a> </li> 
-					<li><a href="/special/#" target=_blank><strong>军事专题标题</strong>军事专题相关描述</a> </li> 
-					<li><a href="/special/#" target=_blank><strong>军事专题标题</strong>军事专题相关描述</a> </li> 
-					<li><a href="/special/#" target=_blank><strong>军事专题标题</strong>军事专题相关描述</a> </li> 
-					<li><a href="/special/#" target=_blank><strong>军事专题标题</strong>军事专题相关描述</a> </li> 
+					<li><a href="/special/#" target=_blank><strong>XX专题标题</strong>XX专题相关描述</a> </li> 
+					<li><a href="/special/#" target=_blank><strong>XX专题标题</strong>XX专题相关描述</a> </li> 
+					<li><a href="/special/#" target=_blank><strong>XX专题标题</strong>XX专题相关描述</a> </li> 
+					<li><a href="/special/#" target=_blank><strong>XX专题标题</strong>XX专题相关描述</a> </li> 
+					<li><a href="/special/#" target=_blank><strong>XX专题标题</strong>XX专题相关描述</a> </li> 
 		        </ul> 
 				</p>
 			  </div>
@@ -217,7 +217,7 @@
 <div class="subcolumns coolsubcol">
 	
 	<div class="subc">
-		<h2><span class="float_right"><A href="#{%comment%}/photologue/{%endcomment%}">更多图片...</A></span>军事图片</h2>
+		<h2><span class="float_right"><A href="#{%comment%}/photologue/{%endcomment%}">更多图片...</A></span>XX图片</h2>
 		<div class="floatbox">			
 			{% for photo in latest_photos %}
 			<p class="icaption_left">
@@ -232,7 +232,7 @@
 
 	<div class="c33l">
 	  <div class="subcl">
-	    <h3>时政要闻</h3>
+	    {%comment%}<h3>时政要闻</h3>
 
 		{% get_posts_by_category "szyw" 5 as news_items %}
 	
@@ -241,13 +241,13 @@
 			<li>{{ item.pub_date|date:"m-d" }} <a href="{{ item.get_absolute_url }}">{{ item.title }}</a></li>		
 			{% endfor %}
 
-		</ul>
+		</ul>{%endcomment%}
 	  </div>
 	</div>
 
 	<div class="c33l">
 	  <div class="subcl">
-	    <h3>政工动态</h3>
+	    <h3>XX动态</h3>
 
 		<ul>
 			<li><a href=" ">待添加...</a>2009-2-2</li>
@@ -262,7 +262,7 @@
 
 	<div class="c33r">
 	  <div class="subcr">
-	    <h3>后勤工作</h3>
+	    <h3>XX工作</h3>
 
 		<ul>
 			<li><a href=" ">待添加...</a>2009-2-2</li>
@@ -281,7 +281,7 @@
 
 	<div class="c33l">
 	  <div class="subcl">
-	    <h3>行政管理</h3>
+	    <h3>XXX管理</h3>
 
 		<ul>
 			<li><a href=" ">待添加...</a>2009-2-2</li>
@@ -296,7 +296,7 @@
 
 	<div class="c33l">
 	  <div class="subcl">
-	    <h3>军事训练</h3>
+	    <h3>XXXXX</h3>
 
 		<ul>
 			<li><a href=" ">待添加...</a>2009-2-2</li>
@@ -311,7 +311,7 @@
 
 	<div class="c33r">
 	  <div class="subcr">
-	    <h3>安全工作</h3>
+	    <h3>XXXXXX</h3>
 
 		<ul>
 			<li><a href=" ">待添加...</a>2009-2-2</li>
@@ -331,36 +331,36 @@
 <div class="reportnav">
 	<div class="menu">
             <ul id="menu16">
-            	<li>机关要事：</li>
-              <li  id="jgys1" onmouseover="tab('jgys',1,3)" class="current">业务处</li>
-              <li  id="jgys2" onmouseover="tab('jgys',2,3)">政治处</li>
-              <li  id="jgys3" onmouseover="tab('jgys',3,3)">管理处</li>
+            	<li>QQQQQQQQQ:</li>
+              <li  id="jgys1" onmouseover="tab('jgys',1,3)" class="current">XXXX</li>
+              <li  id="jgys2" onmouseover="tab('jgys',2,3)">YYYYY</li>
+              <li  id="jgys3" onmouseover="tab('jgys',3,3)">ZZZZZ</li>
             </ul>
           </div>
 				
 			</div>
 			<div class="cont" id="jgys_cont1">
-				<a href="index.html" target="_blank">甲型H1N1流感疫情全球蔓延</a>
+				<a href="" target="_blank">甲型H1N1流感疫情全球蔓延</a>
 				<ul>
-				<li>·<a href="index.html" target="_blank">法航空客A330飞机坠毁</a></li>
-				<li>·<a href="index.html" target="_blank">百年通用汽车遭遇破产危机</a></li>
-				<li>·<a href="index.html" target="_blank">成都一公交车燃烧伤亡惨重</a></li>
+				<li>·<a href="" target="_blank">法航空客A330飞机坠毁</a></li>
+				<li>·<a href="" target="_blank">百年通用汽车遭遇破产危机</a></li>
+				<li>·<a href="" target="_blank">成都一公交车燃烧伤亡惨重</a></li>
 				</ul>
 			</div>
 			<div class="cont" id="jgys_cont2" style="display:none;">
 				<ul>
 				<li>·<a href="6D000A94367.html" target="_blank">胡锦涛就加蓬总统邦戈逝世向加蓬代总统致唁电</a></li>
-				<li>·<a href="AB000921339.html" target="_blank">孟建柱：公安领导干部要做到知错就改</a></li>
+				<li>·<a href="6D000A94367.html" target="_blank">孟建柱：公安领导干部要做到知错就改</a></li>
 				</ul>
 			</div>
 			<div class="cont" id="jgys_cont3" style="display:none;">
 				<ul>
 				<li>·<a href="6D000A94367.html" target="_blank">胡锦涛就加蓬总统邦戈逝世向加蓬代总统致唁电</a></li>
-				<li>·<a href="AB000921339.html" target="_blank">孟建柱：公安领导干部要做到知错就改</a></li>
+				<li>·<a href="6D000A94367.html" target="_blank">孟建柱：公安领导干部要做到知错就改</a></li>
 				<li>·<a href="6D000A94367.html" target="_blank">胡锦涛就加蓬总统邦戈逝世向加蓬代总统致唁电</a></li>
-				<li>·<a href="AB000921339.html" target="_blank">孟建柱：公安领导干部要做到知错就改</a></li>
+				<li>·<a href="6D000A94367.html" target="_blank">孟建柱：公安领导干部要做到知错就改</a></li>
 				<li>·<a href="6D000A94367.html" target="_blank">胡锦涛就加蓬总统邦戈逝世向加蓬代总统致唁电</a></li>
-				<li>·<a href="AB000921339.html" target="_blank">孟建柱：公安领导干部要做到知错就改</a></li>
+				<li>·<a href="6D000A94367.html" target="_blank">孟建柱：公安领导干部要做到知错就改</a></li>
 				</ul>
 			</div>
 
@@ -409,7 +409,7 @@
 	<div class="page_margins">
 		<div class="page">
 			<div id="links">
-				<h3>友情链接(申请链接请拨电话：0781-87725)</h3>
+				<h3>友情链接</h3>
 				<ul  class="text">{% for link in links %}
 					<li><a href="{{ link.url }}" target="_blank">{{ link.title }}</a></li>{% endfor %}
 				</ul>

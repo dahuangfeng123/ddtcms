@@ -1,5 +1,5 @@
 """
-All forum logic is kept here - displaying lists of forums, threads 
+All forum logic is kept here - displaying lists of forums, threads
 and posts, adding new threads, and adding replies.
 """
 
@@ -15,43 +15,63 @@ from django.contrib.sites.models import Site
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
 from django.views.generic.list_detail import object_list
-
 from forum.models import Forum,Thread,Post,Subscription
 from forum.forms import CreateThreadForm, ReplyForm
+from django.contrib.auth.decorators import login_required
+#from attachments.forms import AttachmentUploadForm as CreateThreadForm
+from attachments.models import Attachment,ATTACHMENT_DIR
+from attachments.forms  import AttachmentForm
+from ddtcms.utils.uploadfile import genfilename,handle_uploaded_file
+from django.contrib.contenttypes.models import ContentType
+import mimetypes
+import os
+from ddtcms.utils.uploadfile import randomfilename
+
+FORUM_PAGINATION = getattr(settings, 'FORUM_PAGINATION', 10)
+
+def forums_list(request):
+    queryset = Forum.objects.for_groups(request.user.groups.all()).filter(parent__isnull=True)
+    return object_list( request,
+                        queryset=queryset)
 
 def forum(request, slug):
     """
     Displays a list of threads within a forum.
-    Threads are sorted by their sticky flag, followed by their 
+    Threads are sorted by their sticky flag, followed by their
     most recent post.
     """
+
     try:
-        f = Forum.objects.select_related().get(slug=slug)
+        f = Forum.objects.for_groups(request.user.groups.all()).select_related().get(slug=slug)
     except Forum.DoesNotExist:
-        return Http404
+        #raise Http404(_("Not Found"))
+        return HttpResponseForbidden(_('Sorry, you need permission to continue.'))
 
     form = CreateThreadForm()
-
+    child_forums = f.child.for_groups(request.user.groups.all())
     return object_list( request,
                         queryset=f.thread_set.select_related().all(),
-                        paginate_by=10,
+                        paginate_by=FORUM_PAGINATION,
                         template_object_name='thread',
                         template_name='forum/thread_list.html',
                         extra_context = {
                             'forum': f,
+                            'child_forums': child_forums,
                             'form': form,
                         })
 
 def thread(request, thread):
     """
-    Increments the viewed count on a thread then displays the 
+    Increments the viewed count on a thread then displays the
     posts for that thread, in chronological order.
     """
     try:
         t = Thread.objects.select_related().get(pk=thread)
+        if not Forum.objects.has_access(t.forum, request.user.groups.all()):
+            raise Http404
     except Thread.DoesNotExist:
-        return Http404
-    
+        raise Http404
+
     p = t.post_set.select_related('author').all().order_by('time')
     s = None
     if request.user.is_authenticated():
@@ -66,10 +86,10 @@ def thread(request, thread):
         initial = {'subscribe': False}
 
     form = ReplyForm(initial=initial)
-    
+
     return object_list( request,
                         queryset=p,
-                        paginate_by=10,
+                        paginate_by=FORUM_PAGINATION,
                         template_object_name='post',
                         template_name='forum/thread.html',
                         extra_context = {
@@ -79,6 +99,7 @@ def thread(request, thread):
                             'form': form,
                         })
 
+@login_required
 def reply(request, thread):
     """
     If a thread isn't closed, and the user is logged in, post a reply
@@ -89,13 +110,15 @@ def reply(request, thread):
     t = get_object_or_404(Thread, pk=thread)
     if t.closed:
         return HttpResponseServerError()
+    if not Forum.objects.has_access(t.forum, request.user.groups.all()):
+        return HttpResponseForbidden()
 
     if request.method == "POST":
-        form = ReplyForm(request.POST)
+        form = ReplyForm(data=request.POST, files=request.FILES)
         if form.is_valid():
             body = form.cleaned_data['body']
             p = Post(
-                thread=t, 
+                thread=t,
                 author=request.user,
                 body=body,
                 time=datetime.now(),
@@ -118,7 +141,7 @@ def reply(request, thread):
             # this thread.
             mail_subject = ''
             try:
-                mail_subject = settings.FORUM_MAIL_PREFIX 
+                mail_subject = settings.FORUM_MAIL_PREFIX
             except AttributeError:
                 mail_subject = '[Forum]'
 
@@ -143,10 +166,60 @@ def reply(request, thread):
                     bcc=[s.author.email for s in t.subscription_set.all()],)
             email.send(fail_silently=True)
 
+##            data={'title': t.title,
+##                'summary': t.title,
+##                'attached_timestamp':datetime.now()
+##                }
+##            attachment_form=AttachmentForm(data=data,files=form.files)
+##            a=attachment_form.errors
+##            content_type =ContentType.objects.get_for_model(Post)
+##            object_id = p.id
+##            ffs=form.files
+##            debug()
+##            if attachment_form.is_valid():
+##                attachment = attachment_form.save(commit=False)
+##                attachment.content_type = content_type
+##                attachment.object_id = object_id
+##                attachment.attached_by = request.user
+##                attachment.save()
+
+#            for attachedfilefield in form.files:
+#                #file_path = '%s%s' % (settings.MEDIA_ROOT, form.files[attachedfilefield])
+#                attachment_file = form.files[attachedfilefield]
+#                file_path =os.path.join(ATTACHMENT_DIR, randomfilename(attachment_file.name))
+#                (mimetype, encoding) = mimetypes.guess_type(file_path)
+#
+#                try:
+#                    mime_type = mimetype
+#                except:
+#                    mime_type = 'text/plain'
+#
+#                attach=Attachment(
+#                    content_type =ContentType.objects.get_for_model(Post),
+#                    object_id = p.id,
+#                    title = attachment_file.name,
+#                    summary = t.title,
+#                    attached_by = request.user,
+#                    )
+#                attach.save_uploaded_file(attachment_file)
+#                attach.save()
+
+
+            for attachedfilefield in form.files:
+                #file_path = '%s%s' % (settings.MEDIA_ROOT, form.files[attachedfilefield])
+                attachment_file = form.files[attachedfilefield]
+                attach=Attachment()
+                attach.handle_uploaded_attachment(p,
+                    attachment_file,
+                    request.user,
+                    attachment_file.name,
+                    t.title
+                    )
+
             return HttpResponseRedirect(p.get_absolute_url())
     else:
         form = ReplyForm()
-    
+
     return render_to_response('forum/reply.html',
         RequestContext(request, {
             'form': form,
@@ -154,11 +227,11 @@ def reply(request, thread):
             'thread': t,
         }))
 
-
+@login_required
 def newthread(request, forum):
     """
-    Rudimentary post function - this should probably use 
-    newforms, although not sure how that goes when we're updating 
+    Rudimentary post function - this should probably use
+    newforms, although not sure how that goes when we're updating
     two models.
 
     Only allows a user to post if they're logged in.
@@ -168,11 +241,17 @@ def newthread(request, forum):
 
     f = get_object_or_404(Forum, slug=forum)
 
+    if not Forum.objects.has_access(f, request.user.groups.all()):
+    	return HttpResponseForbidden()
+
     if request.method == 'POST':
-        form = CreateThreadForm(request.POST)
+        form = CreateThreadForm(data=request.POST, files=request.FILES)
+        #return HttpResponseRedirect('/POST'+str(request.FILES['file']))
+        #return HttpResponseRedirect('/POST'+str(form.is_valid()))
         if form.is_valid():
             t = Thread(
                 forum=f,
+                author=request.user,
                 title=form.cleaned_data['title'],
             )
             t.save()
@@ -184,13 +263,25 @@ def newthread(request, forum):
                 time=datetime.now(),
             )
             p.save()
-    
+
             if form.cleaned_data.get('subscribe', False):
                 s = Subscription(
                     author=request.user,
                     thread=t
                     )
                 s.save()
+
+            for attachedfilefield in form.files:
+                #file_path = '%s%s' % (settings.MEDIA_ROOT, form.files[attachedfilefield])
+                attachment_file = form.files[attachedfilefield]
+                attach=Attachment()
+                attach.handle_uploaded_attachment(p,
+                    attachment_file,
+                    attached_by = request.user,
+                    title = attachment_file.name,
+                    summary = t.title                   
+                    )                  
+
             return HttpResponseRedirect(t.get_absolute_url())
     else:
         form = CreateThreadForm()
@@ -200,6 +291,106 @@ def newthread(request, forum):
             'form': form,
             'forum': f,
         }))
+
+@login_required
+def edit(request, thread):
+    """
+    If a thread isn't closed, and the user is logged in, post a reply
+    to a thread. Note we don't have "nested" replies at this stage.
+    """
+    if not request.user.is_authenticated():
+        return HttpResponseServerError()
+    t = get_object_or_404(Thread, pk=thread)
+    if t.closed:
+        return HttpResponseServerError()
+    if not Forum.objects.has_access(t.forum, request.user.groups.all()):
+        return HttpResponseForbidden()
+
+    if request.method == "POST":
+        form = ReplyForm(data=request.POST, files=request.FILES)
+        if form.is_valid():
+            body = form.cleaned_data['body']
+            p = Post(
+                thread=t,
+                author=request.user,
+                body=body,
+                time=datetime.now(),
+                )
+            p.save()
+
+            sub = Subscription.objects.filter(thread=t, author=request.user)
+            if form.cleaned_data.get('subscribe',False):
+                if not sub:
+                    s = Subscription(
+                        author=request.user,
+                        thread=t
+                        )
+                    s.save()
+            else:
+                if sub:
+                    sub.delete()
+
+            # Subscriptions are updated now send mail to all the authors subscribed in
+            # this thread.
+            mail_subject = ''
+            try:
+                mail_subject = settings.FORUM_MAIL_PREFIX
+            except AttributeError:
+                mail_subject = '[Forum]'
+
+            mail_from = ''
+            try:
+                mail_from = settings.FORUM_MAIL_FROM
+            except AttributeError:
+                mail_from = settings.DEFAULT_FROM_EMAIL
+
+            mail_tpl = loader.get_template('forum/notify.txt')
+            c = Context({
+                'body': wordwrap(striptags(body), 72),
+                'site' : Site.objects.get_current(),
+                'thread': t,
+                })
+
+            email = EmailMessage(
+                    subject=mail_subject+' '+striptags(t.title),
+                    body= mail_tpl.render(c),
+                    from_email=mail_from,
+                    to=[mail_from],
+                    bcc=[s.author.email for s in t.subscription_set.all()],)
+            email.send(fail_silently=True)
+
+            for attachedfilefield in form.files:
+                #file_path = '%s%s' % (settings.MEDIA_ROOT, form.files[attachedfilefield])
+                attachment_file = form.files[attachedfilefield]
+                attach=Attachment()
+                attach.handle_uploaded_attachment(p,
+                    attachment_file,
+                    request.user,
+                    attachment_file.name,
+                    t.title
+                    )
+
+            return HttpResponseRedirect(p.get_absolute_url())
+    else:
+        post_id = request.GET.get('pid', 0)
+        if post_id ==0:
+            return HttpResponseServerError(_("The Post Do Not Exist"))
+        try:
+            p = Post.objects.all().get(id=post_id)
+        except Post.DoesNotExist:
+            raise Http404(_("Not Found"))
+        
+        body=p.body
+        initial = {'subscribe': True,
+            'body':body}
+        form = ReplyForm(initial=initial)
+
+    return render_to_response('forum/edit.html',
+        RequestContext(request, {
+            'form': form,
+            'post': p
+        }))
+
 
 def updatesubs(request):
     """
@@ -222,4 +413,4 @@ def updatesubs(request):
         RequestContext(request, {
             'subs': subs,
         }))
-       
+

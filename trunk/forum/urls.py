@@ -12,23 +12,27 @@ Usage in your base urls.py:
 from django.conf.urls.defaults import *
 from forum.models import Forum
 from forum.feeds import RssForumFeed, AtomForumFeed
-
-forum_dict = {
-    'queryset' : Forum.objects.filter(parent__isnull=True),
-}
+from forum.sitemap import ForumSitemap, ThreadSitemap, PostSitemap
 
 feed_dict = {
     'rss' : RssForumFeed,
     'atom': AtomForumFeed
 }
 
+sitemap_dict = {
+    'forums': ForumSitemap,
+    'threads': ThreadSitemap,
+    'posts': PostSitemap,
+}
+
 urlpatterns = patterns('',
-    url(r'^$', 'django.views.generic.list_detail.object_list', forum_dict, name='forum_index'),
+    url(r'^$', 'forum.views.forums_list', name='forum_index'),
     
     url(r'^(?P<url>(rss|atom).*)/$', 'django.contrib.syndication.views.feed', {'feed_dict': feed_dict}),
 
     url(r'^thread/(?P<thread>[0-9]+)/$', 'forum.views.thread', name='forum_view_thread'),
     url(r'^thread/(?P<thread>[0-9]+)/reply/$', 'forum.views.reply', name='forum_reply_thread'),
+    url(r'^thread/(?P<thread>[0-9]+)/edit/$', 'forum.views.edit', name='forum_edit_thread'),
 
     url(r'^subscriptions/$', 'forum.views.updatesubs', name='forum_subscriptions'),
 
@@ -37,6 +41,9 @@ urlpatterns = patterns('',
 
     url(r'^([-\w/]+/)(?P<forum>[-\w]+)/new/$', 'forum.views.newthread'),
     url(r'^([-\w/]+/)(?P<slug>[-\w]+)/$', 'forum.views.forum', name='forum_subforum_thread_list'),
-    
-    #url(r'^archives/$','django.views.generic.list_detail.object_list', forum_dict, name='forum_index'),
+
+    (r'^sitemap.xml$', 'django.contrib.sitemaps.views.index', {'sitemaps': sitemap_dict}),
+    (r'^sitemap-(?P<section>.+)\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemap_dict}),
+
+    #url(r'^archives/$','forum.views.forums_archives', name='forum_archives'),
 )

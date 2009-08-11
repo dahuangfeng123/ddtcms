@@ -33,7 +33,7 @@ EMAIL_HOST_PASSWORD = ''
 # although not all variations may be possible on all operating systems.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'China/Hubei'
+TIME_ZONE = 'Asia/China/Hubei'
 
 # Language code for this installation. All choices can be found here:
 # http://www.w3.org/TR/REC-html40/struct/dirlang.html#langcodes
@@ -55,17 +55,22 @@ MEDIA_ROOT = './media/'
 MEDIA_URL = '/media/'
 
 
-STATIC_PATH='./media/'
+STATIC_PATH   = os.path.join(MEDIA_ROOT,'upload/')#'./media/upload/'
+STATIC_THEMES = os.path.join(MEDIA_ROOT,'themes/')#'./media/themes/'
+STATIC_FILE_UPLOAD_DIR = STATIC_PATH
 
+#STATIC_FILE_UPLOAD_DIR        = STATIC_PATH+'upload/'
+#STATIC_FILE_UPLOAD_TEMP_DIR   = STATIC_PATH+'upload/tmp/'
+STATIC_CSS                     = MEDIA_ROOT+'css/'
+STATIC_THEMES                  = MEDIA_ROOT+'themes/'
+STATIC_JS                      = MEDIA_ROOT+'js/'
+STATIC_IMAGE                   = MEDIA_ROOT+'images/'
+STATIC_EDITOR_DIR              = MEDIA_ROOT+'editor/'
 
-STATIC_FILE_UPLOAD_DIR        =STATIC_PATH+'upload/'
-STATIC_FILE_UPLOAD_TEMP_DIR   =STATIC_PATH+'upload/tmp/'
-STATIC_STYLE                  =STATIC_PATH+'styles/'
-STATIC_THEMES                 =STATIC_PATH+'themes/'
-STATIC_SCRIPT                 =STATIC_PATH+'scripts/'
-STATIC_IMAGE                  =STATIC_PATH+'images/'
-PHOTOLOGUE_DIR                ='upload/photo/%s/' % datetime.now().strftime("%Y/%m/%d")
+PHOTOLOGUE_DIR                ='upload/photos/%s/' % datetime.now().strftime("%Y/%m/%d")
 
+#ATTACHMENT_DIR                ='upload/attachments/'
+ATTACHMENT_DIR                ='upload/attachments/%s/' % datetime.now().strftime("%Y/%m/%d")
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
@@ -74,7 +79,7 @@ ADMIN_MEDIA_PREFIX = '/admin_media/'
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '$pjbv(g)*a5#d*hwppus!m0f=fjslg*4r*$!q6=tzu8zvbv0j('
 SESSION_COOKIE_NAME = 'sessionid.ddtcms'
-
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True 
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -93,7 +98,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 "navbar.context_processors.navbar",
 "navbar.context_processors.navtree",
 "navbar.context_processors.navbars",
-"userprofile.context_processors.site",
+"member.context_processors.site",
 )
 
 
@@ -108,20 +113,20 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'ddtcms.urls'
 
+# the theme name 'default, yaml'
+THEME_NAME = 'yaml'
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     #'./templates/',
-    './media/themes/yaml/templates/',
-
+    './templates/themes/%s/' % THEME_NAME,
+    './templates/',
 )
 
 
 LOCALE_PATHS =(
-#    './userprofile/locale/',
     './locale/',
-    
 )
 
 
@@ -136,7 +141,6 @@ INSTALLED_APPS = (
     'django.contrib.markup',
     'django.contrib.sitemaps',
     'django.contrib.flatpages',
-    'ddtcms.category',
     'ddtcms.home',
     'ddtcms.blog',
     'ddtcms.notice',
@@ -144,23 +148,26 @@ INSTALLED_APPS = (
     'ddtcms.polls',
     'ddtcms.forum',
     'ddtcms.faq',
-    'ddtcms.member',
     'ddtcms.captcha',
     'ddtcms.link',
+    'ddtcms.common',
+    'ddtcms.member',
+    'ddtcms.saying',
+    'ddtcms.people',
+    'ddtcms.todo',
+    'ddtcms.guestbook',
     'photologue',
     'navbar',
-    'userprofile',
     'tagging',
-    
-
-
+    'attachments',
 )
 
 
-AUTH_PROFILE_MODULE='userprofile.profile'
-#LOGIN_URL = '/member/login/'
-#LOGOUT_URL = '/member/logout/'
-#LOGIN_REDIRECT_URL = '/member/profile/'
+#AUTH_PROFILE_MODULE='userprofile.profile' #2009-3-8 4:35:54
+AUTH_PROFILE_MODULE='member.profile'
+LOGIN_URL = '/member/login/'
+LOGOUT_URL = '/member/logout/'
+LOGIN_REDIRECT_URL = '/member/profile/'
 SEND_REGISTER_MAIL = False # add 2009-2-2 20:03:13
 
 ACCOUNT_ACTIVATION_DAYS=10
@@ -175,6 +182,8 @@ NAVBAR_TREE_MARK_SELECTED = True
 NAVBAR_MAX_DEPTH=3
 NAVBAR_MARK_SELECTED=True
 NAVBAR_SHOW_DEPTH=0
+CRUMBS_HOME = False
+#NAVBAR_CRUMBS_HOME = 'Home'
 #navbar settings END
 
 
@@ -182,7 +191,7 @@ NAVBAR_SHOW_DEPTH=0
 
 I18N_URLS = False
 DEFAULT_AVATAR_WIDTH = 96
-DEFAULT_AVATAR = os.path.join(MEDIA_ROOT, 'userprofile/avatars/', 'generic.jpg')
+DEFAULT_AVATAR = os.path.join(MEDIA_ROOT, 'images/avatars/', 'generic.jpg')
 
 AVATAR_WEBSEARCH = False
 # 127.0.0.1:8000 Google Maps API Key
@@ -191,16 +200,7 @@ REQUIRE_EMAIL_CONFIRMATION = False
 #GEOIP_PATH = "%s/db/" % PROJECT_PATH
 # END of django-profile specific options
 
-
-
-
-
-# django-diario settings
-
-# Number of latest itens on archive_index view. Default: 10.
-DIARIO_NUM_LATEST = 8
-
-# Markup language for blog entries. Options: 'rest', 'textile',
-# 'markdown' or 'raw' for raw text.
-# Default: 'raw'.
-DIARIO_DEFAULT_MARKUP_LANG = 'raw'
+COMMENTS_ALLOW_PROFANITIES=False
+PROFANITIES_LIST=(
+                  'Fuck',
+                  )

@@ -50,13 +50,13 @@
         <div class="clearfix">
 
               想了解更多关于 <strong>{{ profile.user }}</strong> 的信息？            
-              请<a href="{% url signup %}">登记入伍</a>
+              请<a href="{% url signup %}">注册新用户</a>
 
 
                 </div>
 
         <div>
-            已经是会员了？请 <a href="/login">登录</a></div>
+            已经是会员了？请 <a href="{%url login%}">登录</a></div>
 
 
 	  {% if profile.latitude and profile.longitude %}
