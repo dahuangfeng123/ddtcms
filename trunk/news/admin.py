@@ -85,7 +85,7 @@ class NewsAdmin(admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
     list_display = ('name', 'slug','parent','path','depth','posts','order')
-    list_filter = ['slug']
+    list_filter = ['parent']
     search_fields = ['title','slug']
     
 

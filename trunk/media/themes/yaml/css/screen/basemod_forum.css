@@ -1,0 +1,170 @@
+@charset "UTF-8";
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ *
+ * (en) Screen layout for YAML examples
+ * (de) Bildschirmlayout f¨¹r YAML-Beispiele
+ *
+ * @copyright       Copyright 2005-2009, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.1
+ * @revision        $Revision: 343 $
+ * @lastmodified    $Date: 2009-01-19 23:41:32 +0100 (Mo, 19. Jan 2009) $
+ */
+
+@media screen, projection
+{
+	/*  div{border:1px solid green}*/ 
+	 body { padding: 10px 0 0px 0; }
+	.page_margins { max-width: 100%; background: #f9f9f9;}
+	.page {margin: 0px 20px;background: #f9f9f9; }
+
+	#topnav, #header, #nav,#breadcrumbs, #main, #extended, #footer { overflow:hidden; min-width: 760px; background: #fff; }
+	
+	#topnav, #footer { color: #999; }
+	#topnav .page { text-align:right; padding: 5px 0; }
+	#topnav span.navlinks { float:right; }
+	
+	
+	#header .page,.page_margins {
+		position:relative;
+	} /* */
+	
+	#header h1 { color: #fff !important; }
+	
+	#nav {
+		padding:0px;
+	}
+	
+	/* #breadcrumbs{background:transparent;} */
+	
+	#main {
+	background:transparent;
+	}
+	
+	#main .c75l { border-right: 1px #88a dashed; }
+	
+	#extended { background:transparent;}
+	#extended .c25l,  #extended .c50l { border-right: 1px #88a dashed; }
+	
+	#extended .subc  { padding: 0 10px; }
+	#extended .subcl { padding: 0 10px 0 0; }
+	#extended .subcr { padding: 0 0 0 10px; }
+	
+	#main, #extended { padding:0px;padding-top: 2px; /* padding-bottom: 20px; */ }
+	
+	#footer {padding:0px;margin-top: 2px;background:transparent;border:none; }
+	#footer .page { padding: 10px 0px; }
+	
+	
+	
+	
+	/*------------------------------------------------------------------------------------------------------*/
+	
+	/**
+	* (en) Styling of layout specific elements
+	* (de) Gestaltung layoutabh?ngiger Elemente
+	*/
+	
+	#header h1 {
+	font-weight:bold;
+	font-size:2.5em;
+	letter-spacing:-2px;
+	line-height:65%;
+	color:#000;
+	}
+	
+	#header span { color:#99c; }
+	
+	#topnav a { color: black; font-weight: normal; background:transparent; text-decoration:none; }
+	#topnav a:focus,
+	#topnav a:hover,
+	#topnav a:active { text-decoration:underline; background-color: transparent; }
+	
+	#footer a { color: black; background:transparent; font-weight: bold; }
+	#footer a:focus,
+	#footer a:hover,
+	#footer a:active { background-color: transparent; text-decoration:underline; }
+	
+	.subcolumns{padding-top:2px;border-top:1px solid #eee;}
+	
+	
+	
+	#links{border:0px solid #DFDFDF  ; padding-bottom:3px; margin-bottom:6px;}
+	#links h3{/* color:#73880A; */font-size:1em;line-height:26px;margin:1px 0px;padding-left:0.5em;}
+	#links ul{font-family:Simsun,Mingliu; margin:0; padding:6px 0;background:transparent url(../images/dotline_h.gif) repeat-x center top; list-style:none;}
+	/*\*/ 
+	* html #links ul{ height: 1%; }/**/ 
+	*> #links ul{ overflow: hidden; }
+	#links li{float:left;margin: 0 0 4px 6px; padding:0px;}
+	#links .pic li{width:88px;height:31px;overflow:hidden; }
+	#links .text li{color:#000;width:auto; white-space:nowrap;}
+	#links li img {width: 88px; height: 31px;}
+	
+	
+	#recommended{border:0px solid red; width:320px;  float:left;}
+	#recommended .bigpic{ width:320px; height:240px;}
+	
+	.big_pic{position:relative;width:320px; height:240px;overflow:hidden;}
+	.big_pic img{width:320px; height:240px;overflow:hidden;}
+	.big_pic .bg{position:absolute;left:0;bottom:0;width:320px;height:73px;background:#000000;filter:alpha(opacity=60);-moz-opacity:0.60;opacity:0.60;}
+	.big_pic h3{position:absolute;left:0;top:165px; width:320px;height:35px;padding:0 15px; line-height:35px;z-index:2;color:#FFF;}
+	.big_pic h3 a{font-size:20px;color:#FFF;}
+	.big_pic h3 a:hover{color:#F20000;}
+	.big_pic h3 a:visited{color:#87CEFA;}
+	.big_pic p{position:absolute; font-size:12px; left:0;top:195px; padding:0 5px 0 5px; width:320px; height:20px;line-height:20px;z-index:2;color:#FFF;}
+	.big_pic p a{color:#FFF;}
+	.big_pic p a:hover{color:#F20000;}
+	.big_pic p a:visited{color:#ff8000;}
+	
+	.big_pic ul#picnum{ text-align:right; position:absolute; z-index:5; bottom:0; left:-15px; width:320px;}
+	.big_pic ul#picnum li{float:right; width:25px; height:19px; overflow:hidden; text-align:center; cursor:pointer; font-family:Verdana, Arial, Helvetica, sans-serif;  margin-right:-1px;}
+	.big_pic ul#picnum li a{ background:url(../../images/bigpic_li.gif) no-repeat; font-size:12px; display:block; text-align:center; line-height:19px; width:25px; height:19px; text-decoration:none; color:#fff;}
+	.big_pic ul#picnum li a:hover,.big_pic ul#picnum li a.active{text-decoration:none; color:#fff; background:url(../../images/bigpic_btn.gif) no-repeat left top;}
+	
+	#recommended .list{ border:1px solid #d1d1d1; background-color:#e4e4e4;}
+	#recommended .list h2{ font-size:14px; height:22px; padding:8px 0 0 25px; color:#000;}
+	#recommended .list ul{height:84px; /* float:left; */ margin-right:8px;}
+	#recommended .list ul li{height:21px; line-height:21px; overflow:hidden;list-style-image:url(../images/li_redrect.gif);list-style-position:outside;}
+	#recommended .list ul li a:hover{ text-decoration:none; color:#c70102;}
+	#recommended .list img{ width:120px; height:80px;  overflow:hidden;/* */ padding:3px; border:1px solid #ccc; background-color:#fff;}
+
+
+
+#hot .topic{ margin:0px;height:314px;border:0px solid red}
+#hot .topic h2{background:#dd0304 url(../../images/home/hot.gif) no-repeat 7px 8px; border:1px solid #1B1B1B; color:#fff; padding-left:2px;height:2em; line-height:2em;}
+#hot .topic dl{height:289px; border-left:1px solid #BCAE95;border-right:1px solid #BCAE95;}
+#hot .topic dl dt{ height:25px; line-height:25px; overflow:hidden;border-bottom:1px solid #BCAE95; background-color:#ECE3D0;}
+#hot .topic dl dt a{ padding-left:2px;display:block;background: url(../../images/home/hot_2.gif) no-repeat 10px center;}
+#hot .topic dl dt a:hover,#hot .topic dl dt.active,#hot .topic dl dt.active a,#hot .topic dl dt.active a:hover{background: url(../../images/home/hot_1.gif) no-repeat 8px center; color:#7B5A28; font-weight:bold; font-size:12px; text-decoration:none;}
+#hot .topic dl dt.active,#hot .topic dl dt.active a{background-color:#ECE3D0;}
+#hot .topic dl dd{ width:160px; height:100px; border-bottom:1px solid #BCAE95; overflow:hidden;}
+#hot .topic dl dd img{ margin:3px;width:160px; height:98px; overflow:hidden;}
+
+
+
+
+
+.aw-cad	{float:left; width:60px; padding:2px;color:#edf8dd; margin:10px 15px 0 0 ;border:2px solid #ccc}
+.aw-Y	{border-bottom:2px solid #020; text-align:center; font-size:12px;background:#557d1a; line-height:22px}
+.aw-D	{border-top:1px solid #3e4b23;text-align:center;font-size:32px;background:#2f3d12}
+dl{margin:0px}
+dt.img{padding-left:18px;background: transparent url("../../images/jpg.gif") no-repeat top left;}
+.subcolumns{border:0px solid blue}
+/*.c50l, .c25l, .c33l, .c38l, .c66l, .c75l, .c62l {border:1px solid blue}
+.c50r, .c25r, .c33r, .c38r, .c66r, .c75r, .c62r {border:1px solid green} 
+.subc  { padding: 0 ; }
+.subcl { padding: 0 ; }
+.subcr { padding: 0 ; }*/
+
+.vcard{float:left}
+.vcard img{ margin:1px;width:64px; height:64px; overflow:hidden;}
+
+#banner img{ margin:1px;width:740px; height:84px; overflow:hidden;}
+
+
+
+}

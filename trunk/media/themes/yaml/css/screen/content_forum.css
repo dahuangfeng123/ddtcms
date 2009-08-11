@@ -1,0 +1,77 @@
+@charset "UTF-8";
+@media all
+{
+	.debug{border:1px solid red; }
+	divd{border:1px solid red; }
+	ul, ol, dl { margin: 0 0 1em 0; }
+	
+	.txtalr{text-align:right;}
+	
+	
+	
+	#extended p{ line-height: 1.5em; margin: 10px;text-align:right; }
+	#foruminfo p{ font-size:1em;line-height: 1em;margin: 2px;}
+
+	tbody th { background: whitesmoke; color: #333; }
+	tbody td { background: whitesmoke; color: #333; }
+	tbody th[scope="row"], tbody th.sub { background: #darkgray; }
+	tbody th.sub h2{font-size: 116.67% }
+	tbody th.sub p{ line-height: 1em; margin: 0 ; }
+	tbody th h2 em{font-weight:400;}
+    tbody th h2 em strong{color:#F60}
+	tbody tr:hover th[scope="row"],
+	tbody tr:hover tbody th.sub { background: #87CEEB; }
+	tbody tr:hover td { background: #BCE2F3; }
+	
+	
+	.text p{ font-size:1.2em;text-indent: 2em; line-height: 1.6em; padding:0.5em 0;}	
+	p.icaption_left {  text-indent:0;float:left; display:inline; margin: 0 0.3em 0.15em 0; }
+	p.icaption_right { text-indent:0;float:right; display:inline; margin: 0 0 0.15em 0.5em; }
+
+    p.icaption {display:inline; margin: 0 1em 0.15em 0; text-align:center; }
+    p.icaption img { /*width:600px;height:450px;*/padding:0; border: 1px #888 solid; overflow:hidden;text-align:center;align:center; }
+    p.icaption strong { display:block; overflow:hidden; margin-top: 2px; padding: 0.3em 0.5em; background: #eee; font-weight: normal; font-size: 91.667%; }
+
+	.hidden{display:none}
+	.right { display:block; text-align:right; margin:  auto 0.5em; }
+	.quiet {}
+	.red{color:#FF3C3C;margin: 0 1em 0.15em 0;}
+	
+	
+
+	h1 { font-size: 1.5em; }                  /* 18px */
+	h2 { font-size: 1.2em; }                  /* 14px */
+	h3 { font-size: 1.1em; }                  /* 14px */
+	h4 { font-size: 1em; }                    /* 12px */
+	h5 { font-size: 1em; }                    /* 12px */
+	h6 { font-size: 1em; }                    /* 12px */
+	
+	h2 { margin:3px 0;}
+	h3 { text-decoration:underline ; }
+	
+	a:hover{ color:#000;background:#506400; }
+	
+	
+  
+	.headline h2 a{ color:#ab1c1c; }
+
+	.special ul {width:320px; margin:0; }
+	.special li {height:50px; margin-bottom:1px; overflow:hidden; line-height:24px;}
+	.special li a {display:block; color:#333; padding:10px 65px 0 2px; background:#E8E9EA; height:40px; position:relative;}
+	.special li a:hover {color:#333; text-decoration:none; background:url(../images/index_swf_bg.gif) repeat-x; }
+	.special li strong { display:block;overflow:hidden; height:1em;line-height:1em;cursor:pointer; margin-top: 2px; padding: 0.3em 0.5em; font-weight: normal; font-size: 91.667%; }
+	.special li img {position:absolute; top:3px; right:7px; width:60px; height:45px;}
+	.special a:link,.special a:active,.special a:visited {color: #3D3D3D;text-decoration: none;}
+	.special a:hover {text-decoration: underline;color: #3084C3;}
+	
+	
+	fieldset{
+	  border:  1px solid #ccc;
+	  margin: 2px;
+	  padding: 2px 15px;
+	  display: block;
+	}
+	fieldset legend{color:#008000;font-weight:bold;}
+	fieldset div{margin:5px;}
+	fieldset div p{text-indent: 2em; margin:0; padding:0;line-height:1.5em;}
+	}

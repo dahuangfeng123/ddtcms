@@ -1,0 +1,16 @@
+from django.contrib.sites.models import Site
+import datetime
+from ddtcms import get_version
+def site(request):
+    """
+    Adds site-related context variables to the context.
+    """
+    current_site = Site.objects.get_current()
+
+    return {
+        'SITE_NAME': current_site.name,
+        'SITE_DOMAIN': current_site.domain,
+        'SITE_URL': "http://www.%s" % (current_site.domain),
+        'SITE_TIME':datetime.datetime.now(),
+        'DDTCMS_VERSION':get_version(),
+    }
