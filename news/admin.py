@@ -7,6 +7,17 @@ from ddtcms.news.models import Category
 from django.core.urlresolvers import reverse
 from django import forms
 
+from ddtcms.news.forms import NewsForm
+
+def make_published(modeladmin, request, queryset):
+    queryset.update(status=1)
+make_published.short_description = "Mark selected news as published"
+
+
+def make_headline(modeladmin, request, queryset):
+    queryset.update(status=2)
+make_headline.short_description = "Mark selected news as headline"
+
 
 class NewsAdmin(admin.ModelAdmin):
   
@@ -16,17 +27,22 @@ class NewsAdmin(admin.ModelAdmin):
         self.request = request
         return super(NewsAdmin, self).__call__(request, url)
     
-    def formfield_for_dbfield(self, db_field, **kwargs):
-        field = super(NewsAdmin, self).formfield_for_dbfield(db_field, **kwargs) # Get the default field
-        if db_field.name == 'category': 
-            #Add the null object
-            my_choices = [('', '---------')]
-            #Grab the current site id from the URL.
-            my_choices.extend(Category.objects.values_list('id','name'))
-            #print my_choices
-            field.choices = my_choices
-            return field
-        return super(NewsAdmin, self).formfield_for_dbfield(db_field, **kwargs)
+#    def formfield_for_dbfield(self, db_field, **kwargs):
+#        field = super(NewsAdmin, self).formfield_for_dbfield(db_field, **kwargs) # Get the default field
+#        if db_field.name == 'category': 
+#            #Add the null object
+#            #my_choices = [('', '---------')]
+#            #my_choices = [(False, (('milk','milk'), (-1,'eggs'))), ('fruit', ((0,'apple'), (1,'orange'))), ('', (('yum','beer'), ))] 
+#            my_choices = [] 
+#            #Grab the current site id from the URL.
+#            #my_choices.extend(Category.objects.values_list('id','name'))
+#            for c in Category.objects.get_all_parents():
+#            	tc=c.name,tuple(c.get_children().values_list('id','name'))
+#            	my_choices.append(tc)
+#            #print my_choices
+#            field.choices = my_choices
+#            return field
+#        return super(NewsAdmin, self).formfield_for_dbfield(db_field, **kwargs)
         
 
     
@@ -67,11 +83,12 @@ class NewsAdmin(admin.ModelAdmin):
         ('内容',             {'fields': ['content']}),
         ('摘要',             {'fields': ['summary']}),
         ('Tags',             {'fields': ['tags']}), 
-        ('查阅数',            {'fields': ['views']}),
-        ('评论数',         {'fields': ['comments']}), 
+        #('查阅数',            {'fields': ['views']}),
+        #('评论数',         {'fields': ['comments']}), 
         ('是否允许评论',         {'fields': ['allow_comments']}),        	
-        ('责任编辑',         {'fields': ['editor']}),
+        #('责任编辑',         {'fields': ['editor']}),
         ('选项',         {'fields': ['status']}), 	
+        ('图片',         {'fields': ['file']}),	
         ('新闻指示图片',         {'fields': ['pic']}), 
     ]
 
@@ -80,6 +97,9 @@ class NewsAdmin(admin.ModelAdmin):
     list_filter = ['pub_date','status']
     search_fields = ['title','deliverer' ,'summary', 'content']
     date_hierarchy = 'pub_date'
+    actions = [make_published,make_headline]
+    form = NewsForm
+
     
     
 class CategoryAdmin(admin.ModelAdmin):

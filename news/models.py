@@ -22,6 +22,12 @@ except ImportError:
 	tagfield_help_text = _('Django-tagging was not found, tags will be treated as plain text.')
 
 # Create your models here.
+
+class CategoryManager(models.Manager):
+	def get_all_roots(self):
+		return self.filter(parent__isnull = True)
+
+
 class Category(models.Model):
 	name          = models.CharField(_('name'), max_length=50)
 	slug          = models.SlugField(max_length=50,unique=True,help_text='alias to the name,use english')
@@ -30,6 +36,8 @@ class Category(models.Model):
 	path          = models.CharField(_("category's path"),blank=True,null=True, max_length=250, editable=False)
 	posts         = models.IntegerField(_("News Posts Count"), default=0)
 	order         = models.PositiveSmallIntegerField(_('order'), default=0)
+	
+	objects       = CategoryManager()
 	
 
 	class Meta:

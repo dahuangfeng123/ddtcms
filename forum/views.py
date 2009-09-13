@@ -414,3 +414,28 @@ def updatesubs(request):
             'subs': subs,
         }))
 
+def search(request, q):
+    """
+    Displays a list of threads within a forum.
+    Threads are sorted by their sticky flag, followed by their
+    most recent post.
+    """
+
+    try:
+        f = Forum.objects.for_groups(request.user.groups.all()).select_related().get(slug=slug)
+    except Forum.DoesNotExist:
+        #raise Http404(_("Not Found"))
+        return HttpResponseForbidden(_('Sorry, you need permission to continue.'))
+
+    form = CreateThreadForm()
+    child_forums = f.child.for_groups(request.user.groups.all())
+    return object_list( request,
+                        queryset=f.thread_set.select_related().all(),
+                        paginate_by=FORUM_PAGINATION,
+                        template_object_name='thread',
+                        template_name='forum/thread_list.html',
+                        extra_context = {
+                            'forum': f,
+                            'child_forums': child_forums,
+                            'form': form,
+                        })
