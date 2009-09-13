@@ -115,6 +115,7 @@ ROOT_URLCONF = 'ddtcms.urls'
 
 # the theme name ' yaml,'
 THEME_NAME = 'yaml'
+#THEME_TEMPLATE_DIR
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
