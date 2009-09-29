@@ -19,7 +19,7 @@ class BaseCategoryAbstractModel(models.Model):
 
 class AbstractBaseEntryModel(models.Model):
     """
-    An abstract base class that any custom Category models probably should
+    An abstract base class that any custom Information Entry(News,Article,blog,forum post,question,etc) models probably should
     subclass.
     """
     title         = models.CharField(_('name'), max_length=50)
@@ -40,21 +40,21 @@ class AbstractBaseDublinCoreModel(models.Model):
 	subclass.
 	"""
 
-	contributor = models.CharField(_('name'), max_length=50)
-	coverage    = models.CharField(_('name'), max_length=50)
-	creator     = models.CharField(_('name'), max_length=50)
-	date        = models.CharField(_('name'), max_length=50)
-	description = models.CharField(_('name'), max_length=50)
-	format      = models.CharField(_('name'), max_length=50)
-	identifier  = models.CharField(_('name'), max_length=50)
-	language    = models.CharField(_('name'), max_length=50)
-	publisher   = models.CharField(_('name'), max_length=50)
-	relation    = models.CharField(_('name'), max_length=50)
-	rights      = models.CharField(_('name'), max_length=50)
-	source      = models.CharField(_('name'), max_length=50)
-	subject     = models.CharField(_('name'), max_length=50)
-	title       = models.CharField(_('name'), max_length=50)
-	type        = models.CharField(_('name'), max_length=50)
+	contributor = models.CharField(_('contributor'), max_length=50)
+	coverage    = models.CharField(_('coverage'), max_length=50)
+	creator     = models.CharField(_('creator'), max_length=50)
+	date        = models.DateTimeField(_('date'), max_length=50)
+	description = models.CharField(_('description'), max_length=50)
+	format      = models.CharField(_('format'), max_length=50)
+	identifier  = models.CharField(_('identifier'), max_length=50)
+	language    = models.CharField(_('language'), max_length=50)
+	publisher   = models.CharField(_('publisher'), max_length=50)
+	relation    = models.CharField(_('relation'), max_length=50)
+	rights      = models.CharField(_('rights'), max_length=50)
+	source      = models.CharField(_('source'), max_length=50)
+	subject     = models.CharField(_('subject'), max_length=50)
+	title       = models.CharField(_('title'), max_length=50)
+	type        = models.CharField(_('type'), max_length=50)
 
 
 

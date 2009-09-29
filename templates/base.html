@@ -1,4 +1,4 @@
-﻿{% load i18n themes%}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+﻿{% load i18n %}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
 <head>
@@ -12,31 +12,13 @@
 	<meta name="copyright" content="http://www.{{SITE_NAME}}.com/" />	
 	{% endblock meta %}
 	
-	{% block link %}
-	{% block link.shared %}
-	<link href="{{MEDIA_URL}}images/favicon.ico" type="image/x-icon" rel="shortcut icon" >
-	<link href="{{MEDIA_URL}}images/favicon.ico" type="image/ico" rel="icon"  >
-	<link href="{{MEDIA_URL}}images/favicon.ico" type="image/x-icon" rel="bookmark" >
-	<link href="" title="存档" type="application/rss+xml" rel="archives" >
-	<link href="/opensearch.xml" title="搜索" type="application/opensearchdescription+xml" rel="search" >
-	<link href="/rss/news.rss" title="资讯" type="application/rss+xml" rel="alternate" >
-	<link href="/rss/comment.rss" title="评论" type="application/rss+xml" rel="alternate" >
-	<link href="/rss/blog.rss" title="日志" type="application/rss+xml" rel="alternate" >
-	<link href="/rss/topic.rss" title="话题" type="application/rss+xml" rel="alternate" >
-	{% endblock link.shared%}	
-	{% block link.custom %}
-	{% endblock link.custom%}
-	{% endblock link%}
+
 
 	{% block css %}
-	{% block css.shared %}
-	<link href="{% theme_media_url %}css/layout_grids.css" rel="stylesheet" type="text/css"/>
-	<!--[if lte IE 7]>
-	<link href="{% theme_media_url %}css/patches/patch_grids.css" rel="stylesheet" type="text/css" />
-	<![endif]-->
+	{% block css.shared %}	
+	<link href="{{ MEDIA_URL }}css/default.css" rel="stylesheet" media="screen" type="text/css" />
 	{% endblock css.shared %}
-	{% block css.custom %}
-	{% endblock css.custom %}
+	{% block css.custom %}	{% endblock css.custom %}
 	{% endblock css%}
 
 	{% block js %}
@@ -44,107 +26,25 @@
 	{% block js.custom %}{% endblock js.custom %}
 	{% endblock js%}
 	
+	{% block rss %}
+	{% block rss.shared %}	{% endblock rss.shared%}	
+	{% block rss.custom %}	{% endblock rss.custom%}
+	{% endblock rss%}
+	
 	{% block head.extra %}{% endblock head.extra%}
 </head>
 <body{% block bodyonload %}{% endblock bodyonload %}>
-	<div id="topnav">
-	    <div class="page_margins">
-	        <div class="page">
-	            <!-- start: skip link navigation -->
-	            <a class="skip" href="#navigation" title="skip link">Skip to the navigation</a><span class="hideme">.</span>
-	            <a class="skip" href="#content" title="skip link">Skip to the content</a><span class="hideme">.</span>
-	            <!-- end: skip link navigation -->
-	            <span style="float:right">
-	            	{% if user.is_authenticated %}
-	            	<a href="{% url profile_overview %}">{{user.username}}'s {% trans "Profile" %}</a> | <a href="{% url logout %}">{% trans "Logout" %}</a>
-	            	{% else %}
-			        <span class="highlight">
-			        <a href="{% url profile_overview %}" title="登录">上岗</a> 
-			        <a href="{% url signup %}" title="欢迎加入我们的队伍">注册新用户</a></span>
-                    <a href="{% url password_reset %}" title="请和管理员联系" style="cursor:help;">忘记密码</a>
-	            	{% endif %}      
-	            </span>        
-	            ★{{SITE_NAME}}
-	        </div>
-	    </div>
-	</div>
-
-	<div id="header">
-		<div class="page_margins">
-		<div class="page">
-			<img src="{{MEDIA_URL}}themes/yaml/images/logo.gif"/>
-		</div>
-		</div>
-	</div>
-
-	<!-- begin: navigation #nav -->
-	<div id="nav"> 
-		<div class="page_margins">
-			<div class="page">
-			<a id="navigation" name="navigation"></a><!-- skiplink anchor: navigation -->
-			{% load navbar %}{% navbars %}		
-			</div>
-		</div>			
-	</div>
-	<!-- end: navigation #nav-->
-	<!-- end: breadcrumbs -->
-	<div id="breadcrumbs">
-		<div class="page_margins">
-			<div class="page">
-				<span class='float_right'>欢迎您的光临！          
-				{{ SITE_TIME|date:"Y年m月d日 D" }}</span>
-				您的足迹: {% block breadcrumbs %}{% for crumb in crumbs %}<a href="{{ crumb.path }}">{% trans crumb.name %}</a>{% if not forloop.last %}&raquo;{% endif %}{% endfor %}{% endblock %}
-			</div>
-		</div>
-	</div>
-	<!-- end: breadcrumbs -->
-
+	{% block header %}{% include "header.html" %}{% endblock header%}
+	
 	<!-- begin: main content area #main -->
-	<div id="main">
-		<div class="page_margins">
-			<div class="page">
-				<a id="content" name="content"></a><!-- skiplink anchor: Content -->		
-				{% block content %}
-				{% endblock %}			
-			</div>
-		</div>				
-	</div>
+	<div id='main'>
+	<a id="content" name="content"></a><!-- skiplink anchor: Content -->		
+	{% block content %}	{% endblock %}
+    </div>
 	<!-- end: #main -->
 
-	{% block extended_content %}
-	{% endblock extended_content%}
-
-	<!-- begin: #footer -->
-	{%comment%}{%endcomment%}<div id="footer">
-		<div class="page_margins">
-		  <div class="page">
-		  	<div class="subcolumns">
-				<div class="c62l">
-				  <div class="subcl">
-					<a href="/faq/aboutus">关于我们</a> -
-					<a href="/faq/contact">联系方式</a> -
-					<a href="#">打印</a> -
-					<a href="/link/">友情链接</a> -
-					<a href="/sitemap.xml">网站地图</a> -
-					<a href="/admin/">后台管理</a> -
-					<a href="/faq/">帮助</a> -
-					<a href="/forum/">论坛</a><br />
-					{{ SITE_NAME }} 版权所有 &copy;  2008. 保留所有权利. <br />
-					地址：XX省XX市 电话：0123456789,本站由 <strong>站长</strong> 创建.ICP备000000000号.
-				  </div>
-				</div>
-			
-				<div class="c38r">
-				  <div class="subcr" style="text-align:right;color: #666;">
-				   <p>内容管理系统基于 <strong>DDTCMS</strong> CMS 项目.<br/>页面布局样式基于 <strong>YAML</strong> CSS 架构.<br/> 网站服务运行基于 <strong>Django</strong> WEB 架构.</p>
-				  </div>
-				</div>
-			</div>
-		  	
-		  </div>
-		</div>
-  	</div>
-	<!-- end: #footer -->
+	{% block extended_content %}{% endblock extended_content%}
+	{% block footer %}{% include "footer.html" %}{% endblock footer%}
 </body>
 </html>
 

@@ -59,8 +59,8 @@ from django.core.paginator import Paginator, InvalidPage
 
 
 urlpatterns = patterns('',
-    #(r'^$',                            'django.views.generic.date_based.archive_index', blog_dict),
-    (r'^$',                             'django.views.generic.list_detail.object_list', pages_dict),
+    (r'^$',                            'ddtcms.blog.views.index'),
+    #(r'^$',                             'django.views.generic.list_detail.object_list', pages_dict),
     (r'^page/(?P<page>\w+)/$',          'django.views.generic.list_detail.object_list', pages_dict),
 
     (r'^(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\w{1,2})/(?P<slug>[-\w]+)/$', 'django.views.generic.date_based.object_detail', dict(archive_dict,slug_field='slug')),
