@@ -20,7 +20,7 @@ def index(request):
     else:
         content='  匿名用户'
         
-    return render_to_response('index.html',common_dict)
+    return render_to_response('blog/index.html',{},context_instance=RequestContext(request))
 
 
 def post(request, success_url=None,

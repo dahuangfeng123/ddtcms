@@ -1,4 +1,4 @@
-﻿{% load i18n %}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+﻿{% load i18n themes%}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
 <head>
@@ -19,14 +19,30 @@
 	<link href="{{MEDIA_URL}}themes/yaml/css/patches/patch_grids.css" rel="stylesheet" type="text/css" />
 	<![endif]-->
 	{% endblock css.shared %}
-	{% block css.custom %}
-	{% endblock css.custom %}
+	{% block css.custom %}	{% endblock css.custom %}
 	{% endblock css%}
 
 	{% block js %}
 	{% block js.shared %}<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery-1.3.2.min.js"></script>{% endblock js.shared %}
 	{% block js.custom %}{% endblock js.custom %}
 	{% endblock js%}
+	
+	{% block rss %}
+	{% block rss.shared %}
+	<link href="{{MEDIA_URL}}images/favicon.ico" type="image/x-icon" rel="shortcut icon" >
+	<link href="{{MEDIA_URL}}images/favicon.ico" type="image/ico" rel="icon"  >
+	<link href="{{MEDIA_URL}}images/favicon.ico" type="image/x-icon" rel="bookmark" >
+	<link href="" title="存档" type="application/rss+xml" rel="archives" >
+	<link href="/opensearch.xml" title="搜索" type="application/opensearchdescription+xml" rel="search" >
+	<link href="/rss/news.rss" title="资讯" type="application/rss+xml" rel="alternate" >
+	<link href="/rss/comment.rss" title="评论" type="application/rss+xml" rel="alternate" >
+	<link href="/rss/blog.rss" title="日志" type="application/rss+xml" rel="alternate" >
+	<link href="/rss/topic.rss" title="话题" type="application/rss+xml" rel="alternate" >
+	{% endblock rss.shared%}	
+	{% block rss.custom %}	{% endblock rss.custom%}
+	{% endblock rss%}
+	
+	{% block head.extra %}{% endblock head.extra%}
 </head>
 <body{% block bodyonload %}{% endblock bodyonload %}>
 	<div id="topnav">
@@ -36,7 +52,7 @@
 	            <a class="skip" href="#navigation" title="skip link">Skip to the navigation</a><span class="hideme">.</span>
 	            <a class="skip" href="#content" title="skip link">Skip to the content</a><span class="hideme">.</span>
 	            <!-- end: skip link navigation -->
-	            <span>
+	            <span style="float:right">
 	            	{% if user.is_authenticated %}
 	            	<a href="{% url profile_overview %}">{{user.username}}'s {% trans "Profile" %}</a> | <a href="{% url logout %}">{% trans "Logout" %}</a>
 	            	{% else %}
@@ -45,7 +61,8 @@
 			        	<a href="{% url signup %}" title="欢迎加入我们的队伍">注册新用户</a></span>
 						<a href="{% url password_reset %}" title="请和管理员联系" style="cursor:help;">忘记密码</a>
 	            	{% endif %}      
-	            </span>        
+	            </span>
+	            ★{{SITE_NAME}}        
 	        </div>
 	    </div>
 	</div>
@@ -111,6 +128,8 @@
 					<a href="/forum/">论坛</a><br />
 					&copy; 2008 - 2009 {{SITE_NAME}}&trade; Website. All rights reserved.
 					<br/>Powered by <a href="http://code.google.com/p/ddtcms/" class="refout">DDTCMS</a> <EM>{{DDTCMS_VERSION}}</EM> .
+					{{ SITE_NAME }} 版权所有 &copy;  2008. 保留所有权利. <br />
+					地址：XX省XX市 电话：0123456789,本站由 <strong>站长</strong> 创建.ICP备000000000号.
 				  </div>
 				</div>
 			
