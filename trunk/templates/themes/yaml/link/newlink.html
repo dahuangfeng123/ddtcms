@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% blocktrans with forum.title as title %}New Thread in {{ title }}{% endblocktrans %}{% endblock %}
+
+{% block extrahead %}
+<link rel="alternate" type="application/rss+xml" title="{{ forum.title }} Posts via RSS" href="{% url forum_index %}rss/{{ forum.slug }}/" />
+<link rel="alternate" type="application/atom+xml" title="{{ forum.title }} Posts via ATOM" href="{% url forum_index %}atom/{{ forum.slug }}/" />
+{% endblock %}
+
+
+{% block content %}
+
+
+
+
+
+	<div class="subcolumns">
+		
+	    <div class="c25l">
+	      <div class="subcl">	      	
+	      	<div id="left_navigation">
+	      		<h2>操作菜单</h2>
+	      		<ul>
+	      			<li><a href="{%url newlink%}">添加新链接</a></li>
+	      		</ul>
+	      		<h2>链接分类</h2>
+	      		<ul>
+	      			<li>分类1</li>
+	      			<li>分类1</li>
+	      			<li>分类1</li>
+	      		</ul>
+			</div>
+	      </div>
+	    </div>
+	
+	    <div class="c75r">
+	      <div class="subcr">		
+	      		
+			<div class="subcolumns">
+				<div class="c62l">
+					<div class="subcl">
+						<div id="userprofile_content">
+							{% block userprofile_content %}
+							<h2>{% trans "Create a Link" %}{{ msg }}</h2>
+							<form method='post' action='./'>
+							{% if form.errors %}<ul>{{ form.errors.as_ul }}</ul>{% endif %}
+							<p><label>{% trans "Posting As" %}</label><span>{{ user.username }}</span></p>
+							{{ form.as_p }}
+							<p><input type='submit' value='提交' /></p>
+							</form>
+
+							{% endblock %}		
+						</div>
+					</div>
+				</div>
+				
+				<div class="c38r">
+					<div class="subcr">
+						<div id="userprofile_content_related">
+							{% block userprofile_content_related %}{% endblock %}
+						</div>
+					</div>
+				</div>
+			</div>	
+			
+	      </div>
+	    </div>
+	    
+  	</div>	
+{% endblock %}
