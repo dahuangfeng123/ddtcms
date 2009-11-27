@@ -13,6 +13,11 @@ body,td, input, textarea, select, button {
 	font: 12px/1.6em Arial,Tahoma, sans-serif;
 	line-height:20px;
 }
+input, select, button {
+	color: #00f;
+	height:25px;
+}
+
 a{text-decoration:none;color:#12A3DA}
 a:hover{text-decoration:underline;color:#D59139}
 a:visited {font-weight:normal;color:#cc0000}
@@ -289,6 +294,13 @@ color: #4E4E4E;
 #mainbody div.opt a:hover{color: #4C4C4C;text-decoration:underline}
 #mainbody div.line{margin-top:5px;margin-bottom:5px;}
 #mainbody div.none{padding:100px 0 100px 0;color:#000;font-size:12px}
+
+
+
+#mainbody table.data{width:700px!important;width:700px;padding:8px;}
+#mainbody table.data th{ border-bottom:2px solid #bfc8cf;}
+#mainbody table.data td{ border-bottom:1px dotted #bfc8cf;}
+
 
 #mainbody .pagebar {margin: 5px 0;}
 #mainbody .pagebar a {

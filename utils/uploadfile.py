@@ -16,7 +16,7 @@ def randomfilename(filename):
 
 def handle_uploaded_file(f):
     UPLOAD_TO = 'attachment/%s/' % (datetime.datetime.now().strftime('%Y/%m/%d'))
-    SAVE_TO   = os.path.join(settings.STATIC_PATH,UPLOAD_TO)
+    SAVE_TO   = os.path.join(settings.MEDIA_ROOT,UPLOAD_TO)
 
     if not os.path.exists(SAVE_TO):
         os.makedirs(SAVE_TO)
@@ -37,7 +37,7 @@ def handle_uploaded_file(f):
     #try:
     #    im = PIL.Image.open(filename)
     #    im=im.convert('RGB')
-    #    name = settings.STATIC_FILE_UPLOAD_TEMP_DIR+'face/u%s.png' % (datetime.datetime.now().strftime('%Y-%m-%d'))
+    #    name = settings.STATIC_UPLOAD+'face/u%s.png' % (datetime.datetime.now().strftime('%Y-%m-%d'))
     #    im.save(file(name, 'wb'), 'PNG')
     #except:
     #    return "ERROR"

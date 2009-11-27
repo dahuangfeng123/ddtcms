@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+{% load i18n themes news_tags%}
+
+{% block title %}首页{% endblock %}
+{% block css.custom %}
+	<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/default.css" />
+{% endblock css.custom %}
+
+{% block js.custom %}<script type="text/javascript" src="{{ MEDIA_URL }}themes/yaml/js/yaml.index.js"></script>
+	<script type="text/javascript" src="{{ MEDIA_URL }}js/tab.js"></script>
+{% endblock js.custom %}
+
+
+
+
+
+
+{% block notice %} {% for notice in notice_list %} [公告]<a href="{{notice.get_absolute_url}}">{{ notice.title }}</a>({{notice.pub_date}})  {% endfor %}{% endblock %}
+
+{% block sidebar %}
+
+
+        
+        <div>
+            <div class="box-top1"><span></span></div>
+            <div class="box1">
+                <h2>{% trans "NavTree" %}</h2>
+                 {% load navbar %}{% navtree   %}
+                <div class="clear"></div>
+            </div>
+            <div class="box-bot"><span></span></div>
+        </div>
+        <div class="clear"></div>          
+        
+        <div>
+            <div class="box-top1"><span></span></div>
+            <div class="box1">
+                <h2>{% trans "SideBar" %}</h2>
+                请在模板中更新
+               <div id='user_intro'>
+                {% if user.is_authenticated %}
+                {{user.username}},欢迎您的到来！
+                {% else %}
+                <p>您必须登录之后才能查看用户信息，请在右边登录。</p>
+                {% endif %}
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="box-bot"><span></span></div>
+        </div>
+        <div class="clear"></div>  
+        
+        <div>
+            <div class="box-top1"><span></span></div>
+            <div class="box1">
+                <h2>{% trans "User Profile" %}</h2>
+                请在模板中更新
+               <ul>
+            <li><a href='/accounts/register'>注册新用户</a></li>
+            <li>看看新闻</li>
+            <li>去论坛</li>
+            <li></li>
+            <li><a href='/accounts/logout'>注销</a></li>
+           </ul>
+                <div class="clear"></div>
+            </div>
+            <div class="box-bot"><span></span></div>
+        </div>
+        <div class="clear"></div>  
+        
+        <div>
+            <div class="box-top1"><span></span></div>
+            <div class="box1">
+                <h2>{% trans "Support" %}</h2>
+               <ul>            
+            <li><a href="http://www.python.org"><img src="/images/python-powered.png" alt="python"/></a></li>
+            <li><a href="http://www.djangoproject.com"><img src='/images/a-DJANGO-site.gif' alt='Site based on Django'/></a></li>
+           </ul>
+                <div class="clear"></div>
+            </div>
+            <div class="box-bot"><span></span></div>
+        </div>
+        <div class="clear"></div>  
+        
+        
+
+        {% endblock %}
+        
+        
+        
+        
+        
+
+
+
+ 
+ 
+ 
+
+{% block content %}
+ 
+<h2>DDTCMS</h2>
+<h2>Summary:</h2>
+<p class='para'>DDTCMS(Django Dream Team's Content Management System),is a CMS based on django 1.0,supported by Django Dream Team,created by huyoo353 on 2008-NOV-10. </p>
+<p>http://code.google.com/p/ddtcms/</p>
+<p>admin u/p: admin/admin </p>
+<h2>Requirements:</h2>
+<dl>
+<dt>django 1.1</dt><dd>Django version 1.1 or greater.</dd>
+<dt>PIL</dt><dd>The Python Imaging Library,Source: http://www.pythonware.com/products/pil/</dd>
+<dt>markdown</dt>
+<dd>Markdown is a text-to-HTML conversion tool for web writers.
+    http://daringfireball.net/projects/markdown/</dd>
+<dt>django-navbar</dt><dd>Site navigation controlled from the django admin with: 
+
+Navigation bar 
+Navigation tree 
+Chained Navigation bars 
+JSON sub tree requests (comming soon) 
+Permission control on which entries are seen 
+http://code.google.com/p/django-wikiapp/</dd>
+<dt>django-wikiapp</dt><dd>Django WikiApp is a pluggable application for Django that aims to provide a complete Wiki (for really small values of "complete") 
+http://code.google.com/p/django-wikiapp/
+</dd>
+<dt>django-photologue</dt><dd></dd>
+<dt>django-forum</dt><dd></dd>
+<dt>django-tagging</dt><dd></dd>
+<dt>django-pressroom</dt><dd></dd>
+<dt>gettext</dt><dd>Optional(needed when you use i18n tags in code or templates)</dd>
+<dt>Google Data API</dt><dd>Optional(allows image searching)
+      Download it from http://code.google.com/p/gdata-python-client/</dd>
+<dt>django-profile</dt>
+<dd>
+<ul>
+<li>http://code.google.com/p/django-profile/</li> 
+<li>This is a Django pluggable user profile zone which can be used and customized easily in your social application web platform developed in django. </dd></li>
+</ul>
+</dl>
+<p></p>
+<h2>App Directory Structure:</h2>
+<dl><dt>appname/</dt>
+<dd>
+<ul>
+<li>--templates/</li>
+<li>----appname/</li>
+<li>--templatetags/</li>
+</ul>
+</dd></dl>
+ 
+
+        {% endblock %}
+         
+       
+
+{% block extended_content %}
+<div id="extended">
+
+			<div id="links">
+				<h3>友情链接</h3>
+				<ul  class="text">{% for link in links %}
+					<li><a href="{{ link.url }}" target="_blank">{{ link.title }}</a></li>{% endfor %}
+				</ul>
+			</div>
+
+</div>
+
+{% endblock extended_content%}
