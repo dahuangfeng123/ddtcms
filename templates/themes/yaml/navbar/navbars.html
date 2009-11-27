@@ -1,0 +1,5 @@
+{% load i18n navbar %}	{% for navbar in navbars %}
+			<div id="nav_main{{ forloop.counter }}"{%comment%} class="hlist"{%endcomment%}>
+			<ul>{% for entry in navbar %}
+			  <li{% if entry.selected %} id="current"{% endif %}><a href="{{ entry.url }}" {% if entry.selected %} class="active"{% endif %} title="{{ entry.title|escape }}">{{ entry.name|escape }}</a></li>{% endfor %}
+			</ul></div>{% endfor %}
