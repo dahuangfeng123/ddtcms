@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-06 11:10+0800\n"
-"PO-Revision-Date: 2009-01-06 11:29+0800\n"
+"POT-Creation-Date: 2009-05-23 22:08+0800\n"
+"PO-Revision-Date: 2009-05-23 23:21+0800\n"
 "Last-Translator: huyoo <huaitwooos@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -16,31 +16,32 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: .\blog\forms.py:23
-#: .\news\forms.py:21
-#: .\registration\forms.py:42
 msgid "username"
 msgstr "用户名"
 
 #: .\blog\forms.py:25
+#: .\photologue\models.py:124
+#: .\photologue\models.py:181
+#: .\photologue\models.py:479
 msgid "title"
 msgstr "标题"
 
 #: .\blog\forms.py:29
-#: .\news\forms.py:26
 msgid "category"
 msgstr "类别"
 
 #: .\blog\forms.py:33
-#: .\news\forms.py:28
 msgid "datetime"
 msgstr "日期"
 
 #: .\blog\forms.py:35
+#: .\dbtemplates\models.py:19
+#: .\news\forms.py:14
 msgid "content"
 msgstr "内容"
 
 #: .\blog\forms.py:36
-#: .\forum\models.py:24
+#: .\forum\models.py:31
 msgid "Slug"
 msgstr "缩记"
 
@@ -49,245 +50,303 @@ msgid "Summary"
 msgstr "摘要"
 
 #: .\blog\forms.py:39
-#: .\blog\models.py:37
-#: .\link\models.py:34
+#: .\blog\models.py:66
+#: .\link\models.py:61
+#: .\news\models.py:129
+#: .\photologue\models.py:132
+#: .\photologue\models.py:185
+#: .\photologue\models.py:485
+#: .\tagging\models.py:457
 msgid "tags"
-msgstr "tags"
+msgstr "标签"
 
 #: .\blog\forms.py:65
-#: .\news\forms.py:44
-#: .\registration\forms.py:77
 msgid "This username is already taken. Please choose another."
 msgstr "该用户名已被使用，请选用其他的。"
 
 #: .\blog\forms.py:77
-#: .\news\forms.py:56
-#: .\registration\forms.py:89
 msgid "You must type the same password each time"
 msgstr "你每次必须输入相同的密码"
 
 #: .\blog\models.py:10
-#: .\link\models.py:12
+#: .\link\models.py:11
+#: .\news\models.py:16
+#: .\photologue\models.py:40
 msgid "Separate tags with spaces, put quotes around multiple-word tags."
 msgstr "用空格分隔标签tag，带空格的词组请用引号包括"
 
 #: .\blog\models.py:19
-#: .\link\models.py:21
+#: .\link\models.py:20
+#: .\news\models.py:25
+#: .\photologue\models.py:49
 msgid "Django-tagging was not found, tags will be treated as plain text."
 msgstr "Django-tagging 没有找到，tags将会被作为纯文本处理。"
 
-#: .\blog\models.py:43
-#, fuzzy
-msgid "Entry"
-msgstr "国家"
-
-#: .\blog\models.py:44
-msgid "Entries"
-msgstr ""
-
-#: .\blog\templates\blog_base.html.py:8
-#: .\blog\templates\blog_base.html.py:11
-#: .\userprofile\templates\userprofile\avatar\search.html.py:32
-msgid "Search"
-msgstr "搜索"
-
-#: .\blog\templates\blog_base.html.py:39
-#: .\category\models.py:69
-#: .\category\models.py:70
-msgid "Category"
-msgstr "分类"
-
-#: .\blog\templates\blog_base.html.py:54
-msgid "BlogRoll"
-msgstr "博客链接"
-
-#: .\blog\templates\blog_base.html.py:70
-msgid "Archive"
-msgstr "档案"
-
-#: .\book\models.py:13
-#, fuzzy
-msgid "Publisher"
-msgstr "用户"
-
-#: .\book\models.py:14
-msgid "Publishers"
-msgstr ""
-
-#: .\book\models.py:24
-msgid "Book Author"
-msgstr ""
-
-#: .\book\models.py:25
-msgid "Book Authors"
-msgstr ""
-
-#: .\book\models.py:34
-msgid "Book"
-msgstr "图书"
-
-#: .\book\models.py:35
-#, fuzzy
-msgid "Books"
-msgstr "图书"
-
-#: .\book\models.py:43
-msgid "Book Chapter"
-msgstr ""
-
-#: .\book\models.py:44
-msgid "Book Chapters"
-msgstr ""
-
-#: .\captcha\models.py:25
-msgid "CaptchaRequest"
-msgstr ""
-
-#: .\captcha\models.py:26
-msgid "CaptchaRequests"
-msgstr ""
-
-#: .\category\admin.py:21
-msgid "Content"
-msgstr "内容"
-
-#: .\category\models.py:60
+#: .\blog\models.py:24
+#: .\common\models.py:10
+#: .\common\models.py:25
+#: .\common\models.py:40
+#: .\common\models.py:103
+#: .\common\models.py:104
+#: .\common\models.py:105
+#: .\common\models.py:106
+#: .\common\models.py:107
+#: .\common\models.py:108
+#: .\common\models.py:109
+#: .\common\models.py:110
+#: .\common\models.py:111
+#: .\common\models.py:112
+#: .\common\models.py:113
+#: .\common\models.py:114
+#: .\common\models.py:115
+#: .\common\models.py:116
+#: .\common\models.py:117
+#: .\dbtemplates\models.py:18
+#: .\guestbook\models.py:21
+#: .\link\models.py:25
+#: .\news\models.py:29
+#: .\people\models.py:20
+#: .\photologue\models.py:527
+#: .\photologue\models.py:653
+#: .\tagging\models.py:450
 msgid "name"
 msgstr "名称"
 
-#: .\category\models.py:63
-#, fuzzy
-msgid "root category's pk"
-msgstr "旋转或翻转"
+#: .\blog\models.py:27
+#: .\common\models.py:13
+#: .\common\models.py:28
+#: .\link\models.py:28
+#: .\news\models.py:32
+msgid "category's depth"
+msgstr "类别深度"
 
-#: .\category\models.py:64
+#: .\blog\models.py:28
+#: .\common\models.py:14
+#: .\common\models.py:29
+#: .\common\models.py:45
+#: .\link\models.py:29
+#: .\news\models.py:33
+#: .\people\models.py:26
 msgid "order"
-msgstr ""
+msgstr "顺序"
 
-#: .\forum\feeds.py:28
-#, python-format
-msgid "%(title)s's Forum: %(forum)s"
-msgstr ""
+#: .\blog\models.py:32
+msgid "Blog Category"
+msgstr "博客分类"
 
-#: .\forum\feeds.py:32
-#, python-format
-msgid "%(title)s's Forum"
-msgstr ""
+#: .\blog\models.py:33
+msgid "Blog Categories"
+msgstr "博客分类"
 
-#: .\forum\feeds.py:38
-msgid "Latest forum posts"
-msgstr "论坛最新帖子"
-
-#: .\forum\forms.py:5
-#: .\forum\models.py:23
-#: .\forum\models.py:149
-msgid "Title"
-msgstr "标题"
-
-#: .\forum\forms.py:6
-#: .\forum\forms.py:10
-#: .\forum\models.py:199
-msgid "Body"
-msgstr "主体"
-
-#: .\forum\forms.py:7
-#: .\forum\forms.py:11
-msgid "Subscribe via email"
-msgstr ""
-
-#: .\forum\models.py:26
-msgid "Description"
-msgstr "描述"
-
-#: .\forum\models.py:27
-#: .\forum\models.py:170
-#: .\forum\templates\forum\forum_list.html.py:52
-msgid "Threads"
-msgstr "话题"
-
-#: .\forum\models.py:28
-#: .\forum\models.py:152
-#: .\forum\templates\forum\forum_list.html.py:53
-msgid "Posts"
-msgstr "帖子"
-
-#: .\forum\models.py:77
-msgid "Forum parents"
-msgstr "父论坛"
-
-#: .\forum\models.py:107
-msgid "Forum"
-msgstr "论坛"
-
-#: .\forum\models.py:108
-#: .\forum\templates\forum_base.html.py:26
-#: .\forum\templates\forum_base.html.py:27
-#: .\forum\templates\forum\forum_list.html.py:3
-msgid "Forums"
-msgstr "论坛"
-
-#: .\forum\models.py:113
-msgid "You must not save a forum in itself!"
-msgstr ""
-
-#: .\forum\models.py:150
-msgid "Sticky?"
-msgstr "置顶？"
-
-#: .\forum\models.py:151
-msgid "Closed?"
-msgstr "关闭？"
-
-#: .\forum\models.py:153
-#: .\forum\templates\forum\thread_list.html.py:51
-#: .\templates\themes\default\blog\list.html.py:20
-#: .\templates\themes\default\blog\page.html.py:18
-#: .\templates\themes\default\blog\post.html.py:18
+#: .\blog\models.py:67
+#: .\forum\models.py:187
+#: .\news\models.py:131
 msgid "Views"
 msgstr "查看"
 
-#: .\forum\models.py:154
-msgid "Latest Post Time"
-msgstr "最新发布时间"
+#: .\blog\models.py:68
+#: .\news\models.py:132
+msgid "Comments"
+msgstr "评论"
 
-#: .\forum\models.py:169
-#: .\forum\templates\forum\thread_list.html.py:49
-msgid "Thread"
-msgstr "话题"
+#: .\blog\models.py:74
+msgid "Blog"
+msgstr "博客"
 
-#: .\forum\models.py:200
-msgid "Time"
-msgstr "时间"
+#: .\blog\models.py:75
+msgid "Blogs"
+msgstr "博客"
 
-#: .\forum\models.py:257
-#, fuzzy
-msgid "Subscription"
+#: .\book\models.py:14
+msgid "Publisher"
+msgstr "出版行"
+
+#: .\book\models.py:15
+msgid "Publishers"
+msgstr "出版商"
+
+#: .\book\models.py:25
+msgid "Book Author"
+msgstr "作者"
+
+#: .\book\models.py:26
+msgid "Book Authors"
+msgstr "作者"
+
+#: .\book\models.py:35
+msgid "Book"
+msgstr "图书"
+
+#: .\book\models.py:36
+msgid "Books"
+msgstr "图书"
+
+#: .\book\models.py:44
+msgid "Book Chapter"
+msgstr "章"
+
+#: .\book\models.py:45
+msgid "Book Chapters"
+msgstr "章"
+
+#: .\captcha\models.py:25
+msgid "CaptchaRequest"
+msgstr "验证码请求"
+
+#: .\captcha\models.py:26
+msgid "CaptchaRequests"
+msgstr "验证码请求"
+
+#: .\common\models.py:42
+#: .\people\models.py:23
+msgid "chief"
+msgstr "领导"
+
+#: .\common\models.py:43
+#: .\people\models.py:24
+#: .\photologue\models.py:127
+#: .\photologue\models.py:183
+#: .\photologue\models.py:528
+msgid "description"
 msgstr "描述"
 
-#: .\forum\models.py:258
-#, fuzzy
-msgid "Subscriptions"
-msgstr "更新订阅"
+#: .\common\models.py:44
+#: .\people\models.py:25
+msgid "homepage"
+msgstr "主页"
 
-#: .\forum\views.py:209
-msgid "Sorry, you need to login."
-msgstr "对不起，请登录"
+#: .\common\models.py:49
+msgid "Department"
+msgstr "部门"
 
-#: .\forum\templates\forum_base.html.py:27
-#: .\templates\themes\default\blog\tags\menu.html.py:3
+#: .\common\models.py:50
+msgid "Departments"
+msgstr "部门"
+
+#: .\dbsettings\templates\dbsettings\app_settings.html.py:7
+#: .\dbsettings\templates\dbsettings\site_settings.html.py:8
+msgid "Documentation"
+msgstr "文件"
+
+#: .\dbsettings\templates\dbsettings\app_settings.html.py:7
+#: .\dbsettings\templates\dbsettings\site_settings.html.py:8
+msgid "Change password"
+msgstr "更改密码"
+
+#: .\dbsettings\templates\dbsettings\app_settings.html.py:7
+#: .\dbsettings\templates\dbsettings\site_settings.html.py:8
+msgid "Log out"
+msgstr "注销"
+
+#: .\dbsettings\templates\dbsettings\app_settings.html.py:10
+#: .\dbsettings\templates\dbsettings\site_settings.html.py:11
+#: .\templates\base.html.py:95
+#: .\templates\themes\default\base.html.py:77
+#: .\templates\themes\default\admin\change_form.html.py:17
+#: .\templates\themes\yaml\base.html.py:77
+#: .\templates\themes\yaml\admin\change_form.html.py:17
 msgid "Home"
 msgstr "首页"
 
-#: .\forum\templates\forum\forum_list.html.py:51
+#: .\dbsettings\templates\dbsettings\app_settings.html.py:11
+#: .\dbsettings\templates\dbsettings\site_settings.html.py:12
+msgid "Edit Settings"
+msgstr "编辑设置"
+
+#: .\dbsettings\templates\dbsettings\app_settings.html.py:18
+#: .\dbsettings\templates\dbsettings\site_settings.html.py:19
+#: .\templates\themes\default\admin\change_form.html.py:38
+#: .\templates\themes\yaml\admin\change_form.html.py:38
+msgid "Please correct the error below."
+msgstr "请更正下面的错误."
+
+#: .\dbsettings\templates\dbsettings\app_settings.html.py:26
+#, python-format
+msgid "Settings included in the %(name)s class."
+msgstr ""
+
+#: .\dbsettings\templates\dbsettings\app_settings.html.py:27
+#: .\dbsettings\templates\dbsettings\site_settings.html.py:28
+#: .\dbsettings\templates\dbsettings\site_settings.html.py:33
+#: .\templates\themes\default\admin\index.html.py:28
+#: .\templates\themes\default\admin\index.html.py:32
+#: .\templates\themes\yaml\admin\index.html.py:28
+#: .\templates\themes\yaml\admin\index.html.py:32
+msgid "%(name)s"
+msgstr ""
+
+#: .\dbsettings\templates\dbsettings\app_settings.html.py:50
+#: .\dbsettings\templates\dbsettings\site_settings.html.py:66
+msgid "You don't have permission to edit values."
+msgstr "你没有权限编辑任何东西。"
+
+#: .\dbsettings\templates\dbsettings\site_settings.html.py:27
+#: .\templates\themes\default\admin\index.html.py:31
+#: .\templates\themes\yaml\admin\index.html.py:31
+msgid "Models available in the %(name)s application."
+msgstr ""
+
+#: .\dbtemplates\admin.py:23
+msgid "Leaving this empty causes Django to look for a template with the given name and populate this field with its content."
+msgstr ""
+
+#: .\dbtemplates\admin.py:37
+msgid "Date/time"
+msgstr "日期"
+
+#: .\dbtemplates\admin.py:48
+msgid "sites"
+msgstr "站点"
+
+#: .\dbtemplates\models.py:18
+msgid "Example: 'flatpages/default.html'"
+msgstr ""
+
+#: .\dbtemplates\models.py:21
+msgid "creation date"
+msgstr "创建日期"
+
+#: .\dbtemplates\models.py:22
+msgid "last changed"
+msgstr "最近更改"
+
+#: .\dbtemplates\models.py:29
+msgid "template"
+msgstr "模板"
+
+#: .\dbtemplates\models.py:30
+msgid "templates"
+msgstr "模板"
+
+#: .\docs\forum_list.html.py:3
+#: .\forum\models.py:120
+#: .\templates\forum_base.html.py:81
+#: .\templates\forum\forum_list.html.py:3
+msgid "Forums"
+msgstr "论坛"
+
+#: .\docs\forum_list.html.py:51
 msgid "Panel"
 msgstr ""
 
-#: .\forum\templates\forum\forum_list.html.py:54
-#: .\forum\templates\forum\thread_list.html.py:52
+#: .\docs\forum_list.html.py:52
+#: .\forum\models.py:34
+#: .\forum\models.py:205
+msgid "Threads"
+msgstr "话题"
+
+#: .\docs\forum_list.html.py:53
+#: .\forum\models.py:35
+#: .\forum\models.py:186
+#: .\forum\models.py:328
+msgid "Posts"
+msgstr "帖子"
+
+#: .\docs\forum_list.html.py:54
 msgid "Last Post"
 msgstr "最新帖子"
 
-#: .\forum\templates\forum\forum_list.html.py:66
+#: .\docs\forum_list.html.py:71
 #, python-format
 msgid ""
 "\n"
@@ -296,266 +355,1478 @@ msgid ""
 "    \t\t\t\t\t"
 msgstr ""
 
-#: .\forum\templates\forum\forum_list.html.py:72
+#: .\docs\forum_list.html.py:77
+#: .\templates\forum\forum_list.html.py:85
 msgid "Re:"
-msgstr ""
+msgstr "回复:"
 
-#: .\forum\templates\forum\forum_list.html.py:73
+#: .\docs\forum_list.html.py:78
 msgid "ago"
-msgstr ""
+msgstr "前"
 
-#: .\forum\templates\forum\forum_list.html.py:73
+#: .\docs\forum_list.html.py:78
+#: .\templates\forum\forum_list.html.py:86
 msgid "No Posts"
 msgstr "暂无帖子"
 
-#: .\forum\templates\forum\forum_list.html.py:83
-#: .\forum\templates\forum\forum_list.html.py:85
-#: .\forum\templates\forum\thread.html.py:92
+#: .\docs\forum_list.html.py:88
+#: .\docs\forum_list.html.py:90
+#: .\templates\forum\thread.html.py:129
 msgid "Update Subscriptions"
 msgstr "更新订阅"
 
-#: .\forum\templates\forum\newthread.html.py:4
-#: .\forum\templates\forum\newthread.html.py:11
-#, python-format
-msgid "New Thread in %(title)s"
-msgstr ""
+#: .\equipment\models.py:13
+msgid "Supplier"
+msgstr "供货商"
 
-#: .\forum\templates\forum\newthread.html.py:13
-#, fuzzy
-msgid "New Thread"
+#: .\equipment\models.py:14
+msgid "Suppliers"
+msgstr "供货商"
+
+#: .\equipment\models.py:29
+msgid "AssetSort"
+msgstr "资产种类"
+
+#: .\equipment\models.py:30
+msgid "AssetSorts"
+msgstr "资产种类"
+
+#: .\equipment\models.py:45
+msgid "GeneralDesignation"
+msgstr "通用名称"
+
+#: .\equipment\models.py:46
+msgid "GeneralDesignations"
+msgstr "通用名称"
+
+#: .\equipment\models.py:61
+msgid "Equipment"
+msgstr "设备"
+
+#: .\equipment\models.py:62
+msgid "Equipments"
+msgstr "设备"
+
+#: .\equipment\models.py:77
+msgid "Characteristic"
+msgstr "特征参数"
+
+#: .\equipment\models.py:78
+msgid "Characteristics"
+msgstr "特征参数"
+
+#: .\forum\feeds.py:28
+#, python-format
+msgid "%(title)s's Forum: %(forum)s"
+msgstr "%(title)s's 论坛: %(forum)s"
+
+#: .\forum\feeds.py:32
+#, python-format
+msgid "%(title)s's Forum"
+msgstr "%(title)s's Forum"
+
+#: .\forum\feeds.py:38
+msgid "Latest forum posts"
+msgstr "论坛最新帖子"
+
+#: .\forum\forms.py:33
+#: .\forum\models.py:30
+#: .\forum\models.py:182
+#: .\link\forms.py:5
+msgid "Title"
+msgstr "标题"
+
+#: .\forum\forms.py:38
+#: .\forum\forms.py:47
+#: .\forum\models.py:243
+msgid "Body"
+msgstr "主体"
+
+#: .\forum\forms.py:39
+#: .\forum\forms.py:48
+msgid "Subscribe via email"
+msgstr "通过邮件订阅"
+
+#: .\forum\models.py:33
+#: .\link\forms.py:7
+msgid "Description"
+msgstr "描述"
+
+#: .\forum\models.py:36
+msgid "Master"
+msgstr "靶主"
+
+#: .\forum\models.py:37
+msgid "Order"
+msgstr "顺序"
+
+#: .\forum\models.py:89
+msgid "Forum parents"
+msgstr "父论坛"
+
+#: .\forum\models.py:119
+msgid "Forum"
+msgstr "论坛"
+
+#: .\forum\models.py:125
+msgid "You must not save a forum in itself!"
+msgstr "你不能在论坛中保存自己"
+
+#: .\forum\models.py:167
+msgid "NORMAL"
+msgstr "正常"
+
+#: .\forum\models.py:168
+msgid "DELETED"
+msgstr "已删除"
+
+#: .\forum\models.py:169
+msgid "LOCKED"
+msgstr "已锁定"
+
+#: .\forum\models.py:170
+msgid "VERIFY"
+msgstr "需要认证"
+
+#: .\forum\models.py:171
+msgid "PAYMONEY"
+msgstr "需要付费"
+
+#: .\forum\models.py:183
+msgid "Sticky?"
+msgstr "置顶？"
+
+#: .\forum\models.py:184
+msgid "Closed?"
+msgstr "关闭？"
+
+#: .\forum\models.py:185
+#: .\forum\models.py:247
+msgid "status?"
+msgstr "状态？"
+
+#: .\forum\models.py:188
+msgid "Latest Post Time"
+msgstr "最新发布时间"
+
+#: .\forum\models.py:204
+msgid "Thread"
 msgstr "话题"
 
-#: .\forum\templates\forum\newthread.html.py:18
-#, fuzzy
-msgid "Create a Thread"
-msgstr "创建于 "
+#: .\forum\models.py:232
+msgid "NORMAL POST"
+msgstr "正常帖子"
 
-#: .\forum\templates\forum\newthread.html.py:21
-#: .\forum\templates\forum\reply.html.py:16
-#, fuzzy
-msgid "Posting As"
-msgstr "帖子"
+#: .\forum\models.py:233
+msgid "DELETED POST"
+msgstr "已删除的帖子"
 
-#: .\forum\templates\forum\newthread.html.py:23
-#: .\forum\templates\forum\reply.html.py:18
-#, fuzzy
+#: .\forum\models.py:234
+msgid "SHIELD POST"
+msgstr "已屏蔽的帖子"
+
+#: .\forum\models.py:244
+msgid "Posted Time,the time will be never changed"
+msgstr "帖子发表的时间，不会改动"
+
+#: .\forum\models.py:245
+msgid "Show Sign?"
+msgstr "显示签名？"
+
+#: .\forum\models.py:246
+msgid "Digest?"
+msgstr "精华？"
+
+#: .\forum\models.py:249
+msgid "floor number"
+msgstr "楼层号码"
+
+#: .\forum\models.py:327
 msgid "Post"
 msgstr "帖子"
 
-#: .\forum\templates\forum\reply.html.py:4
+#: .\forum\models.py:353
+msgid "Subscription"
+msgstr "订阅"
+
+#: .\forum\models.py:354
+msgid "Subscriptions"
+msgstr "订阅"
+
+#: .\forum\views.py:226
+msgid "Sorry, you need to login."
+msgstr "对不起，请登录"
+
+#: .\guestbook\forms.py:20
+msgid "Name"
+msgstr "名称"
+
+#: .\guestbook\forms.py:21
+msgid "Email address"
+msgstr "电子邮件"
+
+#: .\guestbook\forms.py:22
+msgid "URL"
+msgstr "网址"
+
+#: .\guestbook\forms.py:23
+msgid "Comment"
+msgstr "评论"
+
+#: .\guestbook\forms.py:26
+msgid "If you enter anything in this field your text will be treated as spam"
+msgstr "此域中如果你填入任何信息，你提交的内容将会被视为垃圾信息"
+
+#: .\guestbook\forms.py:117
 #, python-format
-msgid "Reply to thread  \"%(title)s\""
+msgid "Watch your mouth! The word %s is not allowed here."
+msgstr "说话注意点！%s 是脏话。"
+
+#: .\guestbook\models.py:19
+msgid "date"
+msgstr "日期"
+
+#: .\guestbook\models.py:20
+msgid "IP address"
+msgstr "IP地址"
+
+#: .\guestbook\models.py:22
+msgid "e-mail"
+msgstr "电子邮件"
+
+#: .\guestbook\models.py:23
+msgid "website"
+msgstr "网站"
+
+#: .\guestbook\models.py:25
+msgid "is removed"
+msgstr "已经被删除了"
+
+#: .\guestbook\models.py:26
+msgid "Check this box if the comment is inappropriate. A \"This comment has been removed\" message will be displayed instead."
 msgstr ""
 
-#: .\forum\templates\forum\reply.html.py:6
+#: .\guestbook\models.py:30
+msgid "comment"
+msgstr "评论"
+
+#: .\guestbook\models.py:33
 #, python-format
-msgid "Reply to Thread \"%(title)s\""
+msgid "%(name)s on %(date)s"
 msgstr ""
 
-#: .\forum\templates\forum\reply.html.py:13
-msgid "Reply to Thread"
-msgstr ""
+#: .\link\forms.py:6
+msgid "Url"
+msgstr "网址"
 
-#: .\forum\templates\forum\thread.html.py:84
-#: .\forum\templates\forum\thread_list.html.py:95
-msgid "First"
-msgstr ""
+#: .\link\models.py:33
+msgid "Link Category"
+msgstr "链接分类"
 
-#: .\forum\templates\forum\thread.html.py:88
-#: .\forum\templates\forum\thread_list.html.py:99
-msgid "Last"
-msgstr "最新"
+#: .\link\models.py:34
+msgid "Link Categories"
+msgstr "链接分类"
 
-#: .\forum\templates\forum\thread_list.html.py:50
-msgid "Author"
-msgstr ""
-
-#: .\forum\templates\forum\thread_list.html.py:51
-msgid "Reply"
-msgstr ""
-
-#: .\link\models.py:37
-#, fuzzy
+#: .\link\models.py:64
 msgid "Link"
 msgstr "链接"
 
-#: .\link\models.py:38
-#: .\templates\themes\default\base.html.py:84
+#: .\link\models.py:65
 msgid "Links"
 msgstr "链接"
 
-#: .\member\models.py:11
+#: .\member\countries.py:10
+msgid "Andorra"
+msgstr ""
+
+#: .\member\countries.py:11
+msgid "United Arab Emirates"
+msgstr ""
+
+#: .\member\countries.py:12
+msgid "Afghanistan"
+msgstr ""
+
+#: .\member\countries.py:13
+msgid "Antigua & Barbuda"
+msgstr ""
+
+#: .\member\countries.py:14
+msgid "Anguilla"
+msgstr ""
+
+#: .\member\countries.py:15
+msgid "Albania"
+msgstr ""
+
+#: .\member\countries.py:16
+msgid "Armenia"
+msgstr ""
+
+#: .\member\countries.py:17
+msgid "Netherlands Antilles"
+msgstr ""
+
+#: .\member\countries.py:18
+msgid "Angola"
+msgstr ""
+
+#: .\member\countries.py:19
+msgid "Antarctica"
+msgstr ""
+
+#: .\member\countries.py:20
+msgid "Argentina"
+msgstr ""
+
+#: .\member\countries.py:21
+msgid "American Samoa"
+msgstr ""
+
+#: .\member\countries.py:22
+msgid "Austria"
+msgstr ""
+
+#: .\member\countries.py:23
+msgid "Australia"
+msgstr ""
+
+#: .\member\countries.py:24
+msgid "Aruba"
+msgstr ""
+
+#: .\member\countries.py:25
+msgid "Azerbaijan"
+msgstr ""
+
+#: .\member\countries.py:26
+msgid "Bosnia and Herzegovina"
+msgstr ""
+
+#: .\member\countries.py:27
+msgid "Barbados"
+msgstr ""
+
+#: .\member\countries.py:28
+msgid "Bangladesh"
+msgstr ""
+
+#: .\member\countries.py:29
+msgid "Belgium"
+msgstr ""
+
+#: .\member\countries.py:30
+msgid "Burkina Faso"
+msgstr ""
+
+#: .\member\countries.py:31
+msgid "Bulgaria"
+msgstr ""
+
+#: .\member\countries.py:32
+msgid "Bahrain"
+msgstr ""
+
+#: .\member\countries.py:33
+msgid "Burundi"
+msgstr ""
+
+#: .\member\countries.py:34
+msgid "Benin"
+msgstr ""
+
+#: .\member\countries.py:35
+msgid "Bermuda"
+msgstr ""
+
+#: .\member\countries.py:36
+msgid "Brunei Darussalam"
+msgstr ""
+
+#: .\member\countries.py:37
+msgid "Bolivia"
+msgstr ""
+
+#: .\member\countries.py:38
+msgid "Brazil"
+msgstr ""
+
+#: .\member\countries.py:39
+msgid "Bahama"
+msgstr ""
+
+#: .\member\countries.py:40
+msgid "Bhutan"
+msgstr ""
+
+#: .\member\countries.py:41
+msgid "Bouvet Island"
+msgstr ""
+
+#: .\member\countries.py:42
+msgid "Botswana"
+msgstr ""
+
+#: .\member\countries.py:43
+msgid "Belarus"
+msgstr ""
+
+#: .\member\countries.py:44
+msgid "Belize"
+msgstr ""
+
+#: .\member\countries.py:45
+msgid "Canada"
+msgstr ""
+
+#: .\member\countries.py:46
+msgid "Cocos (Keeling) Islands"
+msgstr ""
+
+#: .\member\countries.py:47
+msgid "Central African Republic"
+msgstr ""
+
+#: .\member\countries.py:48
+msgid "Congo"
+msgstr ""
+
+#: .\member\countries.py:49
+msgid "Switzerland"
+msgstr ""
+
+#: .\member\countries.py:50
+msgid "Ivory Coast"
+msgstr ""
+
+#: .\member\countries.py:51
+msgid "Cook Islands"
+msgstr ""
+
+#: .\member\countries.py:52
+msgid "Chile"
+msgstr ""
+
+#: .\member\countries.py:53
+msgid "Cameroon"
+msgstr ""
+
+#: .\member\countries.py:54
+msgid "China"
+msgstr ""
+
+#: .\member\countries.py:55
+msgid "Colombia"
+msgstr ""
+
+#: .\member\countries.py:56
+msgid "Costa Rica"
+msgstr ""
+
+#: .\member\countries.py:57
+msgid "Cuba"
+msgstr ""
+
+#: .\member\countries.py:58
+msgid "Cape Verde"
+msgstr ""
+
+#: .\member\countries.py:59
+msgid "Christmas Island"
+msgstr ""
+
+#: .\member\countries.py:60
+msgid "Cyprus"
+msgstr ""
+
+#: .\member\countries.py:61
+msgid "Czech Republic"
+msgstr ""
+
+#: .\member\countries.py:62
+msgid "Germany"
+msgstr ""
+
+#: .\member\countries.py:63
+msgid "Djibouti"
+msgstr ""
+
+#: .\member\countries.py:64
+msgid "Denmark"
+msgstr ""
+
+#: .\member\countries.py:65
+msgid "Dominica"
+msgstr ""
+
+#: .\member\countries.py:66
+msgid "Dominican Republic"
+msgstr ""
+
+#: .\member\countries.py:67
+msgid "Algeria"
+msgstr ""
+
+#: .\member\countries.py:68
+msgid "Ecuador"
+msgstr ""
+
+#: .\member\countries.py:69
+msgid "Estonia"
+msgstr ""
+
+#: .\member\countries.py:70
+msgid "Egypt"
+msgstr ""
+
+#: .\member\countries.py:71
+msgid "Western Sahara"
+msgstr ""
+
+#: .\member\countries.py:72
+msgid "Eritrea"
+msgstr ""
+
+#: .\member\countries.py:73
+msgid "Spain"
+msgstr ""
+
+#: .\member\countries.py:74
+msgid "Ethiopia"
+msgstr ""
+
+#: .\member\countries.py:75
+msgid "Finland"
+msgstr ""
+
+#: .\member\countries.py:76
+msgid "Fiji"
+msgstr ""
+
+#: .\member\countries.py:77
+msgid "Falkland Islands (Malvinas)"
+msgstr ""
+
+#: .\member\countries.py:78
+msgid "Micronesia"
+msgstr ""
+
+#: .\member\countries.py:79
+msgid "Faroe Islands"
+msgstr ""
+
+#: .\member\countries.py:80
+msgid "France"
+msgstr ""
+
+#: .\member\countries.py:81
+msgid "France, Metropolitan"
+msgstr ""
+
+#: .\member\countries.py:82
+msgid "Gabon"
+msgstr ""
+
+#: .\member\countries.py:83
+msgid "United Kingdom (Great Britain)"
+msgstr ""
+
+#: .\member\countries.py:84
+msgid "Grenada"
+msgstr ""
+
+#: .\member\countries.py:85
+msgid "Georgia"
+msgstr ""
+
+#: .\member\countries.py:86
+msgid "French Guiana"
+msgstr ""
+
+#: .\member\countries.py:87
+msgid "Ghana"
+msgstr ""
+
+#: .\member\countries.py:88
+msgid "Gibraltar"
+msgstr ""
+
+#: .\member\countries.py:89
+msgid "Greenland"
+msgstr ""
+
+#: .\member\countries.py:90
+msgid "Gambia"
+msgstr ""
+
+#: .\member\countries.py:91
+msgid "Guinea"
+msgstr ""
+
+#: .\member\countries.py:92
+msgid "Guadeloupe"
+msgstr ""
+
+#: .\member\countries.py:93
+msgid "Equatorial Guinea"
+msgstr ""
+
+#: .\member\countries.py:94
+msgid "Greece"
+msgstr ""
+
+#: .\member\countries.py:95
+msgid "South Georgia and the South Sandwich Islands"
+msgstr ""
+
+#: .\member\countries.py:96
+msgid "Guatemala"
+msgstr ""
+
+#: .\member\countries.py:97
+msgid "Guam"
+msgstr ""
+
+#: .\member\countries.py:98
+msgid "Guinea-Bissau"
+msgstr ""
+
+#: .\member\countries.py:99
+msgid "Guyana"
+msgstr ""
+
+#: .\member\countries.py:100
+msgid "Hong Kong"
+msgstr ""
+
+#: .\member\countries.py:101
+msgid "Heard & McDonald Islands"
+msgstr ""
+
+#: .\member\countries.py:102
+msgid "Honduras"
+msgstr ""
+
+#: .\member\countries.py:103
+msgid "Croatia"
+msgstr ""
+
+#: .\member\countries.py:104
+msgid "Haiti"
+msgstr ""
+
+#: .\member\countries.py:105
+msgid "Hungary"
+msgstr ""
+
+#: .\member\countries.py:106
+msgid "Indonesia"
+msgstr ""
+
+#: .\member\countries.py:107
+msgid "Ireland"
+msgstr ""
+
+#: .\member\countries.py:108
+msgid "Israel"
+msgstr ""
+
+#: .\member\countries.py:109
+msgid "India"
+msgstr ""
+
+#: .\member\countries.py:110
+msgid "British Indian Ocean Territory"
+msgstr ""
+
+#: .\member\countries.py:111
+msgid "Iraq"
+msgstr ""
+
+#: .\member\countries.py:112
+msgid "Islamic Republic of Iran"
+msgstr ""
+
+#: .\member\countries.py:113
+msgid "Iceland"
+msgstr ""
+
+#: .\member\countries.py:114
+msgid "Italy"
+msgstr ""
+
+#: .\member\countries.py:115
+msgid "Jamaica"
+msgstr ""
+
+#: .\member\countries.py:116
+msgid "Jordan"
+msgstr ""
+
+#: .\member\countries.py:117
+msgid "Japan"
+msgstr ""
+
+#: .\member\countries.py:118
+msgid "Kenya"
+msgstr ""
+
+#: .\member\countries.py:119
+msgid "Kyrgyzstan"
+msgstr ""
+
+#: .\member\countries.py:120
+msgid "Cambodia"
+msgstr ""
+
+#: .\member\countries.py:121
+msgid "Kiribati"
+msgstr ""
+
+#: .\member\countries.py:122
+msgid "Comoros"
+msgstr ""
+
+#: .\member\countries.py:123
+msgid "St. Kitts and Nevis"
+msgstr ""
+
+#: .\member\countries.py:124
+msgid "Korea, Democratic People's Republic of"
+msgstr ""
+
+#: .\member\countries.py:125
+msgid "Korea, Republic of"
+msgstr ""
+
+#: .\member\countries.py:126
+msgid "Kuwait"
+msgstr ""
+
+#: .\member\countries.py:127
+msgid "Cayman Islands"
+msgstr ""
+
+#: .\member\countries.py:128
+msgid "Kazakhstan"
+msgstr ""
+
+#: .\member\countries.py:129
+msgid "Lao People's Democratic Republic"
+msgstr ""
+
+#: .\member\countries.py:130
+msgid "Lebanon"
+msgstr ""
+
+#: .\member\countries.py:131
+msgid "Saint Lucia"
+msgstr ""
+
+#: .\member\countries.py:132
+msgid "Liechtenstein"
+msgstr ""
+
+#: .\member\countries.py:133
+msgid "Sri Lanka"
+msgstr ""
+
+#: .\member\countries.py:134
+msgid "Liberia"
+msgstr ""
+
+#: .\member\countries.py:135
+msgid "Lesotho"
+msgstr ""
+
+#: .\member\countries.py:136
+msgid "Lithuania"
+msgstr ""
+
+#: .\member\countries.py:137
+msgid "Luxembourg"
+msgstr ""
+
+#: .\member\countries.py:138
+msgid "Latvia"
+msgstr ""
+
+#: .\member\countries.py:139
+msgid "Libyan Arab Jamahiriya"
+msgstr ""
+
+#: .\member\countries.py:140
+msgid "Morocco"
+msgstr ""
+
+#: .\member\countries.py:141
+msgid "Monaco"
+msgstr ""
+
+#: .\member\countries.py:142
+msgid "Moldova, Republic of"
+msgstr ""
+
+#: .\member\countries.py:143
+msgid "Madagascar"
+msgstr ""
+
+#: .\member\countries.py:144
+msgid "Marshall Islands"
+msgstr ""
+
+#: .\member\countries.py:145
+msgid "Mali"
+msgstr ""
+
+#: .\member\countries.py:146
+msgid "Mongolia"
+msgstr ""
+
+#: .\member\countries.py:147
+msgid "Myanmar"
+msgstr ""
+
+#: .\member\countries.py:148
+msgid "Macau"
+msgstr ""
+
+#: .\member\countries.py:149
+msgid "Northern Mariana Islands"
+msgstr ""
+
+#: .\member\countries.py:150
+msgid "Martinique"
+msgstr ""
+
+#: .\member\countries.py:151
+msgid "Mauritania"
+msgstr ""
+
+#: .\member\countries.py:152
+msgid "Monserrat"
+msgstr ""
+
+#: .\member\countries.py:153
+msgid "Malta"
+msgstr ""
+
+#: .\member\countries.py:154
+msgid "Mauritius"
+msgstr ""
+
+#: .\member\countries.py:155
+msgid "Maldives"
+msgstr ""
+
+#: .\member\countries.py:156
+msgid "Malawi"
+msgstr ""
+
+#: .\member\countries.py:157
+msgid "Mexico"
+msgstr ""
+
+#: .\member\countries.py:158
+msgid "Malaysia"
+msgstr ""
+
+#: .\member\countries.py:159
+msgid "Mozambique"
+msgstr ""
+
+#: .\member\countries.py:160
+msgid "Namibia"
+msgstr ""
+
+#: .\member\countries.py:161
+msgid "New Caledonia"
+msgstr ""
+
+#: .\member\countries.py:162
+msgid "Niger"
+msgstr ""
+
+#: .\member\countries.py:163
+msgid "Norfolk Island"
+msgstr ""
+
+#: .\member\countries.py:164
+msgid "Nigeria"
+msgstr ""
+
+#: .\member\countries.py:165
+msgid "Nicaragua"
+msgstr ""
+
+#: .\member\countries.py:166
+msgid "Netherlands"
+msgstr ""
+
+#: .\member\countries.py:167
+msgid "Norway"
+msgstr ""
+
+#: .\member\countries.py:168
+msgid "Nepal"
+msgstr ""
+
+#: .\member\countries.py:169
+msgid "Nauru"
+msgstr ""
+
+#: .\member\countries.py:170
+msgid "Niue"
+msgstr ""
+
+#: .\member\countries.py:171
+msgid "New Zealand"
+msgstr ""
+
+#: .\member\countries.py:172
+msgid "Oman"
+msgstr ""
+
+#: .\member\countries.py:173
+msgid "Panama"
+msgstr ""
+
+#: .\member\countries.py:174
+msgid "Peru"
+msgstr ""
+
+#: .\member\countries.py:175
+msgid "French Polynesia"
+msgstr ""
+
+#: .\member\countries.py:176
+msgid "Papua New Guinea"
+msgstr ""
+
+#: .\member\countries.py:177
+msgid "Philippines"
+msgstr ""
+
+#: .\member\countries.py:178
+msgid "Pakistan"
+msgstr ""
+
+#: .\member\countries.py:179
+msgid "Poland"
+msgstr ""
+
+#: .\member\countries.py:180
+msgid "St. Pierre & Miquelon"
+msgstr ""
+
+#: .\member\countries.py:181
+msgid "Pitcairn"
+msgstr ""
+
+#: .\member\countries.py:182
+msgid "Puerto Rico"
+msgstr ""
+
+#: .\member\countries.py:183
+msgid "Portugal"
+msgstr ""
+
+#: .\member\countries.py:184
+msgid "Palau"
+msgstr ""
+
+#: .\member\countries.py:185
+msgid "Paraguay"
+msgstr ""
+
+#: .\member\countries.py:186
+msgid "Qatar"
+msgstr ""
+
+#: .\member\countries.py:187
+msgid "Reunion"
+msgstr ""
+
+#: .\member\countries.py:188
+msgid "Romania"
+msgstr ""
+
+#: .\member\countries.py:189
+msgid "Russian Federation"
+msgstr ""
+
+#: .\member\countries.py:190
+msgid "Rwanda"
+msgstr ""
+
+#: .\member\countries.py:191
+msgid "Saudi Arabia"
+msgstr ""
+
+#: .\member\countries.py:192
+msgid "Solomon Islands"
+msgstr ""
+
+#: .\member\countries.py:193
+msgid "Seychelles"
+msgstr ""
+
+#: .\member\countries.py:194
+msgid "Sudan"
+msgstr ""
+
+#: .\member\countries.py:195
+msgid "Sweden"
+msgstr ""
+
+#: .\member\countries.py:196
+msgid "Singapore"
+msgstr ""
+
+#: .\member\countries.py:197
+msgid "St. Helena"
+msgstr ""
+
+#: .\member\countries.py:198
+msgid "Slovenia"
+msgstr ""
+
+#: .\member\countries.py:199
+msgid "Svalbard & Jan Mayen Islands"
+msgstr ""
+
+#: .\member\countries.py:200
+msgid "Slovakia"
+msgstr ""
+
+#: .\member\countries.py:201
+msgid "Sierra Leone"
+msgstr ""
+
+#: .\member\countries.py:202
+msgid "San Marino"
+msgstr ""
+
+#: .\member\countries.py:203
+msgid "Senegal"
+msgstr ""
+
+#: .\member\countries.py:204
+msgid "Somalia"
+msgstr ""
+
+#: .\member\countries.py:205
+msgid "Suriname"
+msgstr ""
+
+#: .\member\countries.py:206
+msgid "Sao Tome & Principe"
+msgstr ""
+
+#: .\member\countries.py:207
+msgid "El Salvador"
+msgstr ""
+
+#: .\member\countries.py:208
+msgid "Syrian Arab Republic"
+msgstr ""
+
+#: .\member\countries.py:209
+msgid "Swaziland"
+msgstr ""
+
+#: .\member\countries.py:210
+msgid "Turks & Caicos Islands"
+msgstr ""
+
+#: .\member\countries.py:211
+msgid "Chad"
+msgstr ""
+
+#: .\member\countries.py:212
+msgid "French Southern Territories"
+msgstr ""
+
+#: .\member\countries.py:213
+msgid "Togo"
+msgstr ""
+
+#: .\member\countries.py:214
+msgid "Thailand"
+msgstr ""
+
+#: .\member\countries.py:215
+msgid "Tajikistan"
+msgstr ""
+
+#: .\member\countries.py:216
+msgid "Tokelau"
+msgstr ""
+
+#: .\member\countries.py:217
+msgid "Turkmenistan"
+msgstr ""
+
+#: .\member\countries.py:218
+msgid "Tunisia"
+msgstr ""
+
+#: .\member\countries.py:219
+msgid "Tonga"
+msgstr ""
+
+#: .\member\countries.py:220
+msgid "East Timor"
+msgstr ""
+
+#: .\member\countries.py:221
+msgid "Turkey"
+msgstr ""
+
+#: .\member\countries.py:222
+msgid "Trinidad & Tobago"
+msgstr ""
+
+#: .\member\countries.py:223
+msgid "Tuvalu"
+msgstr ""
+
+#: .\member\countries.py:224
+msgid "Taiwan, Province of China"
+msgstr ""
+
+#: .\member\countries.py:225
+msgid "Tanzania, United Republic of"
+msgstr ""
+
+#: .\member\countries.py:226
+msgid "Ukraine"
+msgstr ""
+
+#: .\member\countries.py:227
+msgid "Uganda"
+msgstr ""
+
+#: .\member\countries.py:228
+msgid "United States Minor Outlying Islands"
+msgstr ""
+
+#: .\member\countries.py:229
+msgid "United States of America"
+msgstr ""
+
+#: .\member\countries.py:230
+msgid "Uruguay"
+msgstr ""
+
+#: .\member\countries.py:231
+msgid "Uzbekistan"
+msgstr ""
+
+#: .\member\countries.py:232
+msgid "Vatican City State (Holy See)"
+msgstr ""
+
+#: .\member\countries.py:233
+msgid "St. Vincent & the Grenadines"
+msgstr ""
+
+#: .\member\countries.py:234
+msgid "Venezuela"
+msgstr ""
+
+#: .\member\countries.py:235
+msgid "British Virgin Islands"
+msgstr ""
+
+#: .\member\countries.py:236
+msgid "United States Virgin Islands"
+msgstr ""
+
+#: .\member\countries.py:237
+msgid "Viet Nam"
+msgstr ""
+
+#: .\member\countries.py:238
+msgid "Vanuatu"
+msgstr ""
+
+#: .\member\countries.py:239
+msgid "Wallis & Futuna Islands"
+msgstr ""
+
+#: .\member\countries.py:240
+msgid "Samoa"
+msgstr ""
+
+#: .\member\countries.py:241
+msgid "Yemen"
+msgstr ""
+
+#: .\member\countries.py:242
+msgid "Mayotte"
+msgstr ""
+
+#: .\member\countries.py:243
+msgid "Yugoslavia"
+msgstr ""
+
+#: .\member\countries.py:244
+msgid "South Africa"
+msgstr ""
+
+#: .\member\countries.py:245
+msgid "Zambia"
+msgstr ""
+
+#: .\member\countries.py:246
+msgid "Zaire"
+msgstr ""
+
+#: .\member\countries.py:247
+msgid "Zimbabwe"
+msgstr ""
+
+#: .\member\countries.py:248
+msgid "Unknown or unspecified country"
+msgstr ""
+
+#: .\member\countries.py:253
+msgid "This value must be in COUNTRIES setting in localflavor.generic package."
+msgstr ""
+
+#: .\member\forms.py:58
+#, python-format
+msgid "The file type is invalid: %s"
+msgstr ""
+
+#: .\member\forms.py:63
+msgid "You must enter one of the options"
+msgstr ""
+
+#: .\member\forms.py:77
+msgid "You must select a portion of the image with a minimum of 96x96 pixels."
+msgstr ""
+
+#: .\member\forms.py:83
+msgid "Username"
+msgstr "用户名"
+
+#: .\member\forms.py:84
+msgid "E-mail address"
+msgstr "电子邮件"
+
+#: .\member\forms.py:85
+msgid "Password"
+msgstr "密码"
+
+#: .\member\forms.py:86
+msgid "Password (again)"
+msgstr "密码（重复）"
+
+#: .\member\forms.py:97
+msgid "That username has invalid characters. The valid values are letters, numbers and underscore."
+msgstr ""
+
+#: .\member\forms.py:102
+msgid "The username is already registered."
+msgstr "该用户名已被使用，请选用其他的。"
+
+#: .\member\forms.py:111
+msgid "The passwords inserted are different."
+msgstr ""
+
+#: .\member\forms.py:123
+#: .\member\forms.py:142
+msgid "That e-mail is already used."
+msgstr ""
+
+#: .\member\forms.py:127
+msgid "That e-mail is already being confirmed."
+msgstr ""
+
+#: .\member\forms.py:155
+msgid "That e-mail isn't registered."
+msgstr "此邮件地址没有被注册。"
+
+#: .\member\models.py:42
+#, python-format
+msgid "%s's profile"
+msgstr "%s的档案"
+
+#: .\member\models.py:61
+#, python-format
+msgid "%s's Avatar"
+msgstr "%s's 头像"
+
+#: .\member\models.py:145
+#, python-format
+msgid "Email validation process for %(user)s"
+msgstr ""
+
+#: .\member\models.py:171
 msgid "Female"
 msgstr "女"
 
-#: .\member\models.py:11
+#: .\member\models.py:171
 msgid "Male"
 msgstr "男"
 
-#: .\member\models.py:12
+#: .\member\models.py:173
 msgid "A TYPE"
 msgstr "A型"
 
-#: .\member\models.py:13
+#: .\member\models.py:174
 msgid "B TYPE"
 msgstr "B型"
 
-#: .\member\models.py:14
+#: .\member\models.py:175
 msgid "AB TYPE"
 msgstr "AB型"
 
-#: .\member\models.py:15
+#: .\member\models.py:176
 msgid "O TYPE"
 msgstr "O型"
 
-#: .\member\models.py:16
+#: .\member\models.py:177
+#: .\notice\models.py:10
 msgid "OTHER TYPE"
 msgstr "其他"
 
-#: .\member\models.py:19
+#: .\member\models.py:181
 msgid "Rat"
 msgstr "鼠"
 
-#: .\member\models.py:20
+#: .\member\models.py:182
 msgid "Ox"
 msgstr "牛"
 
-#: .\member\models.py:21
+#: .\member\models.py:183
 msgid "Tiger"
 msgstr "虎"
 
-#: .\member\models.py:22
+#: .\member\models.py:184
 msgid "Rabbit"
 msgstr "兔"
 
-#: .\member\models.py:23
+#: .\member\models.py:185
 msgid "Dragon"
 msgstr "龙"
 
-#: .\member\models.py:24
+#: .\member\models.py:186
 msgid "Snake"
 msgstr "蛇"
 
-#: .\member\models.py:25
+#: .\member\models.py:187
 msgid "Horse"
 msgstr "马"
 
-#: .\member\models.py:26
+#: .\member\models.py:188
 msgid "Goat"
 msgstr "羊"
 
-#: .\member\models.py:27
+#: .\member\models.py:189
 msgid "Monkey"
 msgstr "猴"
 
-#: .\member\models.py:28
+#: .\member\models.py:190
 msgid "Rooster"
 msgstr "鸡"
 
-#: .\member\models.py:29
+#: .\member\models.py:191
 msgid "Dog"
 msgstr "狗"
 
-#: .\member\models.py:30
+#: .\member\models.py:192
 msgid "Pig"
 msgstr "猪"
 
-#: .\member\models.py:34
+#: .\member\models.py:196
 msgid "Aries(the Ram)"
 msgstr "白羊座"
 
-#: .\member\models.py:35
+#: .\member\models.py:197
 msgid "Taurus(the Bull)"
 msgstr "金牛座"
 
-#: .\member\models.py:36
+#: .\member\models.py:198
 msgid "Gemini(the Twins)"
 msgstr "双子座"
 
-#: .\member\models.py:37
+#: .\member\models.py:199
 msgid "Cancer(the Crab)"
 msgstr "巨蟹座"
 
-#: .\member\models.py:38
+#: .\member\models.py:200
 msgid "Leo(the Lion)"
 msgstr "狮子座"
 
-#: .\member\models.py:39
+#: .\member\models.py:201
 msgid "Virgo(the Virgin)"
 msgstr "处女座"
 
-#: .\member\models.py:40
+#: .\member\models.py:202
 msgid "Libra(the Scales)"
 msgstr "天秤座"
 
-#: .\member\models.py:41
+#: .\member\models.py:203
 msgid "Scorpio(the Scorpion)"
 msgstr "天蝎座"
 
-#: .\member\models.py:42
+#: .\member\models.py:204
 msgid "Sagittarius(the Archer)"
 msgstr "人马座"
 
-#: .\member\models.py:43
+#: .\member\models.py:205
 msgid "Capricornus(the Goat)"
 msgstr "摩羯座"
 
-#: .\member\models.py:44
+#: .\member\models.py:206
 msgid "Aquarius(the Water Carrier)"
 msgstr "水瓶座"
 
-#: .\member\models.py:45
+#: .\member\models.py:207
 msgid "Pisces(the Fishes)"
 msgstr "双鱼座"
 
-#: .\member\models.py:55
-msgid "birthday"
-msgstr "生日"
-
-#: .\member\models.py:82
-#: .\member\models.py:107
-#: .\registration\models.py:191
+#: .\member\models.py:276
+#: .\member\models.py:301
 msgid "user"
 msgstr "用户"
 
-#: .\member\templates\member\front.html.py:3
-msgid "Front page"
-msgstr "首页"
+#: .\member\models.py:332
+#: .\member\models.py:337
+#: .\templates\member\profile\location.html.py:26
+msgid "Location"
+msgstr "位置"
 
-#: .\member\templates\member\front.html.py:6
-msgid "People who have already tried this demo"
-msgstr "已经落户的朋友们！"
+#: .\member\models.py:335
+msgid "Browser"
+msgstr "浏览器类型"
 
-#: .\member\templates\member\front.html.py:9
-msgid "Frontpage"
-msgstr "首页"
+#: .\member\models.py:336
+msgid "Resolution of Screen"
+msgstr "屏幕分辨率"
 
-#: .\member\templates\member\front.html.py:11
-msgid "Profile"
-msgstr "用户简介"
+#: .\member\models.py:339
+msgid "netfault"
+msgstr ""
 
-#: .\member\templates\member\front.html.py:12
-#: .\templates\base.html.py:30
-msgid "Logout"
-msgstr "注销"
+#: .\member\models.py:340
+msgid "LastActivity"
+msgstr "最近活动的"
 
-#: .\member\templates\member\front.html.py:14
-#: .\templates\base.html.py:32
-#: .\userprofile\templates\userprofile\account\login.html.py:36
-msgid "Login"
-msgstr "登录"
+#: .\member\models.py:344
+msgid "OnlineUser"
+msgstr "在线用户"
 
-#: .\member\templates\member\front.html.py:15
-#: .\templates\base.html.py:32
-#: .\userprofile\templates\userprofile\account\registration.html.py:48
-msgid "Register"
-msgstr "注册"
+#: .\member\models.py:345
+msgid "OnlineUsers"
+msgstr "在线用户"
 
-#: .\member\templates\member\index.html.py:19
-#: .\templates\base.html.py:123
-#: .\templates\pressroom\index.html.py:41
-msgid "Support"
-msgstr "支持"
+#: .\member\templatetags\avatars.py:80
+msgid "You have to provide only the size as             an integer (both sides will be equal) and optionally, the             username."
+msgstr ""
 
 #: .\navbar\models.py:13
 msgid "Anonymous"
@@ -579,7 +1850,7 @@ msgstr "从不"
 
 #: .\navbar\models.py:21
 msgid "Exact"
-msgstr ""
+msgstr "准确"
 
 #: .\navbar\models.py:22
 msgid "ExactOrParent"
@@ -617,1887 +1888,1317 @@ msgstr "导航菜单项"
 msgid "navigation bar elements"
 msgstr "导航菜单项"
 
-#: .\news\forms.py:24
-msgid "news title"
-msgstr "新闻标题"
+#: .\news\models.py:38
+msgid "News Category"
+msgstr "新闻分类"
 
-#: .\news\models.py:15
-#: .\news\models.py:16
-#, fuzzy
+#: .\news\models.py:39
+msgid "News Categories"
+msgstr "新闻分类"
+
+#: .\news\models.py:101
+msgid "News Author"
+msgstr "新闻作者"
+
+#: .\news\models.py:102
+msgid "News Authors"
+msgstr "新闻作者"
+
+#: .\news\models.py:145
+#: .\news\models.py:146
 msgid "News"
-msgstr "视图"
+msgstr "新闻"
 
-#: .\registration\forms.py:45
-msgid "email address"
-msgstr "电子邮件"
-
-#: .\registration\forms.py:47
-msgid "password"
-msgstr "密码"
-
-#: .\registration\forms.py:49
-msgid "password (again)"
-msgstr "密码（重复）"
-
-#: .\registration\forms.py:122
-msgid "I have read and agree to the Terms of Service"
-msgstr "我已阅读并同意服务条款"
-
-#: .\registration\forms.py:131
-msgid "You must agree to the terms to register"
-msgstr "你必须同意服务条款后再注册"
-
-#: .\registration\forms.py:147
-msgid "这个 email 地址已经被其他账号占用，请提供一个不同的 email 地址。"
-msgstr ""
-
-#: .\registration\forms.py:173
-msgid "Registration using free email addresses is prohibited. Please supply a different email address."
-msgstr "免费邮件禁止注册，请提供其他邮件地址。"
-
-#: .\registration\models.py:192
-msgid "activation key"
-msgstr "激活密钥"
-
-#: .\registration\models.py:197
-msgid "registration profile"
-msgstr "注册信息"
-
-#: .\registration\models.py:198
-msgid "registration profiles"
-msgstr "注册信息"
-
-#: .\templates\base.html.py:30
-msgid "Welcome back!"
-msgstr ""
-
-#: .\templates\base.html.py:69
-#: .\templates\base.html.py:87
-msgid "SideBar"
-msgstr "侧边栏"
-
-#: .\templates\base.html.py:76
-msgid "NavTree"
-msgstr "导航树"
-
-#: .\templates\base.html.py:105
-msgid "User Profile"
-msgstr "用户简介"
-
-#: .\templates\admin\base_site.html.py:4
-msgid "Django site admin"
-msgstr "Django 站点管理"
-
-#: .\templates\admin\base_site.html.py:7
-msgid "Django administration"
-msgstr "Django 管理"
-
-#: .\templates\admin\index.html.py:27
-#: .\templates\admin\index.html.py:31
+#: .\news\models.py:189
 #, python-format
-msgid "%(name)s"
+msgid "%s Posted A new News: %s"
 msgstr ""
 
-#: .\templates\admin\index.html.py:30
+#: .\news\models.py:190
 #, python-format
-msgid "Models available in the %(name)s application."
+msgid "%s Posted A new News,go and view it now <a href='%s'> %s </a> "
 msgstr ""
 
-#: .\templates\admin\index.html.py:41
-msgid "Add"
-msgstr "添加"
+#: .\news2\models.py:71
+msgid "NewsItem"
+msgstr "新闻"
 
-#: .\templates\admin\index.html.py:47
-#: .\userprofile\templates\userprofile\account\password_change.html.py:46
-#: .\userprofile\templates\userprofile\account\password_reset_confirm.html.py:42
-msgid "Change"
-msgstr "修改"
+#: .\news2\models.py:72
+msgid "NewsItems"
+msgstr "新闻"
 
-#: .\templates\admin\index.html.py:57
-msgid "You don't have permission to edit anything."
-msgstr "你没有权限编辑任何东西。"
+#: .\news2\models.py:134
+msgid "NewsItem1"
+msgstr "新闻1"
 
-#: .\templates\admin\index.html.py:65
-msgid "Recent Actions"
-msgstr "最近动作"
-
-#: .\templates\admin\index.html.py:66
-msgid "My Actions"
-msgstr "我的动作"
-
-#: .\templates\admin\index.html.py:70
-msgid "None available"
-msgstr "不可用"
-
-#: .\templates\themes\default\base.html.py:57
-#: .\templates\themes\default\blog\post.html.py:19
-msgid "Categories"
+#: .\news2\models.py:135
+msgid "NewsItem1s"
 msgstr ""
 
-#: .\templates\themes\default\base.html.py:71
-msgid "Archives"
-msgstr ""
+#: .\notice\models.py:6
+msgid "SITE NOTICE"
+msgstr "网站通知"
 
-#: .\templates\themes\default\base.html.py:101
-msgid "Syndication"
-msgstr ""
+#: .\notice\models.py:7
+msgid "LATEST ENTRY CREATED"
+msgstr "最新创建的条目"
 
-#: .\templates\themes\default\base.html.py:118
-msgid "Pylogs Project"
-msgstr ""
+#: .\notice\models.py:8
+msgid "COMMENT POSTED"
+msgstr "有评论的帖子"
 
-#: .\templates\themes\default\base.html.py:121
-msgid "Contact Me"
-msgstr "联系我"
+#: .\notice\models.py:9
+msgid "DELETE NOTICE"
+msgstr "删除通知"
 
-#: .\templates\themes\default\blog\list.html.py:11
-#: .\templates\themes\default\blog\page.html.py:18
-#: .\templates\themes\default\blog\post.html.py:18
-msgid "Pubdate"
-msgstr ""
+#: .\notice\models.py:26
+msgid "Notice"
+msgstr "通知"
 
-#: .\templates\themes\default\blog\list.html.py:20
-#: .\templates\themes\default\blog\page.html.py:39
-#: .\templates\themes\default\blog\post.html.py:46
-msgid "Comments"
-msgstr ""
+#: .\notice\models.py:27
+msgid "Notices"
+msgstr "通知"
 
-#: .\templates\themes\default\blog\list.html.py:26
-msgid "Prev"
-msgstr ""
+#: .\people\models.py:30
+msgid "Organization"
+msgstr "组织机构"
 
-#: .\templates\themes\default\blog\list.html.py:27
-msgid "Next"
-msgstr ""
+#: .\people\models.py:31
+msgid "Organizations"
+msgstr "组织机构"
 
-#: .\templates\themes\default\blog\page.html.py:20
-#: .\templates\themes\default\blog\post.html.py:28
-#: .\templates\themes\default\blog\tags.html.py:3
-#: .\templates\themes\default\blog\tags.html.py:8
-#: .\templates\themes\default\blog\tags\menu.html.py:5
-msgid "Tags"
-msgstr ""
+#: .\people\models.py:65
+msgid "Person"
+msgstr "人"
 
-#: .\templates\themes\default\blog\page.html.py:42
-#: .\templates\themes\default\blog\post.html.py:52
-msgid "Post at"
-msgstr ""
+#: .\people\models.py:66
+msgid "Persons"
+msgstr "人"
 
-#: .\templates\themes\default\blog\tags\archivelist.html.py:12
-msgid "No Archive Now"
-msgstr "目前无存档"
+#: .\people\models.py:125
+msgid "Contact"
+msgstr "通讯录"
 
-#: .\templates\themes\default\blog\tags\category.html.py:12
-msgid "No Category Now"
-msgstr "目前无分类"
+#: .\people\models.py:126
+msgid "Contacts"
+msgstr "通讯录"
 
-#: .\templates\themes\default\blog\tags\links.html.py:12
-msgid "No Links Now"
-msgstr "目前无链接"
+#: .\people\models.py:146
+msgid "Friend"
+msgstr "朋友"
 
-#: .\templates\themes\default\blog\tags\menu.html.py:4
-msgid "Todo"
-msgstr "待办"
+#: .\people\models.py:147
+msgid "Friends"
+msgstr "朋友"
 
-#: .\todo\models.py:19
-msgid "Project Name"
-msgstr "项目名称"
+#: .\photologue\models.py:81
+msgid "Very Low"
+msgstr "很低"
 
-#: .\todo\models.py:20
-#: .\todo\models.py:49
-msgid "Created Date"
-msgstr "创建于 "
-
-#: .\todo\models.py:21
-#: .\todo\models.py:50
-msgid "LastUpdated Date"
-msgstr "最近更新日期"
-
-#: .\todo\models.py:22
-msgid "Project type"
-msgstr "项目类型"
-
-#: .\todo\models.py:23
-#, fuzzy
-msgid "Project Description"
-msgstr "描述"
-
-#: .\todo\models.py:24
-msgid "Project task count"
-msgstr "项目任务数"
-
-#: .\todo\models.py:25
-#, fuzzy
-msgid "Completed task count"
-msgstr "完成的项目"
-
-#: .\todo\models.py:26
-msgid "Project slug"
-msgstr "项目缩记"
-
-#: .\todo\models.py:39
-#, fuzzy
-msgid "Todo Project"
-msgstr "添加新项目"
-
-#: .\todo\models.py:40
-#, fuzzy
-msgid "Todo Projects"
-msgstr "完成的项目"
-
-#: .\todo\models.py:47
-msgid "Task Name"
-msgstr "任务名称"
-
-#: .\todo\models.py:48
-#, fuzzy
-msgid "Task Project"
-msgstr "私人项目"
-
-#: .\todo\models.py:51
-#, fuzzy
-msgid "Task Priority"
-msgstr "优先级"
-
-#: .\todo\models.py:52
-#, fuzzy
-msgid "Is task completed"
-msgstr "该任务已完成。"
-
-#: .\todo\models.py:59
-msgid "Todo Task"
-msgstr "待办任务"
-
-#: .\todo\models.py:60
-msgid "Todo Tasks"
-msgstr "待办任务"
-
-#: .\todo\templates\todo\index.html.py:12
-msgid "Projects in progress"
-msgstr "正在处理的项目"
-
-#: .\todo\templates\todo\index.html.py:15
-#: .\todo\templates\todo\index.html.py:58
-msgid "Created at"
-msgstr "创建于"
-
-#: .\todo\templates\todo\index.html.py:16
-#: .\todo\templates\todo\index.html.py:59
-msgid "Public Project"
-msgstr "公开项目"
-
-#: .\todo\templates\todo\index.html.py:16
-#: .\todo\templates\todo\index.html.py:45
-#: .\todo\templates\todo\index.html.py:59
-msgid "Private Project"
-msgstr "私人项目"
-
-#: .\todo\templates\todo\index.html.py:20
-msgid "This task is completed."
-msgstr "该任务已完成。"
-
-#: .\todo\templates\todo\index.html.py:20
-#: .\todo\templates\todo\index.html.py:29
-msgid "Priority"
-msgstr "优先级"
-
-#: .\todo\templates\todo\index.html.py:26
-msgid "Add New Task"
-msgstr "添加新待办任务"
-
-#: .\todo\templates\todo\index.html.py:30
-msgid "low"
+#: .\photologue\models.py:82
+msgid "Low"
 msgstr "低"
 
-#: .\todo\templates\todo\index.html.py:31
-msgid "medium"
+#: .\photologue\models.py:83
+msgid "Medium-Low"
+msgstr "中低"
+
+#: .\photologue\models.py:84
+msgid "Medium"
 msgstr "中"
 
-#: .\todo\templates\todo\index.html.py:32
-msgid "high"
+#: .\photologue\models.py:85
+msgid "Medium-High"
+msgstr "中等"
+
+#: .\photologue\models.py:86
+msgid "High"
 msgstr "高"
 
-#: .\todo\templates\todo\index.html.py:43
-msgid "Add New Project"
-msgstr "添加新项目"
+#: .\photologue\models.py:87
+msgid "Very High"
+msgstr "非常高"
 
-#: .\todo\templates\todo\index.html.py:53
-msgid "Completed Projects"
-msgstr "完成的项目"
+#: .\photologue\models.py:92
+msgid "Top"
+msgstr "顶部"
 
-#: .\todo\templates\todo\index.html.py:72
-msgid "No project is completed!"
-msgstr "没有完成的项目！"
+#: .\photologue\models.py:93
+msgid "Right"
+msgstr "右"
 
-#: .\userprofile\countries.py:10
-msgid "Andorra"
-msgstr ""
+#: .\photologue\models.py:94
+msgid "Bottom"
+msgstr "底部"
 
-#: .\userprofile\countries.py:11
-msgid "United Arab Emirates"
-msgstr ""
+#: .\photologue\models.py:95
+msgid "Left"
+msgstr "左边"
 
-#: .\userprofile\countries.py:12
-msgid "Afghanistan"
-msgstr ""
+#: .\photologue\models.py:96
+msgid "Center (Default)"
+msgstr "居中（默认）"
 
-#: .\userprofile\countries.py:13
-msgid "Antigua & Barbuda"
-msgstr ""
+#: .\photologue\models.py:100
+msgid "Flip left to right"
+msgstr "水平翻转"
 
-#: .\userprofile\countries.py:14
-msgid "Anguilla"
-msgstr ""
+#: .\photologue\models.py:101
+msgid "Flip top to bottom"
+msgstr "垂直翻转"
 
-#: .\userprofile\countries.py:15
-msgid "Albania"
-msgstr ""
+#: .\photologue\models.py:102
+msgid "Rotate 90 degrees counter-clockwise"
+msgstr "逆时针90度"
 
-#: .\userprofile\countries.py:16
-msgid "Armenia"
-msgstr ""
+#: .\photologue\models.py:103
+msgid "Rotate 90 degrees clockwise"
+msgstr "顺时针90度"
 
-#: .\userprofile\countries.py:17
-msgid "Netherlands Antilles"
-msgstr ""
+#: .\photologue\models.py:104
+msgid "Rotate 180 degrees"
+msgstr "180度旋转"
 
-#: .\userprofile\countries.py:18
-msgid "Angola"
-msgstr ""
-
-#: .\userprofile\countries.py:19
-msgid "Antarctica"
-msgstr ""
-
-#: .\userprofile\countries.py:20
-msgid "Argentina"
-msgstr ""
-
-#: .\userprofile\countries.py:21
-msgid "American Samoa"
-msgstr ""
-
-#: .\userprofile\countries.py:22
-msgid "Austria"
-msgstr ""
-
-#: .\userprofile\countries.py:23
-msgid "Australia"
-msgstr ""
-
-#: .\userprofile\countries.py:24
-msgid "Aruba"
-msgstr ""
-
-#: .\userprofile\countries.py:25
-msgid "Azerbaijan"
-msgstr ""
-
-#: .\userprofile\countries.py:26
-msgid "Bosnia and Herzegovina"
-msgstr ""
-
-#: .\userprofile\countries.py:27
-msgid "Barbados"
-msgstr ""
-
-#: .\userprofile\countries.py:28
-msgid "Bangladesh"
-msgstr ""
-
-#: .\userprofile\countries.py:29
-#, fuzzy
-msgid "Belgium"
-msgstr "中（60%）"
-
-#: .\userprofile\countries.py:30
-msgid "Burkina Faso"
-msgstr ""
-
-#: .\userprofile\countries.py:31
-msgid "Bulgaria"
-msgstr ""
-
-#: .\userprofile\countries.py:32
-msgid "Bahrain"
-msgstr ""
-
-#: .\userprofile\countries.py:33
-msgid "Burundi"
-msgstr ""
-
-#: .\userprofile\countries.py:34
-msgid "Benin"
-msgstr ""
-
-#: .\userprofile\countries.py:35
-msgid "Bermuda"
-msgstr ""
-
-#: .\userprofile\countries.py:36
-msgid "Brunei Darussalam"
-msgstr ""
-
-#: .\userprofile\countries.py:37
-msgid "Bolivia"
-msgstr ""
-
-#: .\userprofile\countries.py:38
-msgid "Brazil"
-msgstr ""
-
-#: .\userprofile\countries.py:39
-msgid "Bahama"
-msgstr ""
-
-#: .\userprofile\countries.py:40
-msgid "Bhutan"
-msgstr ""
-
-#: .\userprofile\countries.py:41
-msgid "Bouvet Island"
-msgstr ""
-
-#: .\userprofile\countries.py:42
-msgid "Botswana"
-msgstr ""
-
-#: .\userprofile\countries.py:43
-msgid "Belarus"
-msgstr ""
-
-#: .\userprofile\countries.py:44
-msgid "Belize"
-msgstr ""
-
-#: .\userprofile\countries.py:45
-msgid "Canada"
-msgstr ""
-
-#: .\userprofile\countries.py:46
-msgid "Cocos (Keeling) Islands"
-msgstr ""
-
-#: .\userprofile\countries.py:47
-msgid "Central African Republic"
-msgstr ""
-
-#: .\userprofile\countries.py:48
-msgid "Congo"
-msgstr ""
-
-#: .\userprofile\countries.py:49
-msgid "Switzerland"
-msgstr ""
-
-#: .\userprofile\countries.py:50
-msgid "Ivory Coast"
-msgstr ""
-
-#: .\userprofile\countries.py:51
-msgid "Cook Islands"
-msgstr ""
-
-#: .\userprofile\countries.py:52
-#, fuzzy
-msgid "Chile"
+#: .\photologue\models.py:108
+msgid "Tile"
 msgstr "平铺"
 
-#: .\userprofile\countries.py:53
-msgid "Cameroon"
-msgstr ""
-
-#: .\userprofile\countries.py:54
-msgid "China"
-msgstr ""
-
-#: .\userprofile\countries.py:55
-msgid "Colombia"
-msgstr ""
-
-#: .\userprofile\countries.py:56
-msgid "Costa Rica"
-msgstr ""
-
-#: .\userprofile\countries.py:57
-msgid "Cuba"
-msgstr ""
-
-#: .\userprofile\countries.py:58
-msgid "Cape Verde"
-msgstr ""
-
-#: .\userprofile\countries.py:59
-msgid "Christmas Island"
-msgstr ""
-
-#: .\userprofile\countries.py:60
-msgid "Cyprus"
-msgstr ""
-
-#: .\userprofile\countries.py:61
-msgid "Czech Republic"
-msgstr ""
-
-#: .\userprofile\countries.py:62
-msgid "Germany"
-msgstr ""
-
-#: .\userprofile\countries.py:63
-msgid "Djibouti"
-msgstr ""
-
-#: .\userprofile\countries.py:64
-#, fuzzy
-msgid "Denmark"
-msgstr "水印"
-
-#: .\userprofile\countries.py:65
-msgid "Dominica"
-msgstr ""
-
-#: .\userprofile\countries.py:66
-msgid "Dominican Republic"
-msgstr ""
-
-#: .\userprofile\countries.py:67
-msgid "Algeria"
-msgstr ""
-
-#: .\userprofile\countries.py:68
-msgid "Ecuador"
-msgstr ""
-
-#: .\userprofile\countries.py:69
-msgid "Estonia"
-msgstr ""
-
-#: .\userprofile\countries.py:70
-msgid "Egypt"
-msgstr ""
-
-#: .\userprofile\countries.py:71
-msgid "Western Sahara"
-msgstr ""
-
-#: .\userprofile\countries.py:72
-msgid "Eritrea"
-msgstr ""
-
-#: .\userprofile\countries.py:73
-msgid "Spain"
-msgstr ""
-
-#: .\userprofile\countries.py:74
-msgid "Ethiopia"
-msgstr ""
-
-#: .\userprofile\countries.py:75
-msgid "Finland"
-msgstr ""
-
-#: .\userprofile\countries.py:76
-msgid "Fiji"
-msgstr ""
-
-#: .\userprofile\countries.py:77
-msgid "Falkland Islands (Malvinas)"
-msgstr ""
-
-#: .\userprofile\countries.py:78
-msgid "Micronesia"
-msgstr ""
-
-#: .\userprofile\countries.py:79
-msgid "Faroe Islands"
-msgstr ""
-
-#: .\userprofile\countries.py:80
-msgid "France"
-msgstr ""
-
-#: .\userprofile\countries.py:81
-msgid "France, Metropolitan"
-msgstr ""
-
-#: .\userprofile\countries.py:82
-msgid "Gabon"
-msgstr ""
-
-#: .\userprofile\countries.py:83
-msgid "United Kingdom (Great Britain)"
-msgstr ""
-
-#: .\userprofile\countries.py:84
-#, fuzzy
-msgid "Grenada"
-msgstr "话题"
-
-#: .\userprofile\countries.py:85
-msgid "Georgia"
-msgstr ""
-
-#: .\userprofile\countries.py:86
-msgid "French Guiana"
-msgstr ""
-
-#: .\userprofile\countries.py:87
-msgid "Ghana"
-msgstr ""
-
-#: .\userprofile\countries.py:88
-msgid "Gibraltar"
-msgstr ""
-
-#: .\userprofile\countries.py:89
-msgid "Greenland"
-msgstr ""
-
-#: .\userprofile\countries.py:90
-msgid "Gambia"
-msgstr ""
-
-#: .\userprofile\countries.py:91
-msgid "Guinea"
-msgstr ""
-
-#: .\userprofile\countries.py:92
-msgid "Guadeloupe"
-msgstr ""
-
-#: .\userprofile\countries.py:93
-msgid "Equatorial Guinea"
-msgstr ""
-
-#: .\userprofile\countries.py:94
-msgid "Greece"
-msgstr ""
-
-#: .\userprofile\countries.py:95
-msgid "South Georgia and the South Sandwich Islands"
-msgstr ""
-
-#: .\userprofile\countries.py:96
-msgid "Guatemala"
-msgstr ""
-
-#: .\userprofile\countries.py:97
-msgid "Guam"
-msgstr ""
-
-#: .\userprofile\countries.py:98
-msgid "Guinea-Bissau"
-msgstr ""
-
-#: .\userprofile\countries.py:99
-msgid "Guyana"
-msgstr ""
-
-#: .\userprofile\countries.py:100
-msgid "Hong Kong"
-msgstr ""
-
-#: .\userprofile\countries.py:101
-msgid "Heard & McDonald Islands"
-msgstr ""
-
-#: .\userprofile\countries.py:102
-#, fuzzy
-msgid "Honduras"
-msgstr "对比度"
-
-#: .\userprofile\countries.py:103
-msgid "Croatia"
-msgstr ""
-
-#: .\userprofile\countries.py:104
-msgid "Haiti"
-msgstr ""
-
-#: .\userprofile\countries.py:105
-msgid "Hungary"
-msgstr ""
-
-#: .\userprofile\countries.py:106
-msgid "Indonesia"
-msgstr ""
-
-#: .\userprofile\countries.py:107
-#, fuzzy
-msgid "Ireland"
-msgstr "话题"
-
-#: .\userprofile\countries.py:108
-msgid "Israel"
-msgstr ""
-
-#: .\userprofile\countries.py:109
-msgid "India"
-msgstr ""
-
-#: .\userprofile\countries.py:110
-msgid "British Indian Ocean Territory"
-msgstr ""
-
-#: .\userprofile\countries.py:111
-msgid "Iraq"
-msgstr ""
-
-#: .\userprofile\countries.py:112
-msgid "Islamic Republic of Iran"
-msgstr ""
-
-#: .\userprofile\countries.py:113
-msgid "Iceland"
-msgstr ""
-
-#: .\userprofile\countries.py:114
-msgid "Italy"
-msgstr ""
-
-#: .\userprofile\countries.py:115
-msgid "Jamaica"
-msgstr ""
-
-#: .\userprofile\countries.py:116
-msgid "Jordan"
-msgstr ""
-
-#: .\userprofile\countries.py:117
-msgid "Japan"
-msgstr ""
-
-#: .\userprofile\countries.py:118
-msgid "Kenya"
-msgstr ""
-
-#: .\userprofile\countries.py:119
-msgid "Kyrgyzstan"
-msgstr ""
-
-#: .\userprofile\countries.py:120
-msgid "Cambodia"
-msgstr ""
-
-#: .\userprofile\countries.py:121
-msgid "Kiribati"
-msgstr ""
-
-#: .\userprofile\countries.py:122
-msgid "Comoros"
-msgstr ""
-
-#: .\userprofile\countries.py:123
-msgid "St. Kitts and Nevis"
-msgstr ""
-
-#: .\userprofile\countries.py:124
-msgid "Korea, Democratic People's Republic of"
-msgstr ""
-
-#: .\userprofile\countries.py:125
-msgid "Korea, Republic of"
-msgstr ""
-
-#: .\userprofile\countries.py:126
-#, fuzzy
-msgid "Kuwait"
-msgstr "质量"
-
-#: .\userprofile\countries.py:127
-msgid "Cayman Islands"
-msgstr ""
-
-#: .\userprofile\countries.py:128
-msgid "Kazakhstan"
-msgstr ""
-
-#: .\userprofile\countries.py:129
-msgid "Lao People's Democratic Republic"
-msgstr ""
-
-#: .\userprofile\countries.py:130
-msgid "Lebanon"
-msgstr ""
-
-#: .\userprofile\countries.py:131
-msgid "Saint Lucia"
-msgstr ""
-
-#: .\userprofile\countries.py:132
-msgid "Liechtenstein"
-msgstr ""
-
-#: .\userprofile\countries.py:133
-msgid "Sri Lanka"
-msgstr ""
-
-#: .\userprofile\countries.py:134
-msgid "Liberia"
-msgstr ""
-
-#: .\userprofile\countries.py:135
-msgid "Lesotho"
-msgstr ""
-
-#: .\userprofile\countries.py:136
-msgid "Lithuania"
-msgstr ""
-
-#: .\userprofile\countries.py:137
-msgid "Luxembourg"
-msgstr ""
-
-#: .\userprofile\countries.py:138
-msgid "Latvia"
-msgstr ""
-
-#: .\userprofile\countries.py:139
-msgid "Libyan Arab Jamahiriya"
-msgstr ""
-
-#: .\userprofile\countries.py:140
-msgid "Morocco"
-msgstr ""
-
-#: .\userprofile\countries.py:141
-msgid "Monaco"
-msgstr ""
-
-#: .\userprofile\countries.py:142
-msgid "Moldova, Republic of"
-msgstr ""
-
-#: .\userprofile\countries.py:143
-msgid "Madagascar"
-msgstr ""
-
-#: .\userprofile\countries.py:144
-msgid "Marshall Islands"
-msgstr ""
-
-#: .\userprofile\countries.py:145
-msgid "Mali"
-msgstr ""
-
-#: .\userprofile\countries.py:146
-msgid "Mongolia"
-msgstr ""
-
-#: .\userprofile\countries.py:147
-msgid "Myanmar"
-msgstr ""
-
-#: .\userprofile\countries.py:148
-msgid "Macau"
-msgstr ""
-
-#: .\userprofile\countries.py:149
-msgid "Northern Mariana Islands"
-msgstr ""
-
-#: .\userprofile\countries.py:150
-msgid "Martinique"
-msgstr ""
-
-#: .\userprofile\countries.py:151
-msgid "Mauritania"
-msgstr ""
-
-#: .\userprofile\countries.py:152
-msgid "Monserrat"
-msgstr ""
-
-#: .\userprofile\countries.py:153
-msgid "Malta"
-msgstr ""
-
-#: .\userprofile\countries.py:154
-msgid "Mauritius"
-msgstr ""
-
-#: .\userprofile\countries.py:155
-msgid "Maldives"
-msgstr ""
-
-#: .\userprofile\countries.py:156
-msgid "Malawi"
-msgstr ""
-
-#: .\userprofile\countries.py:157
-msgid "Mexico"
-msgstr ""
-
-#: .\userprofile\countries.py:158
-msgid "Malaysia"
-msgstr ""
-
-#: .\userprofile\countries.py:159
-msgid "Mozambique"
-msgstr ""
-
-#: .\userprofile\countries.py:160
-msgid "Namibia"
-msgstr ""
-
-#: .\userprofile\countries.py:161
-msgid "New Caledonia"
-msgstr ""
-
-#: .\userprofile\countries.py:162
-msgid "Niger"
-msgstr ""
-
-#: .\userprofile\countries.py:163
-msgid "Norfolk Island"
-msgstr ""
-
-#: .\userprofile\countries.py:164
-msgid "Nigeria"
-msgstr ""
-
-#: .\userprofile\countries.py:165
-msgid "Nicaragua"
-msgstr ""
-
-#: .\userprofile\countries.py:166
-msgid "Netherlands"
-msgstr ""
-
-#: .\userprofile\countries.py:167
-msgid "Norway"
-msgstr ""
-
-#: .\userprofile\countries.py:168
-msgid "Nepal"
-msgstr ""
-
-#: .\userprofile\countries.py:169
-msgid "Nauru"
-msgstr ""
-
-#: .\userprofile\countries.py:170
-msgid "Niue"
-msgstr ""
-
-#: .\userprofile\countries.py:171
-msgid "New Zealand"
-msgstr ""
-
-#: .\userprofile\countries.py:172
-msgid "Oman"
-msgstr ""
-
-#: .\userprofile\countries.py:173
-msgid "Panama"
-msgstr ""
-
-#: .\userprofile\countries.py:174
-msgid "Peru"
-msgstr ""
-
-#: .\userprofile\countries.py:175
-msgid "French Polynesia"
-msgstr ""
-
-#: .\userprofile\countries.py:176
-msgid "Papua New Guinea"
-msgstr ""
-
-#: .\userprofile\countries.py:177
-msgid "Philippines"
-msgstr ""
-
-#: .\userprofile\countries.py:178
-msgid "Pakistan"
-msgstr ""
-
-#: .\userprofile\countries.py:179
-msgid "Poland"
-msgstr ""
-
-#: .\userprofile\countries.py:180
-msgid "St. Pierre & Miquelon"
-msgstr ""
-
-#: .\userprofile\countries.py:181
-msgid "Pitcairn"
-msgstr ""
-
-#: .\userprofile\countries.py:182
-msgid "Puerto Rico"
-msgstr ""
-
-#: .\userprofile\countries.py:183
-msgid "Portugal"
-msgstr ""
-
-#: .\userprofile\countries.py:184
-msgid "Palau"
-msgstr ""
-
-#: .\userprofile\countries.py:185
-msgid "Paraguay"
-msgstr ""
-
-#: .\userprofile\countries.py:186
-msgid "Qatar"
-msgstr ""
-
-#: .\userprofile\countries.py:187
-msgid "Reunion"
-msgstr ""
-
-#: .\userprofile\countries.py:188
-msgid "Romania"
-msgstr ""
-
-#: .\userprofile\countries.py:189
-msgid "Russian Federation"
-msgstr ""
-
-#: .\userprofile\countries.py:190
-msgid "Rwanda"
-msgstr ""
-
-#: .\userprofile\countries.py:191
-msgid "Saudi Arabia"
-msgstr ""
-
-#: .\userprofile\countries.py:192
-msgid "Solomon Islands"
-msgstr ""
-
-#: .\userprofile\countries.py:193
-msgid "Seychelles"
-msgstr ""
-
-#: .\userprofile\countries.py:194
-msgid "Sudan"
-msgstr ""
+#: .\photologue\models.py:109
+msgid "Scale"
+msgstr "缩放"
 
-#: .\userprofile\countries.py:195
-msgid "Sweden"
+#: .\photologue\models.py:119
+#, python-format
+msgid "Chain multiple filters using the following pattern \"FILTER_ONE->FILTER_TWO->FILTER_THREE\". Image filters will be applied in order. The following filters are available: %s."
 msgstr ""
 
-#: .\userprofile\countries.py:196
-msgid "Singapore"
-msgstr ""
-
-#: .\userprofile\countries.py:197
-msgid "St. Helena"
-msgstr ""
-
-#: .\userprofile\countries.py:198
-msgid "Slovenia"
-msgstr ""
-
-#: .\userprofile\countries.py:199
-msgid "Svalbard & Jan Mayen Islands"
-msgstr ""
-
-#: .\userprofile\countries.py:200
-msgid "Slovakia"
-msgstr ""
-
-#: .\userprofile\countries.py:201
-msgid "Sierra Leone"
-msgstr ""
-
-#: .\userprofile\countries.py:202
-msgid "San Marino"
-msgstr ""
-
-#: .\userprofile\countries.py:203
-msgid "Senegal"
-msgstr ""
-
-#: .\userprofile\countries.py:204
-msgid "Somalia"
-msgstr ""
-
-#: .\userprofile\countries.py:205
-#, fuzzy
-msgid "Suriname"
-msgstr "用户名"
-
-#: .\userprofile\countries.py:206
-msgid "Sao Tome & Principe"
-msgstr ""
-
-#: .\userprofile\countries.py:207
-msgid "El Salvador"
-msgstr ""
-
-#: .\userprofile\countries.py:208
-msgid "Syrian Arab Republic"
-msgstr ""
-
-#: .\userprofile\countries.py:209
-msgid "Swaziland"
-msgstr ""
-
-#: .\userprofile\countries.py:210
-msgid "Turks & Caicos Islands"
-msgstr ""
-
-#: .\userprofile\countries.py:211
-msgid "Chad"
-msgstr ""
-
-#: .\userprofile\countries.py:212
-msgid "French Southern Territories"
-msgstr ""
-
-#: .\userprofile\countries.py:213
-#, fuzzy
-msgid "Togo"
-msgstr "ToDo"
-
-#: .\userprofile\countries.py:214
-msgid "Thailand"
-msgstr ""
-
-#: .\userprofile\countries.py:215
-msgid "Tajikistan"
-msgstr ""
-
-#: .\userprofile\countries.py:216
-msgid "Tokelau"
-msgstr ""
-
-#: .\userprofile\countries.py:217
-msgid "Turkmenistan"
-msgstr ""
-
-#: .\userprofile\countries.py:218
-msgid "Tunisia"
-msgstr ""
-
-#: .\userprofile\countries.py:219
-msgid "Tonga"
-msgstr ""
-
-#: .\userprofile\countries.py:220
-msgid "East Timor"
-msgstr ""
-
-#: .\userprofile\countries.py:221
-msgid "Turkey"
-msgstr ""
-
-#: .\userprofile\countries.py:222
-msgid "Trinidad & Tobago"
-msgstr ""
-
-#: .\userprofile\countries.py:223
-msgid "Tuvalu"
-msgstr ""
-
-#: .\userprofile\countries.py:224
-msgid "Taiwan, Province of China"
-msgstr ""
-
-#: .\userprofile\countries.py:225
-msgid "Tanzania, United Republic of"
-msgstr ""
-
-#: .\userprofile\countries.py:226
-msgid "Ukraine"
-msgstr ""
-
-#: .\userprofile\countries.py:227
-msgid "Uganda"
-msgstr ""
-
-#: .\userprofile\countries.py:228
-msgid "United States Minor Outlying Islands"
-msgstr ""
-
-#: .\userprofile\countries.py:229
-msgid "United States of America"
-msgstr ""
-
-#: .\userprofile\countries.py:230
-msgid "Uruguay"
-msgstr ""
-
-#: .\userprofile\countries.py:231
-msgid "Uzbekistan"
-msgstr ""
+#: .\photologue\models.py:123
+msgid "date published"
+msgstr "发布日期"
 
-#: .\userprofile\countries.py:232
-msgid "Vatican City State (Holy See)"
-msgstr ""
-
-#: .\userprofile\countries.py:233
-msgid "St. Vincent & the Grenadines"
-msgstr ""
-
-#: .\userprofile\countries.py:234
-msgid "Venezuela"
-msgstr ""
-
-#: .\userprofile\countries.py:235
-msgid "British Virgin Islands"
-msgstr ""
-
-#: .\userprofile\countries.py:236
-msgid "United States Virgin Islands"
-msgstr ""
-
-#: .\userprofile\countries.py:237
-msgid "Viet Nam"
-msgstr ""
-
-#: .\userprofile\countries.py:238
-msgid "Vanuatu"
-msgstr ""
-
-#: .\userprofile\countries.py:239
-msgid "Wallis & Futuna Islands"
-msgstr ""
-
-#: .\userprofile\countries.py:240
-msgid "Samoa"
-msgstr ""
-
-#: .\userprofile\countries.py:241
-msgid "Yemen"
-msgstr ""
-
-#: .\userprofile\countries.py:242
-msgid "Mayotte"
-msgstr ""
+#: .\photologue\models.py:125
+msgid "title slug"
+msgstr "标题缩记"
 
-#: .\userprofile\countries.py:243
-msgid "Yugoslavia"
+#: .\photologue\models.py:126
+msgid "A \"slug\" is a unique URL-friendly title for an object."
 msgstr ""
 
-#: .\userprofile\countries.py:244
-msgid "South Africa"
-msgstr ""
-
-#: .\userprofile\countries.py:245
-msgid "Zambia"
-msgstr ""
+#: .\photologue\models.py:128
+#: .\photologue\models.py:184
+#: .\photologue\models.py:484
+msgid "is public"
+msgstr "是否公开"
 
-#: .\userprofile\countries.py:246
-msgid "Zaire"
+#: .\photologue\models.py:129
+msgid "Public galleries will be displayed in the default views."
 msgstr ""
 
-#: .\userprofile\countries.py:247
-#, fuzzy
-msgid "Zimbabwe"
+#: .\photologue\models.py:130
+#: .\photologue\models.py:491
+msgid "photos"
 msgstr "图像"
 
-#: .\userprofile\countries.py:248
-msgid "Unknown or unspecified country"
+#: .\photologue\models.py:137
+#: .\templates\themes\default\photologue\index.html.py:11
+#: .\templates\themes\yaml\photologue\index.html.py:11
+msgid "gallery"
+msgstr "专辑"
+
+#: .\photologue\models.py:138
+msgid "galleries"
+msgstr "专辑"
+
+#: .\photologue\models.py:171
+msgid "count"
+msgstr "数量"
+
+#: .\photologue\models.py:178
+msgid "images file (.zip)"
+msgstr "图像压缩包文件(.zip)"
+
+#: .\photologue\models.py:179
+msgid "Select a .zip file of images to upload into a new Gallery."
 msgstr ""
 
-#: .\userprofile\countries.py:253
-msgid "This value must be in COUNTRIES setting in localflavor.generic package."
+#: .\photologue\models.py:180
+msgid "Select a gallery to add these images to. leave this empty to create a new gallery from the supplied title."
 msgstr ""
 
-#: .\userprofile\forms.py:58
-#, python-format
-msgid "The file type is invalid: %s"
+#: .\photologue\models.py:181
+msgid "All photos in the gallery will be given a title made up of the gallery title + a sequential number."
 msgstr ""
 
-#: .\userprofile\forms.py:63
-msgid "You must enter one of the options"
-msgstr ""
-
-#: .\userprofile\forms.py:77
-msgid "You must select a portion of the image with a minimum of 96x96 pixels."
-msgstr ""
-
-#: .\userprofile\forms.py:83
-#: .\userprofile\templates\userprofile\account\login.html.py:20
-#: .\userprofile\templates\userprofile\account\registration.html.py:20
-#: .\userprofile\templates\userprofile\profile\public.html.py:35
-#: .\userprofile\templates\userprofile\profile\usercard.html.py:11
-#, fuzzy
-msgid "Username"
-msgstr "用户名"
-
-#: .\userprofile\forms.py:84
-#: .\userprofile\templates\userprofile\account\password_reset.html.py:21
-#, fuzzy
-msgid "E-mail address"
-msgstr "电子邮件"
-
-#: .\userprofile\forms.py:85
-#: .\userprofile\templates\userprofile\account\login.html.py:26
-#: .\userprofile\templates\userprofile\account\registration.html.py:32
-#, fuzzy
-msgid "Password"
-msgstr "密码"
-
-#: .\userprofile\forms.py:86
-#: .\userprofile\templates\userprofile\account\registration.html.py:38
-#, fuzzy
-msgid "Password (again)"
-msgstr "密码（重复）"
-
-#: .\userprofile\forms.py:94
-msgid "That username has invalid characters. The valid values are letters, numbers and underscore."
-msgstr ""
-
-#: .\userprofile\forms.py:99
-#, fuzzy
-msgid "The username is already registered."
-msgstr "该用户名已被使用，请选用其他的。"
-
-#: .\userprofile\forms.py:108
-msgid "The passwords inserted are different."
-msgstr ""
-
-#: .\userprofile\forms.py:120
-#: .\userprofile\forms.py:139
-msgid "That e-mail is already used."
-msgstr ""
-
-#: .\userprofile\forms.py:124
-msgid "That e-mail is already being confirmed."
-msgstr ""
-
-#: .\userprofile\forms.py:152
-msgid "That e-mail isn't registered."
-msgstr "此邮件地址没有被注册。"
-
-#: .\userprofile\models.py:42
-#, fuzzy, python-format
-msgid "%s's profile"
-msgstr "用户简介"
-
-#: .\userprofile\models.py:61
-#, python-format
-msgid "%s's Avatar"
-msgstr "%s's 头像"
-
-#: .\userprofile\models.py:145
-#, python-format
-msgid "Email validation process for %(user)s"
-msgstr ""
-
-#: .\userprofile\templates\userprofile\menu.html.py:5
-#, fuzzy
-msgid "Overview"
-msgstr "查看"
-
-#: .\userprofile\templates\userprofile\menu.html.py:6
-#: .\userprofile\templates\userprofile\profile\personal.html.py:36
-#: .\userprofile\templates\userprofile\profile\personal_done.html.py:19
-msgid "Personal information"
-msgstr ""
-
-#: .\userprofile\templates\userprofile\menu.html.py:7
-msgid "Avatar"
-msgstr "头像"
-
-#: .\userprofile\templates\userprofile\menu.html.py:8
-#: .\userprofile\templates\userprofile\profile\location.html.py:26
-#: .\userprofile\templates\userprofile\profile\overview.html.py:58
-#: .\userprofile\templates\userprofile\profile\public.html.py:40
-#, fuzzy
-msgid "Location"
+#: .\photologue\models.py:182
+#: .\photologue\models.py:482
+msgid "caption"
 msgstr "标题"
 
-#: .\userprofile\templates\userprofile\menu.html.py:9
-#: .\userprofile\templates\userprofile\profile\delete.html.py:22
-#, fuzzy
-msgid "Remove profile"
+#: .\photologue\models.py:182
+msgid "Caption will be added to all photos."
+msgstr ""
+
+#: .\photologue\models.py:183
+msgid "A description of this Gallery."
+msgstr ""
+
+#: .\photologue\models.py:184
+msgid "Uncheck this to make the uploaded gallery and included photographs private."
+msgstr ""
+
+#: .\photologue\models.py:188
+msgid "gallery upload"
+msgstr "上传专辑"
+
+#: .\photologue\models.py:189
+msgid "gallery uploads"
+msgstr "上传专辑"
+
+#: .\photologue\models.py:253
+#: .\photologue\models.py:639
+msgid "image"
+msgstr "图像"
+
+#: .\photologue\models.py:254
+msgid "date taken"
+msgstr "拿来日期"
+
+#: .\photologue\models.py:256
+msgid "crop from"
+msgstr "裁切于"
+
+#: .\photologue\models.py:257
+msgid "effect"
+msgstr "效果"
+
+#: .\photologue\models.py:275
+msgid "An \"admin_thumbnail\" photo size has not been defined."
+msgstr ""
+
+#: .\photologue\models.py:283
+msgid "Thumbnail"
+msgstr "缩略图"
+
+#: .\photologue\models.py:480
+msgid "slug"
+msgstr "缩记"
+
+#: .\photologue\models.py:483
+msgid "date added"
+msgstr "添加日期"
+
+#: .\photologue\models.py:484
+msgid "Public photographs will be displayed in the default views."
+msgstr ""
+
+#: .\photologue\models.py:490
+msgid "photo"
+msgstr "图片"
+
+#: .\photologue\models.py:599
+msgid "rotate or flip"
+msgstr "旋转或翻转"
+
+#: .\photologue\models.py:600
+#: .\photologue\models.py:607
+msgid "color"
+msgstr "颜色"
+
+#: .\photologue\models.py:600
+msgid "A factor of 0.0 gives a black and white image, a factor of 1.0 gives the original image."
+msgstr ""
+
+#: .\photologue\models.py:601
+msgid "brightness"
+msgstr "亮度"
+
+#: .\photologue\models.py:601
+msgid "A factor of 0.0 gives a black image, a factor of 1.0 gives the original image."
+msgstr ""
+
+#: .\photologue\models.py:602
+msgid "contrast"
+msgstr "对比度"
+
+#: .\photologue\models.py:602
+msgid "A factor of 0.0 gives a solid grey image, a factor of 1.0 gives the original image."
+msgstr ""
+
+#: .\photologue\models.py:603
+msgid "sharpness"
+msgstr ""
+
+#: .\photologue\models.py:603
+msgid "A factor of 0.0 gives a blurred image, a factor of 1.0 gives the original image."
+msgstr ""
+
+#: .\photologue\models.py:604
+msgid "filters"
+msgstr "滤镜"
+
+#: .\photologue\models.py:605
+msgid "size"
+msgstr ""
+
+#: .\photologue\models.py:605
+msgid "The height of the reflection as a percentage of the orignal image. A factor of 0.0 adds no reflection, a factor of 1.0 adds a reflection equal to the height of the orignal image."
+msgstr ""
+
+#: .\photologue\models.py:606
+msgid "strength"
+msgstr ""
+
+#: .\photologue\models.py:606
+msgid "The initial opacity of the reflection gradient."
+msgstr ""
+
+#: .\photologue\models.py:607
+msgid "The background color of the reflection gradient. Set this to match the background color of your page."
+msgstr ""
+
+#: .\photologue\models.py:610
+#: .\photologue\models.py:661
+msgid "photo effect"
+msgstr ""
+
+#: .\photologue\models.py:611
+msgid "photo effects"
+msgstr ""
+
+#: .\photologue\models.py:640
+msgid "style"
+msgstr ""
+
+#: .\photologue\models.py:641
+msgid "opacity"
+msgstr ""
+
+#: .\photologue\models.py:641
+msgid "The opacity of the overlay."
+msgstr ""
+
+#: .\photologue\models.py:644
+msgid "watermark"
+msgstr "水印"
+
+#: .\photologue\models.py:645
+msgid "watermarks"
+msgstr "水印"
+
+#: .\photologue\models.py:653
+msgid "Photo size name should contain only letters, numbers and underscores. Examples: \"thumbnail\", \"display\", \"small\", \"main_page_widget\"."
+msgstr ""
+
+#: .\photologue\models.py:654
+msgid "width"
+msgstr "宽度"
+
+#: .\photologue\models.py:654
+msgid "If width is set to \"0\" the image will be scaled to the supplied height."
+msgstr ""
+
+#: .\photologue\models.py:655
+msgid "height"
+msgstr "高"
+
+#: .\photologue\models.py:655
+msgid "If height is set to \"0\" the image will be scaled to the supplied width"
+msgstr ""
+
+#: .\photologue\models.py:656
+msgid "quality"
+msgstr "质量"
+
+#: .\photologue\models.py:656
+msgid "JPEG image quality."
+msgstr ""
+
+#: .\photologue\models.py:657
+msgid "upscale images?"
+msgstr ""
+
+#: .\photologue\models.py:657
+msgid "If selected the image will be scaled up if necessary to fit the supplied dimensions. Cropped sizes will be upscaled regardless of this setting."
+msgstr ""
+
+#: .\photologue\models.py:658
+msgid "crop to fit?"
+msgstr ""
+
+#: .\photologue\models.py:658
+msgid "If selected the image will be scaled and cropped to fit the supplied dimensions."
+msgstr ""
+
+#: .\photologue\models.py:659
+msgid "pre-cache?"
+msgstr ""
+
+#: .\photologue\models.py:659
+msgid "If selected this photo size will be pre-cached as photos are added."
+msgstr ""
+
+#: .\photologue\models.py:660
+msgid "increment view count?"
+msgstr ""
+
+#: .\photologue\models.py:660
+msgid "If selected the image's \"view_count\" will be incremented when this photo size is displayed."
+msgstr ""
+
+#: .\photologue\models.py:662
+msgid "watermark image"
+msgstr "水印图像"
+
+#: .\photologue\models.py:666
+msgid "photo size"
+msgstr "图片尺寸"
+
+#: .\photologue\models.py:667
+msgid "photo sizes"
+msgstr "图片尺寸"
+
+#: .\saying\models.py:12
+msgid "Saying"
+msgstr "语录"
+
+#: .\saying\models.py:13
+msgid "Sayings"
+msgstr "语录"
+
+#: .\tagging\__init__.py:22
+#, python-format
+msgid "The model %s has already been registered."
+msgstr "这个Model %s 已经被注册了"
+
+#: .\tagging\fields.py:69
+#, python-format
+msgid "%s can only be set on instances."
+msgstr ""
+
+#: .\tagging\forms.py:19
+msgid "Multiple tags were given."
+msgstr ""
+
+#: .\tagging\forms.py:22
+#, python-format
+msgid "A tag may be no more than %s characters long."
+msgstr ""
+
+#: .\tagging\forms.py:38
+#, python-format
+msgid "Each tag may be no more than %s characters long."
+msgstr ""
+
+#: .\tagging\models.py:58
+#, python-format
+msgid "No tags were given: \"%s\"."
+msgstr ""
+
+#: .\tagging\models.py:60
+#, python-format
+msgid "Multiple tags were given: \"%s\"."
+msgstr ""
+
+#: .\tagging\models.py:456
+#: .\tagging\models.py:466
+msgid "tag"
+msgstr "标签"
+
+#: .\tagging\models.py:467
+msgid "content type"
+msgstr "内容类型"
+
+#: .\tagging\models.py:468
+msgid "object id"
+msgstr "对象ID"
+
+#: .\tagging\models.py:476
+msgid "tagged item"
+msgstr "标签项"
+
+#: .\tagging\models.py:477
+msgid "tagged items"
+msgstr "标签项"
+
+#: .\tagging\utils.py:189
+msgid "If a list or tuple of tags is provided, they must all be tag names, Tag objects or Tag ids."
+msgstr ""
+
+#: .\tagging\utils.py:191
+msgid "The tag input given was invalid."
+msgstr ""
+
+#: .\tagging\utils.py:236
+#, python-format
+msgid "Invalid distribution algorithm specified: %s."
+msgstr ""
+
+#: .\tagging\views.py:33
+msgid "tagged_object_list must be called with a queryset or a model."
+msgstr ""
+
+#: .\tagging\views.py:39
+msgid "tagged_object_list must be called with a tag."
+msgstr ""
+
+#: .\tagging\views.py:43
+#, python-format
+msgid "No Tag found matching \"%s\"."
+msgstr ""
+
+#: .\tagging\templatetags\tagging_tags.py:19
+#, python-format
+msgid "tags_for_model tag was given an invalid model: %s"
+msgstr ""
+
+#: .\tagging\templatetags\tagging_tags.py:32
+#, python-format
+msgid "tag_cloud_for_model tag was given an invalid model: %s"
+msgstr ""
+
+#: .\tagging\templatetags\tagging_tags.py:56
+#, python-format
+msgid "tagged_objects tag was given an invalid model: %s"
+msgstr ""
+
+#: .\tagging\templatetags\tagging_tags.py:89
+#, python-format
+msgid "%s tag requires either three or five arguments"
+msgstr ""
+
+#: .\tagging\templatetags\tagging_tags.py:91
+#: .\tagging\templatetags\tagging_tags.py:143
+#: .\tagging\templatetags\tagging_tags.py:198
+#, python-format
+msgid "second argument to %s tag must be 'as'"
+msgstr ""
+
+#: .\tagging\templatetags\tagging_tags.py:94
+#: .\tagging\templatetags\tagging_tags.py:147
+#, python-format
+msgid "if given, fourth argument to %s tag must be 'with'"
+msgstr ""
+
+#: .\tagging\templatetags\tagging_tags.py:96
+#, python-format
+msgid "if given, fifth argument to %s tag must be 'counts'"
+msgstr ""
+
+#: .\tagging\templatetags\tagging_tags.py:141
+#, python-format
+msgid "%s tag requires either three or between five and seven arguments"
+msgstr ""
+
+#: .\tagging\templatetags\tagging_tags.py:155
+#, python-format
+msgid "%(tag)s tag's '%(option)s' option was not a valid integer: '%(value)s'"
+msgstr ""
+
+#: .\tagging\templatetags\tagging_tags.py:164
+#, python-format
+msgid "%(tag)s tag's '%(option)s' option was not a valid choice: '%(value)s'"
+msgstr ""
+
+#: .\tagging\templatetags\tagging_tags.py:170
+#, python-format
+msgid "%(tag)s tag was given an invalid option: '%(option)s'"
+msgstr ""
+
+#: .\tagging\templatetags\tagging_tags.py:175
+#, python-format
+msgid "%(tag)s tag was given a badly formatted option: '%(option)s'"
+msgstr ""
+
+#: .\tagging\templatetags\tagging_tags.py:196
+#, python-format
+msgid "%s tag requires exactly three arguments"
+msgstr ""
+
+#: .\tagging\templatetags\tagging_tags.py:221
+#, python-format
+msgid "%s tag requires exactly five arguments"
+msgstr ""
+
+#: .\tagging\templatetags\tagging_tags.py:223
+#, python-format
+msgid "second argument to %s tag must be 'in'"
+msgstr ""
+
+#: .\tagging\templatetags\tagging_tags.py:225
+#, python-format
+msgid "fourth argument to %s tag must be 'as'"
+msgstr ""
+
+#: .\templates\base.html.py:59
+#: .\templates\forum_base.html.py:40
+#: .\templates\themes\default\base.html.py:41
+#: .\templates\themes\yaml\base.html.py:41
+msgid "Profile"
 msgstr "用户简介"
 
-#: .\userprofile\templates\userprofile\account\email_validation.html.py:4
-#: .\userprofile\templates\userprofile\account\email_validation.html.py:23
-msgid "E-mail change"
+#: .\templates\base.html.py:59
+#: .\templates\forum_base.html.py:40
+#: .\templates\themes\default\base.html.py:41
+#: .\templates\themes\yaml\base.html.py:41
+msgid "Logout"
+msgstr "注销"
+
+#: .\templates\blog_base.html.py:13
+#: .\templates\blog_base.html.py:16
+#: .\templates\member\avatar\search.html.py:32
+msgid "Search"
+msgstr "搜索"
+
+#: .\templates\blog_base.html.py:44
+msgid "Category"
+msgstr "分类"
+
+#: .\templates\blog_base.html.py:59
+msgid "BlogRoll"
+msgstr "博客链接"
+
+#: .\templates\blog_base.html.py:75
+msgid "Archive"
+msgstr "档案"
+
+#: .\templates\forum\forum_list.html.py:81
+#, python-format
+msgid ""
+"\n"
+"    \t\t\t<p class=\"nums bg_blue\">%(thread_count)s/%(post_count)s</p>\n"
+"\t\t\t  "
 msgstr ""
 
-#: .\userprofile\templates\userprofile\account\email_validation.html.py:4
-#: .\userprofile\templates\userprofile\account\email_validation.html.py:23
-#: .\userprofile\templates\userprofile\account\email_validation.html.py:40
-#: .\userprofile\templates\userprofile\account\email_validation_processed.html.py:20
-msgid "Add e-mail"
+#: .\templates\forum\newthread.html.py:4
+#: .\templates\forum\newthread.html.py:11
+#: .\templates\link\newlink.html.py:4
+msgid "New Thread in %(title)s"
 msgstr ""
 
-#: .\userprofile\templates\userprofile\account\email_validation.html.py:24
-#, fuzzy
-msgid "New e-mail address"
-msgstr "电子邮件"
+#: .\templates\forum\newthread.html.py:13
+msgid "New Thread"
+msgstr "新话题"
 
-#: .\userprofile\templates\userprofile\account\email_validation.html.py:34
-msgid "Send confirmation"
+#: .\templates\forum\newthread.html.py:18
+msgid "Create a Thread"
+msgstr "创建话题"
+
+#: .\templates\forum\reply.html.py:4
+#, python-format
+msgid "Reply to thread  \"%(title)s\""
 msgstr ""
 
-#: .\userprofile\templates\userprofile\account\email_validation.html.py:41
-#: .\userprofile\templates\userprofile\account\email_validation_processed.html.py:21
-msgid "Insert the new e-mail address. An e-mail will be send to it for testing and confirmation"
+#: .\templates\forum\reply.html.py:6
+#, python-format
+msgid "Reply to Thread \"%(title)s\""
 msgstr ""
 
-#: .\userprofile\templates\userprofile\account\email_validation_done.html.py:4
-msgid "E-mail validation successful"
-msgstr "E-mail 认证成功"
-
-#: .\userprofile\templates\userprofile\account\email_validation_done.html.py:4
-msgid "E-mail change unsuccessful"
-msgstr "E-mail 改变不成功"
-
-#: .\userprofile\templates\userprofile\account\email_validation_done.html.py:14
-msgid "E-mail address validated successfully"
-msgstr "E-mail 认证成功"
-
-#: .\userprofile\templates\userprofile\account\email_validation_done.html.py:16
-msgid "The key you received via e-mail is no longer valid. Please try the e-mail validation process again"
+#: .\templates\forum\reply.html.py:13
+msgid "Reply to Thread"
 msgstr ""
 
-#: .\userprofile\templates\userprofile\account\email_validation_done.html.py:23
-#: .\userprofile\templates\userprofile\account\email_validation_reset_response.html.py:22
-msgid "E-mail validation process"
-msgstr ""
+#: .\templates\forum\thread.html.py:121
+#: .\templates\forum\thread_list.html.py:85
+msgid "First"
+msgstr "第一"
 
-#: .\userprofile\templates\userprofile\account\email_validation_done.html.py:24
-#: .\userprofile\templates\userprofile\account\email_validation_reset_response.html.py:23
-msgid "You can manage the e-mail validation process from the"
-msgstr ""
+#: .\templates\forum\thread.html.py:125
+#: .\templates\forum\thread_list.html.py:89
+msgid "Last"
+msgstr "最新"
 
-#: .\userprofile\templates\userprofile\account\email_validation_done.html.py:24
-#: .\userprofile\templates\userprofile\account\email_validation_reset_response.html.py:23
-msgid "overview page"
-msgstr "概述"
+#: .\templates\link\newlink.html.py:45
+msgid "Create a Link"
+msgstr "创建链接"
 
-#: .\userprofile\templates\userprofile\account\email_validation_processed.html.py:4
-#: .\userprofile\templates\userprofile\account\email_validation_processed.html.py:13
-msgid "E-mail change processed"
-msgstr ""
+#: .\templates\link\newlink.html.py:48
+msgid "Posting As"
+msgstr "发表者"
 
-#: .\userprofile\templates\userprofile\account\email_validation_processed.html.py:14
-msgid "An e-mail has been sent to the new e-mail address to verify and activate it. Please access to your e-mail and complete this process following the instructions specified in the e-mail body"
-msgstr ""
-
-#: .\userprofile\templates\userprofile\account\email_validation_reset.html.py:4
-#: .\userprofile\templates\userprofile\account\email_validation_reset.html.py:19
-#: .\userprofile\templates\userprofile\account\email_validation_reset.html.py:36
+#: .\templates\member\account\email_validation_reset.html.py:4
+#: .\templates\member\account\email_validation_reset.html.py:19
+#: .\templates\member\account\email_validation_reset.html.py:36
 msgid "Resend e-mail validation"
 msgstr ""
 
-#: .\userprofile\templates\userprofile\account\email_validation_reset.html.py:20
+#: .\templates\member\account\email_validation_reset.html.py:20
 msgid "Insert your e-mail address"
 msgstr "插入你的电子邮件"
 
-#: .\userprofile\templates\userprofile\account\email_validation_reset.html.py:30
-#, fuzzy
+#: .\templates\member\account\email_validation_reset.html.py:30
 msgid "Resend confirmation"
-msgstr "最近动作"
+msgstr "重新发送确认"
 
-#: .\userprofile\templates\userprofile\account\email_validation_reset.html.py:37
+#: .\templates\member\account\email_validation_reset.html.py:37
 msgid "If you haven't validated your e-mail address yet you couldn't get into the site. Insert the e-mail address yu have registered with so we can resend the validation e-mail to you again"
 msgstr ""
 
-#: .\userprofile\templates\userprofile\account\email_validation_reset_response.html.py:4
+#: .\templates\member\account\email_validation_reset_response.html.py:4
 msgid "Validation e-mail sent"
 msgstr ""
 
-#: .\userprofile\templates\userprofile\account\email_validation_reset_response.html.py:4
+#: .\templates\member\account\email_validation_reset_response.html.py:4
 msgid "Your user account was already active"
 msgstr ""
 
-#: .\userprofile\templates\userprofile\account\email_validation_reset_response.html.py:14
+#: .\templates\member\account\email_validation_reset_response.html.py:14
 msgid "We've e-mailed you the e-mail validation link"
 msgstr ""
 
-#: .\userprofile\templates\userprofile\account\email_validation_reset_response.html.py:16
+#: .\templates\member\account\email_validation_reset_response.html.py:16
 msgid "Your e-mail was already validated"
 msgstr ""
 
-#: .\userprofile\templates\userprofile\account\login.html.py:4
-#: .\userprofile\templates\userprofile\account\login.html.py:19
-msgid "User login"
-msgstr "用户登录"
-
-#: .\userprofile\templates\userprofile\account\login.html.py:42
-msgid "Utilities"
-msgstr "工具"
-
-#: .\userprofile\templates\userprofile\account\login.html.py:44
-msgid "Lost your password?"
+#: .\templates\member\account\email_validation_reset_response.html.py:22
+msgid "E-mail validation process"
 msgstr ""
 
-#: .\userprofile\templates\userprofile\account\login.html.py:46
-#: .\userprofile\templates\userprofile\profile\overview.html.py:84
-msgid "Resend validation e-mail"
+#: .\templates\member\account\email_validation_reset_response.html.py:23
+msgid "You can manage the e-mail validation process from the"
 msgstr ""
 
-#: .\userprofile\templates\userprofile\account\login.html.py:48
-msgid "Sign up!"
-msgstr "注册！"
+#: .\templates\member\account\email_validation_reset_response.html.py:23
+msgid "overview page"
+msgstr "概述"
 
-#: .\userprofile\templates\userprofile\account\logout.html.py:4
-#: .\userprofile\templates\userprofile\account\logout.html.py:9
-msgid "Logged out"
-msgstr "注销"
-
-#: .\userprofile\templates\userprofile\account\logout.html.py:10
-msgid "You've been logged out"
-msgstr ""
-
-#: .\userprofile\templates\userprofile\account\logout.html.py:10
-msgid "Log in again"
-msgstr "重新登录"
-
-#: .\userprofile\templates\userprofile\account\password_change.html.py:4
-#: .\userprofile\templates\userprofile\account\password_change.html.py:23
-#: .\userprofile\templates\userprofile\account\password_reset_confirm.html.py:4
-msgid "Password change for"
-msgstr ""
-
-#: .\userprofile\templates\userprofile\account\password_change.html.py:24
-msgid "Old password"
-msgstr "旧密码"
-
-#: .\userprofile\templates\userprofile\account\password_change.html.py:30
-#: .\userprofile\templates\userprofile\account\password_reset_confirm.html.py:26
-msgid "New password"
-msgstr "新密码"
-
-#: .\userprofile\templates\userprofile\account\password_change.html.py:36
-#: .\userprofile\templates\userprofile\account\password_reset_confirm.html.py:32
-msgid "Confirm password"
-msgstr "确认密码"
-
-#: .\userprofile\templates\userprofile\account\password_change.html.py:52
-#: .\userprofile\templates\userprofile\account\password_change_done.html.py:19
-msgid "Password change"
-msgstr "密码更改"
-
-#: .\userprofile\templates\userprofile\account\password_change.html.py:53
-#: .\userprofile\templates\userprofile\account\password_change_done.html.py:20
-msgid "Password change utility page. Please enter your new password twice so we can verify you typed it in correctly"
-msgstr ""
-
-#: .\userprofile\templates\userprofile\account\password_change_done.html.py:4
-#: .\userprofile\templates\userprofile\account\password_reset_complete.html.py:4
+#: .\templates\member\account\password_change_done.html.py:4
 msgid "Password change successful"
 msgstr ""
 
-#: .\userprofile\templates\userprofile\account\password_change_done.html.py:13
+#: .\templates\member\account\password_change_done.html.py:13
 msgid "The password has been changed successfully"
 msgstr ""
 
-#: .\userprofile\templates\userprofile\account\password_expired.html.py:4
-msgid "Password key expired"
+#: .\templates\member\account\password_change_done.html.py:19
+msgid "Password change"
+msgstr "密码更改"
+
+#: .\templates\member\account\password_change_done.html.py:20
+msgid "Password change utility page. Please enter your new password twice so we can verify you typed it in correctly"
 msgstr ""
 
-#: .\userprofile\templates\userprofile\account\password_expired.html.py:9
-msgid "The password key you're trying to use is expired. Please, request a new one"
+#: .\templates\member\account\password_reset_confirm.html.py:4
+msgid "Password change for"
 msgstr ""
 
-#: .\userprofile\templates\userprofile\account\password_reset.html.py:4
-#: .\userprofile\templates\userprofile\account\password_reset.html.py:20
-#: .\userprofile\templates\userprofile\account\password_reset_complete.html.py:19
-#: .\userprofile\templates\userprofile\account\password_reset_confirm.html.py:55
-msgid "Password reset"
-msgstr "密码重置"
+#: .\templates\member\account\password_reset_confirm.html.py:26
+msgid "New password"
+msgstr "新密码"
 
-#: .\userprofile\templates\userprofile\account\password_reset.html.py:31
-msgid "Reset my password"
-msgstr "重置我的密码"
+#: .\templates\member\account\password_reset_confirm.html.py:32
+msgid "Confirm password"
+msgstr "确认密码"
 
-#: .\userprofile\templates\userprofile\account\password_reset.html.py:37
-#: .\userprofile\templates\userprofile\account\password_reset_done.html.py:16
-msgid "Password reset form"
-msgstr ""
+#: .\templates\member\account\password_reset_confirm.html.py:42
+#: .\templates\themes\default\admin\index.html.py:48
+#: .\templates\themes\yaml\admin\index.html.py:48
+msgid "Change"
+msgstr "修改"
 
-#: .\userprofile\templates\userprofile\account\password_reset.html.py:38
-#: .\userprofile\templates\userprofile\account\password_reset_done.html.py:17
-msgid "Forgotten your password? Enter your e-mail address, and we'll reset your password and e-mail the new one to you"
-msgstr ""
-
-#: .\userprofile\templates\userprofile\account\password_reset_complete.html.py:13
-msgid "Your password has been set.  You may go ahead and log in now."
-msgstr ""
-
-#: .\userprofile\templates\userprofile\account\password_reset_complete.html.py:20
-#: .\userprofile\templates\userprofile\account\password_reset_confirm.html.py:56
-msgid "Password reset utility page. Please enter your new password twice so we can verify you typed it in correctly"
-msgstr ""
-
-#: .\userprofile\templates\userprofile\account\password_reset_confirm.html.py:47
+#: .\templates\member\account\password_reset_confirm.html.py:47
 msgid "Password reset unsuccessful"
 msgstr ""
 
-#: .\userprofile\templates\userprofile\account\password_reset_confirm.html.py:48
+#: .\templates\member\account\password_reset_confirm.html.py:48
 msgid "The password reset link was invalid, possibly because it has already been used.  Please request a new password reset."
 msgstr ""
 
-#: .\userprofile\templates\userprofile\account\password_reset_done.html.py:4
-#: .\userprofile\templates\userprofile\account\password_reset_done.html.py:9
+#: .\templates\member\account\password_reset_confirm.html.py:55
+msgid "Password reset"
+msgstr "密码重置"
+
+#: .\templates\member\account\password_reset_confirm.html.py:56
+msgid "Password reset utility page. Please enter your new password twice so we can verify you typed it in correctly"
+msgstr ""
+
+#: .\templates\member\account\password_reset_done.html.py:4
+#: .\templates\member\account\password_reset_done.html.py:9
 msgid "Password reset successful"
 msgstr ""
 
-#: .\userprofile\templates\userprofile\account\password_reset_done.html.py:10
+#: .\templates\member\account\password_reset_done.html.py:10
 msgid "We've e-mailed you the instructions to obtain a new password. You should be receiving it shortly"
 msgstr ""
 
-#: .\userprofile\templates\userprofile\account\registration.html.py:4
-#: .\userprofile\templates\userprofile\account\registration.html.py:19
+#: .\templates\member\account\password_reset_done.html.py:16
+msgid "Password reset form"
+msgstr ""
+
+#: .\templates\member\account\password_reset_done.html.py:17
+msgid "Forgotten your password? Enter your e-mail address, and we'll reset your password and e-mail the new one to you"
+msgstr ""
+
+#: .\templates\member\account\registration.html.py:4
 msgid "User registration"
 msgstr "用户注册"
 
-#: .\userprofile\templates\userprofile\account\registration.html.py:26
-msgid "E-mail"
-msgstr "邮件"
-
-#: .\userprofile\templates\userprofile\account\registration.html.py:26
-msgid "optional"
-msgstr "可选"
-
-#: .\userprofile\templates\userprofile\account\registration.html.py:54
-#: .\userprofile\templates\userprofile\account\registration_done.html.py:14
-msgid "Register a new account"
-msgstr "注册一个新帐户"
-
-#: .\userprofile\templates\userprofile\account\registration.html.py:55
-#: .\userprofile\templates\userprofile\account\registration_done.html.py:15
-msgid "Joining this community is quick and easy. You only need to fill the form to get access to all the private content"
-msgstr ""
-
-#: .\userprofile\templates\userprofile\account\registration_done.html.py:4
+#: .\templates\member\account\registration_done.html.py:4
 msgid "Registration complete"
 msgstr "注册完成"
 
-#: .\userprofile\templates\userprofile\account\registration_done.html.py:9
-msgid "You have successfully registered a new account. Go to the"
-msgstr ""
-
-#: .\userprofile\templates\userprofile\account\registration_done.html.py:9
-msgid "login page"
-msgstr "登录页面"
-
-#: .\userprofile\templates\userprofile\account\registration_done.html.py:9
-msgid "to authenticate and start using this site"
-msgstr ""
-
-#: .\userprofile\templates\userprofile\avatar\choose.html.py:4
-#: .\userprofile\templates\userprofile\avatar\choose.html.py:36
-msgid "Choose the location of your avatar"
-msgstr ""
-
-#: .\userprofile\templates\userprofile\avatar\choose.html.py:39
-msgid "Select an image from disk"
-msgstr ""
-
-#: .\userprofile\templates\userprofile\avatar\choose.html.py:41
-#: .\userprofile\templates\userprofile\avatar\choose.html.py:47
-#: .\userprofile\templates\userprofile\avatar\crop.html.py:47
-msgid "Done"
-msgstr ""
-
-#: .\userprofile\templates\userprofile\avatar\choose.html.py:45
-msgid "Select an image from a remote URL. Put the URL on the input below and we'll retrieve the image for you"
-msgstr ""
-
-#: .\userprofile\templates\userprofile\avatar\choose.html.py:52
-#: .\userprofile\templates\userprofile\avatar\search.html.py:4
-#: .\userprofile\templates\userprofile\avatar\search.html.py:28
+#: .\templates\member\avatar\search.html.py:4
+#: .\templates\member\avatar\search.html.py:28
 msgid "Search for an image on Picasa Web"
 msgstr ""
 
-#: .\userprofile\templates\userprofile\avatar\choose.html.py:62
-#: .\userprofile\templates\userprofile\avatar\crop.html.py:53
-#: .\userprofile\templates\userprofile\avatar\done.html.py:19
-#: .\userprofile\templates\userprofile\avatar\search.html.py:50
-msgid "Avatar selection page"
-msgstr ""
-
-#: .\userprofile\templates\userprofile\avatar\choose.html.py:63
-#: .\userprofile\templates\userprofile\avatar\crop.html.py:54
-#: .\userprofile\templates\userprofile\avatar\done.html.py:20
-#: .\userprofile\templates\userprofile\avatar\search.html.py:51
-msgid "You have several options to select the image you want as avatar on your profile"
-msgstr ""
-
-#: .\userprofile\templates\userprofile\avatar\choose.html.py:69
-msgid "Delete"
-msgstr "删除"
-
-#: .\userprofile\templates\userprofile\avatar\crop.html.py:4
-#: .\userprofile\templates\userprofile\avatar\crop.html.py:31
-msgid "Crop &amp; resize the area you want"
-msgstr ""
-
-#: .\userprofile\templates\userprofile\avatar\done.html.py:4
-msgid "Avatar selection finished"
-msgstr ""
-
-#: .\userprofile\templates\userprofile\avatar\done.html.py:13
-msgid "Your new avatar has been saved successfully"
-msgstr ""
-
-#: .\userprofile\templates\userprofile\avatar\search.html.py:29
+#: .\templates\member\avatar\search.html.py:29
 msgid "Search on Picasa Web"
 msgstr ""
 
-#: .\userprofile\templates\userprofile\profile\delete.html.py:4
+#: .\templates\member\avatar\search.html.py:50
+msgid "Avatar selection page"
+msgstr ""
+
+#: .\templates\member\avatar\search.html.py:51
+msgid "You have several options to select the image you want as avatar on your profile"
+msgstr ""
+
+#: .\templates\member\profile\delete.html.py:4
 msgid "Delete personal information"
 msgstr ""
 
-#: .\userprofile\templates\userprofile\profile\delete.html.py:14
-#: .\userprofile\templates\userprofile\profile\delete_done.html.py:18
+#: .\templates\member\profile\delete.html.py:14
+#: .\templates\member\profile\delete_done.html.py:18
 msgid "Delete your personal information"
 msgstr ""
 
-#: .\userprofile\templates\userprofile\profile\delete.html.py:15
+#: .\templates\member\profile\delete.html.py:15
 msgid "Are you sure?"
 msgstr "你确认吗？"
 
-#: .\userprofile\templates\userprofile\profile\delete.html.py:15
+#: .\templates\member\profile\delete.html.py:15
 msgid "Yes"
 msgstr "是的"
 
-#: .\userprofile\templates\userprofile\profile\delete.html.py:23
+#: .\templates\member\profile\delete.html.py:22
+msgid "Remove profile"
+msgstr "删除用户档案"
+
+#: .\templates\member\profile\delete.html.py:23
 msgid "It erases all your private data except your username. You can refill the information later if you want to"
 msgstr ""
 
-#: .\userprofile\templates\userprofile\profile\delete_done.html.py:4
+#: .\templates\member\profile\delete_done.html.py:4
 msgid "Profile removed"
 msgstr ""
 
-#: .\userprofile\templates\userprofile\profile\delete_done.html.py:13
+#: .\templates\member\profile\delete_done.html.py:13
 msgid "Your profile information has been removed successfully"
 msgstr ""
 
-#: .\userprofile\templates\userprofile\profile\delete_done.html.py:19
+#: .\templates\member\profile\delete_done.html.py:19
 msgid "Deleting all your personal information will erase all your private data, except your username. You can refill the information later if you want to"
 msgstr ""
 
-#: .\userprofile\templates\userprofile\profile\location.html.py:4
-#: .\userprofile\templates\userprofile\profile\location_done.html.py:4
-#: .\userprofile\templates\userprofile\profile\personal_done.html.py:4
+#: .\templates\member\profile\location.html.py:4
+#: .\templates\member\profile\location_done.html.py:4
+#: .\templates\member\profile\personal_done.html.py:4
 msgid "%(user)s's Dashboard"
-msgstr ""
+msgstr "%(user)s  的管理面板"
 
-#: .\userprofile\templates\userprofile\profile\location.html.py:21
+#: .\templates\member\profile\location.html.py:21
 msgid "Define your location"
-msgstr ""
+msgstr "定义你的地理位置信息"
 
-#: .\userprofile\templates\userprofile\profile\location.html.py:21
+#: .\templates\member\profile\location.html.py:21
 msgid "Try IP localization"
-msgstr ""
+msgstr "尝试你的IP地理位置信息"
 
-#: .\userprofile\templates\userprofile\profile\location.html.py:22
-#: .\userprofile\templates\userprofile\profile\overview.html.py:49
-#: .\userprofile\templates\userprofile\profile\public.html.py:37
+#: .\templates\member\profile\location.html.py:22
 msgid "Country"
 msgstr "国家"
 
-#: .\userprofile\templates\userprofile\profile\location.html.py:22
+#: .\templates\member\profile\location.html.py:22
 msgid "Loading..."
-msgstr ""
+msgstr "正在加载..."
 
-#: .\userprofile\templates\userprofile\profile\location.html.py:29
+#: .\templates\member\profile\location.html.py:29
 msgid "Position"
 msgstr "位置"
 
-#: .\userprofile\templates\userprofile\profile\location.html.py:36
-#: .\userprofile\templates\userprofile\profile\personal.html.py:30
+#: .\templates\member\profile\location.html.py:36
 msgid "Save"
 msgstr "保存"
 
-#: .\userprofile\templates\userprofile\profile\location.html.py:41
-#: .\userprofile\templates\userprofile\profile\location_done.html.py:19
+#: .\templates\member\profile\location.html.py:41
+#: .\templates\member\profile\location_done.html.py:19
 msgid "Location information"
-msgstr ""
+msgstr "地理位置"
 
-#: .\userprofile\templates\userprofile\profile\location.html.py:42
-#: .\userprofile\templates\userprofile\profile\location_done.html.py:20
+#: .\templates\member\profile\location.html.py:42
+#: .\templates\member\profile\location_done.html.py:20
 msgid "Define your location information"
-msgstr ""
+msgstr "定义你的地理位置信息"
 
-#: .\userprofile\templates\userprofile\profile\location_done.html.py:13
-#: .\userprofile\templates\userprofile\profile\personal_done.html.py:13
+#: .\templates\member\profile\location_done.html.py:13
+#: .\templates\member\profile\personal_done.html.py:13
 msgid "Your profile information has been updated successfully"
-msgstr ""
+msgstr "你的档案信息已被成功更新！"
 
-#: .\userprofile\templates\userprofile\profile\overview.html.py:4
-#: .\userprofile\templates\userprofile\profile\overview.html.py:30
+#: .\templates\member\profile\overview.html.py:4
 msgid "Overview of your profile"
-msgstr ""
+msgstr "你的档案概况"
 
-#: .\userprofile\templates\userprofile\profile\overview.html.py:35
-msgid "Change avatar"
-msgstr "改变头便"
-
-#: .\userprofile\templates\userprofile\profile\overview.html.py:35
-msgid "Add avatar"
-msgstr "添加头像"
-
-#: .\userprofile\templates\userprofile\profile\overview.html.py:39
+#: .\templates\member\profile\overview.html.py:39
 msgid "Username:"
 msgstr "用户名"
 
-#: .\userprofile\templates\userprofile\profile\overview.html.py:40
+#: .\templates\member\profile\overview.html.py:40
 msgid "E-mail:"
 msgstr "邮件："
 
-#: .\userprofile\templates\userprofile\profile\overview.html.py:42
-msgid "Not set yet"
-msgstr "未设置"
+#: .\templates\member\profile\personal_done.html.py:19
+msgid "Personal information"
+msgstr "个人信息"
 
-#: .\userprofile\templates\userprofile\profile\overview.html.py:44
-msgid " (Not validated)"
-msgstr ""
-
-#: .\userprofile\templates\userprofile\profile\overview.html.py:53
-#: .\userprofile\templates\userprofile\profile\overview.html.py:62
-msgid "Not set"
-msgstr "未设置"
-
-#: .\userprofile\templates\userprofile\profile\overview.html.py:80
-msgid "Management:"
-msgstr ""
-
-#: .\userprofile\templates\userprofile\profile\overview.html.py:81
-msgid "Change password"
-msgstr "更改密码"
-
-#: .\userprofile\templates\userprofile\profile\overview.html.py:83
-msgid "Change your e-mail address"
-msgstr "更改你的电子邮件"
-
-#: .\userprofile\templates\userprofile\profile\overview.html.py:83
-msgid "Add your e-mail address"
-msgstr "添加你的电子邮件"
-
-#: .\userprofile\templates\userprofile\profile\overview.html.py:88
-msgid "Add location"
-msgstr "添加位置"
-
-#: .\userprofile\templates\userprofile\profile\overview.html.py:90
-msgid "Change location"
-msgstr "改变地理位置"
-
-#: .\userprofile\templates\userprofile\profile\personal.html.py:4
-#: .\userprofile\templates\userprofile\profile\personal.html.py:27
-msgid "Edit your personal information"
-msgstr ""
-
-#: .\userprofile\templates\userprofile\profile\personal.html.py:37
-#: .\userprofile\templates\userprofile\profile\personal_done.html.py:20
+#: .\templates\member\profile\personal_done.html.py:20
 msgid "Insert some information about you"
 msgstr "填写你的个人信息"
 
-#: .\userprofile\templates\userprofile\profile\public.html.py:29
+#: .\templates\member\profile\public.html.py:29
 #, python-format
-msgid "Public profile of %(user)s"
-msgstr "%(user)s 的公开小档案"
-
-#: .\userprofile\templates\userprofile\profile\usercard.html.py:12
-msgid "Public profile information"
-msgstr "公开小档案"
-
-#: .\userprofile\templatetags\avatars.py:74
-msgid "You have to provide only the size as             an integer (both sides will be equal) and optionally, the             username."
+msgid " %(user)s 的公开小档案"
 msgstr ""
+
+#: .\templates\themes\default\admin\base_site.html.py:4
+#: .\templates\themes\yaml\admin\base_site.html.py:4
+msgid "Django site admin"
+msgstr "Django 站点管理"
+
+#: .\templates\themes\default\admin\base_site.html.py:7
+#: .\templates\themes\yaml\admin\base_site.html.py:7
+msgid "Django administration"
+msgstr "Django 管理"
+
+#: .\templates\themes\default\admin\change_form.html.py:20
+#: .\templates\themes\default\admin\index.html.py:42
+#: .\templates\themes\yaml\admin\change_form.html.py:20
+#: .\templates\themes\yaml\admin\index.html.py:42
+msgid "Add"
+msgstr "添加"
+
+#: .\templates\themes\default\admin\change_form.html.py:27
+#: .\templates\themes\yaml\admin\change_form.html.py:27
+msgid "History"
+msgstr "历史"
+
+#: .\templates\themes\default\admin\change_form.html.py:28
+#: .\templates\themes\yaml\admin\change_form.html.py:28
+msgid "View on site"
+msgstr "在站点上查看"
+
+#: .\templates\themes\default\admin\index.html.py:58
+#: .\templates\themes\yaml\admin\index.html.py:58
+msgid "You don't have permission to edit anything."
+msgstr "你没有权限编辑任何东西。"
+
+#: .\templates\themes\default\admin\index.html.py:66
+#: .\templates\themes\yaml\admin\index.html.py:66
+msgid "Recent Actions"
+msgstr "最近动作"
+
+#: .\templates\themes\default\admin\index.html.py:67
+#: .\templates\themes\yaml\admin\index.html.py:67
+msgid "My Actions"
+msgstr "我的动作"
+
+#: .\templates\themes\default\admin\index.html.py:71
+#: .\templates\themes\yaml\admin\index.html.py:71
+msgid "None available"
+msgstr "不可用"
+
+#: .\templates\themes\default\pressroom\index.html.py:41
+#: .\templates\themes\yaml\pressroom\index.html.py:41
+msgid "Support"
+msgstr "支持"
+
+#: .\templates\todo\index.html.py:21
+#: .\templates\todo\index.html.py:64
+msgid "Public Project"
+msgstr "公开项目"
+
+#: .\templates\todo\index.html.py:21
+#: .\templates\todo\index.html.py:50
+#: .\templates\todo\index.html.py:64
+msgid "Private Project"
+msgstr "私人项目"
+
+#: .\templates\todo\index.html.py:25
+msgid "This task is completed."
+msgstr "该任务已完成。"
+
+#: .\templates\todo\index.html.py:25
+#: .\templates\todo\index.html.py:34
+msgid "Priority"
+msgstr "优先级"
+
+#: .\templates\todo\index.html.py:31
+msgid "Add New Task"
+msgstr "添加新待办任务"
+
+#: .\templates\todo\index.html.py:35
+#: .\todo\models.py:14
+msgid "low"
+msgstr "低"
+
+#: .\templates\todo\index.html.py:36
+#: .\todo\models.py:15
+msgid "medium"
+msgstr "中"
+
+#: .\templates\todo\index.html.py:37
+#: .\todo\models.py:16
+msgid "high"
+msgstr "高"
+
+#: .\templates\todo\index.html.py:48
+msgid "Add New Project"
+msgstr "添加新项目"
+
+#: .\templates\todo\index.html.py:63
+msgid "Created at"
+msgstr "创建于"
+
+#: .\templates\todo\index.html.py:77
+msgid "No project is completed!"
+msgstr "没有完成的项目！"
+
+#: .\todo\models.py:10
+msgid "public"
+msgstr "公开"
+
+#: .\todo\models.py:11
+msgid "private"
+msgstr "私人"
+
+#: .\todo\models.py:21
+msgid "Project Name"
+msgstr "项目名称"
+
+#: .\todo\models.py:22
+#: .\todo\models.py:59
+msgid "Created Date"
+msgstr "创建日期"
+
+#: .\todo\models.py:23
+#: .\todo\models.py:60
+msgid "LastUpdated Date"
+msgstr "最近更新日期"
+
+#: .\todo\models.py:24
+msgid "Project type"
+msgstr "项目类型"
+
+#: .\todo\models.py:25
+msgid "Project Description"
+msgstr "项目描述"
+
+#: .\todo\models.py:26
+msgid "Project task count"
+msgstr "项目任务数"
+
+#: .\todo\models.py:27
+msgid "Completed task count"
+msgstr "完成的项目"
+
+#: .\todo\models.py:28
+msgid "Project slug"
+msgstr "项目缩记"
+
+#: .\todo\models.py:42
+msgid "Todo Project"
+msgstr "待办事项"
+
+#: .\todo\models.py:43
+msgid "Todo Projects"
+msgstr "待办事项"
+
+#: .\todo\models.py:57
+msgid "Task Name"
+msgstr "任务名称"
+
+#: .\todo\models.py:58
+msgid "Task Project"
+msgstr "任务项目"
+
+#: .\todo\models.py:61
+msgid "Task Priority"
+msgstr "优先级"
+
+#: .\todo\models.py:62
+msgid "Is task completed"
+msgstr "该任务已完成？"
+
+#: .\todo\models.py:69
+msgid "Todo Task"
+msgstr "待办任务"
+
+#: .\todo\models.py:70
+msgid "Todo Tasks"
+msgstr "待办任务"
+
+#~ msgid "The directory already exists."
+#~ msgstr "目录已存在"
+#~ msgid "The file/directory already exists."
+#~ msgstr "文件或目录已存在"
+#~ msgid "Upload successful."
+#~ msgstr "上传成功"
+#~ msgid "Thumbnail creation successful."
+#~ msgstr "缩略图创建成功"
+#~ msgid "View Image"
+#~ msgstr "查看图像"
+#~ msgid "Rename File"
+#~ msgstr "重命名"
+#~ msgid "Delete File"
+#~ msgstr "删除文件"
+#~ msgid "Delete Folder"
+#~ msgstr "删除文件夹"
+#~ msgid "Today"
+#~ msgstr "今天"
+#~ msgid "Filename"
+#~ msgstr "文件名"
+#~ msgid "Time"
+#~ msgstr "时间"
+#~ msgid "E-mail"
+#~ msgstr "邮件"
+#~ msgid "login page"
+#~ msgstr "登录页面"
+#~ msgid "Register a new account"
+#~ msgstr "注册一个新帐户"
+#~ msgid "birthday"
+#~ msgstr "生日"
+#~ msgid "Front page"
+#~ msgstr "首页"
+#~ msgid "Overview"
+#~ msgstr "概览"
+#~ msgid "Avatar"
+#~ msgstr "头像"
+#~ msgid "New e-mail address"
+#~ msgstr "新的电子邮件地址"
+#~ msgid "E-mail validation successful"
+#~ msgstr "E-mail 认证成功"
+#~ msgid "E-mail change unsuccessful"
+#~ msgstr "E-mail 改变不成功"
+#~ msgid "E-mail address validated successfully"
+#~ msgstr "E-mail 认证成功"
+#~ msgid "User login"
+#~ msgstr "用户登录"
+#~ msgid "Login"
+#~ msgstr "登录"
+#~ msgid "Utilities"
+#~ msgstr "工具"
+#~ msgid "Sign up!"
+#~ msgstr "注册！"
+#~ msgid "Logged out"
+#~ msgstr "注销"
+#~ msgid "Log in again"
+#~ msgstr "重新登录"
+#~ msgid "Old password"
+#~ msgstr "旧密码"
+#~ msgid "Reset my password"
+#~ msgstr "重置我的密码"
+#~ msgid "optional"
+#~ msgstr "可选"
+#~ msgid "Register"
+#~ msgstr "注册"
+#~ msgid "Delete"
+#~ msgstr "删除"
+#~ msgid "Change avatar"
+#~ msgstr "改变头便"
+#~ msgid "Add avatar"
+#~ msgstr "添加头像"
+#~ msgid "Not set yet"
+#~ msgstr "未设置"
+#~ msgid "Change your e-mail address"
+#~ msgstr "更改你的电子邮件"
+#~ msgid "Add your e-mail address"
+#~ msgstr "添加你的电子邮件"
+#~ msgid "Add location"
+#~ msgstr "添加位置"
+#~ msgid "Change location"
+#~ msgstr "改变地理位置"
+#~ msgid "Public profile of %(user)s"
+#~ msgstr "%(user)s 的公开小档案"
+#~ msgid "Public profile information"
+#~ msgstr "公开小档案"
+#~ msgid "account title"
+#~ msgstr "账户名称"
+#~ msgid "Liability"
+#~ msgstr "负债"
+#~ msgid "Income"
+#~ msgstr "收入"
+#~ msgid "Expense"
+#~ msgstr "支出"
+#~ msgid "Balance"
+#~ msgstr "余额"
+#~ msgid "Add money"
+#~ msgstr "存钱"
+#~ msgid "Withdraw money"
+#~ msgstr "取钱"
+#~ msgid "Move money to another account"
+#~ msgstr "转账"
+#~ msgid "Operations history"
+#~ msgstr "操作记录"
+#~ msgid "Accounts"
+#~ msgstr "账户"
+#~ msgid "New account"
+#~ msgstr "新帐户"
+#~ msgid "Add Money"
+#~ msgstr "存钱"
+#~ msgid "Credit"
+#~ msgstr "贷方"
+#~ msgid "Debit"
+#~ msgstr "借方"
+#~ msgid "Tag"
+#~ msgstr "标签"
+#~ msgid "Move Money"
+#~ msgstr "转账"
+#~ msgid "Content"
+#~ msgstr "内容"
+#~ msgid "People who have already tried this demo"
+#~ msgstr "已经落户的朋友们！"
+#~ msgid "Frontpage"
+#~ msgstr "首页"
+#~ msgid "Django profile demo"
+#~ msgstr "Django 档案例子"
+#~ msgid "news title"
+#~ msgstr "新闻标题"
+#~ msgid "password"
+#~ msgstr "密码"
+#~ msgid "password (again)"
+#~ msgstr "密码（重复）"
+#~ msgid "I have read and agree to the Terms of Service"
+#~ msgstr "我已阅读并同意服务条款"
+#~ msgid "You must agree to the terms to register"
+#~ msgstr "你必须同意服务条款后再注册"
+#~ msgid ""
+#~ "Registration using free email addresses is prohibited. Please supply a "
+#~ "different email address."
+#~ msgstr "免费邮件禁止注册，请提供其他邮件地址。"
+#~ msgid "activation key"
+#~ msgstr "激活密钥"
+#~ msgid "registration profile"
+#~ msgstr "注册信息"
+#~ msgid "registration profiles"
+#~ msgstr "注册信息"
+#~ msgid "SideBar"
+#~ msgstr "侧边栏"
+#~ msgid "NavTree"
+#~ msgstr "导航树"
+#~ msgid "User Profile"
+#~ msgstr "用户简介"
+#~ msgid "Tags"
+#~ msgstr "标签"
+#~ msgid "No Archive Now"
+#~ msgstr "目前无存档"
+#~ msgid "No Category Now"
+#~ msgstr "目前无分类"
+#~ msgid "No Links Now"
+#~ msgstr "目前无链接"
+#~ msgid "Todo"
+#~ msgstr "待办"
+#~ msgid "Projects in progress"
+#~ msgstr "正在处理的项目"
+#~ msgid "Completed Projects"
+#~ msgstr "完成的项目"
 
