@@ -34,17 +34,39 @@
 	{% block head.extra %}{% endblock head.extra%}
 </head>
 <body{% block bodyonload %}{% endblock bodyonload %}>
+    <div id="wrapper">
+	<div id="topwrapper">
 	{% block header %}{% include "header.html" %}{% endblock header%}
+	</div><!--end:topwrapper-->
 	
-	<!-- begin: main content area #main -->
-	<div id='main'>
-	<a id="content" name="content"></a><!-- skiplink anchor: Content -->		
-	{% block content %}	{% endblock %}
+	<div id='midwrapper'><!--begin:midwrapper-->
+	    
+	    <div id="pagebody"><!--begin:pagebody-->
+	    {% block pagebody %}
+        	<div id="sidebar"><!--begin:sidebar-->
+        	    <div class="box-top"><h1>{% trans "SideBar" %}</h1></div>
+                    <div class="box">
+            	    {% block sidebar %} {% endblock sidebar%}
+        	        </div>
+                <div class="box-bot"><span></span></div>
+        	</div><!--end:sidebar-->
+        	
+        	<div id="mainbody"><!--begin:mainbody-->
+                <div class="box-top"><h1>{% block maintitle %}大标题{% endblock %}</h1></div>
+                    <div class="box">
+                    {% block content %} {% endblock content%}
     </div>
-	<!-- end: #main -->
+                <div class="box-bot"><span></span></div>        	   
+        	</div><!--end:mainbody-->
+	    {% endblock pagebody %}
+	    </div><!--end:pagebody-->
 
-	{% block extended_content %}{% endblock extended_content%}
+	</div><!--end:midwrapper-->
+	
+	<div id='botmwrapper'><!--begin:botmwrapper-->
 	{% block footer %}{% include "footer.html" %}{% endblock footer%}
+	</div><!--end:botmwrapper-->
+    </div>
 </body>
 </html>
 

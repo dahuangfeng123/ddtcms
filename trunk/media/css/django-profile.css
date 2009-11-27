@@ -72,10 +72,10 @@ div.mapinfo {
 }
 
 div.vcard {
-	border: 4px dotted #CCC;
+	border: 1px dotted #CCC;
 	background: #EFEFEF;
 	padding: 5px;
-	margin-bottom: 10px;
+	margin: 10px;
 	overflow: hidden;
 }
 

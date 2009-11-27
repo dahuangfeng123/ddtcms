@@ -1,52 +1,60 @@
 {% load i18n themes tagging_tags%}
-<!-- /header -->	
-<div id="topnav">
-	    <div class="page_margins">
-	        <div class="page">
-	            <!-- start: skip link navigation -->
-	            <a class="skip" href="#navigation" title="skip link">Skip to the navigation</a><span class="hideme">.</span>
-	            <a class="skip" href="#content" title="skip link">Skip to the content</a><span class="hideme">.</span>
-	            <!-- end: skip link navigation -->
-	            <span style="float:right">
+<!-- begin:  header -->	
+    <div id="mininav">
+        <div>    
+            <div id="notice">
+                <marquee onmouseover="this.stop();" onmouseout="this.start();" trueSpeed scrollAmount="1" scrollDelay="21">{% block notice %}公告：网站正在测试中。。。{% endblock %}</marquee>
+            </div>
+            
+            <div id="tool">
+                ★{{SITE_NAME}}
+                
 	            	{% if user.is_authenticated %}
-	            	<a href="{% url profile_overview %}">{{user.username}}'s {% trans "Profile" %}</a> | <a href="{% url logout %}">{% trans "Logout" %}</a>
+                <a href="{% url profile_overview %}">{{user.username}}</a>,{% trans "Welcome back!" %} | <a href="{% url logout %}">{% trans "Logout" %}</a>
 	            	{% else %}
 			        <span class="highlight">
-			        <a href="{% url profile_overview %}" title="登录">上岗</a> 
-			        <a href="{% url signup %}" title="欢迎加入我们的队伍">注册新用户</a></span>
-                    <a href="{% url password_reset %}" title="请和管理员联系" style="cursor:help;">忘记密码</a>
+                <a href="{% url profile_overview %}" title="{% trans "Login" %}">{% trans "Login" %}</a> 
+                <a href="{% url signup %}" title="{% trans "Welcome join us!" %}">{% trans "Register" %}</a></span>
+                <a href="{% url password_reset %}" title="{% trans "Send email to webmaster" %}" style="cursor:help;">{% trans "Forget Password" %}</a>
 	            	{% endif %}      
-	            </span>        
-	            ★{{SITE_NAME}}
+            
 	        </div>
 	    </div>
 	</div>
 
 	<div id="header">
-		<div class="page_margins">
-		<div class="page">
-			<img src="{{MEDIA_URL}}themes/yaml/images/logo.gif"/>
+	    <div id='logo'> 
+	        <a href="/" ><img src="{{MEDIA_URL}}images/logo.gif" alt="{{SITE_NAME}}"/></a>
 		</div>
+    
+        <div>
+            <h2>{{SITE_NAME}}</h2>
+            <p>网站正在建设中。。。(管理帐户/密码： admin/admin)</p>
+            
 		</div>
-	</div>
+        <div class='clearBOX'></div>
 
 	<!-- begin: navigation #nav -->
-	<div id="nav"> 
 			<a id="navigation" name="navigation"></a><!-- skiplink anchor: navigation -->
+        <div id="nav"  class="top-menu">            
 			{% load navbar %}{% navbars %}	
 	</div>
+        
 	<!-- end: navigation #nav-->
-	<!-- end: breadcrumbs -->
+        <!-- begin: breadcrumbs -->
 	<div id="breadcrumbs">
-		<div class="page_margins">
-			<div class="page">
+        
 				<span class='float_right'>欢迎您的光临！          
 				{{ SITE_TIME|date:"Y年m月d日 D" }}</span>
-				您的足迹: {% block breadcrumbs %}{% for crumb in crumbs %}<a href="{{ crumb.path }}">{% trans crumb.name %}</a>{% if not forloop.last %}&raquo;{% endif %}{% endfor %}{% endblock %}
-			</div>
+            {% trans "Visit Breadcrumbs" %}: {% block breadcrumbs %}{% for crumb in crumbs %}<a href="{{ crumb.path }}">{% trans crumb.name %}</a>{% if not forloop.last %}&raquo;{% endif %}{% endfor %}{% endblock %}
+            
 		</div>
-	</div>
 	<!-- end: breadcrumbs -->
+
+        
+	</div>
+
+	
 
 
 
