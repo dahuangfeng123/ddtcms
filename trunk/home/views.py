@@ -34,16 +34,16 @@ def index(request):
     #pic_news_list   = News.objects.all().filter(pic__isnull=False)[:5]
     pic_news_list   = News.objects.all().exclude(pic="")[:5]
     try:
-    	top_headline    = News.objects.get_headlines().latest('id')
+        top_headline    = News.objects.get_headlines().latest('id')
     except News.DoesNotExist:
-    	top_headline = None
+        top_headline = None
     
     headline_news_list   = News.objects.get_headlines()[1:5]
     notice_list     = Notice.objects.all()[:3]
     try:
     	poll  = Poll.objects.all().latest('id')
     except Poll.DoesNotExist:
-    	poll  = None
+        poll  = None
     latest_photos   = Photo.objects.all()[:10]
     latest_login_users   = User.objects.all().order_by('-last_login')[:6]
     #latest_news     = News.objects.all().filter(headline__exact=False)[:10]
@@ -63,21 +63,21 @@ def index(request):
     #form = RegistrationForm()
        
     return render_to_response('home/index.html',
-							{"links":links,
-							"pic_news_list":pic_news_list,
-							"notice_list":notice_list,
-							"top_headline":top_headline,
-							"headline_news_list":headline_news_list,
-							"latest_photos":latest_photos,
-							"latest_news":latest_news,
-							"recommended_news":recommended_news,
-							"latest_comments":latest_comments,
-							"flashslide_news":flashslide_news,
-							"most_viewed_list":most_viewed_list,
-							"latest_login_users":latest_login_users,
-							"categories":categories,
-							"poll":poll,
-							},context_instance=RequestContext(request))
+                            {"links":links,
+                            "pic_news_list":pic_news_list,
+                            "notice_list":notice_list,
+                            "top_headline":top_headline,
+                            "headline_news_list":headline_news_list,
+                            "latest_photos":latest_photos,
+                            "latest_news":latest_news,
+                            "recommended_news":recommended_news,
+                            "latest_comments":latest_comments,
+                            "flashslide_news":flashslide_news,
+                            "most_viewed_list":most_viewed_list,
+                            "latest_login_users":latest_login_users,
+                            "categories":categories,
+                            "poll":poll,
+                            },context_instance=RequestContext(request))
         
 #    return render_to_response('index.html',{'sitename':'网站正在建设中。。。'})
 

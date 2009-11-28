@@ -114,7 +114,7 @@ border:0px solid #ff8;
 #midwrapper {
 width: 100%;
 min-height: 300px;
-height: 300px;
+
 /*background: #71B787;*/
 margin: 0px;
 text-align: center;
@@ -135,13 +135,13 @@ padding-bottom:0px;
 }
 
 #mininav {
-	background: #f8f8f8; color: #a1a0a0; line-height: 18px; border-bottom: #e6e6e6  1px solid; height: 22px; text-align: center
+	background: #f8f8f8; color: #a1a0a0; line-height: 22px; border-bottom: #e6e6e6  1px solid; height: 28px; margin:0px auto; /*居中*/text-align: center
 }
 #mininav img {
 	border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; margin-bottom: 4px; border-right-width: 0px
 }
 #mininav div {
-	font-size: 12px; margin: 0px auto; width: 898px; padding-top: 3px; font-family: 宋体; text-align: right
+	font-size: 12px; margin: 0px auto; width: 898px; font-family: 宋体; text-align: right
 }
 #mininav a {
 	padding-right: 3px; padding-left: 3px; font-size: 12px; padding-bottom: 1px; margin: 0px 3px; color: #a1a0a0; padding-top: 1px; text-decoration: none
@@ -160,14 +160,14 @@ padding-bottom:0px;
 
 #header {
 width:950px;
-background: #fe85;
 padding-top:3px;
+margin:8px auto; /*居中*/
 text-align: center;
 border:0px solid #369;
 }
 
 #header #logo{
-FLOAT: left; WIDTH: 128px; TEXT-ALIGN: center
+float: left; width: 128px; text-align: center;
 margin-top: 10px;
 height:33px;
 }
@@ -281,7 +281,7 @@ color: #4E4E4E;
 #mainbody div.more{margin:0px 12px 0px 0;text-align:right;background:none;padding-right:28px;height:27px}
 #mainbody div.more a{color:#4C4C4C;font-size:12px;font-family:Tahoma; text-decoration:none}
 #mainbody div.more a:visited{color:#4C4C4C;text-decoration:none}
-#mainbody div.more a:hover{color: #445F8;text-decoration:underline}
+#mainbody div.more a:hover{color: #4455F8;text-decoration:underline}
 #mainbody div.opt{margin:0px 12px 12px 12px;text-align:left;color: #999;
  font-size: .8em;
  border: 1px solid #E3E4E4;
@@ -426,6 +426,8 @@ background: #eee;
 width:950px;
 height: 55px;
 padding-top: 5px;
+
+margin:8px auto; /*居中*/
 text-align: center;
 color: #000;
 border-top:1px solid #8DCFE2;
@@ -518,7 +520,7 @@ font-weight: bold;
 .underline_none {text-decoration:none}
 
 .inline{display:inline}
-.para{margin-top:10px;background-color: #ccc;overflow:auto;text-align:left;color:#000;word-break: break-all;white-space:normal;}
+.para{margin-top:10px;background-color: #ccc;overflow:auto;text-align:left;color:#000;word-wrap: break-word; word-break: normal; white-space:normal;}
 .spadding{margin:0;padding:0}
 .middle{text-align:center}
 .small{font-size:9px}

@@ -143,7 +143,7 @@
   a[href^="http://"],
   a[href^="https://"]
   {
-	color: #679A06;
+    color: #679A06;
     padding-left: 12px;
     background-image: url(../images/external_link.gif);
     background-repeat:no-repeat;
