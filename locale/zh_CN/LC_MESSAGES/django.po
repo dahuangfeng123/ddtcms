@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-23 22:08+0800\n"
+"POT-Creation-Date: 2009-11-28 01:55+0800\n"
 "PO-Revision-Date: 2009-05-23 23:21+0800\n"
 "Last-Translator: huyoo <huaitwooos@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,14 +15,29 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: .\attachments\forms.py:35 .\forum\forms.py:33 .\forum\models.py:26
+#: .\forum\models.py:223 .\link\forms.py:5
+msgid "Title"
+msgstr "标题"
+
+#: .\attachments\forms.py:36 .\forum\forms.py:34 .\forum\forms.py:41
+#: .\forum\models.py:304
+msgid "Body"
+msgstr "主体"
+
+#: .\attachments\forms.py:37 .\forum\forms.py:35 .\forum\forms.py:42
+#: .\news\forms.py:26
+#, fuzzy
+msgid "Files"
+msgstr "朋友"
+
 #: .\blog\forms.py:23
 msgid "username"
 msgstr "用户名"
 
-#: .\blog\forms.py:25
-#: .\photologue\models.py:124
-#: .\photologue\models.py:181
-#: .\photologue\models.py:479
+#: .\blog\forms.py:25 .\common\models.py:56 .\member\models.py:474
+#: .\photologue\models.py:127 .\photologue\models.py:184
+#: .\photologue\models.py:483
 msgid "title"
 msgstr "标题"
 
@@ -35,13 +50,10 @@ msgid "datetime"
 msgstr "日期"
 
 #: .\blog\forms.py:35
-#: .\dbtemplates\models.py:19
-#: .\news\forms.py:14
 msgid "content"
 msgstr "内容"
 
-#: .\blog\forms.py:36
-#: .\forum\models.py:31
+#: .\blog\forms.py:36 .\forum\models.py:27
 msgid "Slug"
 msgstr "缩记"
 
@@ -49,14 +61,9 @@ msgstr "缩记"
 msgid "Summary"
 msgstr "摘要"
 
-#: .\blog\forms.py:39
-#: .\blog\models.py:66
-#: .\link\models.py:61
-#: .\news\models.py:129
-#: .\photologue\models.py:132
-#: .\photologue\models.py:185
-#: .\photologue\models.py:485
-#: .\tagging\models.py:457
+#: .\blog\forms.py:39 .\blog\models.py:68 .\link\models.py:61
+#: .\news\models.py:227 .\photologue\models.py:135 .\photologue\models.py:188
+#: .\photologue\models.py:489 .\saying\models.py:30 .\tagging\models.py:460
 msgid "tags"
 msgstr "标签"
 
@@ -68,94 +75,76 @@ msgstr "该用户名已被使用，请选用其他的。"
 msgid "You must type the same password each time"
 msgstr "你每次必须输入相同的密码"
 
-#: .\blog\models.py:10
-#: .\link\models.py:11
-#: .\news\models.py:16
-#: .\photologue\models.py:40
+#: .\blog\models.py:12 .\link\models.py:11 .\news\models.py:13
+#: .\photologue\models.py:38 .\saying\models.py:8
 msgid "Separate tags with spaces, put quotes around multiple-word tags."
 msgstr "用空格分隔标签tag，带空格的词组请用引号包括"
 
-#: .\blog\models.py:19
-#: .\link\models.py:20
-#: .\news\models.py:25
-#: .\photologue\models.py:49
+#: .\blog\models.py:21 .\link\models.py:20 .\news\models.py:22
+#: .\photologue\models.py:47 .\saying\models.py:17
 msgid "Django-tagging was not found, tags will be treated as plain text."
 msgstr "Django-tagging 没有找到，tags将会被作为纯文本处理。"
 
-#: .\blog\models.py:24
-#: .\common\models.py:10
-#: .\common\models.py:25
-#: .\common\models.py:40
-#: .\common\models.py:103
-#: .\common\models.py:104
-#: .\common\models.py:105
-#: .\common\models.py:106
-#: .\common\models.py:107
-#: .\common\models.py:108
-#: .\common\models.py:109
-#: .\common\models.py:110
-#: .\common\models.py:111
-#: .\common\models.py:112
-#: .\common\models.py:113
-#: .\common\models.py:114
-#: .\common\models.py:115
-#: .\common\models.py:116
-#: .\common\models.py:117
-#: .\dbtemplates\models.py:18
-#: .\guestbook\models.py:21
-#: .\link\models.py:25
-#: .\news\models.py:29
-#: .\people\models.py:20
-#: .\photologue\models.py:527
-#: .\photologue\models.py:653
-#: .\tagging\models.py:450
+#: .\blog\models.py:26 .\common\models.py:10 .\common\models.py:25
+#: .\link\models.py:25 .\news\models.py:32 .\people\models.py:20
+#: .\photologue\models.py:531 .\photologue\models.py:657
+#: .\tagging\models.py:453
 msgid "name"
 msgstr "名称"
 
-#: .\blog\models.py:27
-#: .\common\models.py:13
-#: .\common\models.py:28
-#: .\link\models.py:28
-#: .\news\models.py:32
+#: .\blog\models.py:29 .\common\models.py:13 .\common\models.py:28
+#: .\link\models.py:28 .\news\models.py:35
 msgid "category's depth"
 msgstr "类别深度"
 
-#: .\blog\models.py:28
-#: .\common\models.py:14
-#: .\common\models.py:29
-#: .\common\models.py:45
-#: .\link\models.py:29
-#: .\news\models.py:33
-#: .\people\models.py:26
+#: .\blog\models.py:30 .\common\models.py:14 .\common\models.py:29
+#: .\link\models.py:29 .\news\models.py:38 .\people\models.py:26
 msgid "order"
 msgstr "顺序"
 
-#: .\blog\models.py:32
+#: .\blog\models.py:34
 msgid "Blog Category"
 msgstr "博客分类"
 
-#: .\blog\models.py:33
+#: .\blog\models.py:35
 msgid "Blog Categories"
 msgstr "博客分类"
 
-#: .\blog\models.py:67
-#: .\forum\models.py:187
-#: .\news\models.py:131
+#: .\blog\models.py:69 .\forum\models.py:228 .\news\models.py:229
+#: .\saying\models.py:32
 msgid "Views"
 msgstr "查看"
 
-#: .\blog\models.py:68
-#: .\news\models.py:132
+#: .\blog\models.py:70 .\news\models.py:230 .\saying\models.py:33
 msgid "Comments"
 msgstr "评论"
 
-#: .\blog\models.py:74
+#: .\blog\models.py:76
 msgid "Blog"
 msgstr "博客"
 
-#: .\blog\models.py:75
+#: .\blog\models.py:77
 msgid "Blogs"
 msgstr "博客"
+
+#: .\blog\templates\blog_base.html.py:8 .\blog\templates\blog_base.html.py:11
+#: .\templates\blog_base.html.py:13 .\templates\blog_base.html.py:16
+#: .\templates\member\avatar\search.html.py:32
+msgid "Search"
+msgstr "搜索"
+
+#: .\blog\templates\blog_base.html.py:39 .\news\forms.py:23
+#: .\templates\blog_base.html.py:44
+msgid "Category"
+msgstr "分类"
+
+#: .\blog\templates\blog_base.html.py:54 .\templates\blog_base.html.py:59
+msgid "BlogRoll"
+msgstr "博客链接"
+
+#: .\blog\templates\blog_base.html.py:70 .\templates\blog_base.html.py:75
+msgid "Archive"
+msgstr "档案"
 
 #: .\book\models.py:14
 msgid "Publisher"
@@ -197,131 +186,75 @@ msgstr "验证码请求"
 msgid "CaptchaRequests"
 msgstr "验证码请求"
 
-#: .\common\models.py:42
-#: .\people\models.py:23
-msgid "chief"
-msgstr "领导"
-
 #: .\common\models.py:43
-#: .\people\models.py:24
-#: .\photologue\models.py:127
-#: .\photologue\models.py:183
-#: .\photologue\models.py:528
+#, fuzzy
+msgid "contributor"
+msgstr "对比度"
+
+#: .\common\models.py:44
+#, fuzzy
+msgid "coverage"
+msgstr "概述"
+
+#: .\common\models.py:45
+#, fuzzy
+msgid "creator"
+msgstr "类别"
+
+#: .\common\models.py:46 .\guestbook\models.py:19
+msgid "date"
+msgstr "日期"
+
+#: .\common\models.py:47 .\member\models.py:477 .\people\models.py:24
+#: .\photologue\models.py:130 .\photologue\models.py:186
+#: .\photologue\models.py:532
 msgid "description"
 msgstr "描述"
 
-#: .\common\models.py:44
-#: .\people\models.py:25
-msgid "homepage"
-msgstr "主页"
+#: .\common\models.py:48
+msgid "format"
+msgstr ""
 
 #: .\common\models.py:49
-msgid "Department"
-msgstr "部门"
+msgid "identifier"
+msgstr ""
 
 #: .\common\models.py:50
-msgid "Departments"
-msgstr "部门"
-
-#: .\dbsettings\templates\dbsettings\app_settings.html.py:7
-#: .\dbsettings\templates\dbsettings\site_settings.html.py:8
-msgid "Documentation"
-msgstr "文件"
-
-#: .\dbsettings\templates\dbsettings\app_settings.html.py:7
-#: .\dbsettings\templates\dbsettings\site_settings.html.py:8
-msgid "Change password"
-msgstr "更改密码"
-
-#: .\dbsettings\templates\dbsettings\app_settings.html.py:7
-#: .\dbsettings\templates\dbsettings\site_settings.html.py:8
-msgid "Log out"
-msgstr "注销"
-
-#: .\dbsettings\templates\dbsettings\app_settings.html.py:10
-#: .\dbsettings\templates\dbsettings\site_settings.html.py:11
-#: .\templates\base.html.py:95
-#: .\templates\themes\default\base.html.py:77
-#: .\templates\themes\default\admin\change_form.html.py:17
-#: .\templates\themes\yaml\base.html.py:77
-#: .\templates\themes\yaml\admin\change_form.html.py:17
-msgid "Home"
-msgstr "首页"
-
-#: .\dbsettings\templates\dbsettings\app_settings.html.py:11
-#: .\dbsettings\templates\dbsettings\site_settings.html.py:12
-msgid "Edit Settings"
-msgstr "编辑设置"
-
-#: .\dbsettings\templates\dbsettings\app_settings.html.py:18
-#: .\dbsettings\templates\dbsettings\site_settings.html.py:19
-#: .\templates\themes\default\admin\change_form.html.py:38
-#: .\templates\themes\yaml\admin\change_form.html.py:38
-msgid "Please correct the error below."
-msgstr "请更正下面的错误."
-
-#: .\dbsettings\templates\dbsettings\app_settings.html.py:26
-#, python-format
-msgid "Settings included in the %(name)s class."
+msgid "language"
 msgstr ""
 
-#: .\dbsettings\templates\dbsettings\app_settings.html.py:27
-#: .\dbsettings\templates\dbsettings\site_settings.html.py:28
-#: .\dbsettings\templates\dbsettings\site_settings.html.py:33
-#: .\templates\themes\default\admin\index.html.py:28
-#: .\templates\themes\default\admin\index.html.py:32
-#: .\templates\themes\yaml\admin\index.html.py:28
-#: .\templates\themes\yaml\admin\index.html.py:32
-msgid "%(name)s"
-msgstr ""
+#: .\common\models.py:51
+#, fuzzy
+msgid "publisher"
+msgstr "出版行"
 
-#: .\dbsettings\templates\dbsettings\app_settings.html.py:50
-#: .\dbsettings\templates\dbsettings\site_settings.html.py:66
-msgid "You don't have permission to edit values."
-msgstr "你没有权限编辑任何东西。"
-
-#: .\dbsettings\templates\dbsettings\site_settings.html.py:27
-#: .\templates\themes\default\admin\index.html.py:31
-#: .\templates\themes\yaml\admin\index.html.py:31
-msgid "Models available in the %(name)s application."
-msgstr ""
-
-#: .\dbtemplates\admin.py:23
-msgid "Leaving this empty causes Django to look for a template with the given name and populate this field with its content."
-msgstr ""
-
-#: .\dbtemplates\admin.py:37
-msgid "Date/time"
-msgstr "日期"
-
-#: .\dbtemplates\admin.py:48
-msgid "sites"
-msgstr "站点"
-
-#: .\dbtemplates\models.py:18
-msgid "Example: 'flatpages/default.html'"
-msgstr ""
-
-#: .\dbtemplates\models.py:21
-msgid "creation date"
+#: .\common\models.py:52
+#, fuzzy
+msgid "relation"
 msgstr "创建日期"
 
-#: .\dbtemplates\models.py:22
-msgid "last changed"
-msgstr "最近更改"
+#: .\common\models.py:53
+#, fuzzy
+msgid "rights"
+msgstr "亮度"
 
-#: .\dbtemplates\models.py:29
-msgid "template"
-msgstr "模板"
+#: .\common\models.py:54
+msgid "source"
+msgstr ""
 
-#: .\dbtemplates\models.py:30
-msgid "templates"
-msgstr "模板"
+#: .\common\models.py:55
+#, fuzzy
+msgid "subject"
+msgstr "对象ID"
 
-#: .\docs\forum_list.html.py:3
-#: .\forum\models.py:120
-#: .\templates\forum_base.html.py:81
-#: .\templates\forum\forum_list.html.py:3
+#: .\common\models.py:57
+msgid "type"
+msgstr ""
+
+#: .\docs\forum_list.html.py:3 .\forum\models.py:116
+#: .\forum\templates\forum_base.html.py:76
+#: .\forum\templates\forum\forum_list.html.py:3
+#: .\templates\themes\yaml\forum\forum_list.html.py:3
 msgid "Forums"
 msgstr "论坛"
 
@@ -329,16 +262,12 @@ msgstr "论坛"
 msgid "Panel"
 msgstr ""
 
-#: .\docs\forum_list.html.py:52
-#: .\forum\models.py:34
-#: .\forum\models.py:205
+#: .\docs\forum_list.html.py:52 .\forum\models.py:30 .\forum\models.py:248
 msgid "Threads"
 msgstr "话题"
 
-#: .\docs\forum_list.html.py:53
-#: .\forum\models.py:35
-#: .\forum\models.py:186
-#: .\forum\models.py:328
+#: .\docs\forum_list.html.py:53 .\forum\models.py:31 .\forum\models.py:227
+#: .\forum\models.py:366
 msgid "Posts"
 msgstr "帖子"
 
@@ -355,8 +284,8 @@ msgid ""
 "    \t\t\t\t\t"
 msgstr ""
 
-#: .\docs\forum_list.html.py:77
-#: .\templates\forum\forum_list.html.py:85
+#: .\docs\forum_list.html.py:77 .\forum\templates\forum\forum_list.html.py:86
+#: .\templates\themes\yaml\forum\forum_list.html.py:97
 msgid "Re:"
 msgstr "回复:"
 
@@ -364,56 +293,18 @@ msgstr "回复:"
 msgid "ago"
 msgstr "前"
 
-#: .\docs\forum_list.html.py:78
-#: .\templates\forum\forum_list.html.py:86
+#: .\docs\forum_list.html.py:78 .\forum\templates\forum\forum_list.html.py:87
+#: .\templates\themes\yaml\forum\forum_list.html.py:98
 msgid "No Posts"
 msgstr "暂无帖子"
 
-#: .\docs\forum_list.html.py:88
-#: .\docs\forum_list.html.py:90
-#: .\templates\forum\thread.html.py:129
+#: .\docs\forum_list.html.py:88 .\docs\forum_list.html.py:90
+#: .\forum\templates\forum\forum_list.html.py:94
+#: .\forum\templates\forum\thread.html.py:134
+#: .\templates\themes\yaml\forum\forum_list.html.py:105
+#: .\templates\themes\yaml\forum\thread.html.py:134
 msgid "Update Subscriptions"
 msgstr "更新订阅"
-
-#: .\equipment\models.py:13
-msgid "Supplier"
-msgstr "供货商"
-
-#: .\equipment\models.py:14
-msgid "Suppliers"
-msgstr "供货商"
-
-#: .\equipment\models.py:29
-msgid "AssetSort"
-msgstr "资产种类"
-
-#: .\equipment\models.py:30
-msgid "AssetSorts"
-msgstr "资产种类"
-
-#: .\equipment\models.py:45
-msgid "GeneralDesignation"
-msgstr "通用名称"
-
-#: .\equipment\models.py:46
-msgid "GeneralDesignations"
-msgstr "通用名称"
-
-#: .\equipment\models.py:61
-msgid "Equipment"
-msgstr "设备"
-
-#: .\equipment\models.py:62
-msgid "Equipments"
-msgstr "设备"
-
-#: .\equipment\models.py:77
-msgid "Characteristic"
-msgstr "特征参数"
-
-#: .\equipment\models.py:78
-msgid "Characteristics"
-msgstr "特征参数"
 
 #: .\forum\feeds.py:28
 #, python-format
@@ -429,137 +320,227 @@ msgstr "%(title)s's Forum"
 msgid "Latest forum posts"
 msgstr "论坛最新帖子"
 
-#: .\forum\forms.py:33
-#: .\forum\models.py:30
-#: .\forum\models.py:182
-#: .\link\forms.py:5
-msgid "Title"
-msgstr "标题"
-
-#: .\forum\forms.py:38
-#: .\forum\forms.py:47
-#: .\forum\models.py:243
-msgid "Body"
-msgstr "主体"
-
-#: .\forum\forms.py:39
-#: .\forum\forms.py:48
+#: .\forum\forms.py:36 .\forum\forms.py:43
 msgid "Subscribe via email"
 msgstr "通过邮件订阅"
 
-#: .\forum\models.py:33
-#: .\link\forms.py:7
+#: .\forum\models.py:29 .\link\forms.py:7
 msgid "Description"
 msgstr "描述"
 
-#: .\forum\models.py:36
+#: .\forum\models.py:32
 msgid "Master"
 msgstr "靶主"
 
-#: .\forum\models.py:37
+#: .\forum\models.py:33
 msgid "Order"
 msgstr "顺序"
 
-#: .\forum\models.py:89
+#: .\forum\models.py:85
 msgid "Forum parents"
 msgstr "父论坛"
 
-#: .\forum\models.py:119
+#: .\forum\models.py:115
 msgid "Forum"
 msgstr "论坛"
 
-#: .\forum\models.py:125
+#: .\forum\models.py:121
 msgid "You must not save a forum in itself!"
 msgstr "你不能在论坛中保存自己"
 
-#: .\forum\models.py:167
+#: .\forum\models.py:204
 msgid "NORMAL"
 msgstr "正常"
 
-#: .\forum\models.py:168
+#: .\forum\models.py:205 .\news\models.py:196
 msgid "DELETED"
 msgstr "已删除"
 
-#: .\forum\models.py:169
+#: .\forum\models.py:206
 msgid "LOCKED"
 msgstr "已锁定"
 
-#: .\forum\models.py:170
+#: .\forum\models.py:207
 msgid "VERIFY"
 msgstr "需要认证"
 
-#: .\forum\models.py:171
+#: .\forum\models.py:208
 msgid "PAYMONEY"
 msgstr "需要付费"
 
-#: .\forum\models.py:183
+#: .\forum\models.py:209
+msgid "STICKYFORUM"
+msgstr ""
+
+#: .\forum\models.py:210
+msgid "STICKYPARENT"
+msgstr ""
+
+#: .\forum\models.py:211
+msgid "STICKYROOT"
+msgstr ""
+
+#: .\forum\models.py:224
 msgid "Sticky?"
 msgstr "置顶？"
 
-#: .\forum\models.py:184
+#: .\forum\models.py:225
 msgid "Closed?"
 msgstr "关闭？"
 
-#: .\forum\models.py:185
-#: .\forum\models.py:247
+#: .\forum\models.py:226 .\forum\models.py:308
 msgid "status?"
 msgstr "状态？"
 
-#: .\forum\models.py:188
+#: .\forum\models.py:229
 msgid "Latest Post Time"
 msgstr "最新发布时间"
 
-#: .\forum\models.py:204
+#: .\forum\models.py:247
 msgid "Thread"
 msgstr "话题"
 
-#: .\forum\models.py:232
+#: .\forum\models.py:293
 msgid "NORMAL POST"
 msgstr "正常帖子"
 
-#: .\forum\models.py:233
+#: .\forum\models.py:294
 msgid "DELETED POST"
 msgstr "已删除的帖子"
 
-#: .\forum\models.py:234
+#: .\forum\models.py:295
 msgid "SHIELD POST"
 msgstr "已屏蔽的帖子"
 
-#: .\forum\models.py:244
+#: .\forum\models.py:305
 msgid "Posted Time,the time will be never changed"
 msgstr "帖子发表的时间，不会改动"
 
-#: .\forum\models.py:245
+#: .\forum\models.py:306
 msgid "Show Sign?"
 msgstr "显示签名？"
 
-#: .\forum\models.py:246
+#: .\forum\models.py:307
 msgid "Digest?"
 msgstr "精华？"
 
-#: .\forum\models.py:249
+#: .\forum\models.py:310
 msgid "floor number"
 msgstr "楼层号码"
 
-#: .\forum\models.py:327
+#: .\forum\models.py:365
 msgid "Post"
 msgstr "帖子"
 
-#: .\forum\models.py:353
+#: .\forum\models.py:397
 msgid "Subscription"
 msgstr "订阅"
 
-#: .\forum\models.py:354
+#: .\forum\models.py:398
 msgid "Subscriptions"
 msgstr "订阅"
 
-#: .\forum\views.py:226
+#: .\forum\views.py:48 .\forum\views.py:428
+#, fuzzy
+msgid "Sorry, you need permission to continue."
+msgstr "对不起，请登录"
+
+#: .\forum\views.py:377
+msgid "The Post Do Not Exist"
+msgstr ""
+
+#: .\forum\views.py:381
+msgid "Not Found"
+msgstr ""
+
+#: .\forum\views.py:400
 msgid "Sorry, you need to login."
 msgstr "对不起，请登录"
 
+#: .\forum\templates\forum_base.html.py:35
+#: .\member\templates\member\front.html.py:11
+#: .\member\templates\member\index.html.py:26
+#: .\templates\themes\yaml\base.html.py:57
+msgid "Profile"
+msgstr "用户简介"
+
+#: .\forum\templates\forum_base.html.py:35
+#: .\member\templates\member\front.html.py:12
+#: .\member\templates\member\index.html.py:27 .\templates\header.html.py:13
+#: .\templates\themes\yaml\base.html.py:57
+msgid "Logout"
+msgstr "注销"
+
+#: .\forum\templates\forum\edit.html.py:4
+#: .\forum\templates\forum\reply.html.py:4
+#: .\templates\themes\yaml\forum\edit.html.py:4
+#: .\templates\themes\yaml\forum\reply.html.py:4
+msgid "Reply to thread  \"%(title)s\""
+msgstr ""
+
+#: .\forum\templates\forum\edit.html.py:6
+#: .\forum\templates\forum\reply.html.py:6
+#: .\templates\themes\yaml\forum\edit.html.py:6
+#: .\templates\themes\yaml\forum\reply.html.py:6
+msgid "Reply to Thread \"%(title)s\""
+msgstr ""
+
+#: .\forum\templates\forum\edit.html.py:16
+#: .\templates\themes\yaml\forum\edit.html.py:16
+#, fuzzy
+msgid "Edit Post"
+msgstr "最新帖子"
+
+#: .\forum\templates\forum\forum_list.html.py:82
+#: .\templates\themes\yaml\forum\forum_list.html.py:93
+msgid ""
+"\n"
+"\t\t\t\t<p class=\"nums bg_blue\">%(thread_count)s/%(post_count)s</p>\n"
+"\t\t\t  "
+msgstr ""
+
+#: .\forum\templates\forum\newthread.html.py:4
+#: .\forum\templates\forum\newthread.html.py:11
+#: .\templates\link\newlink.html.py:4
+#: .\templates\themes\yaml\forum\newthread.html.py:4
+#: .\templates\themes\yaml\forum\newthread.html.py:11
+#: .\templates\themes\yaml\link\newlink.html.py:4
+msgid "New Thread in %(title)s"
+msgstr ""
+
+#: .\forum\templates\forum\newthread.html.py:13
+#: .\templates\themes\yaml\forum\newthread.html.py:13
+msgid "New Thread"
+msgstr "新话题"
+
+#: .\forum\templates\forum\newthread.html.py:18
+#: .\templates\themes\yaml\forum\newthread.html.py:18
+msgid "Create a Thread"
+msgstr "创建话题"
+
+#: .\forum\templates\forum\reply.html.py:13
+#: .\templates\themes\yaml\forum\reply.html.py:13
+msgid "Reply to Thread"
+msgstr ""
+
+#: .\forum\templates\forum\thread.html.py:126
+#: .\forum\templates\forum\thread_list.html.py:88
+#: .\templates\themes\yaml\forum\thread.html.py:126
+#: .\templates\themes\yaml\forum\thread_list.html.py:88
+msgid "First"
+msgstr "第一"
+
+#: .\forum\templates\forum\thread.html.py:130
+#: .\forum\templates\forum\thread_list.html.py:92
+#: .\templates\themes\yaml\forum\thread.html.py:130
+#: .\templates\themes\yaml\forum\thread_list.html.py:92
+msgid "Last"
+msgstr "最新"
+
 #: .\guestbook\forms.py:20
-msgid "Name"
-msgstr "名称"
+#, fuzzy
+msgid "User"
+msgstr "用户"
 
 #: .\guestbook\forms.py:21
 msgid "Email address"
@@ -570,25 +551,27 @@ msgid "URL"
 msgstr "网址"
 
 #: .\guestbook\forms.py:23
-msgid "Comment"
-msgstr "评论"
+msgid "Opinion"
+msgstr ""
 
 #: .\guestbook\forms.py:26
 msgid "If you enter anything in this field your text will be treated as spam"
 msgstr "此域中如果你填入任何信息，你提交的内容将会被视为垃圾信息"
 
 #: .\guestbook\forms.py:117
-#, python-format
+#, fuzzy, python-format
 msgid "Watch your mouth! The word %s is not allowed here."
-msgstr "说话注意点！%s 是脏话。"
-
-#: .\guestbook\models.py:19
-msgid "date"
-msgstr "日期"
+msgid_plural "Watch your mouth! The words %s are not allowed here."
+msgstr[0] "说话注意点！%s 是脏话。"
+msgstr[1] "说话注意点！%s 是脏话。"
 
 #: .\guestbook\models.py:20
 msgid "IP address"
 msgstr "IP地址"
+
+#: .\guestbook\models.py:21 .\member\models.py:335 .\member\models.py:360
+msgid "user"
+msgstr "用户"
 
 #: .\guestbook\models.py:22
 msgid "e-mail"
@@ -603,7 +586,9 @@ msgid "is removed"
 msgstr "已经被删除了"
 
 #: .\guestbook\models.py:26
-msgid "Check this box if the comment is inappropriate. A \"This comment has been removed\" message will be displayed instead."
+msgid ""
+"Check this box if the comment is inappropriate. A \"This comment has been "
+"removed\" message will be displayed instead."
 msgstr ""
 
 #: .\guestbook\models.py:30
@@ -612,8 +597,24 @@ msgstr "评论"
 
 #: .\guestbook\models.py:33
 #, python-format
-msgid "%(name)s on %(date)s"
+msgid "%(user)s on %(date)s"
 msgstr ""
+
+#: .\home\templates\home\index.html.py:27
+msgid "NavTree"
+msgstr "导航树"
+
+#: .\home\templates\home\index.html.py:38 .\templates\base.html.py:47
+msgid "SideBar"
+msgstr "侧边栏"
+
+#: .\home\templates\home\index.html.py:56
+msgid "User Profile"
+msgstr "用户简介"
+
+#: .\home\templates\home\index.html.py:74
+msgid "Support"
+msgstr "支持"
 
 #: .\link\forms.py:6
 msgid "Url"
@@ -1595,369 +1596,485 @@ msgstr ""
 msgid "This value must be in COUNTRIES setting in localflavor.generic package."
 msgstr ""
 
-#: .\member\forms.py:58
+#: .\member\forms.py:60
 #, python-format
 msgid "The file type is invalid: %s"
 msgstr ""
 
-#: .\member\forms.py:63
+#: .\member\forms.py:65
 msgid "You must enter one of the options"
 msgstr ""
 
-#: .\member\forms.py:77
+#: .\member\forms.py:79
 msgid "You must select a portion of the image with a minimum of 96x96 pixels."
 msgstr ""
 
-#: .\member\forms.py:83
+#: .\member\forms.py:86
 msgid "Username"
 msgstr "用户名"
 
-#: .\member\forms.py:84
+#: .\member\forms.py:89
 msgid "E-mail address"
 msgstr "电子邮件"
 
-#: .\member\forms.py:85
+#: .\member\forms.py:90
 msgid "Password"
 msgstr "密码"
 
-#: .\member\forms.py:86
+#: .\member\forms.py:91
 msgid "Password (again)"
 msgstr "密码（重复）"
 
-#: .\member\forms.py:97
-msgid "That username has invalid characters. The valid values are letters, numbers and underscore."
+#: .\member\forms.py:116
+msgid ""
+"That username has invalid characters. The valid values are letters, numbers "
+"and underscore."
 msgstr ""
 
-#: .\member\forms.py:102
+#: .\member\forms.py:121
 msgid "The username is already registered."
 msgstr "该用户名已被使用，请选用其他的。"
 
-#: .\member\forms.py:111
+#: .\member\forms.py:130
 msgid "The passwords inserted are different."
 msgstr ""
 
-#: .\member\forms.py:123
-#: .\member\forms.py:142
+#: .\member\forms.py:142 .\member\forms.py:161
 msgid "That e-mail is already used."
 msgstr ""
 
-#: .\member\forms.py:127
+#: .\member\forms.py:146
 msgid "That e-mail is already being confirmed."
 msgstr ""
 
-#: .\member\forms.py:155
+#: .\member\forms.py:174
 msgid "That e-mail isn't registered."
 msgstr "此邮件地址没有被注册。"
 
-#: .\member\models.py:42
+#: .\member\models.py:58
 #, python-format
 msgid "%s's profile"
 msgstr "%s的档案"
 
-#: .\member\models.py:61
+#: .\member\models.py:77
 #, python-format
 msgid "%s's Avatar"
 msgstr "%s's 头像"
 
-#: .\member\models.py:145
+#: .\member\models.py:161
 #, python-format
 msgid "Email validation process for %(user)s"
 msgstr ""
 
-#: .\member\models.py:171
+#: .\member\models.py:187
 msgid "Female"
 msgstr "女"
 
-#: .\member\models.py:171
+#: .\member\models.py:187
 msgid "Male"
 msgstr "男"
 
-#: .\member\models.py:173
+#: .\member\models.py:189
 msgid "A TYPE"
 msgstr "A型"
 
-#: .\member\models.py:174
+#: .\member\models.py:190
 msgid "B TYPE"
 msgstr "B型"
 
-#: .\member\models.py:175
+#: .\member\models.py:191
 msgid "AB TYPE"
 msgstr "AB型"
 
-#: .\member\models.py:176
+#: .\member\models.py:192
 msgid "O TYPE"
 msgstr "O型"
 
-#: .\member\models.py:177
-#: .\notice\models.py:10
+#: .\member\models.py:193 .\notice\models.py:9
 msgid "OTHER TYPE"
 msgstr "其他"
 
-#: .\member\models.py:181
+#: .\member\models.py:197
 msgid "Rat"
 msgstr "鼠"
 
-#: .\member\models.py:182
+#: .\member\models.py:198
 msgid "Ox"
 msgstr "牛"
 
-#: .\member\models.py:183
+#: .\member\models.py:199
 msgid "Tiger"
 msgstr "虎"
 
-#: .\member\models.py:184
+#: .\member\models.py:200
 msgid "Rabbit"
 msgstr "兔"
 
-#: .\member\models.py:185
+#: .\member\models.py:201
 msgid "Dragon"
 msgstr "龙"
 
-#: .\member\models.py:186
+#: .\member\models.py:202
 msgid "Snake"
 msgstr "蛇"
 
-#: .\member\models.py:187
+#: .\member\models.py:203
 msgid "Horse"
 msgstr "马"
 
-#: .\member\models.py:188
+#: .\member\models.py:204
 msgid "Goat"
 msgstr "羊"
 
-#: .\member\models.py:189
+#: .\member\models.py:205
 msgid "Monkey"
 msgstr "猴"
 
-#: .\member\models.py:190
+#: .\member\models.py:206
 msgid "Rooster"
 msgstr "鸡"
 
-#: .\member\models.py:191
+#: .\member\models.py:207
 msgid "Dog"
 msgstr "狗"
 
-#: .\member\models.py:192
+#: .\member\models.py:208
 msgid "Pig"
 msgstr "猪"
 
-#: .\member\models.py:196
+#: .\member\models.py:212
 msgid "Aries(the Ram)"
 msgstr "白羊座"
 
-#: .\member\models.py:197
+#: .\member\models.py:213
 msgid "Taurus(the Bull)"
 msgstr "金牛座"
 
-#: .\member\models.py:198
+#: .\member\models.py:214
 msgid "Gemini(the Twins)"
 msgstr "双子座"
 
-#: .\member\models.py:199
+#: .\member\models.py:215
 msgid "Cancer(the Crab)"
 msgstr "巨蟹座"
 
-#: .\member\models.py:200
+#: .\member\models.py:216
 msgid "Leo(the Lion)"
 msgstr "狮子座"
 
-#: .\member\models.py:201
+#: .\member\models.py:217
 msgid "Virgo(the Virgin)"
 msgstr "处女座"
 
-#: .\member\models.py:202
+#: .\member\models.py:218
 msgid "Libra(the Scales)"
 msgstr "天秤座"
 
-#: .\member\models.py:203
+#: .\member\models.py:219
 msgid "Scorpio(the Scorpion)"
 msgstr "天蝎座"
 
-#: .\member\models.py:204
+#: .\member\models.py:220
 msgid "Sagittarius(the Archer)"
 msgstr "人马座"
 
-#: .\member\models.py:205
+#: .\member\models.py:221
 msgid "Capricornus(the Goat)"
 msgstr "摩羯座"
 
-#: .\member\models.py:206
+#: .\member\models.py:222
 msgid "Aquarius(the Water Carrier)"
 msgstr "水瓶座"
 
-#: .\member\models.py:207
+#: .\member\models.py:223
 msgid "Pisces(the Fishes)"
 msgstr "双鱼座"
 
-#: .\member\models.py:276
-#: .\member\models.py:301
-msgid "user"
-msgstr "用户"
-
-#: .\member\models.py:332
-#: .\member\models.py:337
+#: .\member\models.py:393 .\member\models.py:398
 #: .\templates\member\profile\location.html.py:26
 msgid "Location"
 msgstr "位置"
 
-#: .\member\models.py:335
+#: .\member\models.py:396
 msgid "Browser"
 msgstr "浏览器类型"
 
-#: .\member\models.py:336
+#: .\member\models.py:397
 msgid "Resolution of Screen"
 msgstr "屏幕分辨率"
 
-#: .\member\models.py:339
+#: .\member\models.py:400
 msgid "netfault"
 msgstr ""
 
-#: .\member\models.py:340
+#: .\member\models.py:401 .\member\models.py:480
 msgid "LastActivity"
 msgstr "最近活动的"
 
-#: .\member\models.py:344
+#: .\member\models.py:405
 msgid "OnlineUser"
 msgstr "在线用户"
 
-#: .\member\models.py:345
+#: .\member\models.py:406
 msgid "OnlineUsers"
 msgstr "在线用户"
 
-#: .\member\templatetags\avatars.py:80
-msgid "You have to provide only the size as             an integer (both sides will be equal) and optionally, the             username."
+#: .\member\models.py:419
+msgid "STRING"
 msgstr ""
 
-#: .\navbar\models.py:13
-msgid "Anonymous"
+#: .\member\models.py:420
+msgid "BOOLEAN"
+msgstr ""
+
+#: .\member\models.py:421
+msgid "INTEGER"
+msgstr ""
+
+#: .\member\models.py:422
+msgid "FLOAT"
+msgstr ""
+
+#: .\member\models.py:423
+msgid "DATETIME"
+msgstr ""
+
+#: .\member\models.py:424
+#, fuzzy
+msgid "OTHER"
+msgstr "其他"
+
+#: .\member\models.py:460 .\people\models.py:144
+msgid "Friend"
+msgstr "朋友"
+
+#: .\member\models.py:461 .\people\models.py:145
+msgid "Friends"
+msgstr "朋友"
+
+#: .\member\models.py:479
+msgid "pub_time"
+msgstr ""
+
+#: .\member\models.py:484
+#, fuzzy
+msgid "Regiment"
+msgstr "注册"
+
+#: .\member\models.py:485
+#, fuzzy
+msgid "Regiments"
+msgstr "设备"
+
+#: .\member\templates\member\front.html.py:3
+msgid "Front page"
+msgstr "首页"
+
+#: .\member\templates\member\front.html.py:6
+msgid "People who have already tried this demo"
+msgstr "已经落户的朋友们！"
+
+#: .\member\templates\member\front.html.py:9
+#: .\member\templates\member\index.html.py:24
+msgid "Frontpage"
+msgstr "首页"
+
+#: .\member\templates\member\front.html.py:14
+#: .\member\templates\member\index.html.py:29 .\templates\header.html.py:16
+msgid "Login"
+msgstr "登录"
+
+#: .\member\templates\member\front.html.py:15
+#: .\member\templates\member\index.html.py:30 .\templates\header.html.py:17
+msgid "Register"
+msgstr "注册"
+
+#: .\member\templates\member\index.html.py:19
+msgid "Django profile demo"
+msgstr "Django 档案例子"
+
+#: .\member\templates\member\index.html.py:20
+#, fuzzy
+msgid "A django-profile demo application"
+msgstr "Django 档案例子"
+
+#: .\member\templates\member\index.html.py:40
+msgid "clear"
+msgstr ""
+
+#: .\member\templatetags\avatars.py:80
+msgid ""
+"You have to provide only the size as             an integer (both sides will "
+"be equal) and optionally, the             username."
+msgstr ""
+
+#: .\navbar\models.py:11
+msgid "Everybody"
+msgstr ""
+
+#: .\navbar\models.py:12
+#, fuzzy
+msgid "Anonymous Only"
 msgstr "匿名用户"
 
-#: .\navbar\models.py:14
+#: .\navbar\models.py:13
 msgid "Logged In"
 msgstr "登录用户"
 
-#: .\navbar\models.py:15
+#: .\navbar\models.py:14
 msgid "Staff"
 msgstr "管理成员"
 
-#: .\navbar\models.py:16
+#: .\navbar\models.py:15
 msgid "Superuser"
 msgstr "超级用户"
 
-#: .\navbar\models.py:20
+#: .\navbar\models.py:19
 msgid "Never"
 msgstr "从不"
 
-#: .\navbar\models.py:21
+#: .\navbar\models.py:20
 msgid "Exact"
 msgstr "准确"
 
-#: .\navbar\models.py:22
+#: .\navbar\models.py:21
 msgid "ExactOrParent"
 msgstr ""
 
-#: .\navbar\models.py:23
+#: .\navbar\models.py:22
 msgid "OnPathOrParent (default)"
 msgstr ""
 
-#: .\navbar\models.py:80
+#: .\navbar\models.py:33
 msgid "text seen in the menu"
 msgstr "菜单上的文本"
 
-#: .\navbar\models.py:82
+#: .\navbar\models.py:35
 msgid "mouse hover description"
 msgstr "鼠标滑过时显示描述"
 
-#: .\navbar\models.py:89
+#: .\navbar\models.py:42
 msgid "path match type"
 msgstr ""
 
-#: .\navbar\models.py:91
-msgid "Control how this element is marked 'selected' based on the request path."
+#: .\navbar\models.py:44
+msgid ""
+"Control how this element is marked 'selected' based on the request path."
 msgstr ""
 
-#: .\navbar\models.py:94
+#: .\navbar\models.py:47
 msgid "user login type"
 msgstr "用户登录类型"
 
-#: .\navbar\models.py:103
+#: .\navbar\models.py:56
 msgid "navigation bar element"
 msgstr "导航菜单项"
 
-#: .\navbar\models.py:104
+#: .\navbar\models.py:57
 msgid "navigation bar elements"
 msgstr "导航菜单项"
 
-#: .\news\models.py:38
-msgid "News Category"
-msgstr "新闻分类"
-
-#: .\news\models.py:39
-msgid "News Categories"
-msgstr "新闻分类"
-
-#: .\news\models.py:101
-msgid "News Author"
-msgstr "新闻作者"
-
-#: .\news\models.py:102
-msgid "News Authors"
-msgstr "新闻作者"
-
-#: .\news\models.py:145
-#: .\news\models.py:146
-msgid "News"
-msgstr "新闻"
-
-#: .\news\models.py:189
-#, python-format
+#: .\news\back_views.py:81 .\news\views\default.py:118
 msgid "%s Posted A new News: %s"
 msgstr ""
 
-#: .\news\models.py:190
-#, python-format
+#: .\news\back_views.py:82 .\news\views\default.py:119
 msgid "%s Posted A new News,go and view it now <a href='%s'> %s </a> "
 msgstr ""
 
-#: .\news2\models.py:71
-msgid "NewsItem"
-msgstr "新闻"
+#: .\news\forms.py:24
+#, fuzzy
+msgid "Deliverer"
+msgstr "删除"
 
-#: .\news2\models.py:72
-msgid "NewsItems"
-msgstr "新闻"
+#: .\news\forms.py:25
+msgid "Content"
+msgstr "内容"
 
-#: .\news2\models.py:134
-msgid "NewsItem1"
-msgstr "新闻1"
-
-#: .\news2\models.py:135
-msgid "NewsItem1s"
+#: .\news\forms.py:47
+msgid "The category has child(ren),you must select one of its child!"
 msgstr ""
+
+#: .\news\models.py:36
+#, fuzzy
+msgid "category's path"
+msgstr "类别深度"
+
+#: .\news\models.py:37
+msgid "News Posts Count"
+msgstr ""
+
+#: .\news\models.py:45
+msgid "News Category"
+msgstr "新闻分类"
+
+#: .\news\models.py:46
+msgid "News Categories"
+msgstr "新闻分类"
+
+#: .\news\models.py:191
+msgid "UNAPPROVED"
+msgstr ""
+
+#: .\news\models.py:192
+msgid "APPROVED"
+msgstr ""
+
+#: .\news\models.py:193
+msgid "HEADLINE"
+msgstr ""
+
+#: .\news\models.py:194
+#, fuzzy
+msgid "RECOMMENDED"
+msgstr "有评论的帖子"
+
+#: .\news\models.py:195
+msgid "FLASHSLIDE"
+msgstr ""
+
+#: .\news\models.py:231
+#, fuzzy
+msgid "Allow Comments"
+msgstr "评论"
+
+#: .\news\models.py:233
+#, fuzzy
+msgid "Status"
+msgstr "状态？"
+
+#: .\news\models.py:243 .\news\models.py:244
+msgid "News"
+msgstr "新闻"
 
 #: .\notice\models.py:6
 msgid "SITE NOTICE"
 msgstr "网站通知"
 
 #: .\notice\models.py:7
-msgid "LATEST ENTRY CREATED"
-msgstr "最新创建的条目"
+msgid "USER ACTION"
+msgstr ""
 
 #: .\notice\models.py:8
-msgid "COMMENT POSTED"
-msgstr "有评论的帖子"
+#, fuzzy
+msgid "APP NOTICE"
+msgstr "网站通知"
 
-#: .\notice\models.py:9
-msgid "DELETE NOTICE"
-msgstr "删除通知"
-
-#: .\notice\models.py:26
+#: .\notice\models.py:25
 msgid "Notice"
 msgstr "通知"
 
-#: .\notice\models.py:27
+#: .\notice\models.py:26
 msgid "Notices"
 msgstr "通知"
+
+#: .\people\models.py:23
+msgid "chief"
+msgstr "领导"
+
+#: .\people\models.py:25
+msgid "homepage"
+msgstr "主页"
 
 #: .\people\models.py:30
 msgid "Organization"
@@ -1967,401 +2084,437 @@ msgstr "组织机构"
 msgid "Organizations"
 msgstr "组织机构"
 
-#: .\people\models.py:65
+#: .\people\models.py:63
 msgid "Person"
 msgstr "人"
 
-#: .\people\models.py:66
+#: .\people\models.py:64
 msgid "Persons"
 msgstr "人"
 
-#: .\people\models.py:125
+#: .\people\models.py:123
 msgid "Contact"
 msgstr "通讯录"
 
-#: .\people\models.py:126
+#: .\people\models.py:124
 msgid "Contacts"
 msgstr "通讯录"
 
-#: .\people\models.py:146
-msgid "Friend"
-msgstr "朋友"
-
-#: .\people\models.py:147
-msgid "Friends"
-msgstr "朋友"
-
-#: .\photologue\models.py:81
+#: .\photologue\models.py:84
 msgid "Very Low"
 msgstr "很低"
 
-#: .\photologue\models.py:82
+#: .\photologue\models.py:85
 msgid "Low"
 msgstr "低"
 
-#: .\photologue\models.py:83
+#: .\photologue\models.py:86
 msgid "Medium-Low"
 msgstr "中低"
 
-#: .\photologue\models.py:84
+#: .\photologue\models.py:87
 msgid "Medium"
 msgstr "中"
 
-#: .\photologue\models.py:85
+#: .\photologue\models.py:88
 msgid "Medium-High"
 msgstr "中等"
 
-#: .\photologue\models.py:86
+#: .\photologue\models.py:89
 msgid "High"
 msgstr "高"
 
-#: .\photologue\models.py:87
+#: .\photologue\models.py:90
 msgid "Very High"
 msgstr "非常高"
 
-#: .\photologue\models.py:92
+#: .\photologue\models.py:95
 msgid "Top"
 msgstr "顶部"
 
-#: .\photologue\models.py:93
+#: .\photologue\models.py:96
 msgid "Right"
 msgstr "右"
 
-#: .\photologue\models.py:94
+#: .\photologue\models.py:97
 msgid "Bottom"
 msgstr "底部"
 
-#: .\photologue\models.py:95
+#: .\photologue\models.py:98
 msgid "Left"
 msgstr "左边"
 
-#: .\photologue\models.py:96
+#: .\photologue\models.py:99
 msgid "Center (Default)"
 msgstr "居中（默认）"
 
-#: .\photologue\models.py:100
+#: .\photologue\models.py:103
 msgid "Flip left to right"
 msgstr "水平翻转"
 
-#: .\photologue\models.py:101
+#: .\photologue\models.py:104
 msgid "Flip top to bottom"
 msgstr "垂直翻转"
 
-#: .\photologue\models.py:102
+#: .\photologue\models.py:105
 msgid "Rotate 90 degrees counter-clockwise"
 msgstr "逆时针90度"
 
-#: .\photologue\models.py:103
+#: .\photologue\models.py:106
 msgid "Rotate 90 degrees clockwise"
 msgstr "顺时针90度"
 
-#: .\photologue\models.py:104
+#: .\photologue\models.py:107
 msgid "Rotate 180 degrees"
 msgstr "180度旋转"
 
-#: .\photologue\models.py:108
+#: .\photologue\models.py:111
 msgid "Tile"
 msgstr "平铺"
 
-#: .\photologue\models.py:109
+#: .\photologue\models.py:112
 msgid "Scale"
 msgstr "缩放"
 
-#: .\photologue\models.py:119
+#: .\photologue\models.py:122
 #, python-format
-msgid "Chain multiple filters using the following pattern \"FILTER_ONE->FILTER_TWO->FILTER_THREE\". Image filters will be applied in order. The following filters are available: %s."
+msgid ""
+"Chain multiple filters using the following pattern \"FILTER_ONE->FILTER_TWO-"
+">FILTER_THREE\". Image filters will be applied in order. The following "
+"filters are available: %s."
 msgstr ""
 
-#: .\photologue\models.py:123
+#: .\photologue\models.py:126
 msgid "date published"
 msgstr "发布日期"
 
-#: .\photologue\models.py:125
+#: .\photologue\models.py:128
 msgid "title slug"
 msgstr "标题缩记"
 
-#: .\photologue\models.py:126
+#: .\photologue\models.py:129
 msgid "A \"slug\" is a unique URL-friendly title for an object."
 msgstr ""
 
-#: .\photologue\models.py:128
-#: .\photologue\models.py:184
-#: .\photologue\models.py:484
+#: .\photologue\models.py:131 .\photologue\models.py:187
+#: .\photologue\models.py:488
 msgid "is public"
 msgstr "是否公开"
 
-#: .\photologue\models.py:129
+#: .\photologue\models.py:132
 msgid "Public galleries will be displayed in the default views."
 msgstr ""
 
-#: .\photologue\models.py:130
-#: .\photologue\models.py:491
+#: .\photologue\models.py:133 .\photologue\models.py:495
 msgid "photos"
 msgstr "图像"
 
-#: .\photologue\models.py:137
-#: .\templates\themes\default\photologue\index.html.py:11
+#: .\photologue\models.py:140
+#: .\photologue\templates\photologue\index.html.py:11
 #: .\templates\themes\yaml\photologue\index.html.py:11
 msgid "gallery"
 msgstr "专辑"
 
-#: .\photologue\models.py:138
+#: .\photologue\models.py:141
 msgid "galleries"
 msgstr "专辑"
 
-#: .\photologue\models.py:171
+#: .\photologue\models.py:174
 msgid "count"
 msgstr "数量"
 
-#: .\photologue\models.py:178
+#: .\photologue\models.py:181
 msgid "images file (.zip)"
 msgstr "图像压缩包文件(.zip)"
 
-#: .\photologue\models.py:179
+#: .\photologue\models.py:182
 msgid "Select a .zip file of images to upload into a new Gallery."
 msgstr ""
 
-#: .\photologue\models.py:180
-msgid "Select a gallery to add these images to. leave this empty to create a new gallery from the supplied title."
-msgstr ""
-
-#: .\photologue\models.py:181
-msgid "All photos in the gallery will be given a title made up of the gallery title + a sequential number."
-msgstr ""
-
-#: .\photologue\models.py:182
-#: .\photologue\models.py:482
-msgid "caption"
-msgstr "标题"
-
-#: .\photologue\models.py:182
-msgid "Caption will be added to all photos."
-msgstr ""
-
 #: .\photologue\models.py:183
-msgid "A description of this Gallery."
+msgid ""
+"Select a gallery to add these images to. leave this empty to create a new "
+"gallery from the supplied title."
 msgstr ""
 
 #: .\photologue\models.py:184
-msgid "Uncheck this to make the uploaded gallery and included photographs private."
+msgid ""
+"All photos in the gallery will be given a title made up of the gallery title "
+"+ a sequential number."
 msgstr ""
 
-#: .\photologue\models.py:188
+#: .\photologue\models.py:185 .\photologue\models.py:486
+msgid "caption"
+msgstr "标题"
+
+#: .\photologue\models.py:185
+msgid "Caption will be added to all photos."
+msgstr ""
+
+#: .\photologue\models.py:186
+msgid "A description of this Gallery."
+msgstr ""
+
+#: .\photologue\models.py:187
+msgid ""
+"Uncheck this to make the uploaded gallery and included photographs private."
+msgstr ""
+
+#: .\photologue\models.py:191
 msgid "gallery upload"
 msgstr "上传专辑"
 
-#: .\photologue\models.py:189
+#: .\photologue\models.py:192
 msgid "gallery uploads"
 msgstr "上传专辑"
 
-#: .\photologue\models.py:253
-#: .\photologue\models.py:639
+#: .\photologue\models.py:256 .\photologue\models.py:643
 msgid "image"
 msgstr "图像"
 
-#: .\photologue\models.py:254
+#: .\photologue\models.py:258
 msgid "date taken"
 msgstr "拿来日期"
 
-#: .\photologue\models.py:256
+#: .\photologue\models.py:260
 msgid "crop from"
 msgstr "裁切于"
 
-#: .\photologue\models.py:257
+#: .\photologue\models.py:261
 msgid "effect"
 msgstr "效果"
 
-#: .\photologue\models.py:275
+#: .\photologue\models.py:279
 msgid "An \"admin_thumbnail\" photo size has not been defined."
 msgstr ""
 
-#: .\photologue\models.py:283
+#: .\photologue\models.py:287
 msgid "Thumbnail"
 msgstr "缩略图"
 
-#: .\photologue\models.py:480
+#: .\photologue\models.py:484
 msgid "slug"
 msgstr "缩记"
 
-#: .\photologue\models.py:483
+#: .\photologue\models.py:487
 msgid "date added"
 msgstr "添加日期"
 
-#: .\photologue\models.py:484
+#: .\photologue\models.py:488
 msgid "Public photographs will be displayed in the default views."
 msgstr ""
 
-#: .\photologue\models.py:490
+#: .\photologue\models.py:494
 msgid "photo"
 msgstr "图片"
 
-#: .\photologue\models.py:599
+#: .\photologue\models.py:603
 msgid "rotate or flip"
 msgstr "旋转或翻转"
 
-#: .\photologue\models.py:600
-#: .\photologue\models.py:607
+#: .\photologue\models.py:604 .\photologue\models.py:611
 msgid "color"
 msgstr "颜色"
 
-#: .\photologue\models.py:600
-msgid "A factor of 0.0 gives a black and white image, a factor of 1.0 gives the original image."
+#: .\photologue\models.py:604
+msgid ""
+"A factor of 0.0 gives a black and white image, a factor of 1.0 gives the "
+"original image."
 msgstr ""
 
-#: .\photologue\models.py:601
+#: .\photologue\models.py:605
 msgid "brightness"
 msgstr "亮度"
 
-#: .\photologue\models.py:601
-msgid "A factor of 0.0 gives a black image, a factor of 1.0 gives the original image."
+#: .\photologue\models.py:605
+msgid ""
+"A factor of 0.0 gives a black image, a factor of 1.0 gives the original "
+"image."
 msgstr ""
 
-#: .\photologue\models.py:602
+#: .\photologue\models.py:606
 msgid "contrast"
 msgstr "对比度"
 
-#: .\photologue\models.py:602
-msgid "A factor of 0.0 gives a solid grey image, a factor of 1.0 gives the original image."
-msgstr ""
-
-#: .\photologue\models.py:603
-msgid "sharpness"
-msgstr ""
-
-#: .\photologue\models.py:603
-msgid "A factor of 0.0 gives a blurred image, a factor of 1.0 gives the original image."
-msgstr ""
-
-#: .\photologue\models.py:604
-msgid "filters"
-msgstr "滤镜"
-
-#: .\photologue\models.py:605
-msgid "size"
-msgstr ""
-
-#: .\photologue\models.py:605
-msgid "The height of the reflection as a percentage of the orignal image. A factor of 0.0 adds no reflection, a factor of 1.0 adds a reflection equal to the height of the orignal image."
-msgstr ""
-
 #: .\photologue\models.py:606
-msgid "strength"
-msgstr ""
-
-#: .\photologue\models.py:606
-msgid "The initial opacity of the reflection gradient."
+msgid ""
+"A factor of 0.0 gives a solid grey image, a factor of 1.0 gives the original "
+"image."
 msgstr ""
 
 #: .\photologue\models.py:607
-msgid "The background color of the reflection gradient. Set this to match the background color of your page."
+msgid "sharpness"
+msgstr ""
+
+#: .\photologue\models.py:607
+msgid ""
+"A factor of 0.0 gives a blurred image, a factor of 1.0 gives the original "
+"image."
+msgstr ""
+
+#: .\photologue\models.py:608
+msgid "filters"
+msgstr "滤镜"
+
+#: .\photologue\models.py:609
+msgid "size"
+msgstr ""
+
+#: .\photologue\models.py:609
+msgid ""
+"The height of the reflection as a percentage of the orignal image. A factor "
+"of 0.0 adds no reflection, a factor of 1.0 adds a reflection equal to the "
+"height of the orignal image."
 msgstr ""
 
 #: .\photologue\models.py:610
-#: .\photologue\models.py:661
-msgid "photo effect"
+msgid "strength"
+msgstr ""
+
+#: .\photologue\models.py:610
+msgid "The initial opacity of the reflection gradient."
 msgstr ""
 
 #: .\photologue\models.py:611
+msgid ""
+"The background color of the reflection gradient. Set this to match the "
+"background color of your page."
+msgstr ""
+
+#: .\photologue\models.py:614 .\photologue\models.py:665
+msgid "photo effect"
+msgstr ""
+
+#: .\photologue\models.py:615
 msgid "photo effects"
 msgstr ""
 
-#: .\photologue\models.py:640
+#: .\photologue\models.py:644
 msgid "style"
 msgstr ""
 
-#: .\photologue\models.py:641
+#: .\photologue\models.py:645
 msgid "opacity"
 msgstr ""
 
-#: .\photologue\models.py:641
+#: .\photologue\models.py:645
 msgid "The opacity of the overlay."
 msgstr ""
 
-#: .\photologue\models.py:644
+#: .\photologue\models.py:648
 msgid "watermark"
 msgstr "水印"
 
-#: .\photologue\models.py:645
+#: .\photologue\models.py:649
 msgid "watermarks"
 msgstr "水印"
 
-#: .\photologue\models.py:653
-msgid "Photo size name should contain only letters, numbers and underscores. Examples: \"thumbnail\", \"display\", \"small\", \"main_page_widget\"."
+#: .\photologue\models.py:657
+msgid ""
+"Photo size name should contain only letters, numbers and underscores. "
+"Examples: \"thumbnail\", \"display\", \"small\", \"main_page_widget\"."
 msgstr ""
 
-#: .\photologue\models.py:654
+#: .\photologue\models.py:658
 msgid "width"
 msgstr "宽度"
 
-#: .\photologue\models.py:654
-msgid "If width is set to \"0\" the image will be scaled to the supplied height."
+#: .\photologue\models.py:658
+msgid ""
+"If width is set to \"0\" the image will be scaled to the supplied height."
 msgstr ""
 
-#: .\photologue\models.py:655
+#: .\photologue\models.py:659
 msgid "height"
 msgstr "高"
 
-#: .\photologue\models.py:655
-msgid "If height is set to \"0\" the image will be scaled to the supplied width"
+#: .\photologue\models.py:659
+msgid ""
+"If height is set to \"0\" the image will be scaled to the supplied width"
 msgstr ""
 
-#: .\photologue\models.py:656
+#: .\photologue\models.py:660
 msgid "quality"
 msgstr "质量"
 
-#: .\photologue\models.py:656
+#: .\photologue\models.py:660
 msgid "JPEG image quality."
 msgstr ""
 
-#: .\photologue\models.py:657
+#: .\photologue\models.py:661
 msgid "upscale images?"
 msgstr ""
 
-#: .\photologue\models.py:657
-msgid "If selected the image will be scaled up if necessary to fit the supplied dimensions. Cropped sizes will be upscaled regardless of this setting."
-msgstr ""
-
-#: .\photologue\models.py:658
-msgid "crop to fit?"
-msgstr ""
-
-#: .\photologue\models.py:658
-msgid "If selected the image will be scaled and cropped to fit the supplied dimensions."
-msgstr ""
-
-#: .\photologue\models.py:659
-msgid "pre-cache?"
-msgstr ""
-
-#: .\photologue\models.py:659
-msgid "If selected this photo size will be pre-cached as photos are added."
-msgstr ""
-
-#: .\photologue\models.py:660
-msgid "increment view count?"
-msgstr ""
-
-#: .\photologue\models.py:660
-msgid "If selected the image's \"view_count\" will be incremented when this photo size is displayed."
+#: .\photologue\models.py:661
+msgid ""
+"If selected the image will be scaled up if necessary to fit the supplied "
+"dimensions. Cropped sizes will be upscaled regardless of this setting."
 msgstr ""
 
 #: .\photologue\models.py:662
+msgid "crop to fit?"
+msgstr ""
+
+#: .\photologue\models.py:662
+msgid ""
+"If selected the image will be scaled and cropped to fit the supplied "
+"dimensions."
+msgstr ""
+
+#: .\photologue\models.py:663
+msgid "pre-cache?"
+msgstr ""
+
+#: .\photologue\models.py:663
+msgid "If selected this photo size will be pre-cached as photos are added."
+msgstr ""
+
+#: .\photologue\models.py:664
+msgid "increment view count?"
+msgstr ""
+
+#: .\photologue\models.py:664
+msgid ""
+"If selected the image's \"view_count\" will be incremented when this photo "
+"size is displayed."
+msgstr ""
+
+#: .\photologue\models.py:666
 msgid "watermark image"
 msgstr "水印图像"
 
-#: .\photologue\models.py:666
+#: .\photologue\models.py:670
 msgid "photo size"
 msgstr "图片尺寸"
 
-#: .\photologue\models.py:667
+#: .\photologue\models.py:671
 msgid "photo sizes"
 msgstr "图片尺寸"
 
-#: .\saying\models.py:12
+#: .\saying\models.py:34
+#, fuzzy
+msgid "Likes"
+msgstr "链接"
+
+#: .\saying\models.py:35
+#, fuzzy
+msgid "Dislikes"
+msgstr "站点"
+
+#: .\saying\models.py:36
+#, fuzzy
+msgid "Collects"
+msgstr "评论"
+
+#: .\saying\models.py:37
+msgid "Discloses"
+msgstr ""
+
+#: .\saying\models.py:41
 msgid "Saying"
 msgstr "语录"
 
-#: .\saying\models.py:13
+#: .\saying\models.py:42
 msgid "Sayings"
 msgstr "语录"
 
@@ -2389,39 +2542,40 @@ msgstr ""
 msgid "Each tag may be no more than %s characters long."
 msgstr ""
 
-#: .\tagging\models.py:58
+#: .\tagging\models.py:61
 #, python-format
 msgid "No tags were given: \"%s\"."
 msgstr ""
 
-#: .\tagging\models.py:60
+#: .\tagging\models.py:63
 #, python-format
 msgid "Multiple tags were given: \"%s\"."
 msgstr ""
 
-#: .\tagging\models.py:456
-#: .\tagging\models.py:466
+#: .\tagging\models.py:459 .\tagging\models.py:469
 msgid "tag"
 msgstr "标签"
 
-#: .\tagging\models.py:467
+#: .\tagging\models.py:470
 msgid "content type"
 msgstr "内容类型"
 
-#: .\tagging\models.py:468
+#: .\tagging\models.py:471
 msgid "object id"
 msgstr "对象ID"
 
-#: .\tagging\models.py:476
+#: .\tagging\models.py:479
 msgid "tagged item"
 msgstr "标签项"
 
-#: .\tagging\models.py:477
+#: .\tagging\models.py:480
 msgid "tagged items"
 msgstr "标签项"
 
 #: .\tagging\utils.py:189
-msgid "If a list or tuple of tags is provided, they must all be tag names, Tag objects or Tag ids."
+msgid ""
+"If a list or tuple of tags is provided, they must all be tag names, Tag "
+"objects or Tag ids."
 msgstr ""
 
 #: .\tagging\utils.py:191
@@ -2433,15 +2587,15 @@ msgstr ""
 msgid "Invalid distribution algorithm specified: %s."
 msgstr ""
 
-#: .\tagging\views.py:33
+#: .\tagging\views.py:34
 msgid "tagged_object_list must be called with a queryset or a model."
 msgstr ""
 
-#: .\tagging\views.py:39
+#: .\tagging\views.py:40
 msgid "tagged_object_list must be called with a tag."
 msgstr ""
 
-#: .\tagging\views.py:43
+#: .\tagging\views.py:44
 #, python-format
 msgid "No Tag found matching \"%s\"."
 msgstr ""
@@ -2529,89 +2683,99 @@ msgstr ""
 msgid "fourth argument to %s tag must be 'as'"
 msgstr ""
 
-#: .\templates\base.html.py:59
-#: .\templates\forum_base.html.py:40
-#: .\templates\themes\default\base.html.py:41
-#: .\templates\themes\yaml\base.html.py:41
-msgid "Profile"
-msgstr "用户简介"
-
-#: .\templates\base.html.py:59
-#: .\templates\forum_base.html.py:40
-#: .\templates\themes\default\base.html.py:41
-#: .\templates\themes\yaml\base.html.py:41
-msgid "Logout"
-msgstr "注销"
-
-#: .\templates\blog_base.html.py:13
-#: .\templates\blog_base.html.py:16
-#: .\templates\member\avatar\search.html.py:32
-msgid "Search"
-msgstr "搜索"
-
-#: .\templates\blog_base.html.py:44
-msgid "Category"
-msgstr "分类"
-
-#: .\templates\blog_base.html.py:59
-msgid "BlogRoll"
-msgstr "博客链接"
-
-#: .\templates\blog_base.html.py:75
-msgid "Archive"
-msgstr "档案"
-
-#: .\templates\forum\forum_list.html.py:81
-#, python-format
-msgid ""
-"\n"
-"    \t\t\t<p class=\"nums bg_blue\">%(thread_count)s/%(post_count)s</p>\n"
-"\t\t\t  "
+#: .\templates\404.html.py:4 .\templates\404.html.py:7
+msgid "Page not found"
 msgstr ""
 
-#: .\templates\forum\newthread.html.py:4
-#: .\templates\forum\newthread.html.py:11
-#: .\templates\link\newlink.html.py:4
-msgid "New Thread in %(title)s"
+#: .\templates\404.html.py:9
+msgid "We're sorry, but the requested page could not be found."
 msgstr ""
 
-#: .\templates\forum\newthread.html.py:13
-msgid "New Thread"
-msgstr "新话题"
+#: .\templates\404.html.py:10 .\templates\themes\yaml\base.html.py:94
+#: .\templates\themes\yaml\admin\change_form.html.py:17
+msgid "Home"
+msgstr "首页"
 
-#: .\templates\forum\newthread.html.py:18
-msgid "Create a Thread"
-msgstr "创建话题"
-
-#: .\templates\forum\reply.html.py:4
-#, python-format
-msgid "Reply to thread  \"%(title)s\""
+#: .\templates\header.html.py:13
+msgid "Welcome back!"
 msgstr ""
 
-#: .\templates\forum\reply.html.py:6
-#, python-format
-msgid "Reply to Thread \"%(title)s\""
+#: .\templates\header.html.py:17
+msgid "Welcome join us!"
 msgstr ""
 
-#: .\templates\forum\reply.html.py:13
-msgid "Reply to Thread"
+#: .\templates\header.html.py:18
+msgid "Send email to webmaster"
 msgstr ""
 
-#: .\templates\forum\thread.html.py:121
-#: .\templates\forum\thread_list.html.py:85
-msgid "First"
-msgstr "第一"
+#: .\templates\header.html.py:18
+#, fuzzy
+msgid "Forget Password"
+msgstr "密码"
 
-#: .\templates\forum\thread.html.py:125
-#: .\templates\forum\thread_list.html.py:89
-msgid "Last"
-msgstr "最新"
+#: .\templates\header.html.py:49
+msgid "Visit Breadcrumbs"
+msgstr ""
+
+#: .\templates\admin\base_site.html.py:4
+#: .\templates\themes\yaml\admin\base_site.html.py:4
+msgid "Django site admin"
+msgstr "Django 站点管理"
+
+#: .\templates\admin\base_site.html.py:7
+#: .\templates\themes\yaml\admin\base_site.html.py:7
+msgid "Django administration"
+msgstr "Django 管理"
+
+#: .\templates\admin\index.html.py:27 .\templates\admin\index.html.py:31
+#: .\templates\themes\yaml\admin\index.html.py:30
+msgid "%(name)s"
+msgstr ""
+
+#: .\templates\admin\index.html.py:30
+#: .\templates\themes\yaml\admin\index.html.py:34
+msgid "Models available in the %(name)s application."
+msgstr ""
+
+#: .\templates\admin\index.html.py:41
+#: .\templates\themes\yaml\admin\change_form.html.py:20
+#: .\templates\themes\yaml\admin\index.html.py:45
+msgid "Add"
+msgstr "添加"
+
+#: .\templates\admin\index.html.py:47
+#: .\templates\member\account\password_reset_confirm.html.py:42
+#: .\templates\themes\yaml\admin\index.html.py:51
+msgid "Change"
+msgstr "修改"
+
+#: .\templates\admin\index.html.py:57
+#: .\templates\themes\yaml\admin\index.html.py:61
+msgid "You don't have permission to edit anything."
+msgstr "你没有权限编辑任何东西。"
+
+#: .\templates\admin\index.html.py:65
+#: .\templates\themes\yaml\admin\index.html.py:69
+msgid "Recent Actions"
+msgstr "最近动作"
+
+#: .\templates\admin\index.html.py:66
+#: .\templates\themes\yaml\admin\index.html.py:70
+msgid "My Actions"
+msgstr "我的动作"
+
+#: .\templates\admin\index.html.py:70
+#: .\templates\themes\yaml\admin\index.html.py:74
+msgid "None available"
+msgstr "不可用"
 
 #: .\templates\link\newlink.html.py:45
+#: .\templates\themes\yaml\link\newlink.html.py:45
 msgid "Create a Link"
 msgstr "创建链接"
 
 #: .\templates\link\newlink.html.py:48
+#: .\templates\themes\yaml\link\newlink.html.py:48
 msgid "Posting As"
 msgstr "发表者"
 
@@ -2630,7 +2794,10 @@ msgid "Resend confirmation"
 msgstr "重新发送确认"
 
 #: .\templates\member\account\email_validation_reset.html.py:37
-msgid "If you haven't validated your e-mail address yet you couldn't get into the site. Insert the e-mail address yu have registered with so we can resend the validation e-mail to you again"
+msgid ""
+"If you haven't validated your e-mail address yet you couldn't get into the "
+"site. Insert the e-mail address yu have registered with so we can resend the "
+"validation e-mail to you again"
 msgstr ""
 
 #: .\templates\member\account\email_validation_reset_response.html.py:4
@@ -2674,7 +2841,9 @@ msgid "Password change"
 msgstr "密码更改"
 
 #: .\templates\member\account\password_change_done.html.py:20
-msgid "Password change utility page. Please enter your new password twice so we can verify you typed it in correctly"
+msgid ""
+"Password change utility page. Please enter your new password twice so we can "
+"verify you typed it in correctly"
 msgstr ""
 
 #: .\templates\member\account\password_reset_confirm.html.py:4
@@ -2689,18 +2858,14 @@ msgstr "新密码"
 msgid "Confirm password"
 msgstr "确认密码"
 
-#: .\templates\member\account\password_reset_confirm.html.py:42
-#: .\templates\themes\default\admin\index.html.py:48
-#: .\templates\themes\yaml\admin\index.html.py:48
-msgid "Change"
-msgstr "修改"
-
 #: .\templates\member\account\password_reset_confirm.html.py:47
 msgid "Password reset unsuccessful"
 msgstr ""
 
 #: .\templates\member\account\password_reset_confirm.html.py:48
-msgid "The password reset link was invalid, possibly because it has already been used.  Please request a new password reset."
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a new password reset."
 msgstr ""
 
 #: .\templates\member\account\password_reset_confirm.html.py:55
@@ -2708,7 +2873,9 @@ msgid "Password reset"
 msgstr "密码重置"
 
 #: .\templates\member\account\password_reset_confirm.html.py:56
-msgid "Password reset utility page. Please enter your new password twice so we can verify you typed it in correctly"
+msgid ""
+"Password reset utility page. Please enter your new password twice so we can "
+"verify you typed it in correctly"
 msgstr ""
 
 #: .\templates\member\account\password_reset_done.html.py:4
@@ -2717,7 +2884,9 @@ msgid "Password reset successful"
 msgstr ""
 
 #: .\templates\member\account\password_reset_done.html.py:10
-msgid "We've e-mailed you the instructions to obtain a new password. You should be receiving it shortly"
+msgid ""
+"We've e-mailed you the instructions to obtain a new password. You should be "
+"receiving it shortly"
 msgstr ""
 
 #: .\templates\member\account\password_reset_done.html.py:16
@@ -2725,7 +2894,9 @@ msgid "Password reset form"
 msgstr ""
 
 #: .\templates\member\account\password_reset_done.html.py:17
-msgid "Forgotten your password? Enter your e-mail address, and we'll reset your password and e-mail the new one to you"
+msgid ""
+"Forgotten your password? Enter your e-mail address, and we'll reset your "
+"password and e-mail the new one to you"
 msgstr ""
 
 #: .\templates\member\account\registration.html.py:4
@@ -2750,7 +2921,9 @@ msgid "Avatar selection page"
 msgstr ""
 
 #: .\templates\member\avatar\search.html.py:51
-msgid "You have several options to select the image you want as avatar on your profile"
+msgid ""
+"You have several options to select the image you want as avatar on your "
+"profile"
 msgstr ""
 
 #: .\templates\member\profile\delete.html.py:4
@@ -2775,7 +2948,9 @@ msgid "Remove profile"
 msgstr "删除用户档案"
 
 #: .\templates\member\profile\delete.html.py:23
-msgid "It erases all your private data except your username. You can refill the information later if you want to"
+msgid ""
+"It erases all your private data except your username. You can refill the "
+"information later if you want to"
 msgstr ""
 
 #: .\templates\member\profile\delete_done.html.py:4
@@ -2787,7 +2962,9 @@ msgid "Your profile information has been removed successfully"
 msgstr ""
 
 #: .\templates\member\profile\delete_done.html.py:19
-msgid "Deleting all your personal information will erase all your private data, except your username. You can refill the information later if you want to"
+msgid ""
+"Deleting all your personal information will erase all your private data, "
+"except your username. You can refill the information later if you want to"
 msgstr ""
 
 #: .\templates\member\profile\location.html.py:4
@@ -2860,65 +3037,26 @@ msgstr "填写你的个人信息"
 msgid " %(user)s 的公开小档案"
 msgstr ""
 
-#: .\templates\themes\default\admin\base_site.html.py:4
-#: .\templates\themes\yaml\admin\base_site.html.py:4
-msgid "Django site admin"
-msgstr "Django 站点管理"
-
-#: .\templates\themes\default\admin\base_site.html.py:7
-#: .\templates\themes\yaml\admin\base_site.html.py:7
-msgid "Django administration"
-msgstr "Django 管理"
-
-#: .\templates\themes\default\admin\change_form.html.py:20
-#: .\templates\themes\default\admin\index.html.py:42
-#: .\templates\themes\yaml\admin\change_form.html.py:20
-#: .\templates\themes\yaml\admin\index.html.py:42
-msgid "Add"
-msgstr "添加"
-
-#: .\templates\themes\default\admin\change_form.html.py:27
 #: .\templates\themes\yaml\admin\change_form.html.py:27
 msgid "History"
 msgstr "历史"
 
-#: .\templates\themes\default\admin\change_form.html.py:28
 #: .\templates\themes\yaml\admin\change_form.html.py:28
 msgid "View on site"
 msgstr "在站点上查看"
 
-#: .\templates\themes\default\admin\index.html.py:58
-#: .\templates\themes\yaml\admin\index.html.py:58
-msgid "You don't have permission to edit anything."
-msgstr "你没有权限编辑任何东西。"
+#: .\templates\themes\yaml\admin\change_form.html.py:38
+#, fuzzy
+msgid "Please correct the error below."
+msgid_plural "Please correct the errors below."
+msgstr[0] "请更正下面的错误."
+msgstr[1] "请更正下面的错误."
 
-#: .\templates\themes\default\admin\index.html.py:66
-#: .\templates\themes\yaml\admin\index.html.py:66
-msgid "Recent Actions"
-msgstr "最近动作"
-
-#: .\templates\themes\default\admin\index.html.py:67
-#: .\templates\themes\yaml\admin\index.html.py:67
-msgid "My Actions"
-msgstr "我的动作"
-
-#: .\templates\themes\default\admin\index.html.py:71
-#: .\templates\themes\yaml\admin\index.html.py:71
-msgid "None available"
-msgstr "不可用"
-
-#: .\templates\themes\default\pressroom\index.html.py:41
-#: .\templates\themes\yaml\pressroom\index.html.py:41
-msgid "Support"
-msgstr "支持"
-
-#: .\templates\todo\index.html.py:21
-#: .\templates\todo\index.html.py:64
+#: .\templates\todo\index.html.py:21 .\templates\todo\index.html.py:64
 msgid "Public Project"
 msgstr "公开项目"
 
-#: .\templates\todo\index.html.py:21
-#: .\templates\todo\index.html.py:50
+#: .\templates\todo\index.html.py:21 .\templates\todo\index.html.py:50
 #: .\templates\todo\index.html.py:64
 msgid "Private Project"
 msgstr "私人项目"
@@ -2927,8 +3065,7 @@ msgstr "私人项目"
 msgid "This task is completed."
 msgstr "该任务已完成。"
 
-#: .\templates\todo\index.html.py:25
-#: .\templates\todo\index.html.py:34
+#: .\templates\todo\index.html.py:25 .\templates\todo\index.html.py:34
 msgid "Priority"
 msgstr "优先级"
 
@@ -2936,18 +3073,15 @@ msgstr "优先级"
 msgid "Add New Task"
 msgstr "添加新待办任务"
 
-#: .\templates\todo\index.html.py:35
-#: .\todo\models.py:14
+#: .\templates\todo\index.html.py:35 .\todo\models.py:15
 msgid "low"
 msgstr "低"
 
-#: .\templates\todo\index.html.py:36
-#: .\todo\models.py:15
+#: .\templates\todo\index.html.py:36 .\todo\models.py:16
 msgid "medium"
 msgstr "中"
 
-#: .\templates\todo\index.html.py:37
-#: .\todo\models.py:16
+#: .\templates\todo\index.html.py:37 .\todo\models.py:17
 msgid "high"
 msgstr "高"
 
@@ -2963,242 +3097,373 @@ msgstr "创建于"
 msgid "No project is completed!"
 msgstr "没有完成的项目！"
 
-#: .\todo\models.py:10
+#: .\todo\models.py:11
 msgid "public"
 msgstr "公开"
 
-#: .\todo\models.py:11
+#: .\todo\models.py:12
 msgid "private"
 msgstr "私人"
 
-#: .\todo\models.py:21
+#: .\todo\models.py:23
 msgid "Project Name"
 msgstr "项目名称"
 
-#: .\todo\models.py:22
-#: .\todo\models.py:59
+#: .\todo\models.py:24 .\todo\models.py:66
 msgid "Created Date"
 msgstr "创建日期"
 
-#: .\todo\models.py:23
-#: .\todo\models.py:60
+#: .\todo\models.py:25 .\todo\models.py:67
 msgid "LastUpdated Date"
 msgstr "最近更新日期"
 
-#: .\todo\models.py:24
+#: .\todo\models.py:26
 msgid "Project type"
 msgstr "项目类型"
 
-#: .\todo\models.py:25
+#: .\todo\models.py:27
 msgid "Project Description"
 msgstr "项目描述"
 
-#: .\todo\models.py:26
+#: .\todo\models.py:28
 msgid "Project task count"
 msgstr "项目任务数"
 
-#: .\todo\models.py:27
+#: .\todo\models.py:29
 msgid "Completed task count"
 msgstr "完成的项目"
 
-#: .\todo\models.py:28
+#: .\todo\models.py:30
 msgid "Project slug"
 msgstr "项目缩记"
 
-#: .\todo\models.py:42
+#: .\todo\models.py:44
 msgid "Todo Project"
 msgstr "待办事项"
 
-#: .\todo\models.py:43
+#: .\todo\models.py:45
 msgid "Todo Projects"
 msgstr "待办事项"
 
-#: .\todo\models.py:57
+#: .\todo\models.py:64
 msgid "Task Name"
 msgstr "任务名称"
 
-#: .\todo\models.py:58
+#: .\todo\models.py:65
 msgid "Task Project"
 msgstr "任务项目"
 
-#: .\todo\models.py:61
+#: .\todo\models.py:68
 msgid "Task Priority"
 msgstr "优先级"
 
-#: .\todo\models.py:62
+#: .\todo\models.py:69
 msgid "Is task completed"
 msgstr "该任务已完成？"
 
-#: .\todo\models.py:69
+#: .\todo\models.py:76
 msgid "Todo Task"
 msgstr "待办任务"
 
-#: .\todo\models.py:70
+#: .\todo\models.py:77
 msgid "Todo Tasks"
 msgstr "待办任务"
 
+#~ msgid "Department"
+#~ msgstr "部门"
+
+#~ msgid "Departments"
+#~ msgstr "部门"
+
+#~ msgid "Documentation"
+#~ msgstr "文件"
+
+#~ msgid "Change password"
+#~ msgstr "更改密码"
+
+#~ msgid "Log out"
+#~ msgstr "注销"
+
+#~ msgid "Edit Settings"
+#~ msgstr "编辑设置"
+
+#~ msgid "You don't have permission to edit values."
+#~ msgstr "你没有权限编辑任何东西。"
+
+#~ msgid "Date/time"
+#~ msgstr "日期"
+
+#~ msgid "last changed"
+#~ msgstr "最近更改"
+
+#~ msgid "template"
+#~ msgstr "模板"
+
+#~ msgid "templates"
+#~ msgstr "模板"
+
+#~ msgid "Supplier"
+#~ msgstr "供货商"
+
+#~ msgid "Suppliers"
+#~ msgstr "供货商"
+
+#~ msgid "AssetSort"
+#~ msgstr "资产种类"
+
+#~ msgid "AssetSorts"
+#~ msgstr "资产种类"
+
+#~ msgid "GeneralDesignation"
+#~ msgstr "通用名称"
+
+#~ msgid "GeneralDesignations"
+#~ msgstr "通用名称"
+
+#~ msgid "Equipment"
+#~ msgstr "设备"
+
+#~ msgid "Characteristic"
+#~ msgstr "特征参数"
+
+#~ msgid "Characteristics"
+#~ msgstr "特征参数"
+
+#~ msgid "Name"
+#~ msgstr "名称"
+
+#~ msgid "Comment"
+#~ msgstr "评论"
+
+#~ msgid "News Author"
+#~ msgstr "新闻作者"
+
+#~ msgid "News Authors"
+#~ msgstr "新闻作者"
+
+#~ msgid "NewsItem"
+#~ msgstr "新闻"
+
+#~ msgid "NewsItems"
+#~ msgstr "新闻"
+
+#~ msgid "NewsItem1"
+#~ msgstr "新闻1"
+
+#~ msgid "LATEST ENTRY CREATED"
+#~ msgstr "最新创建的条目"
+
+#~ msgid "DELETE NOTICE"
+#~ msgstr "删除通知"
+
 #~ msgid "The directory already exists."
 #~ msgstr "目录已存在"
+
 #~ msgid "The file/directory already exists."
 #~ msgstr "文件或目录已存在"
+
 #~ msgid "Upload successful."
 #~ msgstr "上传成功"
+
 #~ msgid "Thumbnail creation successful."
 #~ msgstr "缩略图创建成功"
+
 #~ msgid "View Image"
 #~ msgstr "查看图像"
+
 #~ msgid "Rename File"
 #~ msgstr "重命名"
+
 #~ msgid "Delete File"
 #~ msgstr "删除文件"
+
 #~ msgid "Delete Folder"
 #~ msgstr "删除文件夹"
+
 #~ msgid "Today"
 #~ msgstr "今天"
+
 #~ msgid "Filename"
 #~ msgstr "文件名"
+
 #~ msgid "Time"
 #~ msgstr "时间"
+
 #~ msgid "E-mail"
 #~ msgstr "邮件"
+
 #~ msgid "login page"
 #~ msgstr "登录页面"
+
 #~ msgid "Register a new account"
 #~ msgstr "注册一个新帐户"
+
 #~ msgid "birthday"
 #~ msgstr "生日"
-#~ msgid "Front page"
-#~ msgstr "首页"
+
 #~ msgid "Overview"
 #~ msgstr "概览"
+
 #~ msgid "Avatar"
 #~ msgstr "头像"
+
 #~ msgid "New e-mail address"
 #~ msgstr "新的电子邮件地址"
+
 #~ msgid "E-mail validation successful"
 #~ msgstr "E-mail 认证成功"
+
 #~ msgid "E-mail change unsuccessful"
 #~ msgstr "E-mail 改变不成功"
+
 #~ msgid "E-mail address validated successfully"
 #~ msgstr "E-mail 认证成功"
+
 #~ msgid "User login"
 #~ msgstr "用户登录"
-#~ msgid "Login"
-#~ msgstr "登录"
+
 #~ msgid "Utilities"
 #~ msgstr "工具"
+
 #~ msgid "Sign up!"
 #~ msgstr "注册！"
+
 #~ msgid "Logged out"
 #~ msgstr "注销"
+
 #~ msgid "Log in again"
 #~ msgstr "重新登录"
+
 #~ msgid "Old password"
 #~ msgstr "旧密码"
+
 #~ msgid "Reset my password"
 #~ msgstr "重置我的密码"
+
 #~ msgid "optional"
 #~ msgstr "可选"
-#~ msgid "Register"
-#~ msgstr "注册"
-#~ msgid "Delete"
-#~ msgstr "删除"
+
 #~ msgid "Change avatar"
 #~ msgstr "改变头便"
+
 #~ msgid "Add avatar"
 #~ msgstr "添加头像"
+
 #~ msgid "Not set yet"
 #~ msgstr "未设置"
+
 #~ msgid "Change your e-mail address"
 #~ msgstr "更改你的电子邮件"
+
 #~ msgid "Add your e-mail address"
 #~ msgstr "添加你的电子邮件"
+
 #~ msgid "Add location"
 #~ msgstr "添加位置"
+
 #~ msgid "Change location"
 #~ msgstr "改变地理位置"
+
 #~ msgid "Public profile of %(user)s"
 #~ msgstr "%(user)s 的公开小档案"
+
 #~ msgid "Public profile information"
 #~ msgstr "公开小档案"
+
 #~ msgid "account title"
 #~ msgstr "账户名称"
+
 #~ msgid "Liability"
 #~ msgstr "负债"
+
 #~ msgid "Income"
 #~ msgstr "收入"
+
 #~ msgid "Expense"
 #~ msgstr "支出"
+
 #~ msgid "Balance"
 #~ msgstr "余额"
+
 #~ msgid "Add money"
 #~ msgstr "存钱"
+
 #~ msgid "Withdraw money"
 #~ msgstr "取钱"
+
 #~ msgid "Move money to another account"
 #~ msgstr "转账"
+
 #~ msgid "Operations history"
 #~ msgstr "操作记录"
+
 #~ msgid "Accounts"
 #~ msgstr "账户"
+
 #~ msgid "New account"
 #~ msgstr "新帐户"
+
 #~ msgid "Add Money"
 #~ msgstr "存钱"
+
 #~ msgid "Credit"
 #~ msgstr "贷方"
+
 #~ msgid "Debit"
 #~ msgstr "借方"
+
 #~ msgid "Tag"
 #~ msgstr "标签"
+
 #~ msgid "Move Money"
 #~ msgstr "转账"
-#~ msgid "Content"
-#~ msgstr "内容"
-#~ msgid "People who have already tried this demo"
-#~ msgstr "已经落户的朋友们！"
-#~ msgid "Frontpage"
-#~ msgstr "首页"
-#~ msgid "Django profile demo"
-#~ msgstr "Django 档案例子"
+
 #~ msgid "news title"
 #~ msgstr "新闻标题"
+
 #~ msgid "password"
 #~ msgstr "密码"
+
 #~ msgid "password (again)"
 #~ msgstr "密码（重复）"
+
 #~ msgid "I have read and agree to the Terms of Service"
 #~ msgstr "我已阅读并同意服务条款"
+
 #~ msgid "You must agree to the terms to register"
 #~ msgstr "你必须同意服务条款后再注册"
+
 #~ msgid ""
 #~ "Registration using free email addresses is prohibited. Please supply a "
 #~ "different email address."
 #~ msgstr "免费邮件禁止注册，请提供其他邮件地址。"
+
 #~ msgid "activation key"
 #~ msgstr "激活密钥"
+
 #~ msgid "registration profile"
 #~ msgstr "注册信息"
+
 #~ msgid "registration profiles"
 #~ msgstr "注册信息"
-#~ msgid "SideBar"
-#~ msgstr "侧边栏"
-#~ msgid "NavTree"
-#~ msgstr "导航树"
-#~ msgid "User Profile"
-#~ msgstr "用户简介"
+
 #~ msgid "Tags"
 #~ msgstr "标签"
+
 #~ msgid "No Archive Now"
 #~ msgstr "目前无存档"
+
 #~ msgid "No Category Now"
 #~ msgstr "目前无分类"
+
 #~ msgid "No Links Now"
 #~ msgstr "目前无链接"
+
 #~ msgid "Todo"
 #~ msgstr "待办"
+
 #~ msgid "Projects in progress"
 #~ msgstr "正在处理的项目"
+
 #~ msgid "Completed Projects"
 #~ msgstr "完成的项目"
-

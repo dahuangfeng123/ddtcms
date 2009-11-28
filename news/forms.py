@@ -22,8 +22,8 @@ def category_choices():
 class NewsForm(forms.ModelForm):
     category  = forms.ChoiceField(label=_(u"Category"),  choices=category_choices())
     deliverer = forms.CharField(label=_(u"Deliverer"))   
-    content = forms.CharField(label=_(u"Content"), widget=NicEditor(attrs={'rows':15, 'cols':66}),required=True)	
-    file    = forms.FileField(label=_("Files"),widget=DynamicMultipleFileField(), required=False)	
+    content   = forms.CharField(label=_(u"Content"), widget=NicEditor(attrs={'rows':15, 'cols':66}),required=True)   
+    file      = forms.FileField(label=_("Files"),widget=DynamicMultipleFileField(), required=False)	
 
     class Meta:
         model = News
