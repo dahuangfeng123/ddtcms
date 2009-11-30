@@ -1,0 +1,102 @@
+{% extends 'base.html' %}{% load i18n %}
+{% block title %}博客{% endblock %}
+{% block css.custom %}
+{%comment%}	<link href="{{MEDIA_URL}}themes/yaml/css/index.css" rel="stylesheet" type="text/css"/>
+	<!--[if lte IE 7]>
+	<link href="{{MEDIA_URL}}themes/yaml/css/patches/patch_index.css" rel="stylesheet" type="text/css" />
+	<![endif]-->{%endcomment%}
+{% endblock css.custom %}
+{% block sidebar %}
+
+<div>
+    <div class="box-top1"><span></span></div>
+    <div class="box1"><h2>{% trans 'Search' %}<span></h2>
+
+    <form action="/blog/search/">
+        <input type="text" name="q"/> <input type="submit" value="{% trans 'Search' %}" /><span class="graytext">以空隔隔开关键字</span>
+    </form><div class="clear"></div>
+    </div>
+    
+    <div class="box-bot"><span></span></div>
+
+</div>
+<div class="clear"></div>
+
+
+<div>
+    <div class="box-top1"><span></span></div>
+        <div class="box1">
+            <h2>Latest</h2>
+            <ul>
+            {% for post in latest_entry_list %}
+                <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+            {% endfor %}
+            </ul>
+            <div class="clear"></div>
+        </div>
+    <div class="box-bot"><span></span></div>
+</div>
+<div class="clear"></div>
+
+<div>
+    <div class="box-top1"><span></span></div>
+    <div class="box1">
+        <h2>{% trans 'Category' %}<span></h2>
+        <ul>
+        {% for category in category_list %}
+            <li><a href="{{ category.get_absolute_url }}">{{ category.name}}</a></li>
+        {% endfor %}
+        </ul>
+    <div class="clear"></div>
+    </div>    
+    <div class="box-bot"><span></span></div>
+</div>
+<div class="clear"></div>
+
+<div>
+    <div class="box-top1"><span></span></div>
+    <div class="box1">
+        <h2>{% trans 'BlogRoll' %}<span></h2>
+        <ul>
+        {% for links in blog_roll %}
+            <li><a href="{{ links.link_address }}">{{ links.link_name }}</a></li>
+        {% endfor %}
+        <li><a href="http://blog.csdn.net/huyoo">huyoo</a></li>{%comment%}{%endcomment%}
+    </ul>
+    <div class="clear"></div>
+    </div>    
+    <div class="box-bot"><span></span></div>
+</div>
+<div class="clear"></div>
+
+<div>
+    <div class="box-top1"><span></span></div>
+    <div class="box1">
+        <h2>{% trans 'Archive' %}<span></h2>
+        <ul>
+        <li><a href="/blog/archive/">All</a></li>
+        {% if year %}
+            <li><a href="/blog/archive/{{ year  }}">{{ year  }}</a></li>
+            {% for date in date_list %}
+                <li><a href="/blog/archive/{{ date|date:"Y/m" }}">{{ date|date:"Y m" }}</a></li>
+            {% endfor %}
+        {% else %}
+            {% for date in date_list %}
+                <li><a href="/blog/archive/{{ date|date:"Y" }}">{{ date|date:"Y" }}</a></li>
+            {% endfor %}
+        {% endif %}
+        </ul>
+    <div class="clear"></div>
+    </div>    
+    <div class="box-bot"><span></span></div>
+</div>
+<div class="clear"></div>
+
+{% endblock %}
+
+
+{% block content %}
+<p>It is now {{ current_date }}.</p>
+
+
+{% endblock %}

@@ -54,23 +54,16 @@ MEDIA_ROOT = './media/'
 # Example: "http://media.lawrence.com"
 MEDIA_URL = '/media/'
 
+STATIC_CSS            = MEDIA_ROOT+'css/'
+STATIC_JS             = MEDIA_ROOT+'js/'
+STATIC_IMAGE          = MEDIA_ROOT+'images/'
+STATIC_THEMES         = MEDIA_ROOT+'themes/'
+STATIC_UPLOAD         = MEDIA_ROOT+'upload/'
+STATIC_EDITOR         = MEDIA_ROOT+'editor/'
 
-STATIC_PATH   = os.path.join(MEDIA_ROOT,'upload/')#'./media/upload/'
-STATIC_THEMES = os.path.join(MEDIA_ROOT,'themes/')#'./media/themes/'
-STATIC_FILE_UPLOAD_DIR = STATIC_PATH
+PHOTOLOGUE_DIR        ='upload/photos/%s/'      % datetime.now().strftime("%Y/%m/%d")
+ATTACHMENT_DIR        ='upload/attachments/%s/' % datetime.now().strftime("%Y/%m/%d")
 
-#STATIC_FILE_UPLOAD_DIR        = STATIC_PATH+'upload/'
-#STATIC_FILE_UPLOAD_TEMP_DIR   = STATIC_PATH+'upload/tmp/'
-STATIC_CSS                     = MEDIA_ROOT+'css/'
-STATIC_THEMES                  = MEDIA_ROOT+'themes/'
-STATIC_JS                      = MEDIA_ROOT+'js/'
-STATIC_IMAGE                   = MEDIA_ROOT+'images/'
-STATIC_EDITOR_DIR              = MEDIA_ROOT+'editor/'
-
-PHOTOLOGUE_DIR                ='upload/photos/%s/' % datetime.now().strftime("%Y/%m/%d")
-
-#ATTACHMENT_DIR                ='upload/attachments/'
-ATTACHMENT_DIR                ='upload/attachments/%s/' % datetime.now().strftime("%Y/%m/%d")
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
@@ -120,8 +113,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    #'./templates/',
-    #'./templates/themes/%s/' % THEME_NAME,
+    './templates/themes/%s/' % THEME_NAME,
     './templates/',
 )
 
