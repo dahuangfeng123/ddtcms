@@ -22,10 +22,8 @@ except ImportError:
 	tagfield_help_text = _('Django-tagging was not found, tags will be treated as plain text.')
 
 # Create your models here.
-
-class CategoryManager(models.Manager):
-	def get_all_roots(self):
-		return self.filter(parent__isnull = True)
+from news.managers import CategoryManager
+from news.managers import NewsManager
 
 
 class Category(models.Model):
@@ -195,24 +193,7 @@ NEWS_STATUS = (
 (4,  _('FLASHSLIDE')),
 (9,  _('DELETED')),
 )
-class NewsManager(models.Manager):
-	def get_published(self):
-		return self.filter(status__gt=0, pub_date__lte=datetime.datetime.now)
-	def get_privated(self):
-		return self.filter(status__exact=0)
-	def get_headlines(self):
-		return self.filter(status__exact=2)
-	def get_recommended(self):
-		return self.filter(status__exact=3)		
-	def get_flashslide(self):
-		return self.filter(status__exact=4)
-	
-	def for_category(self,category):
-		return self.filter(category=category)
-	def for_categories(self,category):
-		categories=category.get_all_children()
-		categories.append(category)
-		return self.filter(category__in=categories)
+
 
 
 class News(models.Model):
