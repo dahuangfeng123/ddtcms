@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+{% load markup news_tags  themes%}
+
+{% block title %}
+	News
+{% endblock %}
+
+{% block breadcrumbs %} <a href="/">首页</a> &raquo; <a href="{% url news-index %}">新闻中心</a>{% for title, url in category.get_url_name %} &raquo; <a href='{{ url }}'>{{ title }}</a>{% endfor %}  {% endblock %}
+
+
+{% block content %}
+
+	<h2>{{ category.name }}</h2>
+
+
+
+<div class="subcolumns">
+	<div class="c25l">
+	  <div class="subcl">
+         <div class="floatbox"> 
+         {%if child_categories%}      
+        	<table border="0" cellpadding="0" cellspacing="0" class="full">
+        		<caption>
+        		    <span  class="highlight">稿件统计</span>
+        		</caption>
+        	    <tbody>
+        		<tr>
+        		  <th scope="col" width="60">类别</th>
+        		  <th scope="col">稿件数</th>
+        		</tr>
+        		{% for item in child_categories %}
+        		<tr>
+        		  <th scope="row" class="sub">
+                    <a href="{{ item.get_absolute_url }}">{{ item.name }}</a>
+        		  </th>
+        		  <td>{{ item.total_posts }}</td>
+        		</tr>
+        		{% endfor %}			
+                <tr>
+				  <th scope="row" class="sub">
+					分类合计
+				  </th>
+				  <td>{{ category.total_posts }}</td>
+                </tr>
+            </table>
+	    {% else %}
+		ddd
+	    {% endif %}	
+		</div>
+	  </div>
+	</div>
+	<div class="c75r">
+	  <div class="subcl">
+	  	<div class="subcolumns">
+            <div class="c62l">
+              <div class="subcl">
+				<div id="latest_news">
+					<h2>最新新闻</h2>
+					<ul>						
+						{% for news in item_list %}
+						<li>{%comment%}{{ news.pub_date|date:"Y-m-d" }}{%endcomment%}({{ news.category }}) <a href="{{news.get_absolute_url}}" title="{{ news.title }}" target="_blank">{{ news.title|slice:"0:15" }}</a>  {%if news.total_attachments%}<img src="{{MEDIA_URL}}images/img.gif" alt="有附件"/>{%endif%}</li>
+						{% endfor %}
+					</ul>
+					</div>
+              </div>
+            </div>
+
+            <div class="c38r">
+              <div class="subcr">
+				<div id="statistics">
+				    <h2>新闻统计</h2>						
+                    <ul>                    
+					    <li>当前分类：{{category}}</li> 
+    					<li>新闻总数：{{category.total_posts}}个新闻</li>
+                    <li>今日更新：0个新闻</li>
+                    <li>浏览总数：642人次</li>
+                    <li>[  浏览新闻分类列表 ]</li>
+                    <li>[  新闻链接地址报错 ]</li>
+                    <li>[  <a href="{%url news-newitem category.slug %}">我要发布新闻资讯</a> ]</li>
+                    </ul>
+				</div>
+              </div>
+            </div>
+          </div>
+	  </div>
+	</div>
+
+
+</div>	
+
+<div id="scene2" class="subcolumns">
+	<div class="c25l">
+	  <div class="subcl">
+		 <div class="floatbox"> 
+		 {%if child_categories%}      
+			<table border="0" cellpadding="0" cellspacing="0" class="full">
+				<caption>
+					<span  class="highlight">推荐新闻</span>
+				</caption>
+				<tbody>
+				{% for item in tuijian_news %}
+				<tr>
+				  <th scope="row" class="sub">
+					<a href="{{ item.get_absolute_url }}">{{ item.name }}</a>
+				  </th>
+				</tr>
+				{% endfor %}			
+			    </tbody>
+			</table>
+		{% else %}
+		顶顶顶顶
+		fasdf
+		{% endif %}	
+		</div>
+	  </div>
+	</div>
+	<div class="c75r">
+        <div class="subcl">
+            <div class="subcolumns">
+                {% for subcategory in child_categories %}
+            	<div class="{% cycle c50l,c50r %}">
+                    <div class="{% cycle subcl,subcr %}">
+                        <div class="news_list">
+                        	<h3><a href="{{ subcategory.get_absolute_url }}">{{ subcategory.name|escape }}</a></h3>
+                    		{% get_posts_by_category subcategory.slug 5 as news_items %}
+                    		<ul>{% for item in news_items %}
+                    			<li><a href="{{ item.get_absolute_url }}">{{ item.title|escape }}</a>{%if item.total_attachments%}<img src="{{MEDIA_URL}}images/img.gif" alt="有附件"/>{%endif%} {{ item.pub_date|date:"y-m-d" }}</li>		
+                    		{% endfor %}</ul>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+</div>	
+
+
+	{% if is_paginated %}
+		<p>
+			{% if has_previous %}
+				<a href="?page={{ previous }}">&laquo; Previous</a> |
+			{% endif %}
+			
+			{% for p in page_range %}
+				{% ifequal page p  %}
+					<span class="current page">{{ p }}</span>
+				{% else %}
+					<a href="?page={{ p }}">{{ p }}</a>
+				{% endifequal %}
+			{% endfor %}
+			
+			{% if has_next %}
+				| <a href="?page={{ next }}">Next &raquo;</a>
+			{% endif %}
+		</p>
+	{% endif %}
+	
+{% endblock %}
