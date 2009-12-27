@@ -9,20 +9,24 @@
 	<meta name="keywords" content="{% block meta.keywords %}{{ SITE_NAME }} {% endblock meta.keywords %}" />
 	<meta name="robots" content="{% block meta.robots %}index,follow{% endblock meta.robots %}" />
 	<meta name="generator" content="django" />
-	<meta name="copyright" content="http://www.{{SITE_NAME}}.com/" />	
+	<meta name="copyright" content="http://www.{{SITE_NAME}}/" />	
+	<link rel="shortcut icon" href="http://localhost/favicon.ico" />
 	{% endblock meta %}
-	
-
 
 	{% block css %}
 	{% block css.shared %}	
 	<link href="{{ MEDIA_URL }}css/default.css" rel="stylesheet" media="screen" type="text/css" />
+	<link id="themecss" href="{{ MEDIA_URL }}css/default1.css" rel="stylesheet" media="screen" type="text/css" />
 	{% endblock css.shared %}
 	{% block css.custom %}	{% endblock css.custom %}
 	{% endblock css%}
 
 	{% block js %}
-	{% block js.shared %}{% endblock js.shared %}
+	{% block js.shared %}
+	<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery-1.2.6.min.js"></script>
+	<script>var nowdomain="http://localhost/";var shouyecss="1";</script>
+	<script type="text/javascript" src="{{ MEDIA_URL }}js/csschange.js"></script>
+	{% endblock js.shared %}
 	{% block js.custom %}{% endblock js.custom %}
 	{% endblock js%}
 	

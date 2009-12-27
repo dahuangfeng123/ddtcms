@@ -1,0 +1,8 @@
+.top-menu {
+	margin: auto;
+	height: 38px;
+	background: #00b7ee url(../images/top-menu-bg-green.gif) repeat-x;
+	line-height:38px;
+	color:#fff;
+	padding-left:15px;
+}

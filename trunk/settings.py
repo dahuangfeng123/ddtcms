@@ -113,7 +113,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    './templates/themes/%s/' % THEME_NAME,
+    # './templates/themes/%s/' % THEME_NAME,
     './templates/',
 )
 
@@ -197,3 +197,6 @@ COMMENTS_ALLOW_PROFANITIES=False
 PROFANITIES_LIST=(
                   'Fuck',
                   )
+
+IGNORABLE_404_STARTS = ('/cgi-bin/', '/_vti_bin', '/_vti_inf','/')
+IGNORABLE_404_ENDS = ('mail.pl', 'mailform.pl', 'mail.cgi', 'mailform.cgi', 'favicon.ico', '.php')

@@ -18,6 +18,8 @@
                 <a href="{% url password_reset %}" title="{% trans "Send email to webmaster" %}" style="cursor:help;">{% trans "Forget Password" %}</a>
 	            	{% endif %}      
             
+	       
+            
 	        </div>
 	    </div>
 	</div>
@@ -30,40 +32,32 @@
         <div>
             <h2>{{SITE_NAME}}</h2>
             <p>网站正在建设中。。。(管理帐户/密码： admin/admin)</p>
-            
 		</div>
         <div class='clearBOX'></div>
 
 	<!-- begin: navigation #nav -->
-			<a id="navigation" name="navigation"></a><!-- skiplink anchor: navigation -->
         <div id="nav"  class="top-menu">            
-			{% load navbar %}{% navbars %}	
+        {% block topnav %}{% include "top_nav.html" %}{% endblock topnav%}
 	</div>
+    	<!-- end: navigation #nav-->
+    </div>
+	
+
+
+<!-- /header -->
         
-	<!-- end: navigation #nav-->
         <!-- begin: breadcrumbs -->
-	<div id="breadcrumbs">
+<div id="breadcrumbs" class="mainwrapper">
         
 				<span class='float_right'>欢迎您的光临！          
 				{{ SITE_TIME|date:"Y年m月d日 D" }}</span>
-            {% trans "Visit Breadcrumbs" %}: {% block breadcrumbs %}{% for crumb in crumbs %}<a href="{{ crumb.path }}">{% trans crumb.name %}</a>{% if not forloop.last %}&raquo;{% endif %}{% endfor %}{% endblock %}
+    {% trans "Breadcrumbs" %}: {% block breadcrumbs %}{% for crumb in crumbs %}<a href="{{ crumb.path }}">{% trans crumb.name %}</a>{% if not forloop.last %}&raquo;{% endif %}{% endfor %}{% endblock %}
             
 		</div>
 	<!-- end: breadcrumbs -->
 
-        
-	</div>
-
-	
 
 
-
-
-
-
-
-
-<!-- /header -->
 
 
 
