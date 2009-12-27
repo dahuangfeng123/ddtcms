@@ -13,6 +13,10 @@ from ddtcms.polls.models import Poll
 from photologue.models import Photo
 from tagging.models import Tag
 from ddtcms.member.forms import RegistrationForm
+from django.views.static import serve
+from django.conf import settings
+import os
+
 
 common_dict={
     "sitename":"我的网站测试中。。。",
@@ -61,6 +65,7 @@ def index(request):
         content='  匿名用户'
         
     #form = RegistrationForm()
+    test=['新闻','论坛','ccc','ddd','eee','fff']
        
     return render_to_response('home/index.html',
                             {"links":links,
@@ -77,10 +82,19 @@ def index(request):
                             "latest_login_users":latest_login_users,
                             "categories":categories,
                             "poll":poll,
+                            "test":test,
                             },context_instance=RequestContext(request))
         
 #    return render_to_response('index.html',{'sitename':'网站正在建设中。。。'})
 
+def favicon(request):
+  path='favicon.ico'
+  document_root=settings.STATIC_IMAGE
+  fullpath = os.path.join(document_root, path)
+  #debug()
+  return serve(request,path=path,document_root=settings.STATIC_IMAGE)
+    
+    
 def list(request):
   latest_post_list = Blog.objects.all()
   return render_to_response('index.html',{'latest_post_list': latest_post_list})

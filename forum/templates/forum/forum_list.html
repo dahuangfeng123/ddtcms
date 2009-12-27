@@ -7,20 +7,16 @@
 <link rel="alternate" type="application/atom+xml" title="All Latest Posts via ATOM" href="{% url forum_index %}atom/" />
 {% endblock %}
 
-{% block css.custom %}
-<link href="{{ MEDIA_URL }}css/iq_browser.css" rel="stylesheet" type="text/css"/>
-{% endblock css.custom %}
 
 {% block js.custom %}
-	<script type="text/javascript" language="javascript" src="{{ MEDIA_URL }}themes/yaml/js/common.js"></script>
+	<script type="text/javascript" language="javascript" src="{{ MEDIA_URL }}js/common.js"></script>
 {% endblock js.custom %}
 
 {% block content %}
 <div class="info" style="display:block;">
 <div>
 
-	<span><img src="{{ MEDIA_URL }}themes/yaml/images/forum/nav_icon.gif" alt="" />&nbsp;&nbsp;
-		<a href="/forum/"><b>靶场练兵论坛</b></a><br />
+    <span><a href="/forum/"><b>论坛</b></a><br />
 	<a href="#" >查看新帖</a> | <a href="#" >热门话题</a> | <a href="#" >发帖排行</a> | <a href="#" >战友花名册</a>
 	</span>
 
@@ -32,7 +28,7 @@
 	今日:11 | 昨日:482 |
 
 	最高日:1953 | <a href="sign">标记已读</a> | <a href="search/?digest=1" target="_blank">精华区</a> | <a href="search/?sch_time=all&orderway=lastpost&asc=desc&newatc=1" target="_blank">最新帖子</a> <a href="rss/" target="_blank" title="RSS订阅本版面最新帖子"><img align="absmiddle" src="{{MEDIA_URL}}images/icon_feed.gif" /></a>
-	<div>靶子:29054 | 命中:150302 | 跑靶:13 | 兵力:20709 | 新兵:<a href="/accounts/profile/{{master}}" target="_blank">pqrs009</a> | 今入伍  名</div>目前编制男兵：<img src="{{MEDIA_URL}}themes/yaml/images/forum/online_boy.gif" alt="男兵"> <font color="green"></font>名，女兵：<img src="{{MEDIA_URL}}themes/yaml/images/forum/online_girl.gif" alt="女兵"> <font color="green"></font>名，不明性别：<img src="{{MEDIA_URL}}themes/yaml/images/forum/online_unkown.gif" alt="不明性别">名
+	<div>话题:29054 | 帖子:150302 | 删帖:13 | 兵力:20709 | 新兵:<a href="/accounts/profile/{{master}}" target="_blank">pqrs009</a> | 今入伍  名</div>目前编制男兵：<img src="{{MEDIA_URL}}images/forum/online_boy.gif" alt="男兵"> <font color="green"></font>名，女兵：<img src="{{MEDIA_URL}}images/forum/online_girl.gif" alt="女兵"> <font color="green"></font>名，不明性别：<img src="{{MEDIA_URL}}images/forum/online_unkown.gif" alt="不明性别">名
 </div>
 	
 <div id="ie_clearing">&nbsp;</div>
@@ -42,36 +38,38 @@
 
 
 <div id="ad_text"></div>
+{{ object_list.length }}{{ user.groups.all }}
 {% for forum in object_list %}
 		<table border="0" cellpadding="0" cellspacing="0" class="full">
 		<caption>
-		  <div class='note'>大靶场:<span  class="highlight">{{ forum.title }}</span>(<span  class="dimmed">{{ forum.description }}</span>)</div>
+		  <div class='note'>分区:<span  class="highlight">{{ forum.title }}</span>(<span  class="dimmed">{{ forum.description }}</span>)</div>
 		</caption>
 		  <thead>
 			<tr><th scope="col" colspan="3">
-				<h5><span class="float_right" style="margin-right:20px">靶场大场长：
+				<h5><span class="float_right" style="margin-right:20px">分区总版主：
 				{% with forum.get_master_list as bigmasters%}
 					{% for master in bigmasters %}<a class="notabs" href="/accounts/profile/{{master}}">{{master}}</a>{% if not forloop.last %}, {% endif %}
 					{% endfor %}{% endwith %} </span>
-				&raquo;[<a href="{{ forum.get_absolute_url }}" >{{ forum.title }}</a>]欢迎您的到来,目前该靶场的打靶最高记录者是admin</h5></th></tr>
+				&raquo;[<a href="{{ forum.get_absolute_url }}" >{{ forum.title }}</a>]</h5></th></tr>
 		  </thead>
 		  <tbody>
 			<tr>
-			  <th scope="col" width="50%">靶区</th>
-			  <th scope="col" width="15%">靶子数/命中数</th>
-			  <th scope="col" width="35%">最后一枪</th>
+			  <th scope="col" width="50%">分区</th>
+			  <th scope="col" width="15%">贴子数/回复数</th>
+			  <th scope="col" width="35%">最后发表</th>
 			</tr>
 			{% with forum.get_all_children as rootforums%}
 			{% for subforum in rootforums %}
 			<tr>
 			  <th scope="row" class="sub">
 				
-				<div class="floatbox"><img src="{{ MEDIA_URL }}themes/yaml/images/forum/forum_new51{%comment%}{{ forum.id }}{{ forloop.counter }}{%endcomment%}.jpg" class="float_left" alt="" />
+				<div class="floatbox"><img src="{{ MEDIA_URL }}images/forum/forum_new51{%comment%}{{ forum.id }}{{ forloop.counter }}{%endcomment%}.jpg" class="float_left" alt="" />
 				<h2><a href="{{ subforum.get_absolute_url }}">{{ subforum.title }}
 					
-					</a> (<img src="{{ MEDIA_URL }}themes/yaml/images/forum/icon_new.gif" align="absmiddle"/> 今日上靶: <strong>{{ subforum.get_posts_on_today }}</strong> )(在场观靶:0人)<em></em></h2>
+					</a> (<img src="{{ MEDIA_URL }}images/forum/icon_new.gif" alt="今日发表"/> <strong>{{ subforum.get_posts_on_today }}</strong> 
+						  <img src="{{ MEDIA_URL }}images/forum/icon_user.gif" alt="当前在线"/> <strong>{{ subforum.get_users_on_today }}0</strong> ) </h2>
 				<p class="dimmed">{{ subforum.description }}</p>
-				<p class="dimmed">靶区区长:	{% with subforum.get_master_list as ms%}{% for master in ms %}<a class="notabs" href="/accounts/profile/{{master}}">{{master}}</a>{% if not forloop.last %}, {% endif %}{% endfor %}{% endwith %} </p>
+				<p class="dimmed">版主:{% with subforum.get_master_list as ms%}{% for master in ms %}<a class="notabs" href="/accounts/profile/{{master}}">{{master}}</a>{% if not forloop.last %}, {% endif %}{% endfor %}{% endwith %} </p>
 				<p class="dimmed">访问权限:{% with subforum.get_groups as subforumgroups%}
 					{% if subforumgroups %}{%for forumgroup in subforumgroups%}{{forumgroup}} {% endfor %}{% else %}匿名用户{% endif %}
 					{% endwith %} 可访问</p>
@@ -100,7 +98,8 @@
 
 <div class="forumlinks box">
 <table class="full" summary="联盟论坛" id="forumlinks" cellpadding="0" cellspacing="0" style="">
-	<tr><td><a href="#" target="_blank">[联盟论坛]</a> 
+	<tr><td>
+            <a href="#" target="_blank">[联盟论坛]</a> 
 		    <a href="#" target="_blank">[联盟论坛]</a>
 		    <a href="#" target="_blank">[申请友情链接]</a> </td></tr>
 </table>
@@ -114,7 +113,7 @@
 <h3>
 - <em>15</em> 人在线
 - <em>15</em> 会员(<em>0</em> 隐身),
-<em>0</em> 位游客
+- <em>0</em> 位游客
 - 最高记录是 <em>27</em> 于 <em>2008-11-18</em>.
 </h3>
 </div>

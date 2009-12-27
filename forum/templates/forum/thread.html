@@ -13,9 +13,9 @@
 <h1><a href="{{ thread.forum.get_absolute_url }}">[{{ thread.forum }}]</a> {{ thread.title }}</h1>
 <strong title="复制帖子链接到剪贴板" id="postnum_{{ thread.id }}" onclick="setcopy('#', '帖子链接已经复制到剪贴板')">复制靶位地址</strong>
 <div class="pages_btns">
-	<span><a href="{{ thread.forum.get_absolute_url }}new/"><img src="{{ MEDIA_URL }}themes/yaml/images/forum/newtopic.gif" border="0" alt="发新话题" title="发新话题" /></a></span>
+	<span><a href="{{ thread.forum.get_absolute_url }}new/"><img src="{{ MEDIA_URL }}images/forum/newtopic.gif" border="0" alt="发新话题" title="发新话题" /></a></span>
 	<a href="{{ thread.get_previous.get_absolute_url }}">上一主题</a><a href="{{ thread.get_next.get_absolute_url }}">下一主题</a>
-	<span><a href="reply"><img src="{{ MEDIA_URL }}themes/yaml/images/forum/reply.gif" border="0" alt="" /></a></span>
+	<span><a href="reply"><img src="{{ MEDIA_URL }}images/forum/reply.gif" border="0" alt="" /></a></span>
 
 
 <span>
@@ -50,7 +50,7 @@
 				
 				<div id="avatar"><div class="avatar"><img class="avatar" src="{{ MEDIA_URL }}images/avatars/noavatar.gif" alt="" /></div></div>
 				<p class="post_level"><em>新会员</em></p>
-				<p class="post_level_img"><img src="{{ MEDIA_URL }}themes/yaml/images/forum/star_level1.gif" alt="Rank: 1" /></p>
+				<p class="post_level_img"><img src="{{ MEDIA_URL }}images/forum/star_level1.gif" alt="Rank: 1" /></p>
 
 
 
@@ -70,8 +70,8 @@
 			<div>{% forum_post_attachments post %}</div>
 			<hr/>
 			<div style="text-align:right;display:none">
-				<img src="{{ MEDIA_URL }}themes/yaml/images/forum/btn_zc.png" border="0" alt="支持" title="支持" />&nbsp;&nbsp;&nbsp;&nbsp;
-				<img src="{{ MEDIA_URL }}themes/yaml/images/forum/btn_fd.png" border="0" alt="反对" title="反对" />
+				<img src="{{ MEDIA_URL }}images/forum/btn_zc.png" border="0" alt="支持" title="支持" />&nbsp;&nbsp;&nbsp;&nbsp;
+				<img src="{{ MEDIA_URL }}images/forum/btn_fd.png" border="0" alt="反对" title="反对" />
 			</div>
 
 
@@ -83,7 +83,7 @@
               </div>
             </fieldset>
 
-			<img src="{{ MEDIA_URL }}themes/yaml/images/forum/signature.gif" border="0" alt="签名档" title="签名档" />
+			<img src="{{ MEDIA_URL }}images/forum/signature.gif" border="0" alt="签名档" title="签名档" />
 			<hr/>
 			<p>{{post.author.get_profile.intro}}</p>
 
@@ -93,7 +93,7 @@
 			<th scope="row" class="sub">帖子操作</th>
 			<td>
 				<div>
-				<span style='float:right'><strong onclick="scroll(0,0)" title="顶部" style="cursor:hand"><img src="{{ MEDIA_URL }}themes/yaml/images/forum/icon_top.gif" align="absmiddle"/>顶部</strong></span>
+				<span style='float:right'><strong onclick="scroll(0,0)" title="顶部" style="cursor:hand"><img src="{{ MEDIA_URL }}images/forum/icon_top.gif" align="absmiddle"/>顶部</strong></span>
 				
 				<a href="{{ thread.get_absolute_url }}edit/?pid={{ post.id }}">修正本次射击</a>
 
@@ -109,9 +109,9 @@
 
 
 		<div class="pages_btns">
-			<span class="postbtn"><a href="{{ thread.forum.get_absolute_url }}new/"><img src="{{ MEDIA_URL }}themes/yaml/images/forum/newtopic.gif" border="0" alt="发新话题" title="发新话题" /></a></span>
+			<span class="postbtn"><a href="{{ thread.forum.get_absolute_url }}new/"><img src="{{ MEDIA_URL }}images/forum/newtopic.gif" border="0" alt="发新话题" title="发新话题" /></a></span>
 			<a href="{{ thread.get_previous }}">上一主题</a><a href="{{ thread.get_next }}">下一主题</a>
-			<span class="replybtn"><a href="reply"><img src="{{ MEDIA_URL }}themes/yaml/images/forum/reply.gif" border="0" alt="" /></a></span>
+			<span class="replybtn"><a href="reply"><img src="{{ MEDIA_URL }}images/forum/reply.gif" border="0" alt="" /></a></span>
 
 
 		<select onchange="if(this.options[this.selectedIndex].value != '') {

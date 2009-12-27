@@ -68,6 +68,7 @@ urlpatterns = patterns('',
     (r'^(?i)editor/(?P<path>.*)$',   'django.views.static.serve',{'document_root': settings.STATIC_EDITOR}),
     (r'^(?i)attachment/(?P<path>.*)$',   'django.views.static.serve',{'document_root': settings.STATIC_UPLOAD+"attachment/"}),
         
+    	    
     (r'^(?i)sitemap.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),    
     #(r'^(?i)sitemap.xml$', 'django.contrib.sitemaps.views.index', {'sitemaps': sitemaps}),
     (r'^(?i)sitemap-(?P<section>.+).xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),

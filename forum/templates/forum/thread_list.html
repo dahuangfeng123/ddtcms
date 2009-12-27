@@ -53,15 +53,15 @@
 	<tr>
 	<td class="folder">
 	    {% if t.sticky %}Sticky {% endif %}
-	    {% if t.closed %}<img src="{{ MEDIA_URL }}themes/yaml/images/forum/folder_lock.gif" />{% endif %}
-	    <a href="{{ t.get_absolute_url }}" title="新窗口打开" target="_blank"><img src="{{ MEDIA_URL }}themes/yaml/images/forum/folder_common.gif" /></a></td>
+	    {% if t.closed %}<img src="{{ MEDIA_URL }}images/forum/folder_lock.gif" />{% endif %}
+	    <a href="{{ t.get_absolute_url }}" title="新窗口打开" target="_blank"><img src="{{ MEDIA_URL }}images/forum/folder_common.gif" /></a></td>
 	<td class="icon">&nbsp;</td>
 
 
 	<th class="common" >
-	<label>{% if t.agree %}<img src="{{ MEDIA_URL }}themes/yaml/images/forum/agree.gif" alt="" />{% else %}{% endif %}
-	{% if t.sticky %}<img src="{{ MEDIA_URL }}themes/yaml/images/forum/pin_1.gif" alt="本版置顶" />{% else %}{% endif %}
-	{% if t.jinghua %}<img src="{{ MEDIA_URL }}themes/yaml/images/forum/digest_1.gif" alt="精华 1" /> {% else %}{% endif %}
+	<label>{% if t.agree %}<img src="{{ MEDIA_URL }}images/forum/agree.gif" alt="" />{% else %}{% endif %}
+	{% if t.sticky %}<img src="{{ MEDIA_URL }}images/forum/pin_1.gif" alt="本版置顶" />{% else %}{% endif %}
+	{% if t.jinghua %}<img src="{{ MEDIA_URL }}images/forum/digest_1.gif" alt="精华 1" /> {% else %}{% endif %}
 	</label>
 	<span id="thread_{{ t.id }}"><a href="{{ t.get_absolute_url }}">{{ t.title|escape }}</a></span>
 	</th>
@@ -93,10 +93,10 @@
 	</ul>
 	{% endif %}
 	<div>靶标:
-	<img src="{{ MEDIA_URL }}themes/yaml/images/forum/folder_common.gif" />没有新帖
-	<img src="{{ MEDIA_URL }}themes/yaml/images/forum/folder_lock.gif" />被锁定
-	<img src="{{ MEDIA_URL }}themes/yaml/images/forum/folder_new.gif" />新帖
-	<img src="{{ MEDIA_URL }}themes/yaml/images/forum/folder_hot.gif" />热帖
+	<img src="{{ MEDIA_URL }}images/forum/folder_common.gif" />没有新帖
+	<img src="{{ MEDIA_URL }}images/forum/folder_lock.gif" />被锁定
+	<img src="{{ MEDIA_URL }}images/forum/folder_new.gif" />新帖
+	<img src="{{ MEDIA_URL }}images/forum/folder_hot.gif" />热帖
 	</div>
 
 

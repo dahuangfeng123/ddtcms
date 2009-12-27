@@ -9,11 +9,12 @@
 	<meta name="keywords" content="{% block meta.keywords %}DDTCMS{% endblock meta.keywords %}" />
 	<meta name="robots" content="{% block meta.robots %}index,follow{% endblock meta.robots %}" />
 	<meta name="generator" content="django" />
+	<meta name="copyright" content="http://www.{{SITE_NAME}}/" />	
 	{% endblock meta %}
 
 	{% block css %}
-	{% block css.shared %}{% endblock css.shared %}
-	{% block css.custom %}{% endblock css.custom %}
+	{% block css.shared %}<link href="{{ MEDIA_URL }}css/default.css" rel="stylesheet" media="screen" type="text/css" />{% endblock css.shared %}
+	{% block css.custom %}<link href="{{ MEDIA_URL }}css/forum.css" rel="stylesheet" media="screen" type="text/css" />{% endblock css.custom %}
 	{% endblock css%}
 
 	{% block js %}
@@ -22,91 +23,106 @@
 	{% endblock js%}
 </head>
 <body{% block bodyonload %}{% endblock bodyonload %}>
+    <div id="wrapper">
+	<div id="topwrapper">
+	  <div id="mininav">
+        <div>    
+            <div id="notice">
+                
+            </div>
+            
+            <div id="tool">
+                ★{{SITE_NAME}}
+                
+	            	
+			      
 
-		<div id="topnav">
-			<div class="page_margins">
-				<div class="page">
-				<!-- start: skip link navigation -->
-				<a class="skip" href="#navigation" title="skip link">Skip to the navigation</a><span class="hideme">.</span>
-				<a class="skip" href="#content" title="skip link">Skip to the content</a><span class="hideme">.</span>
-				<!-- end: skip link navigation -->
-				<span>
 					{% if user.is_authenticated %}
 	            	<a href="{% url profile_overview %}">{{user.username}}'s {% trans "Profile" %}</a> | <a href="{% url logout %}">{% trans "Logout" %}</a>
 	            	{% else %}
 			        <span class="highlight">
-			        	<a href="{% url profile_overview %}" title="登录">上岗</a> 
-			        	<a href="{% url signup %}" title="欢迎加入我们的队伍">注册新用户</a></span>
-						<a href="{% url password_reset %}" title="请和管理员联系" style="cursor:help;">忘记密码</a>
+			        	<a href="{% url profile_overview %}" title="{% trans "Forums" %}">{% trans "Login" %}</a> 
+			        	<a href="{% url signup %}" title="{% trans "Welcome to join us" %}">{% trans "Registry" %}</a></span>
+						<a href="{% url password_reset %}" title="请和管理员联系" style="cursor:help;">{% trans "Forget Password" %}</a>
 	            	{% endif %} 
 					
-					</span></div>
+            
+	        </div>
 			</div>
 		</div>
 		
 		
-			
-		{%comment%}<div id="header">
-			<h1><a href="/" title="首页">{{SITE_NAME}}</a> | 信息网 <em>互动交流,信息共享大型综合性社区</em></h1>
-			<span>新闻、论坛、博客。。。您的家园。。。网站正在建设中。。。(管理帐户/密码： admin/admin)</span></div>{%endcomment%}
 		<div id="header">
-			<div class="page_margins">
-				<div class="page">					
+			
 					<a href="/"  target=_parent>
-					<img src="{{MEDIA_URL}}themes/yaml/images/logo.gif"></a>
-				</div>
-			</div>		
+					<img src="{{MEDIA_URL}}images/logo.gif"></a>
+				<p><a href="/" title="首页"></a> | 信息网 <em>互动交流,信息共享大型综合性社区</em>
+			<span>新闻、论坛、博客。。。您的家园。。。网站正在建设中。。。(管理帐户/密码： admin/admin)</span></p>
 		</div>
 
 		<!-- begin: main navigation #nav -->
-		<div id="nav">
-			<div class="page_margins">
-				<div class="page">
-					 <a id="navigation" name="navigation"></a><!-- skiplink anchor: navigation -->
-					{% load navbar %}{% navbars %}
-				</div>
-			</div>
+		<div id="nav"  class="top-menu">
+
+			<span>
+					{% if user.is_authenticated %}
+	            	<a href="{% url profile_overview %}">{{user.username}}'s {% trans "Profile" %}</a> | <a href="{% url logout %}">{% trans "Logout" %}</a>
+	            	{% else %}
+			        <span class="highlight">
+			        	<a href="{% url profile_overview %}" title="{% trans "Forums" %}">{% trans "Login" %}</a> 
+			        	<a href="{% url signup %}" title="{% trans "Welcome to join us" %}">{% trans "Registry" %}</a>
+			        	<a href="{% url profile_overview %}" title="{% trans "Members" %}">{% trans "Member" %}</a> 
+			        	<a href="{% url profile_overview %}" title="{% trans "Seach Forum" %}">{% trans "Search" %}</a> 
+	            	<a href="/faq/" style="cursor:help;">{% trans "help" %}</a>
+	            	
+	            	</span>
+	            	{% endif %} 
+					
+					</span>	
+
 		</div>
 		
 		
 		<div id="breadcrumbs">
-			<div class="page_margins">
-				<div class="page">
+		    
+		    
+
 					<span style='float: right;'>欢迎您的光临！</span> 
 					您的足迹: <a id="forumlist" href="{% url forum_index %}" class="dropmenu" onmouseover="showMenu(this.id)">{% trans "Forums" %}</a> {% block breadcrumbs %}{% endblock %}
-				</div>
-			</div>
+
 		</div>
 		<!-- end: main navigation -->
+	</div><!--end:topwrapper-->
+	
+	<div id='midwrapper'><!--begin:midwrapper-->
 		
-		<!-- begin: main content area #main -->
-		<div id="main">
-			<div class="page_margins">
-				<div class="page">
-					<a id="content" name="content"></a><!-- skiplink anchor: Content -->
-					{% block content %}
-					{% endblock %}
+	    <div id="pagebody"><!--begin:pagebody-->
+	    {% block pagebody %}
+
+        	
+        	<div id="mainbody"><!--begin:mainbody-->
+                <div class="box-top"><h1>{% block maintitle %}大标题{% endblock %}</h1></div>
+                    <div class="box">
+                    {% block content %} {% endblock content%}
 				</div>
-			</div>
-		</div>
-		<!-- end: #main -->
+                <div class="box-bot"><span></span></div>        	   
+        	</div><!--end:mainbody-->
+        	
+        	
+	    {% endblock pagebody %}
+	    </div><!--end:pagebody-->
+	    
 		<div id="extended">
-			<div class="page_margins">
-			  <div class="page">
+
 			  {% block extended_content %}
 			  {% endblock extended_content%}
-			  </div>
-			</div>
+
 		</div>
 		
+	</div><!--end:midwrapper-->
+	
+	<div id='botmwrapper'><!--begin:botmwrapper-->
 		<!-- begin: #footer -->
-		{%comment%}<div id="shadow"></div>{%endcomment%}
 		<div id="footer">
-			<div class="page_margins">
-			  <div class="page">
-		  	<div class="subcolumns">
-				<div class="c62l">
-				  <div class="subcl">
 			  	<a href="/faq/aboutus">关于我们</a> -
 			<a href="/faq/contact">联系方式</a> -
 			<a href="#">打印</a> -
@@ -116,20 +132,11 @@
 			<a href="/faq/">帮助</a> -
 			<a href="/forum/">论坛</a><br />
 			{{ SITE_NAME }} 版权所有 &copy;  2008. 保留所有权利. <br />
-				  </div>
-				</div>
-			
-				<div class="c38r">
-				  <div class="subcr" style="text-align:right;color: #666;">
 				   <p>内容管理系统基于 <strong>DDTCMS</strong> CMS 项目.<br/>页面布局样式基于 <strong>YAML</strong> CSS 架构.<br/> 网站服务运行基于 <strong>Django</strong> WEB 架构.</p>
 				  </div>
-				</div>
-			</div>
-  			
-			  </div>
-			</div>			
-      	</div>
 		<!-- end: #footer -->
+	</div><!--end:botmwrapper-->
+				</div>
 
 </body>
 </html>

@@ -101,8 +101,8 @@ height: 100%;
 
 #topwrapper {
 width: 100%;
-min-height: 120px;
-/*background-color: #246838;*/
+/*min-height: 120px;
+background-color: #246838;*/
 
 
 
@@ -132,6 +132,16 @@ text-align: center;
 vertical-align:bottom;
 padding-top:20px;
 padding-bottom:0px;
+}
+
+
+.mainwrapper {
+width:950px;
+clear: both;
+margin: 0px;
+padding-top:3px;
+margin:8px auto; /*居中*/
+border:0px solid #369;
 }
 
 #mininav {
@@ -568,3 +578,52 @@ div.content-l {float:left}
 div.content-r {float:right}
 ul.errorlist{color:#dd0000;}
 p.text,p.para{padding-left:15px;text-indent:2em;margin:0px;background-color:#fff;}
+
+.changeSkin { margin-top:0px;}
+.changeSkin em { display:block; float:left; color:#999; *line-height:20px; _line-height:18px;}
+.theme { float:left; background:url(../images/theme.gif) no-repeat 0 4px; height:10px; overflow:hidden; width:100px; padding-top:4px;}
+.theme li { float:left; display:inline; margin-right:6px; background:url(../images/theme.gif) no-repeat 0 -20px;}
+.theme li a { display:block; text-indent:-999em; overflow:hidden; width:10px; height:10px;}
+#theme1.current { background-position:0 -10px;}
+#theme2.current { background-position:-16px -10px;}
+#theme3.current { background-position:-32px -10px;}
+#theme4.current { background-position:-48px -10px;}
+#theme5.current { background-position:-64px -10px;}
+#theme6.current { background-position:-80px -10px;}
+
+.clearfix:after { 
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden; 
+}
+.clearfix {display: inline-block;}
+* html .clearfix {height: 1%;} 
+.clearfix {display: block;}
+
+p.introduction:first-letter {
+    font-size : 300%;
+    font-weight : bold;
+    float : left;
+    width : 1em;
+}
+
+/*header*/
+#header {height:60px;margin:0 auto;}
+#header h1 {float:left;width:170px;height:60px;background-image:none;}
+
+.sitenav {display:block;float:left;width:700px;height:46px;padding:8px 0 6px;}
+.sitenav li {display:block;float:left;width:135px;height:46px;padding:0 11px;border-left:1px solid #d5d7e1  ;}
+.sitenav li.section1 {width:114px;padding-left:8px;border:none;}
+.sitenav li.section2 {width:114px;}
+.sitenav li.section3 {width:138px;}
+.sitenav li.section4 {width:156px;}
+.sitenav li.section5 {width:160px;padding:0 0 0 11px;}
+
+.sitenav li ul {display:block;height:23px;}
+.sitenav li ul li {display:block;float:left;width:38px;height:23px;line-height:23px;text-align:center;padding:0;border:none;}
+.sitenav li ul li.w50 {width:50px;}.sitenav li ul li.w42 {width:42px;}
+
+
+#breadcrumbs{display:block;clear: both; }

@@ -2,9 +2,6 @@
 {% load i18n themes news_tags%}
 
 {% block title %}首页{% endblock %}
-{% block css.custom %}
-	<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/default.css" />
-{% endblock css.custom %}
 
 {% block js.custom %}
 	<script type="text/javascript" src="{{ MEDIA_URL }}js/tab.js"></script>
@@ -13,6 +10,28 @@
 
 
 
+
+
+
+
+{% block topnav %}
+ffffffffffffffffffffffffffffffffffffffffffffffffffffff
+<h1><a href="/" ><img src="{{MEDIA_URL}}images/logo.gif" alt="{{SITE_NAME}}"/></a></h1>
+
+<div class="sitenav">
+<ul>{% load navbar %}
+    {% for navbar in navbars %}
+        {% cycle <li><ul>,<ul> %}
+        <li><strong><a href="" target="_blank">{{ navbar.name|escape }}</a></strong></li>
+        {% for entry in navbar %}<li{% if entry.selected %} class="selected"{% endif %}><a href="{{ entry.url }}" {% if entry.selected %} class="selected"{% endif %} title="{{ entry.title|escape }}">{{ entry.name|escape }}</a></li>{% endfor %}
+        {% cycle </ul>,</ul></li> %}
+    {% endfor %}
+</ul>
+</div>
+
+
+
+{% endblock topnav%}
 
 
 {% block notice %} {% for notice in notice_list %} [公告]<a href="{{notice.get_absolute_url}}">{{ notice.title }}</a>({{notice.pub_date}})  {% endfor %}{% endblock %}
