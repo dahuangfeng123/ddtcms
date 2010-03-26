@@ -16,7 +16,7 @@
 	{% block css %}
 	{% block css.shared %}	
 	<link href="{{ MEDIA_URL }}css/default.css" rel="stylesheet" media="screen" type="text/css" />
-	<link id="themecss" href="{{ MEDIA_URL }}css/default1.css" rel="stylesheet" media="screen" type="text/css" />
+	
 	{% endblock css.shared %}
 	{% block css.custom %}	{% endblock css.custom %}
 	{% endblock css%}
@@ -24,8 +24,7 @@
 	{% block js %}
 	{% block js.shared %}
 	<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery-1.2.6.min.js"></script>
-	<script>var nowdomain="http://localhost/";var shouyecss="1";</script>
-	<script type="text/javascript" src="{{ MEDIA_URL }}js/csschange.js"></script>
+	
 	{% endblock js.shared %}
 	{% block js.custom %}{% endblock js.custom %}
 	{% endblock js%}
@@ -45,6 +44,13 @@
 	
 	<div id='midwrapper'><!--begin:midwrapper-->
 	    
+	    <div id="reserved_banner"><!--begin:reserved_banner-->
+
+                <img src="{{ MEDIA_URL }}images/banner/banner-12.jpg">
+
+        </div><!--end:reserved_banner-->
+	    
+	    
 	    <div id="pagebody"><!--begin:pagebody-->
 	    {% block pagebody %}
         	<div id="sidebar"><!--begin:sidebar-->
@@ -53,6 +59,27 @@
             	    {% block sidebar %} {% endblock sidebar%}
         	        </div>
                 <div class="box-bot"><span></span></div>
+                
+                <div class="box-top"><h1>{% trans "SideBar" %}</h1></div>
+                    <div class="box">
+            	               <div>
+                                    <div class="box-top1"><span></span></div>
+                                    <div class="box1">
+                                        <h2>{% trans "Support" %}</h2>
+                                        <ul>
+                                            <li><a href="http://www.python.org"><img src="{{ MEDIA_URL }}images/support/python-powered.png" alt="python"/></a></li>
+                                            <li><a href="http://www.djangoproject.com"><img src='{{ MEDIA_URL }}images/support/a-DJANGO-site.gif' alt='Site based on Django Web Framework'/></a></li>
+                                            <li><a href="http://code.google.com/p/ddtcms/"><img src='{{ MEDIA_URL }}images/support/ddtcms-powered.jpg' alt='Site powered by DDTCMS'/></a></li>
+                                            <li><a href="http://blog.csdn.net/huyoo/"><img src='{{ MEDIA_URL }}images/support/csdn-huyoo.jpg' alt="Huyoo353's Technical Blog for Support"/></a></li>
+                                        </ul>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <div class="box-bot"><span></span></div>
+                                </div>
+                                <div class="clear"></div> 
+        	        </div>
+                <div class="box-bot"><span></span></div>
+                
         	</div><!--end:sidebar-->
         	
         	<div id="mainbody"><!--begin:mainbody-->
@@ -62,8 +89,16 @@
                     </div>                
                 <div class="box-bot"><span></span></div>        	   
         	</div><!--end:mainbody-->
+        	
+        	{% block extended_content %}
+	        {% endblock extended_content%}
+	
 	    {% endblock pagebody %}
 	    </div><!--end:pagebody-->
+	    
+	    {% block extended_page %}
+	    {% endblock extended_page %}
+	    
 
 	</div><!--end:midwrapper-->
 	
