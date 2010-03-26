@@ -1,4 +1,4 @@
-/******************* CSS Document *******************/
+/******************* Default Theme CSS *******************/
 *{margin: 0;padding: 0;} /*注释:定义所有的标签的margin和padding为0*/
 html, body {
 height: 100%;
@@ -29,9 +29,19 @@ table,td,tr,th {font-size:12px}
 
 p {
  font-size: 1em;
+	font-family: Verdana,"宋体",sans-serif;
  text-indent: 2em;
+	/* margin-bottom:18px; */
 }
-1div{border:1px solid #f88;}
+	p.text,p.para {padding-left:15px;text-indent:2em;margin:0px;background-color:#fff;}
+	p.introduction:first-letter {
+		font-size : 300%;
+		font-weight : bold;
+		float : left;
+		width : 1em;
+	}
+
+1div {border:1px solid #ff8800;}
 1table{border:1px solid #688;}
 
 
@@ -43,11 +53,12 @@ select,input:hover,textarea:hover{background:#FEFCE2;border:1px solid #CCC;paddi
 select,input:focus,textarea:focus{background:#FEFCE2;border:1px solid #CCC;padding:2px 4px;}
 
 dl,dt,dd,ol,ul,li,dl,dt,dd{margin:0px;padding:0px}
-ol,ul,dl{list-style-type:none;padding:0px 5px 0px 15px;}
+ol,ul,dl {list-style-type:none;padding:0px 5px 0px 0px;}
 li {list-style:none;margin-top:2px;}
 dl{display:block;}
 dt{margin:0px 0px 0px 5px;font-weight: bold;}
 dd{margin:0px 0px 0px 20px;}
+hr {color:#000;size:1px;border:1px solid #CCC;}
 
 h1, h2, h3, h4, h5, h6,form,fieldset{margin:0;padding:0}
 
@@ -77,15 +88,21 @@ h1{
 h2{
     padding-left:10px;
 	font-family:Tahoma, Arial, sans-serif;
-	font-size:14px;
 	color:#666;
-	margin-bottom:10px;
-	padding-bottom:5px;
-	/* border-bottom:1px dotted #ccc; */
+	margin-top:10px;
+	/* padding-bottom:5px;
+	border-bottom:1px dashed #ccc; */
 }	
 
-
-
+fieldset, legend { position:relative; }
+fieldset {
+	  border:  1px solid #ccc;
+	  margin: 2px;
+	  padding: 2px 15px;
+	  display: block;
+}
+	fieldset legend {color:#008000;font-weight:bold;font-size: 125%; font-weight: normal; color: #000;}
+	fieldset p {text-indent: 0em;margin:0; padding:0;line-height:1.5em;}
 
 #wrapper {
 width: 100%;
@@ -102,11 +119,8 @@ height: 100%;
 #topwrapper {
 width: 100%;
 /*min-height: 120px;
-background-color: #246838;*/
-
-
-
-/*margin-top:15px;*/
+	background-color: #246838;
+	margin-top:15px;*/
 text-align: center;
 border:0px solid #ff8;
 }
@@ -119,12 +133,15 @@ min-height: 300px;
 margin: 0px;
 text-align: center;
 }
+	#midwrapper  h2 {
+		border-bottom:1px dashed #ccc;
+	}
 
 
 #botmwrapper {
 width: 100%;
 min-height: 80px;
-height: 80px;
+height: auto;
 /*background-color: #246838;*/
 clear: both;
 margin: 0px;
@@ -135,26 +152,29 @@ padding-bottom:0px;
 }
 
 
-.mainwrapper {
-width:950px;
-clear: both;
-margin: 0px;
-padding-top:3px;
-margin:8px auto; /*居中*/
-border:0px solid #369;
-}
-
 #mininav {
-	background: #f8f8f8; color: #a1a0a0; line-height: 22px; border-bottom: #e6e6e6  1px solid; height: 28px; margin:0px auto; /*居中*/text-align: center
+	background: #f8f8f8;
+	color: #a1a0a0;
+	line-height: 22px;
+	border-bottom: #e6e6e6  1px solid;
+	height: 28px;
+	margin:0px auto; /*居中*/
+	text-align: center;
 }
-#mininav img {
-	border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; margin-bottom: 4px; border-right-width: 0px
-}
+	#mininav img {border: none; margin-bottom: 4px; }
 #mininav div {
-	font-size: 12px; margin: 0px auto; width: 898px; font-family: 宋体; text-align: right
+		font-size: 12px;
+		margin: 0px auto;
+		width: 898px;
+		text-align: right;
+		font-family: 宋体;
 }
 #mininav a {
-	padding-right: 3px; padding-left: 3px; font-size: 12px; padding-bottom: 1px; margin: 0px 3px; color: #a1a0a0; padding-top: 1px; text-decoration: none
+		padding: 1px 3px;
+		font-size: 12px;
+		margin: 0px 3px;
+		color: #a1a0a0;
+		text-decoration: none
 }
 #mininav a:hover {
 	background: #929292; color: #fff
@@ -177,17 +197,17 @@ border:0px solid #369;
 }
 
 #header #logo{
-float: left; width: 128px; text-align: center;
-margin-top: 10px;
-height:33px;
-}
-#header h2{
-margin-top: 10px;
-
+		float: left; width: 240px; height:80px;text-align: center;
+		margin-right: 10px;
+		background-color:#ffffff;
 }
 
 
-#nav{padding:0px 20px 0px 0px;}
+	#header h1 {float:left;width:170px;height:60px;background-image:none;}
+	#header h2 {margin-top: 10px;}
+
+
+#nav {padding:0px 20px 0px 0px;margin:8px auto; /*居中*/}
 ul#menu{display:inline;list-style:none;margin:0px;}
 ul#menu li {display:inline;line-height:30px;margin:2px}
 ul#menu li span{border-left:0px solid #369;}
@@ -211,7 +231,7 @@ ul#menu li a:visited {font-weight:bold;color:#fff}
 
 .top-menu {
 	margin: auto;
-	height: 38px;
+	height: auto;
 	background: #00b7ee   url(../images/top-menu-bg.gif) repeat-x;
 	line-height:38px;
 	color:#fff;
@@ -230,7 +250,7 @@ ul#menu li a:visited {font-weight:bold;color:#fff}
 			background: url(../images/select-menu.gif) no-repeat center bottom;
 		}
 
-/*************navbar************/
+/*************navbar begin************/
 .selected { font-weight: bold; }
 ul.navbar-one {  margin-bottom: 0px;}
 ul.navbar-two {  margin-bottom: 0px; margin-top: 0px;}
@@ -242,24 +262,63 @@ ul.navbar-three LI { display: inline; margin-right: 5px; }
 
 ul.level-two{padding:0 0 0 10px}
 ul.level-three{padding:0 0 0 10px}
+/*************navbar end************/
 
 
+#breadcrumbs {
+	width:950px;
+	clear: both;
+	margin: 0px;
+	padding-top:3px;
+	margin:4px auto; /*居中*/
+	border-bottom:1px solid #8DCFE2;display:block;clear: both;
+}
 
-
+#reserved_banner {
+	width:950px;
+	margin: 8px auto; /*居中*/
+	text-align: center;
+	/* border:1px solid #cfdee3; */
+}
 
 #pagebody {
 width:950px;
 margin:8px auto; /*居中*/
 text-align: center;
 }
+.pagewrapper {
+	width:950px;
+	clear: both;
+	padding-top:3px;
+	margin:2px auto; /*居中*/
+	border:0px solid #369;
+}
 
 #sidebar {
 width:200px; /*设定宽度*/
-height: 300px;
+/* height: 300px; */
 text-align:left; /*文字左对齐*/
 float:left; /*浮动居左*/
 clear:left; /*不允许左侧存在浮动*/
 color: #999999;
+}
+
+.mainwrapper {
+	width:740px!important;width:740px;
+	text-align:left;
+	float:right; /*浮动居右*/
+	clear:right; /*不允许右侧存在浮动*/
+	/*clear:both; 不允许右侧存在浮动*/
+	color: #4E4E4E;
+	margin-bottom:8px;
+}
+.semi-mw {
+	/*半主要内容宽度*/
+	width:49.5%;float:left;padding-right: 2px;
+}
+.third-mw {
+	/*三分之一主要内容宽度*/
+	width:33%;float:left;padding-right: 2px;
 }
 
 #mainbody {
@@ -268,19 +327,21 @@ text-align:left;
 float:right; /*浮动居右*/
 clear:right; /*不允许右侧存在浮动*/
 color: #4E4E4E;
+	margin-bottom:8px;
 } 
 
 
 /*文章区域*/
 #mainbody div.modth{height:31px;background:#3b5995;color:#b2d0ea;font-weight:bold;font-size:14px;color:#ebebeb;padding:0 10px;line-height:31px;}
-#mainbody div.tit{color:#890000;font-size:14px;font-weight:bold;font-family:Tahoma;text-align:left;border-top:1px #FF8040 solid;}
+	#mainbody div.tit {color:#890000;font-size:14px;font-weight:bold;font-family:Tahoma;text-align:left;border-top:0px #FF8040 solid;}
 #mainbody div.tit a{color: #890000;font-size:14px;font-weight:bold;text-decoration:none;font-family:Tahoma;background:none}
 #mainbody div.tit a:visited{color:#890000;text-decoration:none;font-family:Tahoma}
 #mainbody div.tit a:hover{color:#888;}
 #mainbody .post-date{margin:0px 0 8px 0;color:#FF8000;font-family:Tahoma;text-align:left}
-#mainbody div.cnt{color:#5A1F01;line-height:20px;font-size:12px;background:none}
+	#mainbody div.cnt {color:#5A1F01;line-height:20px;font-size:12px;background:#ffffff;}
 #mainbody *{line-height:200%!important;}
-#mainbody div.cnt{color:#5A1F01;font-size:12px;line-height:20px;font-family:Tahoma}
+	
+	#mainbody div.cnt {color:#5A1F01;font-size:12px;line-height:20px;font-family:Tahoma;border: 1px solid #F5F5F5;}
 #mainbody div.cnt a{color:#5A1F01;line-height:20px;text-decoration:none;font-size:12px;font-family:Tahoma}
 #mainbody div.cnt a:visited{color:#5A1F01;text-decoration:none;font-size:12px;line-height:20px;font-family:Tahoma}
 #mainbody div.cnt a:hover{color:#B9976E;background:none;line-height:20px;text-decoration:underline;}
@@ -292,12 +353,16 @@ color: #4E4E4E;
 #mainbody div.more a{color:#4C4C4C;font-size:12px;font-family:Tahoma; text-decoration:none}
 #mainbody div.more a:visited{color:#4C4C4C;text-decoration:none}
 #mainbody div.more a:hover{color: #4455F8;text-decoration:underline}
-#mainbody div.opt{margin:0px 12px 12px 12px;text-align:left;color: #999;
+	#mainbody div.opt {
+		margin:1px 0;
+		text-align:left;
+		color: #999;
  font-size: .8em;
- border: 1px solid #E3E4E4;
+		border: 0px solid #E3E4E4;
  background: #F5F5F5;
  padding: 3px 10px;
- clear: both;}
+		clear: both;
+	}
 #mainbody div.opt{color:#958A5C;font-size:12px;text-decoration:none;font-family:Tahoma;text-align:left;}
 #mainbody div.opt a{color:#958A5C;font-size:12px;font-family:Tahoma;text-decoration:none}
 #mainbody div.opt a:visited{color:#958A5C}
@@ -332,6 +397,14 @@ background: #eee;
 	background:#fff;
 	padding:10px 15px 5px 15px;
 }
+	.box table.data {
+		/*width:700px!important;*/
+		width:100%;
+		padding:8px;
+	}
+	.box table.data th { border-bottom:2px solid #bfc8cf;}
+	.box table.data td { border-bottom:1px dotted #bfc8cf;}
+
 .box1 {
 	border-left:1px solid #cfdee3;
 	border-right:1px solid #cfdee3;
@@ -376,6 +449,7 @@ background: #eee;
 		padding:10px 0;
 		border-bottom:1px dotted #ccc;
 	} 
+	
 		.nr {
 			padding-right:60px;
 			font-size:13px;
@@ -419,6 +493,7 @@ background: #eee;
 	line-height:4px;
 	font-size:0;
 	text-align:right;
+	margin-bottom:8px;
 }
 .box-bot span {
 	background:url(../images/box-bot-r.gif) no-repeat right;
@@ -434,7 +509,7 @@ background: #eee;
 
 #footer{
 width:950px;
-height: 55px;
+	height: auto;
 padding-top: 5px;
 
 margin:8px auto; /*居中*/
@@ -536,7 +611,7 @@ font-weight: bold;
 .small{font-size:9px}
 .left{text-align:left}
 .right{text-align:right}
-
+.single_line{line-height:1.5em;margin-top:1em;}
 
 .list {padding:5px 0px; width:100%; background:#fff}
 .list ul {display:block;margin:0px; padding:0px; list-style-type:none}
@@ -557,12 +632,12 @@ font-weight: bold;
 .view_t {margin-bottom:16px;}
 a.view_t:link,a.view_t:visited,a.view_t:hover,a.view_t:active{font-size: 18px;}
 .view_c {font-size:13px;line-height:20px;color:#000;}
-p{margin-bottom:18px;text-indent:2em;}
+
 .view_time {font-size:12px; color:#626262;}
 
 
 
-/* mypoco 结束*/
+/* 结束*/
 #login {width:215px; float:left; padding:1px 0px 0 5px}
 #login_movie {margin:5px 0 0 5px; s}
 #login_movie ul {list-style:none; margin-top:8px; color:#666666; line-height:20px; border-bottom:1px #CCCCCC dashed; padding-bottom:4px}
@@ -577,7 +652,7 @@ p{margin-bottom:18px;text-indent:2em;}
 div.content-l {float:left}
 div.content-r {float:right}
 ul.errorlist{color:#dd0000;}
-p.text,p.para{padding-left:15px;text-indent:2em;margin:0px;background-color:#fff;}
+
 
 .changeSkin { margin-top:0px;}
 .changeSkin em { display:block; float:left; color:#999; *line-height:20px; _line-height:18px;}
@@ -602,17 +677,9 @@ p.text,p.para{padding-left:15px;text-indent:2em;margin:0px;background-color:#fff
 * html .clearfix {height: 1%;} 
 .clearfix {display: block;}
 
-p.introduction:first-letter {
-    font-size : 300%;
-    font-weight : bold;
-    float : left;
-    width : 1em;
-}
+
 
 /*header*/
-#header {height:60px;margin:0 auto;}
-#header h1 {float:left;width:170px;height:60px;background-image:none;}
-
 .sitenav {display:block;float:left;width:700px;height:46px;padding:8px 0 6px;}
 .sitenav li {display:block;float:left;width:135px;height:46px;padding:0 11px;border-left:1px solid #d5d7e1  ;}
 .sitenav li.section1 {width:114px;padding-left:8px;border:none;}
@@ -625,5 +692,36 @@ p.introduction:first-letter {
 .sitenav li ul li {display:block;float:left;width:38px;height:23px;line-height:23px;text-align:center;padding:0;border:none;}
 .sitenav li ul li.w50 {width:50px;}.sitenav li ul li.w42 {width:42px;}
 
+/* link app begin */
+.link_content li {float:left;margin-right:1em;line-height:2em;height:2em;text-overflow:ellipsis;width:30%;overflow:hidden;}
 
-#breadcrumbs{display:block;clear: both; }
+/* link app end */
+
+
+
+/* colored text */
+.red    {color: red;}
+.blue   {color: blue;}
+.green  {color: green;}
+.olive  {color: olive;}
+.yellow {color: yellow;}
+
+/* member app begin */
+div.vcard {
+	float:left;
+	border: 1px dotted #CCC;
+	background: #EFEFEF;
+	padding: 5px;
+	margin: 10px;
+	overflow: hidden;
+}
+div.vcard img{ margin:1px;width:64px; height:64px; overflow:hidden;}
+div.vcard ul {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+/* member app end */
+
+.copyright {margin: 1em 0em;}
+.powered {color:#228B22;}
