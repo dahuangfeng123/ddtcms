@@ -237,7 +237,7 @@ class ProfileManager(models.Manager):
     
     """
         
-    def create_user(self, username, password, email,send_email=settings.SEND_REGISTER_MAIL):
+    def create_user(self, username, password, email,send_email=settings.REQUIRE_EMAIL_CONFIRMATION):
         """
        ``user``
             The ``User`` to relate the profile to.
