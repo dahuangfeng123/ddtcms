@@ -1,6 +1,7 @@
 from django.contrib.sites.models import Site
 import datetime
 from ddtcms import get_version
+from ddtcms import settings
 def site(request):
     """
     Adds site-related context variables to the context.
@@ -13,4 +14,5 @@ def site(request):
         'SITE_URL': "http://www.%s" % (current_site.domain),
         'SITE_TIME':datetime.datetime.now(),
         'DDTCMS_VERSION':get_version(),
+        'THEME_NAME':settings.THEME_NAME,
     }

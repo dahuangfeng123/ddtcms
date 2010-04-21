@@ -14,10 +14,13 @@ class NicEditor(Textarea):
         js = ("%seditor/nicEdit/nicEdit.js" % settings.MEDIA_URL,)
 
     def __init__(self,  attrs=None):
-        self.attrs = {'class': 'niceditor'}
+    	
+        self.attrs = {'class': 'niceditor','cols':50}
         if attrs:
             self.attrs.update(attrs)
-        super(NicEditor, self).__init__(attrs)
+            #a=self.attrs
+    	#debug()
+        super(NicEditor, self).__init__(self.attrs)
 
     def render(self, name, value, attrs=None):
         rendered = super(NicEditor, self).render(name, value, attrs)
@@ -31,14 +34,14 @@ class NicEditor(Textarea):
 
 class CreateThreadForm(forms.Form):
     title = forms.CharField(label=_("Title"),  widget=forms.TextInput(attrs={'size': 50,'class': 'required'}),	max_length=100,help_text="max_length is 100")
-    body = forms.CharField(label=_("Body"), widget=NicEditor(attrs={'rows':8, 'cols':50}))	
-    file =  forms.FileField(label=_("Files"),widget=DynamicMultipleFileField(), required=False)	
+    body = forms.CharField(label=_("Body"), widget=NicEditor(attrs={'rows':8, 'cols':120}))
+    file =  forms.FileField(label=_("Files"),widget=DynamicMultipleFileField(), required=False)
     subscribe = forms.BooleanField(label=_("Subscribe via email"), required=False)
 
 
 
 class ReplyForm(forms.Form):
-    body = forms.CharField(label=_("Body"), widget=NicEditor(attrs={'rows':8, 'cols':50}))
-    file =  forms.FileField(label=_("Files"),widget=DynamicMultipleFileField(),required=False)	
+    body = forms.CharField(label=_("Body"), widget=NicEditor(attrs={'rows':8, 'cols':120}))
+    file =  forms.FileField(label=_("Files"),widget=DynamicMultipleFileField(),required=False)
     subscribe = forms.BooleanField(label=_("Subscribe via email"), required=False)
 

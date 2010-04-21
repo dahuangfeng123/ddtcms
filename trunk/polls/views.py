@@ -1,7 +1,17 @@
+#python.
+
+
+#django.
 from django.shortcuts import get_object_or_404, render_to_response
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
-from ddtcms.polls.models import Choice, Poll
+
+#3dpart.
+
+
+#ddtcms.
+#ddtcms.polls.
+from models import Choice, Poll
 
 def vote(request, poll_id):
     p = get_object_or_404(Poll, pk=poll_id)

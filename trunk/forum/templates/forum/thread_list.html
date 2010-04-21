@@ -17,7 +17,7 @@
 {% block content %}
 
 {% if child_forums %}
-	<table  class="full">
+	<table  class="data">
 		<tr>
 		<th>板块</th>
 		<th>最后发表</th>
@@ -27,14 +27,14 @@
 		<td><p><strong><a href='{{ subforum.get_absolute_url }}'>{{ subforum.title }}</a></strong><br /><span class='djangoForumStats'>{{ subforum.threads }} thread{{ subforum.threads|pluralize }}, {{ subforum.posts }} post{{ subforum.posts|pluralize }}</span></p>
 		<p>{{ subforum.description }}</p></td>
 		{% with subforum.forum_latest_post as latest_post %}
-		<td>{% if latest_post %}{{ latest_post.time|timesince }} 前由 {{ latest_post.author }} 发表 (<a href='{{ latest_post.get_absolute_url }}'>查看</a>){% else %}无命中{% endif %}</td>
+		<td>{% if latest_post %}{{ latest_post.time|timesince }} 前由 {{ latest_post.author }} 发表 (<a href='{{ latest_post.get_absolute_url }}'>查看</a>){% else %}无回复{% endif %}</td>
 		{% endwith %}
 		</tr>
 		{% endfor %}
 	</table>
 {% else %}
 	<h1><a href="#" class="bold">{{ forum.title }}</a></h1>
-	<table cellspacing="0" cellpadding="0" class="full">
+	<table cellspacing="0" cellpadding="0" class="data">
 	<thead>
 	<tr>
 		<td class="folder">图例</td>
@@ -75,7 +75,7 @@
 	<td class="nums"><strong>{{ t.posts }}</strong> / <em>{{ t.views }}</em></td>
 	<td class="lastpost bg_blue">
 	    {% with t.thread_latest_post as latest_post %}
-	    <em><a href="{{ latest_post.get_absolute_url }}">{{ latest_post.time|timesince }}前</a></em><cite>由 <a href="space/?action=viewpro&amp;username=5m44595">{{ latest_post.author }}</a></cite> 命中</td>
+	    <em><a href="{{ latest_post.get_absolute_url }}">{{ latest_post.time|timesince }}前</a></em><cite>由 <a href="space/?action=viewpro&amp;username=5m44595">{{ latest_post.author }}</a></cite> 回复</td>
 	    {% endwith %}
 	</tr>
 	</tbody>
@@ -92,7 +92,7 @@
 	  <li class="djangoForumPagination"><a href="?page={{ paginator.num_pages }}">{% trans "Last" %}</a></li>  
 	</ul>
 	{% endif %}
-	<div>靶标:
+	<div class="single_line">图标:
 	<img src="{{ MEDIA_URL }}images/forum/folder_common.gif" />没有新帖
 	<img src="{{ MEDIA_URL }}images/forum/folder_lock.gif" />被锁定
 	<img src="{{ MEDIA_URL }}images/forum/folder_new.gif" />新帖
@@ -100,7 +100,7 @@
 	</div>
 
 
-	<h2>我要栽个靶子</h2>
+	<h2>我要发帖</h2>
 	{% if user.is_authenticated %}
 	<form method='post' enctype="multipart/form-data" action='new/'>
 	<p><label>作为</label><span>{{ user.username }}</span></p>
@@ -110,7 +110,7 @@
 	<p><input type='submit' value='Post' /></p>
 	</form>
 	{% else %}
-	<p>请<a href="{% url forum_new_thread forum=forum.slug %}">登录</a>后再来栽个靶子.</p>
+	<p>请<a href="{% url forum_new_thread forum=forum.slug %}">登录</a>后再来发帖.</p>
 	{% endif %}
 {% endif %}
 

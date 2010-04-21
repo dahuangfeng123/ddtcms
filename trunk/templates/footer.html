@@ -5,37 +5,21 @@
 	{%comment%}<!-- begin: #footer -->{%endcomment%}
 	<div id="footer">
 
-		<a href="/">返回首页</a> -
-		<a href="/faq/aboutus">关于我们</a> -
-		<a href="/faq/contact">联系方式</a> -
-		<a href="/link/">友情链接</a> -
-		<a href="/sitemap.xml">网站地图</a> -
-		<a href="/admin/">后台管理</a> -
-		<a href="/faq/">帮助</a> -
-		<a href="/forum/">论坛</a><br />
-		
-	  <p class="powered">
-		Powered by <a href="http://code.google.com/p/ddtcms/" title="Django梦之队内容管理系统(DDTCMS)--国内最专业的Django网站管理系统，轻松建站的首选利器。" target="_blank"><strong>DDTCMS <span>V{{ DDTCMS_VERSION }}_UTF8</span></strong></a> &copy; 2008-2009 <a href="http://blog.csdn.net/huyoo/" target="_blank">Huyoo</a> Inc.	</p>
-       <!-- /powered -->
-	  
-	  
-	  
-	  <p class="copyright">
-		&copy; 2008-2009 {{ SITE_NAME }}. All rights reserved. <br />
-		地址：XX省XX市 电话：0123456789,本站由 <strong>站长</strong> 创建.ICP备000000000号.
-      </p>
+        <a href="/">返回首页</a> -
+        <a href="/faq/aboutus">关于我们</a> -
+        <a href="/faq/contact">联系方式</a> -
+        <a href="/link/">友情链接</a> -
+        <a href="/sitemap.xml">网站地图</a> -
+        <a href="/admin/">后台管理</a> -
+        <a href="/faq/">帮助</a> -
+        <a href="/forum/">论坛</a><br />
+        
+        <p class="copyright">
+            {% include "copyright.html" %}
+        </p><!-- /copyright -->
+        <p class="powered">
+            {% include "powered.html" %}
+        </p><!-- /powered -->
  
   	</div>
 	{%comment%}<!-- end: #footer -->{%endcomment%}
-
-
-
-
-
-
-
-
-
-
-
-

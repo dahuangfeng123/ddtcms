@@ -1,11 +1,18 @@
+#python.
+import urllib2
+import random
+import cPickle as pickle
+import base64
+import urllib
+import os
+from xml.dom import minidom
+
+#django.
 from django.shortcuts import render_to_response
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render_to_response, get_object_or_404
 from django.utils.translation import ugettext as _
-from ddtcms.member.forms import AvatarForm, AvatarCropForm, EmailValidationForm, \
-                              ProfileForm, RegistrationForm, LocationForm, \
-                              ResendEmailValidationForm, PublicFieldsForm
 from django.http import Http404,HttpResponseForbidden
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.exceptions import ImproperlyConfigured
@@ -13,19 +20,12 @@ from django.core.urlresolvers import reverse
 from django.utils import simplejson
 from django.db import models
 from django.contrib.auth.models import User, SiteProfileNotAvailable
-from ddtcms.member.models import EmailValidation, Avatar, UserProfileMediaNotFound
 from django.template import RequestContext
 from django.template.loader import render_to_string
 
 from django.conf import settings
-from xml.dom import minidom
-import urllib2
-import random
-import cPickle as pickle
-import base64
-import urllib
-import os
 
+#3dpart.
 try:
     from PIL import Image
 except ImportError:
@@ -64,6 +64,12 @@ AVATAR_WEBSEARCH = hasattr(settings, "AVATAR_WEBSEARCH") and \
 if AVATAR_WEBSEARCH:
     import gdata.service
     import gdata.photos.service
+
+#ddtcms.
+from ddtcms.member.forms import AvatarForm, AvatarCropForm, EmailValidationForm, \
+                              ProfileForm, RegistrationForm, LocationForm, \
+                              ResendEmailValidationForm, PublicFieldsForm
+from ddtcms.member.models import EmailValidation, Avatar, UserProfileMediaNotFound
 
 def get_profiles():
     return Profile.objects.order_by("-date").all()[:64]

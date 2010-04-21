@@ -70,7 +70,7 @@
 			<h2>评论列表<span id="commentAllCountin">({{ comment_count }}条)</span>:</h2>
 			{% get_comment_list for object as comment_list %}
 			<dl class="comments_list">{% for comment in comment_list %}
-				<dt class="dimmed">战友 {{comment.user_name}} 在{{ comment.submit_date|date:"Y-m-d P" }}发表了评论:</dt>
+				<dt class="dimmed">会员 {{comment.user_name}} 在{{ comment.submit_date|date:"Y-m-d P" }}发表了评论:</dt>
 				<dd class="green">{{comment.comment}}</dd>
 		   {% endfor %}</dl>
 		   

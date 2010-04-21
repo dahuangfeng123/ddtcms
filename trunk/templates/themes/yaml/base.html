@@ -57,8 +57,8 @@
 	            	<a href="{% url profile_overview %}">{{user.username}}'s {% trans "Profile" %}</a> | <a href="{% url logout %}">{% trans "Logout" %}</a>
 	            	{% else %}
 			        <span class="highlight">
-			        	<a href="{% url profile_overview %}" title="登录">上岗</a> 
-			        	<a href="{% url signup %}" title="欢迎加入我们的队伍">注册新用户</a></span>
+			        	<a href="{% url profile_overview %}" title="登录">登录</a> 
+			        	<a href="{% url signup %}" title="欢迎加入我们">注册</a></span>
 						<a href="{% url password_reset %}" title="请和管理员联系" style="cursor:help;">忘记密码</a>
 	            	{% endif %}      
 	            </span>
@@ -90,7 +90,7 @@
 		<div class="page_margins">
 			<div class="page">
 				<span class='float_right'>欢迎您的光临！          
-				{{ SITE_TIME|date:"Y年m月d日 D" }}</span>
+				{{ SITE_TIME|date:"Y-m-d  D" }}</span>
 				您的足迹: <a href="/" >{% trans "Home" %}</a>{% block breadcrumbs %}{% for crumb in crumbs %} &raquo; <a href="{{ crumb.path }}">{% trans crumb.name %}</a>{% if not forloop.last %}&raquo;{% endif %}{% endfor %}{% endblock %}
 			</div>
 		</div>

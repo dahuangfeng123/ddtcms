@@ -1,21 +1,31 @@
 # -*- coding: utf-8 -*-
+#python.
+import os
+
+#django.
 from django.shortcuts import render_to_response
 from django.http import HttpResponse,HttpResponseRedirect
 from django.template import RequestContext
 from django.contrib.auth.models import User
 from django.contrib.comments.models import Comment
 
-from ddtcms.blog.models import Blog
-from ddtcms.notice.models import Notice
-from ddtcms.link.models import Link
-from ddtcms.news.models import News,Category
-from ddtcms.polls.models import Poll
-from photologue.models import Photo
-from tagging.models import Tag
-from ddtcms.member.forms import RegistrationForm
 from django.views.static import serve
 from django.conf import settings
-import os
+
+#3dpart.
+
+#ddtcms.
+from blog.models       import Blog
+from link.models       import Link
+from member.forms      import RegistrationForm
+from news.models       import News,Category
+from notice.models     import Notice
+from polls.models      import Poll
+from photologue.models import Photo
+from tagging.models    import Tag
+
+
+
 
 
 common_dict={
@@ -48,15 +58,17 @@ def index(request):
     	poll  = Poll.objects.all().latest('id')
     except Poll.DoesNotExist:
         poll  = None
-    latest_photos   = Photo.objects.all()[:10]
-    latest_login_users   = User.objects.all().order_by('-last_login')[:6]
+    latest_photos      = Photo.objects.all()[:10]
+    latest_login_users = User.objects.all().order_by('-last_login')[:6]
+    
     #latest_news     = News.objects.all().filter(headline__exact=False)[:10]
-    latest_news     = News.objects.get_published()[:6]
-    latest_comments  = Comment.objects.all()[:5]
-    recommended_news     = News.objects.get_recommended()[:5]
-    flashslide_news      = News.objects.get_flashslide()[:5]
+    latest_news      = News.objects.get_published()[:6]
+    recommended_news = News.objects.get_recommended()[:5]
+    flashslide_news  = News.objects.get_flashslide()[:5]
     most_viewed_list = News.objects.get_published().order_by('-views')[:10]
-    categories = Category.objects.all().filter(parent__exact=None)
+    
+    latest_comments  = Comment.objects.all()[:5]    
+    categories       = Category.objects.all().filter(parent__exact=None)
     
     if request.user.is_authenticated():
         username = request.session.get('username', None)
@@ -95,15 +107,3 @@ def favicon(request):
   return serve(request,path=path,document_root=settings.STATIC_IMAGE)
     
     
-def list(request):
-  latest_post_list = Blog.objects.all()
-  return render_to_response('index.html',{'latest_post_list': latest_post_list})
-
-def register(request):
-  return render_to_response('register.html','') 
-
-def login(request):
-  return render_to_response('login.html','') 
-
-def logout(request):
-  return HttpResponse("""you've logout from vill""")

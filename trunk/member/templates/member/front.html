@@ -1,24 +1,31 @@
 {% extends "member/index.html" %}
 {% load i18n %}
-{% block title %}{% trans "Front page" %}{% endblock %}
+{% block title %}用户档案首页{% endblock %}
+
+{% block sidebar %}
+
+<div>
+    <div class="box-top1"><span></span></div>
+    <div class="box1">
+        <h2>{% trans "SideBar" %}</h2>
+        <div id="userprofile_navigation">
+  		    {% block userprofile_navigation %}{% include "member/menu.html" %}{% endblock %}	
+	    </div>
+        <div class="clear"></div>
+    </div>
+    <div class="box-bot"><span></span></div>
+</div>
+<div class="clear"></div>  
+
+
+{% endblock %}
 
 {% block content %}
-<h2>{% trans "People who have already tried this demo" %}</h2>
-<div class="span-8 last">
-				<ul class="hmenu large three">
-					<li><a href="/">{% trans "Frontpage" %}</a></li>
-					{% if user.is_authenticated %}
-					<li><a href="{% url profile_overview %}">{% trans "Profile" %}</a></li>
-   				<li><a href="{% url logout %}">{% trans "Logout" %}</a></li>
-					{% else %} 
-					<li><a href="{% url profile_overview %}">{% trans "Login" %}</a></li>
-					<li><a href="{% url signup %}">{% trans "Register" %}</a></li>
-  				{% endif %}
-				</ul>
-			</div>
-{% for profile in profiles %}
-	{% include "userprofile/profile/usercard.html" %}
-{% endfor %}
+<h2>注册会员</h2>
 
+{% for profile in profiles %}
+	{% include "member/profile/usercard.html" %}
+{% endfor %}
+<div class="clear"></div>
 {% endblock %}
 
