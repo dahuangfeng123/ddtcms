@@ -58,21 +58,19 @@ from django.core.paginator import Paginator, InvalidPage
 #    })
 
 
-urlpatterns = patterns('',
-    (r'^$',                            'ddtcms.blog.views.index'),
-    #(r'^$',                             'django.views.generic.list_detail.object_list', pages_dict),
-    (r'^page/(?P<page>\w+)/$',          'django.views.generic.list_detail.object_list', pages_dict),
+urlpatterns = patterns('django.views.generic',
+    (r'^page/(?P<page>\w+)/$',          'list_detail.object_list', pages_dict),
 
-    (r'^(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\w{1,2})/(?P<slug>[-\w]+)/$', 'django.views.generic.date_based.object_detail', dict(archive_dict,slug_field='slug')),
-    #(r'^tags/(?P<slug>[-\w]+)/$',       'django.views.generic.list_detail.object_detail',dict(tag_dict,slug_field='slug')),
-    #(r'^tags/$',                        'django.views.generic.list_detail.object_list',tag_dict),
-    (r'^category/$',                    'django.views.generic.list_detail.object_list',category_dict),
-    (r'^category/(?P<slug>[-\w]+)/$',   'django.views.generic.list_detail.object_detail',dict(category_dict,slug_field='slug')),
-    (r'^post/$',                        'ddtcms.blog.views.post'),
-    (r'^archive/$',                     'django.views.generic.date_based.archive_index', archive_dict),
-    (r'^archive/(?P<year>\d{4})/$',     'django.views.generic.date_based.archive_year', archive_dict),
-    (r'^archive/(?P<year>\d{4})/(?P<month>\d{2})/$',                      'django.views.generic.date_based.archive_month', dict(archive_dict,month_format='%m')),
-    (r'^archive/(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\w{1,2})/$',     'django.views.generic.date_based.archive_day', dict(archive_dict,month_format='%m')),
+    (r'^(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\w{1,2})/(?P<slug>[-\w]+)/$', 'date_based.object_detail', dict(archive_dict,slug_field='slug')),
+    (r'^category/$',                    'list_detail.object_list',category_dict),
+    (r'^category/(?P<slug>[-\w]+)/$',   'list_detail.object_detail',dict(category_dict,slug_field='slug')),
+    (r'^archive/$',                     'date_based.archive_index', archive_dict),
+    (r'^archive/(?P<year>\d{4})/$',     'date_based.archive_year', archive_dict),
+    (r'^archive/(?P<year>\d{4})/(?P<month>\d{2})/$',                      'date_based.archive_month', dict(archive_dict,month_format='%m')),
+    (r'^archive/(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\w{1,2})/$',     'date_based.archive_day', dict(archive_dict,month_format='%m')),
+)
 
-
+urlpatterns += patterns('ddtcms.blog.views',
+    (r'^$',                            'index'),
+    (r'^post/$',                       'post'),
 )

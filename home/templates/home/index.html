@@ -86,46 +86,25 @@ ffffffffffffffffffffffffffffffffffffffffffffffffffffff
             <div class="box-bot"><span></span></div>
         </div>
         <div class="clear"></div>  
-        
-        <div>
-            <div class="box-top1"><span></span></div>
-            <div class="box1">
-                <h2>{% trans "Support" %}</h2>
-               <ul>            
-            <li><a href="http://www.python.org"><img src="/images/python-powered.png" alt="python"/></a></li>
-            <li><a href="http://www.djangoproject.com"><img src='/images/a-DJANGO-site.gif' alt='Site based on Django'/></a></li>
-           </ul>
-                <div class="clear"></div>
-            </div>
-            <div class="box-bot"><span></span></div>
-        </div>
-        <div class="clear"></div>  
-        
-        
 
-        {% endblock %}
+{% endblock sidebar %}
         
-        
-        
-        
-        
-
-
-
- 
- 
  
 
 {% block content %}
- 
-<h2>DDTCMS</h2>
+
+<h2>Let's Learn Python!</h2>
+<p class='para'><img src="{{ MEDIA_URL }}images/WPLJWO.jpg" /></p>
+<p></p>
+
+<h1>DDTCMS</h1>
 <h2>Summary:</h2>
 <p class='para'>DDTCMS(Django Dream Team's Content Management System),is a CMS based on django 1.0,supported by Django Dream Team,created by huyoo353 on 2008-NOV-10. </p>
 <p>http://code.google.com/p/ddtcms/</p>
 <p>admin u/p: admin/admin </p>
 <h2>Requirements:</h2>
 <dl>
-<dt>django 1.1</dt><dd>Django version 1.1 or greater.</dd>
+<dt>django 1.2</dt><dd>Django version 1.2 or greater.</dd>
 <dt>PIL</dt><dd>The Python Imaging Library,Source: http://www.pythonware.com/products/pil/</dd>
 <dt>markdown</dt>
 <dd>Markdown is a text-to-HTML conversion tool for web writers.
@@ -167,20 +146,109 @@ http://code.google.com/p/django-wikiapp/
 </dd></dl>
  
 
-        {% endblock %}
+{% endblock content %}
          
        
 
 {% block extended_content %}
-<div id="extended">
 
-			<div id="links">
-				<h3>友情链接</h3>
-				<ul  class="text">{% for link in links %}
-					<li><a href="{{ link.url }}" target="_blank">{{ link.title }}</a></li>{% endfor %}
-				</ul>
-			</div>
+<div id="links1" class="mainwrapper"><!--begin:extended-->
+    <div class="box-top"><h1>扩展内容 </h1></div>
+        <div id="links" class="box link_content">
+            <ul>{% for link in links %}
+		        <li><a href="{{ link.url }}" target="_blank">{{ link.title }}</a></li>{% endfor %}
+	        </ul>	        
+	        <div class="clear"></div>
+        </div>                
+    <div class="box-bot"><span></span></div>        	   
+</div><!--end:extended-->
 
-</div>
+<div id="2cols" class="mainwrapper"><!--begin:extended-->
+    <div class='semi-mw'><div class="box-top"><h1>扩展内容 </h1></div>
+        <div id="q1" class="box">
+            <p>扩展内容为左浮动样式</p>	        
+	        <div class="clear"></div>
+        </div>                
+    <div class="box-bot"><span></span></div></div>
+    
+    <div class='semi-mw'><div class="box-top"><h1>扩展内容 </h1></div>
+        <div id="q2" class="box">
+            <p>扩展内容为左浮动样式</p>     
+	        <div class="clear"></div>
+        </div>                
+    <div class="box-bot"><span></span></div> </div> 
+    
+    <div class='semi-mw'><div class="box-top"><h1>扩展内容 </h1></div>
+        <div id="q3" class="box">
+            <p>扩展内容为左浮动样式</p>     
+	        <div class="clear"></div>
+        </div>                
+    <div class="box-bot"><span></span></div> </div> 
+    		
+    <div class='semi-mw'><div class="box-top"><h1>扩展内容 </h1></div>
+        <div id="q4" class="box">
+            <p>扩展内容为左浮动样式</p>     
+	        <div class="clear"></div>
+        </div>                
+    <div class="box-bot"><span></span></div> </div> 	
+    	
+    		   
+</div><!--end:extended-->
 
+<div id="3cols" class="mainwrapper"><!--begin:extended-->
+    <div class='third-mw'><div class="box-top"><h1>扩展内容 </h1></div>
+        <div id="q1" class="box">
+            <p>扩展内容为左浮动样式</p>	        
+	        <div class="clear"></div>
+        </div>                
+    <div class="box-bot"><span></span></div></div>
+    
+    <div class='third-mw'><div class="box-top"><h1>扩展内容 </h1></div>
+        <div id="q2" class="box">
+            <p>扩展内容为左浮动样式</p>     
+	        <div class="clear"></div>
+        </div>                
+    <div class="box-bot"><span></span></div> </div> 
+    
+    <div class='third-mw'><div class="box-top"><h1>扩展内容 </h1></div>
+        <div id="q3" class="box">
+            <p>扩展内容为左浮动样式</p>     
+	        <div class="clear"></div>
+        </div>                
+    <div class="box-bot"><span></span></div> </div> 
+    		   
+</div><!--end:extended-->
 {% endblock extended_content%}
+
+{% block extended_page %}
+
+<div id="extended" class="pagewrapper"><!--begin:extended_page-->
+    <div class="box-top"><h1><span><a href="{% url link_index %}" title="网址链接">更多...</a></span>  友情链接 </h1></div>
+    <div class="box link_content">
+        <ul>{% for link in links %}
+	        <li><a href="{{ link.url }}" title='{{link.notes}}'>{{ link.title }}</a></li>{% endfor %}
+        </ul>
+        <div class="clear"></div>
+    </div>
+    <div class="box-bot"><span></span></div>
+</div><!--end:extended_page-->
+
+
+<div id="extended1" class="pagewrapper"><!--begin:extended_page1-->
+    <div class="box-top"><h1> 下一屏内容 </h1></div>
+    <div class="box">
+        其他信息,比如弄个小广告什么的.
+        <div class="clear"></div>
+    </div>
+    <div class="box-bot"><span></span></div>
+</div><!--end:extended_page1-->
+
+<div id="extended2" class="pagewrapper"><!--begin:extended_page2-->
+    <div class="box-top"><h1> 下一屏内容 </h1></div>
+    <div class="box">
+        其他信息,比如弄个小广告什么的.
+        <div class="clear"></div>
+    </div>
+    <div class="box-bot"><span></span></div>
+</div><!--end:extended_page2-->
+{% endblock extended_page %}

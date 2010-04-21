@@ -7,11 +7,8 @@
 {% block content %}
 
     <p>{% for object in object_list %}
-        <a href="{{object.get_absolute_url}}" target='_blank'>{{ object.fullname }}</a>{% endfor %}
+        <a href="{{object.get_absolute_url}}" >{{ object.fullname }}</a>{% endfor %}
     </p>
- 
-
-
 
 
 {% endblock %}

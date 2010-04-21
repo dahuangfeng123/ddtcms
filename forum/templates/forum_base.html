@@ -28,115 +28,104 @@
 	  <div id="mininav">
         <div>    
             <div id="notice">
-                
+                ggg
             </div>
             
             <div id="tool">
                 ★{{SITE_NAME}}
-                
-	            	
-			      
-
-					{% if user.is_authenticated %}
+	            	 
+	            {% if user.is_authenticated %}
 	            	<a href="{% url profile_overview %}">{{user.username}}'s {% trans "Profile" %}</a> | <a href="{% url logout %}">{% trans "Logout" %}</a>
 	            	{% else %}
 			        <span class="highlight">
 			        	<a href="{% url profile_overview %}" title="{% trans "Forums" %}">{% trans "Login" %}</a> 
-			        	<a href="{% url signup %}" title="{% trans "Welcome to join us" %}">{% trans "Registry" %}</a></span>
+			        	<a href="{% url signup %}" title="{% trans "Welcome to join us" %}">{% trans "Register" %}</a></span>
 						<a href="{% url password_reset %}" title="请和管理员联系" style="cursor:help;">{% trans "Forget Password" %}</a>
-	            	{% endif %} 
-					
+	            	{% endif %} 	
+	           
             
 	        </div>
-			</div>
-		</div>
-		
-		
+	    </div>
+	</div>
+  
+
 		<div id="header">
-			
-					<a href="/"  target=_parent>
-					<img src="{{MEDIA_URL}}images/logo.gif"></a>
-				<p><a href="/" title="首页"></a> | 信息网 <em>互动交流,信息共享大型综合性社区</em>
-			<span>新闻、论坛、博客。。。您的家园。。。网站正在建设中。。。(管理帐户/密码： admin/admin)</span></p>
-		</div>
+		    
+		    <div id=''> 
+	            <a href="/"  target=_parent>
+                <img src="{{MEDIA_URL}}images/logo.gif"></a>
+                <p><a href="/" title="首页"></a> <strong>论坛</strong> | <span><em>互动交流,信息共享大型综合性社区</em></span></p>
+		    </div>
+		    <div class="clear"></div>
+				
+            
+		
+		
 
-		<!-- begin: main navigation #nav -->
-		<div id="nav"  class="top-menu">
-
-			<span>
-					{% if user.is_authenticated %}
-	            	<a href="{% url profile_overview %}">{{user.username}}'s {% trans "Profile" %}</a> | <a href="{% url logout %}">{% trans "Logout" %}</a>
-	            	{% else %}
-			        <span class="highlight">
-			        	<a href="{% url profile_overview %}" title="{% trans "Forums" %}">{% trans "Login" %}</a> 
-			        	<a href="{% url signup %}" title="{% trans "Welcome to join us" %}">{% trans "Registry" %}</a>
-			        	<a href="{% url profile_overview %}" title="{% trans "Members" %}">{% trans "Member" %}</a> 
-			        	<a href="{% url profile_overview %}" title="{% trans "Seach Forum" %}">{% trans "Search" %}</a> 
-	            	<a href="/faq/" style="cursor:help;">{% trans "help" %}</a>
-	            	
-	            	</span>
-	            	{% endif %} 
-					
-					</span>	
-
+    		<!-- begin: main navigation #nav -->
+    		<div id="nav"  class="top-menu">
+    
+    			<ul class="navbar-one">
+    			{% if user.is_authenticated %}
+                	<li><a href="{% url profile_overview %}">{{user.username}}'s {% trans "Profile" %}</a></li>  
+                	<li><a href="{% url logout %}">{% trans "Logout" %}</a></li>
+    	        {% else %}
+    	        	<li><a href="{% url profile_overview %}" title="{% trans "Forums" %}">{% trans "Login" %}</a> </li>
+    	        	<li><a href="{% url signup %}" title="{% trans "Welcome to join us" %}">{% trans "Register" %}</a></li>
+    	        	<li><a href="{% url profile_overview %}" title="{% trans "Members" %}">{% trans "Member" %}</a></li> 
+    	        	<li><a href="{% url profile_overview %}" title="{% trans "Seach Forum" %}">{% trans "Search" %}</a></li> 
+            	    <li><a href="/faq/" style="cursor:help;">{% trans "help" %}</a></li>
+            	
+    	        {% endif %} 
+    					
+    			</ul>
+    
+    		</div><!-- end: main navigation #nav -->
 		</div>
 		
 		
 		<div id="breadcrumbs">
-		    
-		    
-
-					<span style='float: right;'>欢迎您的光临！</span> 
-					您的足迹: <a id="forumlist" href="{% url forum_index %}" class="dropmenu" onmouseover="showMenu(this.id)">{% trans "Forums" %}</a> {% block breadcrumbs %}{% endblock %}
-
+		    <span style='float: right;'>欢迎您的光临！</span> 
+		    您的足迹: <a id="forumlist" href="{% url forum_index %}" class="dropmenu" onmouseover="showMenu(this.id)">{% trans "Forums" %}</a> {% block breadcrumbs %}{% endblock %}
 		</div>
-		<!-- end: main navigation -->
+		
 	</div><!--end:topwrapper-->
 	
 	<div id='midwrapper'><!--begin:midwrapper-->
-		
+	    
 	    <div id="pagebody"><!--begin:pagebody-->
 	    {% block pagebody %}
 
         	
-        	<div id="mainbody"><!--begin:mainbody-->
+        	<div id="forumbody" class="pagewrapper"><!--begin:forumbody-->
                 <div class="box-top"><h1>{% block maintitle %}大标题{% endblock %}</h1></div>
                     <div class="box">
                     {% block content %} {% endblock content%}
-				</div>
+                    </div>                
                 <div class="box-bot"><span></span></div>        	   
-        	</div><!--end:mainbody-->
+        	</div><!--end:forumbody-->
         	
         	
 	    {% endblock pagebody %}
 	    </div><!--end:pagebody-->
 	    
-		<div id="extended">
+	    <div id="extended_content"  class="pagewrapper">
 
 			  {% block extended_content %}
 			  {% endblock extended_content%}
 
 		</div>
 		
+		{% block extended_page %}
+	    {% endblock extended_page %}
+
 	</div><!--end:midwrapper-->
 	
 	<div id='botmwrapper'><!--begin:botmwrapper-->
-		<!-- begin: #footer -->
-		<div id="footer">
-			  	<a href="/faq/aboutus">关于我们</a> -
-			<a href="/faq/contact">联系方式</a> -
-			<a href="#">打印</a> -
-			<a href="/link/">友情链接</a> -
-			<a href="/sitemap.xml">网站地图</a> -
-			<a href="/admin/">后台管理</a> -
-			<a href="/faq/">帮助</a> -
-			<a href="/forum/">论坛</a><br />
-			{{ SITE_NAME }} 版权所有 &copy;  2008. 保留所有权利. <br />
-				   <p>内容管理系统基于 <strong>DDTCMS</strong> CMS 项目.<br/>页面布局样式基于 <strong>YAML</strong> CSS 架构.<br/> 网站服务运行基于 <strong>Django</strong> WEB 架构.</p>
-				  </div>
+	    <!-- begin: #footer -->
+		{% block footer %}{% include "footer.html" %}{% endblock footer%}
 		<!-- end: #footer -->
 	</div><!--end:botmwrapper-->
-				</div>
-
+    </div>
 </body>
 </html>

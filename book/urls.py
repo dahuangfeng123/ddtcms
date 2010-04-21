@@ -8,7 +8,7 @@ info_dict = {
     'queryset': Book.objects.all(),
 }
 
-urlpatterns = patterns('',
-    (r'^$',                               'django.views.generic.list_detail.object_list', info_dict),
-    (r'^(?P<object_id>\d+)/$',            'django.views.generic.list_detail.object_detail', info_dict),
+urlpatterns = patterns('django.views.generic',
+    (r'^$',                               'list_detail.object_list', info_dict),
+    (r'^(?P<object_id>\d+)/$',            'list_detail.object_detail', info_dict),
 )

@@ -8,3 +8,8 @@ class CreateLinkForm(forms.Form):
     
     
 
+class CGPUploadForm(forms.Form):
+    cgpfile     = forms.FileField(label=_("Please Choose GreenBrowser Group Files(*.cgp)"), max_length=100)
+    title       = forms.CharField(label=_("Title"), max_length=100)
+    category    = forms.CharField(label=_("Title"), max_length=100)
+    description = forms.CharField(label=_("Description"), required=False,widget=forms.Textarea(attrs={'rows':8, 'cols':50}))

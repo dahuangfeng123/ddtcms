@@ -22,7 +22,7 @@
             {% endif %}     
                 <ul class="todo_tasks">
                     {% for t in p.task_set.all %}
-                        {% ifequal t.completed 1%}<li class="li_done"><img align="absmiddle" alt="done" src="/images/check_green.gif"/>&nbsp;&nbsp;{% else %}<li>{% if is_authenticated %}<input type="checkbox" name="cbx_done_task" value="{{t.id}}" title="{% trans 'This task is completed.' %}" />{% endif %} {% endifequal%}<img align="absmiddle" alt="priority" title="{{t.priority|priority_name}} {% trans 'Priority' %}" src="/images/bug-{{t.priority|priority_name}}.png"/>{{t.name}} <span class="small">任务更新于{{t.lastupdated|timesince}}之前</span>
+                        {% ifequal t.completed 1%}<li class="li_done"><img alt="done" src="/images/check_green.gif"/>&nbsp;&nbsp;{% else %}<li>{% if is_authenticated %}<input type="checkbox" name="cbx_done_task" value="{{t.id}}" title="{% trans 'This task is completed.' %}" />{% endif %} {% endifequal%}<img alt="priority" title="{{t.priority|priority_name}} {% trans 'Priority' %}" src="/images/bug-{{t.priority|priority_name}}.png"/>{{t.name}} <span class="small">任务更新于{{t.lastupdated|timesince}}之前</span>
                 {% if is_authenticated %} <a class="task_delete" name="a_del_task" rel="{{t.id}}" href="javascript:void 0;">X del</a> {% ifequal t.completed 1%}<a class="task_undone" name="a_undone_task" href="javascript:void 0" rel="{{t.id}}">- undone</a>{% endifequal %}{% endif %}     
                         </li>                
                     {% endfor %}
@@ -65,7 +65,7 @@
             {% endif %}     
                 <ul class="todo_tasks">
                     {% for t in p.task_set.all %}
-                        <li><img align="absmiddle" alt="done" src="/images/check_green.gif"/> <img align="absmiddle" alt="priority" title="{{t.priority|priority_name}} priority" src="/images/bug-{{t.priority|priority_name}}.png"/>{{t.name}}<span class="small">最后更新于{{t.lastupdated|timesince}}之前</span>
+                        <li><img alt="done" src="/images/check_green.gif"/> <img alt="priority" title="{{t.priority|priority_name}} priority" src="/images/bug-{{t.priority|priority_name}}.png"/>{{t.name}}<span class="small">最后更新于{{t.lastupdated|timesince}}之前</span>
                 {% if is_authenticated %} <a class="task_delete" name="a_del_task" rel="{{t.id}}" href="javascript:void 0;">X del</a> <a class="task_undone" name="a_undone_task" href="javascript:void 0" rel="{{t.id}}">- undone</a>{% endif %}     
                         </li>                
                     {% endfor %}             

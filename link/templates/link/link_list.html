@@ -1,20 +1,24 @@
 {% extends 'base.html' %}{% load i18n %}
-{% block title %}The current time{% endblock %}
+{% block title %}网址导航{% endblock %}
 
 
 
- 
+
 
 
 {% block sidebar %}
 
-		
+
         <div>
             <div class="box-top1"><span></span></div>
             <div class="box1">
 	      		<h2>操作菜单</h2>
 	      		<ul>
-	      			<li><a href="{%url newlink%}">添加新链接</a></li>
+	      			<li><a href="{%url link_create%}">添加新链接</a></li>
+	      			<li><a href="{%url link_create%}">批量添加新链接</a></li>
+	      			<li><a href="{%url link_create%}">导入GreenBrowser群组文件</a></li>
+	      			<li><a href="{%url link_create%}">导入Maxthon群组文件</a></li>
+	      			<li><a href="{%url link_create%}">导入IE书签</a></li>
 	      		</ul>
 	      		<h2>链接分类</h2>
 	      		<ul>
@@ -26,8 +30,8 @@
 			</div>
             <div class="box-bot"><span></span></div>
 	      </div>
-        <div class="clear"></div>  
-				
+        <div class="clear"></div>
+
         <div>
             <div class="box-top1"><span></span></div>
             <div class="box1">
@@ -42,33 +46,47 @@
 								<li>1</li>
 								<li>2</li>
 							</ul>
-{% endblock %}
+                            {% endblock %}
 
                 <div class="clear"></div>
-	      </div>
+	        </div>
             <div class="box-bot"><span></span></div>
 	    </div>
-        <div class="clear"></div>  
-        
-        
-        
-        
-        
+        <div class="clear"></div>
 
-        {% endblock %}
-        
-        
-	    
+{% endblock sidebar %}
+
+
+
 {% block content %}
+    <div class="link_content"><!--begin:link_content-->
+        <h2>网址导航</h2>
 
-
-
-<h2>网址导航</h2>
-
-    <p>{% for object in object_list %}
-<a href="{{object.url}}" target='_blank'>{{ object.title }}</a>{% endfor %}
-    </p>
- 
-
+        <ul>{% for link in link_list %}
+        <li><a href="{{link.url}}" target='_blank'>{{ link.title }}</a></li>{% endfor %}
+        </ul>
+    </div><!--end:link_content-->
+<div class="clear"></div>
 
 {% endblock %}
+
+{% block extended_content %}
+
+{% for c in user_category %}
+<div id="category_{{ c.id }}" class="mainwrapper"><!--begin:category_{{ c.slug }}-->
+    <div class="box-top"><h1><span><a href="{% url link_index %}" title="网址链接">更多...</a> </span> {{ c.name }} </h1></div>
+        <div class="box link_content">
+            <ul>{% for link in c.child_links.all %}
+                <li><a href="{{link.url}}" title='{{link.notes}}'>{{ link.title }}</a></li>{% endfor %}
+            </ul>
+            <div class="clear"></div>
+        </div>
+    <div class="box-bot"><span></span></div>
+</div><!--end:category_{{ c.slug }}-->
+
+{% endfor %}
+
+
+
+
+{% endblock extended_content%}

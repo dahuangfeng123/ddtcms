@@ -29,7 +29,7 @@
 	
 				<span><img src="{{ MEDIA_URL }}themes/yaml/images/forum/nav_icon.gif" alt="" />&nbsp;&nbsp;
 					<a href="/forum/"><b>论坛</b></a><br />
-				<a href="#" >查看新帖</a> | <a href="#" >热门话题</a> | <a href="#" >发帖排行</a> | <a href="#" >战友花名册</a>
+				<a href="#" >查看新帖</a> | <a href="#" >热门话题</a> | <a href="#" >发帖排行</a> | <a href="#" >会员</a>
 				</span>
 			
 			</div>
@@ -39,9 +39,9 @@
 		<div class="c60r">
 		  <div class="subcr txtalr">
 		  	<div  id="forumstats">	
-				<p>今日:11 | 昨日:482 | 最高日:1953 | <a href="sign">标记已读</a> | <a href="search/?digest=1" target="_blank">精华区</a> | <a href="search/?newatc=1" target="_blank">最新话题</a> <a href="/forum/rss.xml" target="_blank" title="RSS订阅本版面最新话题"><img align="absmiddle" src="{{MEDIA_URL}}images/icon_feed.gif" /></a></p>
-				<p>话题:119 | 帖子:119 | 废帖:13 | 会员:20709 | 新人:<a href="/accounts/profile/{{master}}" target="_blank">pqrs009</a> | 今注册 名</p>
-				<p>目前编制男兵：<img src="{{MEDIA_URL}}themes/yaml/images/forum/online_boy.gif" alt="男兵"> <font color="green"></font>名，女兵：<img src="{{MEDIA_URL}}themes/yaml/images/forum/online_girl.gif" alt="女兵"> <font color="green"></font>名，不明性别：<img src="{{MEDIA_URL}}themes/yaml/images/forum/online_unkown.gif" alt="不明性别">名</p>
+				<p>今日:11 | 昨日:482 | 最高日:1953 | <a href="sign">标记已读</a> | <a href="search/?digest=1" target="_blank">精华区</a> | <a href="search/?newatc=1" target="_blank">最新话题</a> <a href="/forum/rss.xml" target="_blank" title="RSS订阅本版面最新话题"><img src="{{MEDIA_URL}}images/icon_feed.gif" /></a></p>
+				<p>话题:119 | 帖子:119 | 废帖:13 | 会员总数:20709 | {% trans "newbie" %}:<a href="/accounts/profile/{{master}}" target="_blank">pqrs009</a> | 今注册 名</p>
+				<p>目前有 {% trans "boy" %}:<img src="{{MEDIA_URL}}themes/yaml/images/forum/online_boy.gif" alt="{% trans "boy" %}"> <font color="green"></font>名，{% trans "girl" %}:<img src="{{MEDIA_URL}}themes/yaml/images/forum/online_girl.gif" alt="{% trans "girl" %}"> <font color="green"></font>名，不明性别：<img src="{{MEDIA_URL}}themes/yaml/images/forum/online_unkown.gif" alt="不明性别">名</p>
 			</div>
 		   
 		  </div>
@@ -55,11 +55,11 @@
 {% for forum in object_list %}
 		<table border="0" cellpadding="0" cellspacing="0" class="full">
 		<caption>
-		  <div class='note'>分区:<span  class="highlight">{{ forum.title }}</span>(<span  class="dimmed">{{ forum.description }}</span>)</div>
+		  <div class='note'>版块:<span  class="highlight">{{ forum.title }}</span>(<span  class="dimmed">{{ forum.description }}</span>)</div>
 		</caption>
 		  <thead>
 			<tr><th scope="col" colspan="3">
-				<h5><span class="float_right" style="margin-right:20px">分区总版主：
+				<h5><span class="float_right" style="margin-right:20px">版块总版主：
 				{% with forum.get_master_list as bigmasters%}
 					{% for master in bigmasters %}<a class="notabs" href="/accounts/profile/{{master}}">{{master}}</a>{% if not forloop.last %}, {% endif %}
 					{% endfor %}{% endwith %} </span>
@@ -67,8 +67,8 @@
 		  </thead>
 		  <tbody>
 			<tr>
-			  <th scope="col" width="50%">分区</th>
-			  <th scope="col" width="15%">贴子数/回复数</th>
+			  <th scope="col" width="50%">版块</th>
+			  <th scope="col" width="15%">话题/帖子</th>
 			  <th scope="col" width="35%">最后发表</th>
 			</tr>
 			{% with forum.get_all_children as rootforums%}
@@ -112,9 +112,9 @@
 <div class="forumlinks box">
 <table class="full" summary="联盟论坛" id="forumlinks" cellpadding="0" cellspacing="0" style="">
 	<tr><td>
-		<a href="#" target="_blank">[联盟论坛]</a> 
-		<a href="#" target="_blank">[联盟论坛]</a>
-		<a href="/forum/gongwu/" target="_blank">[申请友情链接]</a> 
+		<a href="#" target="_blank">联盟论坛</a> 
+		<a href="#" target="_blank">联盟论坛</a>
+		<a href="/forum/gongwu/" target="_blank">申请友情链接</a> 
 		</td></tr>
 </table>
 </div>

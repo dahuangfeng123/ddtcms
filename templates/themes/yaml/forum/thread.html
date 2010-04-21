@@ -11,7 +11,7 @@
 
 
 <h1><a href="{{ thread.forum.get_absolute_url }}">[{{ thread.forum }}]</a> {{ thread.title }}</h1>
-<strong title="复制帖子链接到剪贴板" id="postnum_{{ thread.id }}" onclick="setcopy('#', '帖子链接已经复制到剪贴板')">复制靶位地址</strong>
+<strong title="复制帖子链接到剪贴板" id="postnum_{{ thread.id }}" onclick="setcopy('#', '帖子链接已经复制到剪贴板')">复制帖子地址</strong>
 <div class="pages_btns">
 	<span><a href="{{ thread.forum.get_absolute_url }}new/"><img src="{{ MEDIA_URL }}themes/yaml/images/forum/newtopic.gif" border="0" alt="发新话题" title="发新话题" /></a></span>
 	<a href="{{ thread.get_previous.get_absolute_url }}">上一主题</a><a href="{{ thread.get_next.get_absolute_url }}">下一主题</a>
@@ -36,7 +36,7 @@
 				<a href="/accounts/profile/{{ post.author }}" target="_blank" id="userinfo{{ post.author.id }}">{{ post.author }}</a></cite>
 			</th>
 			<th scope="col">
-			    <span style='float:right'>第{% ifequal post.floor 1 %}{{ post.floor }}枪，靶主 {% else %}{{ post.floor }}枪{% endifequal %}</span>
+			    <span style='float:right'>第{% ifequal post.floor 1 %}{{ post.floor }}楼，楼主 {% else %}{{ post.floor }}楼{% endifequal %}</span>
 				发表于{{ post.time|date:"Y-m-d P" }}
 				 <a href="#">发短消息</a>
 				 <a href="/accounts/profile/{{ post.author }}/buddy/new/{{ post.author }}/" target="_blank" id="ajax_buddy_0" onclick="ajaxmenu(event, this.id, null, 0)">加为好友</a>
@@ -93,9 +93,9 @@
 			<th scope="row" class="sub">帖子操作</th>
 			<td>
 				<div>
-				<span style='float:right'><strong onclick="scroll(0,0)" title="顶部" style="cursor:hand"><img src="{{ MEDIA_URL }}themes/yaml/images/forum/icon_top.gif" align="absmiddle"/>顶部</strong></span>
+				<span style='float:right'><strong onclick="scroll(0,0)" title="顶部" style="cursor:hand"><img src="{{ MEDIA_URL }}themes/yaml/images/forum/icon_top.gif" />顶部</strong></span>
 				
-				<a href="{{ thread.get_absolute_url }}edit/?pid={{ post.id }}">修正本次射击</a>
+				<a href="{{ thread.get_absolute_url }}edit/?pid={{ post.id }}">修改</a>
 
 				
 

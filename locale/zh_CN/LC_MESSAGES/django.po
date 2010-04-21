@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-28 01:55+0800\n"
-"PO-Revision-Date: 2009-12-01 02:48+0800\n"
+"POT-Creation-Date: 2010-01-16 08:48+0800\n"
+"PO-Revision-Date: 2010-01-16 09:03+0800\n"
 "Last-Translator: huyoo <huaitwooos@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -34,9 +34,9 @@ msgstr "主体"
 #: .\forum\forms.py:35
 #: .\forum\forms.py:42
 #: .\news\forms.py:26
-#, fuzzy
+#: .\people\forms.py:26
 msgid "Files"
-msgstr "朋友"
+msgstr "文件"
 
 #: .\blog\forms.py:23
 msgid "username"
@@ -44,6 +44,7 @@ msgstr "用户名"
 
 #: .\blog\forms.py:25
 #: .\common\models.py:56
+#: .\link\models.py:77
 #: .\member\models.py:474
 #: .\photologue\models.py:127
 #: .\photologue\models.py:184
@@ -73,9 +74,10 @@ msgid "Summary"
 msgstr "摘要"
 
 #: .\blog\forms.py:39
-#: .\blog\models.py:68
-#: .\link\models.py:61
-#: .\news\models.py:227
+#: .\blog\models.py:66
+#: .\link\models.py:60
+#: .\link\models.py:81
+#: .\news\models.py:208
 #: .\photologue\models.py:135
 #: .\photologue\models.py:188
 #: .\photologue\models.py:489
@@ -112,7 +114,7 @@ msgstr "Django-tagging 没有找到，tags将会被作为纯文本处理。"
 #: .\common\models.py:10
 #: .\common\models.py:25
 #: .\link\models.py:25
-#: .\news\models.py:32
+#: .\news\models.py:30
 #: .\people\models.py:20
 #: .\photologue\models.py:531
 #: .\photologue\models.py:657
@@ -124,7 +126,7 @@ msgstr "名称"
 #: .\common\models.py:13
 #: .\common\models.py:28
 #: .\link\models.py:28
-#: .\news\models.py:35
+#: .\news\models.py:33
 msgid "category's depth"
 msgstr "类别深度"
 
@@ -132,7 +134,7 @@ msgstr "类别深度"
 #: .\common\models.py:14
 #: .\common\models.py:29
 #: .\link\models.py:29
-#: .\news\models.py:38
+#: .\news\models.py:36
 #: .\people\models.py:26
 msgid "order"
 msgstr "顺序"
@@ -145,48 +147,56 @@ msgstr "博客分类"
 msgid "Blog Categories"
 msgstr "博客分类"
 
-#: .\blog\models.py:69
+#: .\blog\models.py:67
 #: .\forum\models.py:228
-#: .\news\models.py:229
+#: .\news\models.py:210
 #: .\saying\models.py:32
 msgid "Views"
 msgstr "查看"
 
-#: .\blog\models.py:70
-#: .\news\models.py:230
+#: .\blog\models.py:68
+#: .\news\models.py:211
 #: .\saying\models.py:33
 msgid "Comments"
 msgstr "评论"
 
-#: .\blog\models.py:76
+#: .\blog\models.py:74
 msgid "Blog"
 msgstr "博客"
 
-#: .\blog\models.py:77
+#: .\blog\models.py:75
 msgid "Blogs"
 msgstr "博客"
 
 #: .\blog\templates\blog_base.html.py:8
 #: .\blog\templates\blog_base.html.py:11
+#: .\forum\templates\forum_base.html.py:74
+#: .\member\templates\member\avatar\search.html.py:32
 #: .\templates\blog_base.html.py:13
 #: .\templates\blog_base.html.py:16
-#: .\templates\member\avatar\search.html.py:32
+#: .\templates\themes\dede\member\avatar\search.html.py:32
+#: .\templates\themes\yaml\blog_base.html.py:13
+#: .\templates\themes\yaml\blog_base.html.py:16
 msgid "Search"
 msgstr "搜索"
 
 #: .\blog\templates\blog_base.html.py:39
 #: .\news\forms.py:23
+#: .\people\forms.py:23
 #: .\templates\blog_base.html.py:44
+#: .\templates\themes\yaml\blog_base.html.py:44
 msgid "Category"
 msgstr "分类"
 
 #: .\blog\templates\blog_base.html.py:54
 #: .\templates\blog_base.html.py:59
+#: .\templates\themes\yaml\blog_base.html.py:59
 msgid "BlogRoll"
 msgstr "博客链接"
 
 #: .\blog\templates\blog_base.html.py:70
 #: .\templates\blog_base.html.py:75
+#: .\templates\themes\yaml\blog_base.html.py:75
 msgid "Archive"
 msgstr "档案"
 
@@ -231,12 +241,10 @@ msgid "CaptchaRequests"
 msgstr "验证码请求"
 
 #: .\common\models.py:43
-#, fuzzy
 msgid "contributor"
-msgstr "对比度"
+msgstr "贡献者"
 
 #: .\common\models.py:44
-#, fuzzy
 msgid "coverage"
 msgstr "概述"
 
@@ -251,6 +259,7 @@ msgid "date"
 msgstr "日期"
 
 #: .\common\models.py:47
+#: .\link\models.py:79
 #: .\member\models.py:477
 #: .\people\models.py:24
 #: .\photologue\models.py:130
@@ -301,8 +310,11 @@ msgstr ""
 
 #: .\docs\forum_list.html.py:3
 #: .\forum\models.py:116
-#: .\forum\templates\forum_base.html.py:76
+#: .\forum\templates\forum_base.html.py:44
+#: .\forum\templates\forum_base.html.py:71
+#: .\forum\templates\forum_base.html.py:90
 #: .\forum\templates\forum\forum_list.html.py:3
+#: .\templates\themes\dede\forum\forum_list.html.py:4
 #: .\templates\themes\yaml\forum\forum_list.html.py:3
 msgid "Forums"
 msgstr "论坛"
@@ -338,7 +350,8 @@ msgid ""
 msgstr ""
 
 #: .\docs\forum_list.html.py:77
-#: .\forum\templates\forum\forum_list.html.py:86
+#: .\forum\templates\forum\forum_list.html.py:85
+#: .\templates\themes\dede\forum\forum_list.html.py:86
 #: .\templates\themes\yaml\forum\forum_list.html.py:97
 msgid "Re:"
 msgstr "回复:"
@@ -348,15 +361,17 @@ msgid "ago"
 msgstr "前"
 
 #: .\docs\forum_list.html.py:78
-#: .\forum\templates\forum\forum_list.html.py:87
+#: .\forum\templates\forum\forum_list.html.py:86
+#: .\templates\themes\dede\forum\forum_list.html.py:87
 #: .\templates\themes\yaml\forum\forum_list.html.py:98
 msgid "No Posts"
 msgstr "暂无帖子"
 
 #: .\docs\forum_list.html.py:88
 #: .\docs\forum_list.html.py:90
-#: .\forum\templates\forum\forum_list.html.py:94
+#: .\forum\templates\forum\forum_list.html.py:93
 #: .\forum\templates\forum\thread.html.py:134
+#: .\templates\themes\dede\forum\forum_list.html.py:98
 #: .\templates\themes\yaml\forum\forum_list.html.py:105
 #: .\templates\themes\yaml\forum\thread.html.py:134
 msgid "Update Subscriptions"
@@ -383,6 +398,7 @@ msgstr "通过邮件订阅"
 
 #: .\forum\models.py:29
 #: .\link\forms.py:7
+#: .\link\forms.py:14
 msgid "Description"
 msgstr "描述"
 
@@ -411,7 +427,7 @@ msgid "NORMAL"
 msgstr "正常"
 
 #: .\forum\models.py:205
-#: .\news\models.py:196
+#: .\news\models.py:194
 msgid "DELETED"
 msgstr "已删除"
 
@@ -518,23 +534,72 @@ msgstr ""
 msgid "Sorry, you need to login."
 msgstr "对不起，请登录"
 
-#: .\forum\templates\forum_base.html.py:35
+#: .\forum\templates\forum_base.html.py:41
+#: .\forum\templates\forum_base.html.py:68
 #: .\member\templates\member\front.html.py:11
 #: .\member\templates\member\index.html.py:26
 #: .\templates\themes\yaml\base.html.py:57
 msgid "Profile"
 msgstr "用户简介"
 
-#: .\forum\templates\forum_base.html.py:35
+#: .\forum\templates\forum_base.html.py:41
+#: .\forum\templates\forum_base.html.py:68
 #: .\member\templates\member\front.html.py:12
 #: .\member\templates\member\index.html.py:27
 #: .\templates\header.html.py:13
+#: .\templates\header1.html.py:13
 #: .\templates\themes\yaml\base.html.py:57
 msgid "Logout"
 msgstr "注销"
 
+#: .\forum\templates\forum_base.html.py:44
+#: .\forum\templates\forum_base.html.py:71
+#: .\member\templates\member\front.html.py:14
+#: .\member\templates\member\index.html.py:29
+#: .\templates\header.html.py:16
+#: .\templates\header1.html.py:16
+msgid "Login"
+msgstr "登录"
+
+#: .\forum\templates\forum_base.html.py:45
+#: .\forum\templates\forum_base.html.py:72
+msgid "Welcome to join us"
+msgstr ""
+
+#: .\forum\templates\forum_base.html.py:45
+#: .\forum\templates\forum_base.html.py:72
+#, fuzzy
+msgid "Registry"
+msgstr "注册"
+
+#: .\forum\templates\forum_base.html.py:46
+#: .\templates\header.html.py:18
+#: .\templates\header1.html.py:18
+#, fuzzy
+msgid "Forget Password"
+msgstr "密码"
+
+#: .\forum\templates\forum_base.html.py:73
+msgid "Members"
+msgstr ""
+
+#: .\forum\templates\forum_base.html.py:73
+msgid "Member"
+msgstr ""
+
+#: .\forum\templates\forum_base.html.py:74
+#, fuzzy
+msgid "Seach Forum"
+msgstr "论坛"
+
+#: .\forum\templates\forum_base.html.py:75
+msgid "help"
+msgstr ""
+
 #: .\forum\templates\forum\edit.html.py:4
 #: .\forum\templates\forum\reply.html.py:4
+#: .\templates\themes\dede\forum\edit.html.py:4
+#: .\templates\themes\dede\forum\reply.html.py:4
 #: .\templates\themes\yaml\forum\edit.html.py:4
 #: .\templates\themes\yaml\forum\reply.html.py:4
 msgid "Reply to thread  \"%(title)s\""
@@ -542,18 +607,21 @@ msgstr ""
 
 #: .\forum\templates\forum\edit.html.py:6
 #: .\forum\templates\forum\reply.html.py:6
+#: .\templates\themes\dede\forum\edit.html.py:6
+#: .\templates\themes\dede\forum\reply.html.py:6
 #: .\templates\themes\yaml\forum\edit.html.py:6
 #: .\templates\themes\yaml\forum\reply.html.py:6
 msgid "Reply to Thread \"%(title)s\""
 msgstr ""
 
 #: .\forum\templates\forum\edit.html.py:16
+#: .\templates\themes\dede\forum\edit.html.py:16
 #: .\templates\themes\yaml\forum\edit.html.py:16
 #, fuzzy
 msgid "Edit Post"
 msgstr "最新帖子"
 
-#: .\forum\templates\forum\forum_list.html.py:82
+#: .\forum\templates\forum\forum_list.html.py:81
 #: .\templates\themes\yaml\forum\forum_list.html.py:93
 msgid ""
 "\n"
@@ -563,7 +631,10 @@ msgstr ""
 
 #: .\forum\templates\forum\newthread.html.py:4
 #: .\forum\templates\forum\newthread.html.py:11
-#: .\templates\link\newlink.html.py:4
+#: .\link\templates\link\newlink.html.py:4
+#: .\templates\themes\dede\forum\newthread.html.py:4
+#: .\templates\themes\dede\forum\newthread.html.py:11
+#: .\templates\themes\dede\link\newlink.html.py:4
 #: .\templates\themes\yaml\forum\newthread.html.py:4
 #: .\templates\themes\yaml\forum\newthread.html.py:11
 #: .\templates\themes\yaml\link\newlink.html.py:4
@@ -571,16 +642,19 @@ msgid "New Thread in %(title)s"
 msgstr ""
 
 #: .\forum\templates\forum\newthread.html.py:13
+#: .\templates\themes\dede\forum\newthread.html.py:13
 #: .\templates\themes\yaml\forum\newthread.html.py:13
 msgid "New Thread"
 msgstr "新话题"
 
 #: .\forum\templates\forum\newthread.html.py:18
+#: .\templates\themes\dede\forum\newthread.html.py:18
 #: .\templates\themes\yaml\forum\newthread.html.py:18
 msgid "Create a Thread"
 msgstr "创建话题"
 
 #: .\forum\templates\forum\reply.html.py:13
+#: .\templates\themes\dede\forum\reply.html.py:13
 #: .\templates\themes\yaml\forum\reply.html.py:13
 msgid "Reply to Thread"
 msgstr ""
@@ -623,9 +697,7 @@ msgstr "此域中如果你填入任何信息，你提交的内容将会被视为
 #: .\guestbook\forms.py:117
 #, fuzzy, python-format
 msgid "Watch your mouth! The word %s is not allowed here."
-msgid_plural "Watch your mouth! The words %s are not allowed here."
-msgstr[0] "说话注意点！%s 是脏话。"
-msgstr[1] "说话注意点！%s 是脏话。"
+msgstr "说话注意点！%s 是脏话。"
 
 #: .\guestbook\models.py:20
 msgid "IP address"
@@ -662,26 +734,37 @@ msgstr "评论"
 msgid "%(user)s on %(date)s"
 msgstr ""
 
-#: .\home\templates\home\index.html.py:27
+#: .\home\templates\home\index.html.py:46
 msgid "NavTree"
 msgstr "导航树"
 
-#: .\home\templates\home\index.html.py:38
-#: .\templates\base.html.py:47
+#: .\home\templates\home\index.html.py:57
+#: .\member\templates\member\base.html.py:19
+#: .\member\templates\member\base_2col.html.py:23
+#: .\member\templates\member\account\login.html.py:22
+#: .\templates\base.html.py:57
+#: .\templates\member\base_2col.html.py:22
+#: .\templates\member\front.html.py:10
 msgid "SideBar"
 msgstr "侧边栏"
 
-#: .\home\templates\home\index.html.py:56
+#: .\home\templates\home\index.html.py:75
 msgid "User Profile"
 msgstr "用户简介"
 
-#: .\home\templates\home\index.html.py:74
+#: .\home\templates\home\index.html.py:93
+#: .\templates\themes\dede\pressroom\index.html.py:41
 msgid "Support"
 msgstr "支持"
 
 #: .\link\forms.py:6
+#: .\link\forms.py:13
 msgid "Url"
 msgstr "网址"
+
+#: .\link\forms.py:12
+msgid "Please Choose GreenBrowser Group Files(*.cgp)"
+msgstr ""
 
 #: .\link\models.py:33
 msgid "Link Category"
@@ -691,13 +774,78 @@ msgstr "链接分类"
 msgid "Link Categories"
 msgstr "链接分类"
 
-#: .\link\models.py:64
+#: .\link\models.py:63
 msgid "Link"
 msgstr "链接"
 
-#: .\link\models.py:65
+#: .\link\models.py:64
 msgid "Links"
 msgstr "链接"
+
+#: .\link\models.py:74
+#, fuzzy
+msgid "group file (.cgp)"
+msgstr "图像压缩包文件(.zip)"
+
+#: .\link\models.py:75
+msgid "Select a .cgp file of links to upload into a new Category."
+msgstr ""
+
+#: .\link\models.py:76
+msgid "Select a category to add these images to. leave this empty to create a new category from the supplied title."
+msgstr ""
+
+#: .\link\models.py:77
+msgid "All photos in the category will be given a title made up of the category title + a sequential number."
+msgstr ""
+
+#: .\link\models.py:78
+#: .\photologue\models.py:185
+#: .\photologue\models.py:486
+msgid "caption"
+msgstr "标题"
+
+#: .\link\models.py:78
+#: .\photologue\models.py:185
+msgid "Caption will be added to all photos."
+msgstr ""
+
+#: .\link\models.py:79
+msgid "A description of this category."
+msgstr ""
+
+#: .\link\models.py:80
+#: .\photologue\models.py:131
+#: .\photologue\models.py:187
+#: .\photologue\models.py:488
+msgid "is public"
+msgstr "是否公开"
+
+#: .\link\models.py:80
+msgid "Uncheck this to make the uploaded category and included photographs private."
+msgstr ""
+
+#: .\link\models.py:84
+#, fuzzy
+msgid "category upload"
+msgstr "上传专辑"
+
+#: .\link\models.py:85
+#, fuzzy
+msgid "category uploads"
+msgstr "上传专辑"
+
+#: .\link\templates\link\newlink.html.py:66
+#: .\templates\themes\dede\link\newlink.html.py:45
+#: .\templates\themes\yaml\link\newlink.html.py:45
+msgid "Create a Link"
+msgstr "创建链接"
+
+#: .\link\templates\link\newlink.html.py:69
+#: .\templates\themes\dede\link\newlink.html.py:48
+#: .\templates\themes\yaml\link\newlink.html.py:48
+msgid "Posting As"
+msgstr "发表者"
 
 #: .\member\countries.py:10
 msgid "Andorra"
@@ -1855,7 +2003,8 @@ msgstr "双鱼座"
 
 #: .\member\models.py:393
 #: .\member\models.py:398
-#: .\templates\member\profile\location.html.py:26
+#: .\member\templates\member\profile\location.html.py:26
+#: .\templates\themes\dede\member\profile\location.html.py:26
 msgid "Location"
 msgstr "位置"
 
@@ -1905,7 +2054,6 @@ msgid "DATETIME"
 msgstr ""
 
 #: .\member\models.py:424
-#, fuzzy
 msgid "OTHER"
 msgstr "其他"
 
@@ -1924,14 +2072,12 @@ msgid "pub_time"
 msgstr ""
 
 #: .\member\models.py:484
-#, fuzzy
 msgid "Regiment"
-msgstr "注册"
+msgstr "团"
 
 #: .\member\models.py:485
-#, fuzzy
 msgid "Regiments"
-msgstr "设备"
+msgstr "团"
 
 #: .\member\templates\member\front.html.py:3
 msgid "Front page"
@@ -1946,15 +2092,10 @@ msgstr "已经落户的朋友们！"
 msgid "Frontpage"
 msgstr "首页"
 
-#: .\member\templates\member\front.html.py:14
-#: .\member\templates\member\index.html.py:29
-#: .\templates\header.html.py:16
-msgid "Login"
-msgstr "登录"
-
 #: .\member\templates\member\front.html.py:15
 #: .\member\templates\member\index.html.py:30
 #: .\templates\header.html.py:17
+#: .\templates\header1.html.py:17
 msgid "Register"
 msgstr "注册"
 
@@ -1971,6 +2112,320 @@ msgstr "Django 档案例子"
 msgid "clear"
 msgstr ""
 
+#: .\member\templates\member\account\email_validation_reset.html.py:4
+#: .\member\templates\member\account\email_validation_reset.html.py:19
+#: .\member\templates\member\account\email_validation_reset.html.py:36
+#: .\templates\themes\dede\member\account\email_validation_reset.html.py:4
+#: .\templates\themes\dede\member\account\email_validation_reset.html.py:19
+#: .\templates\themes\dede\member\account\email_validation_reset.html.py:36
+msgid "Resend e-mail validation"
+msgstr ""
+
+#: .\member\templates\member\account\email_validation_reset.html.py:20
+#: .\templates\themes\dede\member\account\email_validation_reset.html.py:20
+msgid "Insert your e-mail address"
+msgstr "插入你的电子邮件"
+
+#: .\member\templates\member\account\email_validation_reset.html.py:30
+#: .\templates\themes\dede\member\account\email_validation_reset.html.py:30
+msgid "Resend confirmation"
+msgstr "重新发送确认"
+
+#: .\member\templates\member\account\email_validation_reset.html.py:37
+#: .\templates\themes\dede\member\account\email_validation_reset.html.py:37
+msgid "If you haven't validated your e-mail address yet you couldn't get into the site. Insert the e-mail address yu have registered with so we can resend the validation e-mail to you again"
+msgstr ""
+
+#: .\member\templates\member\account\email_validation_reset_response.html.py:4
+#: .\templates\themes\dede\member\account\email_validation_reset_response.html.py:4
+msgid "Validation e-mail sent"
+msgstr ""
+
+#: .\member\templates\member\account\email_validation_reset_response.html.py:4
+#: .\templates\themes\dede\member\account\email_validation_reset_response.html.py:4
+msgid "Your user account was already active"
+msgstr ""
+
+#: .\member\templates\member\account\email_validation_reset_response.html.py:14
+#: .\templates\themes\dede\member\account\email_validation_reset_response.html.py:14
+msgid "We've e-mailed you the e-mail validation link"
+msgstr ""
+
+#: .\member\templates\member\account\email_validation_reset_response.html.py:16
+#: .\templates\themes\dede\member\account\email_validation_reset_response.html.py:16
+msgid "Your e-mail was already validated"
+msgstr ""
+
+#: .\member\templates\member\account\email_validation_reset_response.html.py:22
+#: .\templates\themes\dede\member\account\email_validation_reset_response.html.py:22
+msgid "E-mail validation process"
+msgstr ""
+
+#: .\member\templates\member\account\email_validation_reset_response.html.py:23
+#: .\templates\themes\dede\member\account\email_validation_reset_response.html.py:23
+msgid "You can manage the e-mail validation process from the"
+msgstr ""
+
+#: .\member\templates\member\account\email_validation_reset_response.html.py:23
+#: .\templates\themes\dede\member\account\email_validation_reset_response.html.py:23
+msgid "overview page"
+msgstr "概述"
+
+#: .\member\templates\member\account\password_change_done.html.py:4
+#: .\templates\themes\dede\member\account\password_change_done.html.py:4
+msgid "Password change successful"
+msgstr ""
+
+#: .\member\templates\member\account\password_change_done.html.py:13
+#: .\templates\themes\dede\member\account\password_change_done.html.py:13
+msgid "The password has been changed successfully"
+msgstr ""
+
+#: .\member\templates\member\account\password_change_done.html.py:19
+#: .\templates\themes\dede\member\account\password_change_done.html.py:19
+msgid "Password change"
+msgstr "密码更改"
+
+#: .\member\templates\member\account\password_change_done.html.py:20
+#: .\templates\themes\dede\member\account\password_change_done.html.py:20
+msgid "Password change utility page. Please enter your new password twice so we can verify you typed it in correctly"
+msgstr ""
+
+#: .\member\templates\member\account\password_reset_confirm.html.py:4
+#: .\templates\themes\dede\member\account\password_reset_confirm.html.py:4
+msgid "Password change for"
+msgstr ""
+
+#: .\member\templates\member\account\password_reset_confirm.html.py:26
+#: .\templates\themes\dede\member\account\password_reset_confirm.html.py:26
+msgid "New password"
+msgstr "新密码"
+
+#: .\member\templates\member\account\password_reset_confirm.html.py:32
+#: .\templates\themes\dede\member\account\password_reset_confirm.html.py:32
+msgid "Confirm password"
+msgstr "确认密码"
+
+#: .\member\templates\member\account\password_reset_confirm.html.py:42
+#: .\templates\admin\index.html.py:47
+#: .\templates\themes\dede\admin\index.html.py:48
+#: .\templates\themes\dede\member\account\password_reset_confirm.html.py:42
+#: .\templates\themes\yaml\admin\index.html.py:51
+msgid "Change"
+msgstr "修改"
+
+#: .\member\templates\member\account\password_reset_confirm.html.py:47
+#: .\templates\themes\dede\member\account\password_reset_confirm.html.py:47
+msgid "Password reset unsuccessful"
+msgstr ""
+
+#: .\member\templates\member\account\password_reset_confirm.html.py:48
+#: .\templates\themes\dede\member\account\password_reset_confirm.html.py:48
+msgid "The password reset link was invalid, possibly because it has already been used.  Please request a new password reset."
+msgstr ""
+
+#: .\member\templates\member\account\password_reset_confirm.html.py:55
+#: .\templates\themes\dede\member\account\password_reset_confirm.html.py:55
+msgid "Password reset"
+msgstr "密码重置"
+
+#: .\member\templates\member\account\password_reset_confirm.html.py:56
+#: .\templates\themes\dede\member\account\password_reset_confirm.html.py:56
+msgid "Password reset utility page. Please enter your new password twice so we can verify you typed it in correctly"
+msgstr ""
+
+#: .\member\templates\member\account\password_reset_done.html.py:4
+#: .\member\templates\member\account\password_reset_done.html.py:9
+#: .\templates\themes\dede\member\account\password_reset_done.html.py:4
+#: .\templates\themes\dede\member\account\password_reset_done.html.py:9
+msgid "Password reset successful"
+msgstr ""
+
+#: .\member\templates\member\account\password_reset_done.html.py:10
+#: .\templates\themes\dede\member\account\password_reset_done.html.py:10
+msgid "We've e-mailed you the instructions to obtain a new password. You should be receiving it shortly"
+msgstr ""
+
+#: .\member\templates\member\account\password_reset_done.html.py:16
+#: .\templates\themes\dede\member\account\password_reset_done.html.py:16
+msgid "Password reset form"
+msgstr ""
+
+#: .\member\templates\member\account\password_reset_done.html.py:17
+#: .\templates\themes\dede\member\account\password_reset_done.html.py:17
+msgid "Forgotten your password? Enter your e-mail address, and we'll reset your password and e-mail the new one to you"
+msgstr ""
+
+#: .\member\templates\member\account\registration.html.py:4
+#: .\templates\themes\dede\member\account\registration.html.py:4
+msgid "User registration"
+msgstr "用户注册"
+
+#: .\member\templates\member\account\registration_done.html.py:4
+#: .\templates\themes\dede\member\account\registration_done.html.py:4
+msgid "Registration complete"
+msgstr "注册完成"
+
+#: .\member\templates\member\avatar\search.html.py:4
+#: .\member\templates\member\avatar\search.html.py:28
+#: .\templates\themes\dede\member\avatar\search.html.py:4
+#: .\templates\themes\dede\member\avatar\search.html.py:28
+msgid "Search for an image on Picasa Web"
+msgstr ""
+
+#: .\member\templates\member\avatar\search.html.py:29
+#: .\templates\themes\dede\member\avatar\search.html.py:29
+msgid "Search on Picasa Web"
+msgstr ""
+
+#: .\member\templates\member\avatar\search.html.py:50
+#: .\templates\themes\dede\member\avatar\search.html.py:50
+msgid "Avatar selection page"
+msgstr ""
+
+#: .\member\templates\member\avatar\search.html.py:51
+#: .\templates\themes\dede\member\avatar\search.html.py:51
+msgid "You have several options to select the image you want as avatar on your profile"
+msgstr ""
+
+#: .\member\templates\member\profile\delete.html.py:4
+#: .\templates\themes\dede\member\profile\delete.html.py:4
+msgid "Delete personal information"
+msgstr ""
+
+#: .\member\templates\member\profile\delete.html.py:14
+#: .\member\templates\member\profile\delete_done.html.py:18
+#: .\templates\themes\dede\member\profile\delete.html.py:14
+#: .\templates\themes\dede\member\profile\delete_done.html.py:18
+msgid "Delete your personal information"
+msgstr ""
+
+#: .\member\templates\member\profile\delete.html.py:15
+#: .\templates\themes\dede\member\profile\delete.html.py:15
+msgid "Are you sure?"
+msgstr "你确认吗？"
+
+#: .\member\templates\member\profile\delete.html.py:15
+#: .\templates\themes\dede\member\profile\delete.html.py:15
+msgid "Yes"
+msgstr "是的"
+
+#: .\member\templates\member\profile\delete.html.py:22
+#: .\templates\themes\dede\member\profile\delete.html.py:22
+msgid "Remove profile"
+msgstr "删除用户档案"
+
+#: .\member\templates\member\profile\delete.html.py:23
+#: .\templates\themes\dede\member\profile\delete.html.py:23
+msgid "It erases all your private data except your username. You can refill the information later if you want to"
+msgstr ""
+
+#: .\member\templates\member\profile\delete_done.html.py:4
+#: .\templates\themes\dede\member\profile\delete_done.html.py:4
+msgid "Profile removed"
+msgstr ""
+
+#: .\member\templates\member\profile\delete_done.html.py:13
+#: .\templates\themes\dede\member\profile\delete_done.html.py:13
+msgid "Your profile information has been removed successfully"
+msgstr ""
+
+#: .\member\templates\member\profile\delete_done.html.py:19
+#: .\templates\themes\dede\member\profile\delete_done.html.py:19
+msgid "Deleting all your personal information will erase all your private data, except your username. You can refill the information later if you want to"
+msgstr ""
+
+#: .\member\templates\member\profile\location.html.py:4
+#: .\member\templates\member\profile\location_done.html.py:4
+#: .\member\templates\member\profile\personal_done.html.py:4
+#: .\templates\themes\dede\member\profile\location.html.py:4
+#: .\templates\themes\dede\member\profile\location_done.html.py:4
+#: .\templates\themes\dede\member\profile\personal_done.html.py:4
+msgid "%(user)s's Dashboard"
+msgstr "%(user)s  的管理面板"
+
+#: .\member\templates\member\profile\location.html.py:21
+#: .\templates\themes\dede\member\profile\location.html.py:21
+msgid "Define your location"
+msgstr "定义你的地理位置信息"
+
+#: .\member\templates\member\profile\location.html.py:21
+#: .\templates\themes\dede\member\profile\location.html.py:21
+msgid "Try IP localization"
+msgstr "尝试你的IP地理位置信息"
+
+#: .\member\templates\member\profile\location.html.py:22
+#: .\templates\themes\dede\member\profile\location.html.py:22
+msgid "Country"
+msgstr "国家"
+
+#: .\member\templates\member\profile\location.html.py:22
+#: .\templates\themes\dede\member\profile\location.html.py:22
+msgid "Loading..."
+msgstr "正在加载..."
+
+#: .\member\templates\member\profile\location.html.py:29
+#: .\templates\themes\dede\member\profile\location.html.py:29
+msgid "Position"
+msgstr "位置"
+
+#: .\member\templates\member\profile\location.html.py:36
+#: .\templates\themes\dede\member\profile\location.html.py:36
+msgid "Save"
+msgstr "保存"
+
+#: .\member\templates\member\profile\location.html.py:41
+#: .\member\templates\member\profile\location_done.html.py:19
+#: .\templates\themes\dede\member\profile\location.html.py:41
+#: .\templates\themes\dede\member\profile\location_done.html.py:19
+msgid "Location information"
+msgstr "地理位置"
+
+#: .\member\templates\member\profile\location.html.py:42
+#: .\member\templates\member\profile\location_done.html.py:20
+#: .\templates\themes\dede\member\profile\location.html.py:42
+#: .\templates\themes\dede\member\profile\location_done.html.py:20
+msgid "Define your location information"
+msgstr "定义你的地理位置信息"
+
+#: .\member\templates\member\profile\location_done.html.py:13
+#: .\member\templates\member\profile\personal_done.html.py:13
+#: .\templates\themes\dede\member\profile\location_done.html.py:13
+#: .\templates\themes\dede\member\profile\personal_done.html.py:13
+msgid "Your profile information has been updated successfully"
+msgstr "你的档案信息已被成功更新！"
+
+#: .\member\templates\member\profile\overview.html.py:4
+#: .\templates\themes\dede\member\profile\overview.html.py:4
+msgid "Overview of your profile"
+msgstr "你的档案概况"
+
+#: .\member\templates\member\profile\overview.html.py:39
+#: .\templates\themes\dede\member\profile\overview.html.py:39
+msgid "Username:"
+msgstr "用户名"
+
+#: .\member\templates\member\profile\overview.html.py:40
+#: .\templates\themes\dede\member\profile\overview.html.py:40
+msgid "E-mail:"
+msgstr "邮件："
+
+#: .\member\templates\member\profile\personal_done.html.py:19
+#: .\templates\themes\dede\member\profile\personal_done.html.py:19
+msgid "Personal information"
+msgstr "个人信息"
+
+#: .\member\templates\member\profile\personal_done.html.py:20
+#: .\templates\themes\dede\member\profile\personal_done.html.py:20
+msgid "Insert some information about you"
+msgstr "填写你的个人信息"
+
+#: .\member\templates\member\profile\public.html.py:29
+#: .\templates\themes\dede\member\profile\public.html.py:32
+#: .\templates\themes\dede\member\profile\public1111.html.py:29
+msgid " %(user)s 的公开小档案"
+msgstr ""
+
 #: .\member\templatetags\avatars.py:80
 msgid "You have to provide only the size as             an integer (both sides will be equal) and optionally, the             username."
 msgstr ""
@@ -1980,9 +2435,8 @@ msgid "Everybody"
 msgstr ""
 
 #: .\navbar\models.py:12
-#, fuzzy
 msgid "Anonymous Only"
-msgstr "匿名用户"
+msgstr "仅匿名用户"
 
 #: .\navbar\models.py:13
 msgid "Logged In"
@@ -2051,68 +2505,67 @@ msgid "%s Posted A new News,go and view it now <a href='%s'> %s </a> "
 msgstr ""
 
 #: .\news\forms.py:24
-#, fuzzy
+#: .\people\forms.py:24
 msgid "Deliverer"
-msgstr "删除"
+msgstr "提交人"
 
 #: .\news\forms.py:25
+#: .\people\forms.py:25
 msgid "Content"
 msgstr "内容"
 
 #: .\news\forms.py:47
+#: .\people\forms.py:47
 msgid "The category has child(ren),you must select one of its child!"
 msgstr ""
 
-#: .\news\models.py:36
+#: .\news\models.py:34
 #, fuzzy
 msgid "category's path"
 msgstr "类别深度"
 
-#: .\news\models.py:37
+#: .\news\models.py:35
 msgid "News Posts Count"
 msgstr ""
 
-#: .\news\models.py:45
+#: .\news\models.py:43
 msgid "News Category"
 msgstr "新闻分类"
 
-#: .\news\models.py:46
+#: .\news\models.py:44
 msgid "News Categories"
 msgstr "新闻分类"
 
-#: .\news\models.py:191
+#: .\news\models.py:189
 msgid "UNAPPROVED"
 msgstr ""
 
-#: .\news\models.py:192
+#: .\news\models.py:190
 msgid "APPROVED"
 msgstr ""
 
-#: .\news\models.py:193
+#: .\news\models.py:191
 msgid "HEADLINE"
 msgstr ""
 
-#: .\news\models.py:194
-#, fuzzy
+#: .\news\models.py:192
 msgid "RECOMMENDED"
-msgstr "有评论的帖子"
+msgstr "推荐"
 
-#: .\news\models.py:195
+#: .\news\models.py:193
 msgid "FLASHSLIDE"
 msgstr ""
 
-#: .\news\models.py:231
-#, fuzzy
+#: .\news\models.py:212
 msgid "Allow Comments"
-msgstr "评论"
+msgstr "允许评论"
 
-#: .\news\models.py:233
-#, fuzzy
+#: .\news\models.py:214
 msgid "Status"
 msgstr "状态？"
 
-#: .\news\models.py:243
-#: .\news\models.py:244
+#: .\news\models.py:224
+#: .\news\models.py:225
 msgid "News"
 msgstr "新闻"
 
@@ -2125,9 +2578,8 @@ msgid "USER ACTION"
 msgstr ""
 
 #: .\notice\models.py:8
-#, fuzzy
 msgid "APP NOTICE"
-msgstr "网站通知"
+msgstr "应用通知"
 
 #: .\notice\models.py:25
 msgid "Notice"
@@ -2136,6 +2588,90 @@ msgstr "通知"
 #: .\notice\models.py:26
 msgid "Notices"
 msgstr "通知"
+
+#: .\office\adsl\models.py:18
+msgid "ADSL Account"
+msgstr "ADSL 账户"
+
+#: .\office\adsl\models.py:19
+msgid "ADSL Accounts"
+msgstr "ADSL 账户"
+
+#: .\office\adsl\models.py:41
+msgid "ADSL UserInfo"
+msgstr ""
+
+#: .\office\adsl\models.py:42
+msgid "ADSL UserInfos"
+msgstr ""
+
+#: .\office\equipment\models.py:15
+msgid "Supplier"
+msgstr "供货商"
+
+#: .\office\equipment\models.py:16
+msgid "Suppliers"
+msgstr "供货商"
+
+#: .\office\equipment\models.py:31
+msgid "AssetSort"
+msgstr "资产种类"
+
+#: .\office\equipment\models.py:32
+msgid "AssetSorts"
+msgstr "资产种类"
+
+#: .\office\equipment\models.py:44
+msgid "Measure Unit"
+msgstr ""
+
+#: .\office\equipment\models.py:45
+msgid "Measure Units"
+msgstr ""
+
+#: .\office\equipment\models.py:61
+msgid "General Designation"
+msgstr "通用名称"
+
+#: .\office\equipment\models.py:62
+msgid "General Designations"
+msgstr "通用名称"
+
+#: .\office\equipment\models.py:79
+msgid "amount"
+msgstr "数量"
+
+#: .\office\equipment\models.py:83
+msgid "lifespan of use, by year"
+msgstr ""
+
+#: .\office\equipment\models.py:84
+msgid "bought_date"
+msgstr ""
+
+#: .\office\equipment\models.py:91
+msgid "Equipment"
+msgstr "设备"
+
+#: .\office\equipment\models.py:92
+msgid "Equipments"
+msgstr "设备"
+
+#: .\office\equipment\models.py:108
+msgid "Characteristic"
+msgstr "特征参数"
+
+#: .\office\equipment\models.py:109
+msgid "Characteristics"
+msgstr "特征参数"
+
+#: .\office\equipment\models.py:124
+msgid "Characteristic Value"
+msgstr "特征参数值"
+
+#: .\office\equipment\models.py:125
+msgid "Characteristics Values"
+msgstr "特征参数值"
 
 #: .\people\models.py:23
 msgid "chief"
@@ -2262,12 +2798,6 @@ msgstr "标题缩记"
 msgid "A \"slug\" is a unique URL-friendly title for an object."
 msgstr ""
 
-#: .\photologue\models.py:131
-#: .\photologue\models.py:187
-#: .\photologue\models.py:488
-msgid "is public"
-msgstr "是否公开"
-
 #: .\photologue\models.py:132
 msgid "Public galleries will be displayed in the default views."
 msgstr ""
@@ -2279,6 +2809,7 @@ msgstr "图像"
 
 #: .\photologue\models.py:140
 #: .\photologue\templates\photologue\index.html.py:11
+#: .\templates\themes\dede\photologue\index.html.py:11
 #: .\templates\themes\yaml\photologue\index.html.py:11
 msgid "gallery"
 msgstr "专辑"
@@ -2305,15 +2836,6 @@ msgstr ""
 
 #: .\photologue\models.py:184
 msgid "All photos in the gallery will be given a title made up of the gallery title + a sequential number."
-msgstr ""
-
-#: .\photologue\models.py:185
-#: .\photologue\models.py:486
-msgid "caption"
-msgstr "标题"
-
-#: .\photologue\models.py:185
-msgid "Caption will be added to all photos."
 msgstr ""
 
 #: .\photologue\models.py:186
@@ -2536,14 +3058,12 @@ msgid "photo sizes"
 msgstr "图片尺寸"
 
 #: .\saying\models.py:34
-#, fuzzy
 msgid "Likes"
-msgstr "链接"
+msgstr "喜欢"
 
 #: .\saying\models.py:35
-#, fuzzy
 msgid "Dislikes"
-msgstr "站点"
+msgstr "不喜欢"
 
 #: .\saying\models.py:36
 #, fuzzy
@@ -2736,397 +3256,192 @@ msgid "We're sorry, but the requested page could not be found."
 msgstr ""
 
 #: .\templates\404.html.py:10
+#: .\templates\themes\dede\admin\change_form.html.py:17
 #: .\templates\themes\yaml\base.html.py:94
 #: .\templates\themes\yaml\admin\change_form.html.py:17
 msgid "Home"
 msgstr "首页"
 
 #: .\templates\header.html.py:13
+#: .\templates\header1.html.py:13
 msgid "Welcome back!"
-msgstr ""
+msgstr "欢迎回来!"
 
 #: .\templates\header.html.py:17
+#: .\templates\header1.html.py:17
 msgid "Welcome join us!"
 msgstr ""
 
 #: .\templates\header.html.py:18
+#: .\templates\header1.html.py:18
 msgid "Send email to webmaster"
 msgstr ""
 
-#: .\templates\header.html.py:18
-#, fuzzy
-msgid "Forget Password"
-msgstr "密码"
-
-#: .\templates\header.html.py:49
-msgid "Visit Breadcrumbs"
-msgstr ""
+#: .\templates\header.html.py:55
+#: .\templates\header1.html.py:95
+msgid "Breadcrumbs"
+msgstr "当前访问"
 
 #: .\templates\admin\base_site.html.py:4
+#: .\templates\themes\dede\admin\base_site.html.py:4
 #: .\templates\themes\yaml\admin\base_site.html.py:4
 msgid "Django site admin"
 msgstr "Django 站点管理"
 
 #: .\templates\admin\base_site.html.py:7
+#: .\templates\themes\dede\admin\base_site.html.py:7
 #: .\templates\themes\yaml\admin\base_site.html.py:7
 msgid "Django administration"
 msgstr "Django 管理"
 
 #: .\templates\admin\index.html.py:27
 #: .\templates\admin\index.html.py:31
+#: .\templates\themes\dede\admin\index.html.py:28
+#: .\templates\themes\dede\admin\index.html.py:32
 #: .\templates\themes\yaml\admin\index.html.py:30
 msgid "%(name)s"
 msgstr ""
 
 #: .\templates\admin\index.html.py:30
+#: .\templates\themes\dede\admin\index.html.py:31
 #: .\templates\themes\yaml\admin\index.html.py:34
 msgid "Models available in the %(name)s application."
 msgstr ""
 
 #: .\templates\admin\index.html.py:41
+#: .\templates\themes\dede\admin\change_form.html.py:20
+#: .\templates\themes\dede\admin\index.html.py:42
 #: .\templates\themes\yaml\admin\change_form.html.py:20
 #: .\templates\themes\yaml\admin\index.html.py:45
 msgid "Add"
 msgstr "添加"
 
-#: .\templates\admin\index.html.py:47
-#: .\templates\member\account\password_reset_confirm.html.py:42
-#: .\templates\themes\yaml\admin\index.html.py:51
-msgid "Change"
-msgstr "修改"
-
 #: .\templates\admin\index.html.py:57
+#: .\templates\themes\dede\admin\index.html.py:58
 #: .\templates\themes\yaml\admin\index.html.py:61
 msgid "You don't have permission to edit anything."
 msgstr "你没有权限编辑任何东西。"
 
 #: .\templates\admin\index.html.py:65
+#: .\templates\themes\dede\admin\index.html.py:66
 #: .\templates\themes\yaml\admin\index.html.py:69
 msgid "Recent Actions"
 msgstr "最近动作"
 
 #: .\templates\admin\index.html.py:66
+#: .\templates\themes\dede\admin\index.html.py:67
 #: .\templates\themes\yaml\admin\index.html.py:70
 msgid "My Actions"
 msgstr "我的动作"
 
 #: .\templates\admin\index.html.py:70
+#: .\templates\themes\dede\admin\index.html.py:71
 #: .\templates\themes\yaml\admin\index.html.py:74
 msgid "None available"
 msgstr "不可用"
 
-#: .\templates\link\newlink.html.py:45
-#: .\templates\themes\yaml\link\newlink.html.py:45
-msgid "Create a Link"
-msgstr "创建链接"
-
-#: .\templates\link\newlink.html.py:48
-#: .\templates\themes\yaml\link\newlink.html.py:48
-msgid "Posting As"
-msgstr "发表者"
-
-#: .\templates\member\account\email_validation_reset.html.py:4
-#: .\templates\member\account\email_validation_reset.html.py:19
-#: .\templates\member\account\email_validation_reset.html.py:36
-msgid "Resend e-mail validation"
-msgstr ""
-
-#: .\templates\member\account\email_validation_reset.html.py:20
-msgid "Insert your e-mail address"
-msgstr "插入你的电子邮件"
-
-#: .\templates\member\account\email_validation_reset.html.py:30
-msgid "Resend confirmation"
-msgstr "重新发送确认"
-
-#: .\templates\member\account\email_validation_reset.html.py:37
-msgid "If you haven't validated your e-mail address yet you couldn't get into the site. Insert the e-mail address yu have registered with so we can resend the validation e-mail to you again"
-msgstr ""
-
-#: .\templates\member\account\email_validation_reset_response.html.py:4
-msgid "Validation e-mail sent"
-msgstr ""
-
-#: .\templates\member\account\email_validation_reset_response.html.py:4
-msgid "Your user account was already active"
-msgstr ""
-
-#: .\templates\member\account\email_validation_reset_response.html.py:14
-msgid "We've e-mailed you the e-mail validation link"
-msgstr ""
-
-#: .\templates\member\account\email_validation_reset_response.html.py:16
-msgid "Your e-mail was already validated"
-msgstr ""
-
-#: .\templates\member\account\email_validation_reset_response.html.py:22
-msgid "E-mail validation process"
-msgstr ""
-
-#: .\templates\member\account\email_validation_reset_response.html.py:23
-msgid "You can manage the e-mail validation process from the"
-msgstr ""
-
-#: .\templates\member\account\email_validation_reset_response.html.py:23
-msgid "overview page"
-msgstr "概述"
-
-#: .\templates\member\account\password_change_done.html.py:4
-msgid "Password change successful"
-msgstr ""
-
-#: .\templates\member\account\password_change_done.html.py:13
-msgid "The password has been changed successfully"
-msgstr ""
-
-#: .\templates\member\account\password_change_done.html.py:19
-msgid "Password change"
-msgstr "密码更改"
-
-#: .\templates\member\account\password_change_done.html.py:20
-msgid "Password change utility page. Please enter your new password twice so we can verify you typed it in correctly"
-msgstr ""
-
-#: .\templates\member\account\password_reset_confirm.html.py:4
-msgid "Password change for"
-msgstr ""
-
-#: .\templates\member\account\password_reset_confirm.html.py:26
-msgid "New password"
-msgstr "新密码"
-
-#: .\templates\member\account\password_reset_confirm.html.py:32
-msgid "Confirm password"
-msgstr "确认密码"
-
-#: .\templates\member\account\password_reset_confirm.html.py:47
-msgid "Password reset unsuccessful"
-msgstr ""
-
-#: .\templates\member\account\password_reset_confirm.html.py:48
-msgid "The password reset link was invalid, possibly because it has already been used.  Please request a new password reset."
-msgstr ""
-
-#: .\templates\member\account\password_reset_confirm.html.py:55
-msgid "Password reset"
-msgstr "密码重置"
-
-#: .\templates\member\account\password_reset_confirm.html.py:56
-msgid "Password reset utility page. Please enter your new password twice so we can verify you typed it in correctly"
-msgstr ""
-
-#: .\templates\member\account\password_reset_done.html.py:4
-#: .\templates\member\account\password_reset_done.html.py:9
-msgid "Password reset successful"
-msgstr ""
-
-#: .\templates\member\account\password_reset_done.html.py:10
-msgid "We've e-mailed you the instructions to obtain a new password. You should be receiving it shortly"
-msgstr ""
-
-#: .\templates\member\account\password_reset_done.html.py:16
-msgid "Password reset form"
-msgstr ""
-
-#: .\templates\member\account\password_reset_done.html.py:17
-msgid "Forgotten your password? Enter your e-mail address, and we'll reset your password and e-mail the new one to you"
-msgstr ""
-
-#: .\templates\member\account\registration.html.py:4
-msgid "User registration"
-msgstr "用户注册"
-
-#: .\templates\member\account\registration_done.html.py:4
-msgid "Registration complete"
-msgstr "注册完成"
-
-#: .\templates\member\avatar\search.html.py:4
-#: .\templates\member\avatar\search.html.py:28
-msgid "Search for an image on Picasa Web"
-msgstr ""
-
-#: .\templates\member\avatar\search.html.py:29
-msgid "Search on Picasa Web"
-msgstr ""
-
-#: .\templates\member\avatar\search.html.py:50
-msgid "Avatar selection page"
-msgstr ""
-
-#: .\templates\member\avatar\search.html.py:51
-msgid "You have several options to select the image you want as avatar on your profile"
-msgstr ""
-
-#: .\templates\member\profile\delete.html.py:4
-msgid "Delete personal information"
-msgstr ""
-
-#: .\templates\member\profile\delete.html.py:14
-#: .\templates\member\profile\delete_done.html.py:18
-msgid "Delete your personal information"
-msgstr ""
-
-#: .\templates\member\profile\delete.html.py:15
-msgid "Are you sure?"
-msgstr "你确认吗？"
-
-#: .\templates\member\profile\delete.html.py:15
-msgid "Yes"
-msgstr "是的"
-
-#: .\templates\member\profile\delete.html.py:22
-msgid "Remove profile"
-msgstr "删除用户档案"
-
-#: .\templates\member\profile\delete.html.py:23
-msgid "It erases all your private data except your username. You can refill the information later if you want to"
-msgstr ""
-
-#: .\templates\member\profile\delete_done.html.py:4
-msgid "Profile removed"
-msgstr ""
-
-#: .\templates\member\profile\delete_done.html.py:13
-msgid "Your profile information has been removed successfully"
-msgstr ""
-
-#: .\templates\member\profile\delete_done.html.py:19
-msgid "Deleting all your personal information will erase all your private data, except your username. You can refill the information later if you want to"
-msgstr ""
-
-#: .\templates\member\profile\location.html.py:4
-#: .\templates\member\profile\location_done.html.py:4
-#: .\templates\member\profile\personal_done.html.py:4
-msgid "%(user)s's Dashboard"
-msgstr "%(user)s  的管理面板"
-
-#: .\templates\member\profile\location.html.py:21
-msgid "Define your location"
-msgstr "定义你的地理位置信息"
-
-#: .\templates\member\profile\location.html.py:21
-msgid "Try IP localization"
-msgstr "尝试你的IP地理位置信息"
-
-#: .\templates\member\profile\location.html.py:22
-msgid "Country"
-msgstr "国家"
-
-#: .\templates\member\profile\location.html.py:22
-msgid "Loading..."
-msgstr "正在加载..."
-
-#: .\templates\member\profile\location.html.py:29
-msgid "Position"
-msgstr "位置"
-
-#: .\templates\member\profile\location.html.py:36
-msgid "Save"
-msgstr "保存"
-
-#: .\templates\member\profile\location.html.py:41
-#: .\templates\member\profile\location_done.html.py:19
-msgid "Location information"
-msgstr "地理位置"
-
-#: .\templates\member\profile\location.html.py:42
-#: .\templates\member\profile\location_done.html.py:20
-msgid "Define your location information"
-msgstr "定义你的地理位置信息"
-
-#: .\templates\member\profile\location_done.html.py:13
-#: .\templates\member\profile\personal_done.html.py:13
-msgid "Your profile information has been updated successfully"
-msgstr "你的档案信息已被成功更新！"
-
-#: .\templates\member\profile\overview.html.py:4
-msgid "Overview of your profile"
-msgstr "你的档案概况"
-
-#: .\templates\member\profile\overview.html.py:39
-msgid "Username:"
-msgstr "用户名"
-
-#: .\templates\member\profile\overview.html.py:40
-msgid "E-mail:"
-msgstr "邮件："
-
-#: .\templates\member\profile\personal_done.html.py:19
-msgid "Personal information"
-msgstr "个人信息"
-
-#: .\templates\member\profile\personal_done.html.py:20
-msgid "Insert some information about you"
-msgstr "填写你的个人信息"
-
-#: .\templates\member\profile\public.html.py:29
-#, python-format
-msgid " %(user)s 的公开小档案"
-msgstr ""
-
+#: .\templates\themes\dede\admin\change_form.html.py:27
 #: .\templates\themes\yaml\admin\change_form.html.py:27
 msgid "History"
 msgstr "历史"
 
+#: .\templates\themes\dede\admin\change_form.html.py:28
 #: .\templates\themes\yaml\admin\change_form.html.py:28
 msgid "View on site"
 msgstr "在站点上查看"
 
+#: .\templates\themes\dede\admin\change_form.html.py:38
 #: .\templates\themes\yaml\admin\change_form.html.py:38
-#, fuzzy
 msgid "Please correct the error below."
-msgid_plural "Please correct the errors below."
-msgstr[0] "请更正下面的错误."
-msgstr[1] "请更正下面的错误."
+msgstr "请更正下面的错误."
 
-#: .\templates\todo\index.html.py:21
-#: .\templates\todo\index.html.py:64
+#: .\templates\themes\dede\forum\forum_list.html.py:80
+#, python-format
+msgid ""
+"\n"
+"\t\t\t\t<td class=\"nums bg_blue\">%(thread_count)s</td>\n"
+"\t\t\t\t<td class=\"nums\">%(post_count)s</td>\n"
+"\t\t\t\t"
+msgstr ""
+
+#: .\templates\themes\dede\todo\index.html.py:21
+#: .\templates\themes\dede\todo\index.html.py:64
+#: .\templates\themes\yaml\todo\index.html.py:21
+#: .\templates\themes\yaml\todo\index.html.py:64
+#: .\todo\templates\todo\index.html.py:21
+#: .\todo\templates\todo\index.html.py:64
 msgid "Public Project"
 msgstr "公开项目"
 
-#: .\templates\todo\index.html.py:21
-#: .\templates\todo\index.html.py:50
-#: .\templates\todo\index.html.py:64
+#: .\templates\themes\dede\todo\index.html.py:21
+#: .\templates\themes\dede\todo\index.html.py:50
+#: .\templates\themes\dede\todo\index.html.py:64
+#: .\templates\themes\yaml\todo\index.html.py:21
+#: .\templates\themes\yaml\todo\index.html.py:50
+#: .\templates\themes\yaml\todo\index.html.py:64
+#: .\todo\templates\todo\index.html.py:21
+#: .\todo\templates\todo\index.html.py:50
+#: .\todo\templates\todo\index.html.py:64
 msgid "Private Project"
 msgstr "私人项目"
 
-#: .\templates\todo\index.html.py:25
+#: .\templates\themes\dede\todo\index.html.py:25
+#: .\templates\themes\yaml\todo\index.html.py:25
+#: .\todo\templates\todo\index.html.py:25
 msgid "This task is completed."
 msgstr "该任务已完成。"
 
-#: .\templates\todo\index.html.py:25
-#: .\templates\todo\index.html.py:34
+#: .\templates\themes\dede\todo\index.html.py:25
+#: .\templates\themes\dede\todo\index.html.py:34
+#: .\templates\themes\yaml\todo\index.html.py:25
+#: .\templates\themes\yaml\todo\index.html.py:34
+#: .\todo\templates\todo\index.html.py:25
+#: .\todo\templates\todo\index.html.py:34
 msgid "Priority"
 msgstr "优先级"
 
-#: .\templates\todo\index.html.py:31
+#: .\templates\themes\dede\todo\index.html.py:31
+#: .\templates\themes\yaml\todo\index.html.py:31
+#: .\todo\templates\todo\index.html.py:31
 msgid "Add New Task"
 msgstr "添加新待办任务"
 
-#: .\templates\todo\index.html.py:35
+#: .\templates\themes\dede\todo\index.html.py:35
+#: .\templates\themes\yaml\todo\index.html.py:35
 #: .\todo\models.py:15
+#: .\todo\templates\todo\index.html.py:35
 msgid "low"
 msgstr "低"
 
-#: .\templates\todo\index.html.py:36
+#: .\templates\themes\dede\todo\index.html.py:36
+#: .\templates\themes\yaml\todo\index.html.py:36
 #: .\todo\models.py:16
+#: .\todo\templates\todo\index.html.py:36
 msgid "medium"
 msgstr "中"
 
-#: .\templates\todo\index.html.py:37
+#: .\templates\themes\dede\todo\index.html.py:37
+#: .\templates\themes\yaml\todo\index.html.py:37
 #: .\todo\models.py:17
+#: .\todo\templates\todo\index.html.py:37
 msgid "high"
 msgstr "高"
 
-#: .\templates\todo\index.html.py:48
+#: .\templates\themes\dede\todo\index.html.py:48
+#: .\templates\themes\yaml\todo\index.html.py:48
+#: .\todo\templates\todo\index.html.py:48
 msgid "Add New Project"
 msgstr "添加新项目"
 
-#: .\templates\todo\index.html.py:63
+#: .\templates\themes\dede\todo\index.html.py:63
+#: .\templates\themes\yaml\todo\index.html.py:63
+#: .\todo\templates\todo\index.html.py:63
 msgid "Created at"
 msgstr "创建于"
 
-#: .\templates\todo\index.html.py:77
+#: .\templates\themes\dede\todo\index.html.py:77
+#: .\templates\themes\yaml\todo\index.html.py:77
+#: .\todo\templates\todo\index.html.py:77
 msgid "No project is completed!"
 msgstr "没有完成的项目！"
 
@@ -3226,24 +3541,6 @@ msgstr "待办任务"
 #~ msgstr "模板"
 #~ msgid "templates"
 #~ msgstr "模板"
-#~ msgid "Supplier"
-#~ msgstr "供货商"
-#~ msgid "Suppliers"
-#~ msgstr "供货商"
-#~ msgid "AssetSort"
-#~ msgstr "资产种类"
-#~ msgid "AssetSorts"
-#~ msgstr "资产种类"
-#~ msgid "GeneralDesignation"
-#~ msgstr "通用名称"
-#~ msgid "GeneralDesignations"
-#~ msgstr "通用名称"
-#~ msgid "Equipment"
-#~ msgstr "设备"
-#~ msgid "Characteristic"
-#~ msgstr "特征参数"
-#~ msgid "Characteristics"
-#~ msgstr "特征参数"
 #~ msgid "Name"
 #~ msgstr "名称"
 #~ msgid "Comment"
@@ -3356,8 +3653,6 @@ msgstr "待办任务"
 #~ msgstr "转账"
 #~ msgid "Operations history"
 #~ msgstr "操作记录"
-#~ msgid "Accounts"
-#~ msgstr "账户"
 #~ msgid "New account"
 #~ msgstr "新帐户"
 #~ msgid "Add Money"

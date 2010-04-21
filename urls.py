@@ -13,6 +13,16 @@ from ddtcms.blog.models import Blog
 from ddtcms.member.views import get_profiles
 
 
+from django.contrib.contenttypes.models import ContentType
+from django.http import HttpResponseRedirect
+
+def export_selected_objects(modeladmin, request, queryset):
+    selected = request.POST.getlist(admin.ACTION_CHECKBOX_NAME)
+    ct = ContentType.objects.get_for_model(queryset.model)
+    return HttpResponseRedirect("/export/?ct=%s&ids=%s" % (ct.pk, ",".join(selected)))
+
+admin.site.add_action(export_selected_objects)
+
 info_dict = {
     'queryset': Blog.objects.all(),
     'date_field': 'pub_date',
@@ -40,6 +50,7 @@ urlpatterns = patterns('',
     (r'^(?i)faq/',             include('ddtcms.faq.urls')),
     (r'^(?i)polls/',           include('ddtcms.polls.urls')),
     (r'^(?i)blog/',            include('ddtcms.blog.urls')),
+    (r'^(?i)book/',            include('ddtcms.book.urls')),
     (r'^(?i)captcha/',         include('ddtcms.captcha.urls')),
     (r'^(?i)notice/',          include('ddtcms.notice.urls')),
     (r'^(?i)link/',            include('ddtcms.link.urls')),
@@ -57,7 +68,6 @@ urlpatterns = patterns('',
     (r'^(?i)tags/',            include('tagging.urls')),
     
     
-    
     # serve static medias
     (r'^(?i)media/(?P<path>.*)$',      'django.views.static.serve',{'document_root': settings.MEDIA_ROOT}),
     (r'^(?i)themes/(?P<path>.*)$',     'django.views.static.serve',{'document_root': settings.STATIC_THEMES}),
@@ -67,10 +77,9 @@ urlpatterns = patterns('',
     (r'^(?i)upload/(?P<path>.*)$',     'django.views.static.serve',{'document_root': settings.STATIC_UPLOAD}),
     (r'^(?i)editor/(?P<path>.*)$',     'django.views.static.serve',{'document_root': settings.STATIC_EDITOR}),
     (r'^(?i)attachment/(?P<path>.*)$', 'django.views.static.serve',{'document_root': settings.STATIC_UPLOAD+"attachment/"}),
-        
+    
     	    
     (r'^(?i)sitemap.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),    
-    #(r'^(?i)sitemap.xml$', 'django.contrib.sitemaps.views.index', {'sitemaps': sitemaps}),
     (r'^(?i)sitemap-(?P<section>.+).xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
     
     # user django comments system    
@@ -78,10 +87,10 @@ urlpatterns = patterns('',
     
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs'
     # to INSTALLED_APPS to enable admin documentation:
-    (r'^(?i)admin/docs/', include('django.contrib.admindocs.urls')),
+    (r'^admin/doc/', include('django.contrib.admindocs.urls')),
     
-    # Uncomment the next line to enable the admin1.0beta:
-    (r'^(?i)admin/(.*)', admin.site.root),
+    # Uncomment the next line to enable the admin:
+    (r'^admin/', include(admin.site.urls)),
 
 
 )
