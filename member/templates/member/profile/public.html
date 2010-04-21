@@ -38,13 +38,15 @@
 		<!--end  header -->
 		
         <!--info -->
-        <div class="clearfix"><ul>
+		<div class="clearfix">
+			<ul>
             <li><span class="ico-adduser">认识了 <a href="/member/friends/list/413907/">{{ profile.total_friends }}个朋友</a></span></li>
             <li><span class="ico-photo">上传了 <a href="/photo/albums/413907/">70张照片</a></span></li>
             <li><span class="ico-post">发表了 <a href="/forum/">{{ profile.get_posts.count }}篇帖子</a></span></li>
             <li><span class="ico-blog">写出了 <a href="/blog/">{{ profile.total_blogs }}篇日记</a></span></li>
             <li><span class="ico-group">参加了 <a href="/group/7/">{{ profile.total_groups }}个团</a></span></li>
-        </ul></div>
+			</ul>
+		</div>
         <!--end info -->
 
         <div class="clearfix">
@@ -67,7 +69,7 @@
 		
 		
 	</div>
-	
+	<div class="clear"></div>
 
 {% endblock %}
 

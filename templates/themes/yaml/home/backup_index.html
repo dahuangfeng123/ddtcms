@@ -1,0 +1,364 @@
+{% extends 'base.html' %}{% load i18n %}
+{% block title %}首页{% endblock %}
+{% block js.custom %}<script type="text/javascript" src="{{ MEDIA_URL }}themes/yaml/js/yaml.index.js"></script>
+	<script type="text/javascript" src="{{ MEDIA_URL }}themes/yaml/js/addfav.js"></script>{% endblock js.custom %}
+
+{% block content %}
+<div  class="subcolumns coolsubcol">
+	即时新闻：<marquee onmouseover="stop();" onmouseout="start();" scrollamount="6" width="530">
+	{% for notice in notice_list %}
+   <a href="{{ notice.get_absolute_url }}" target="_blank">{{ notice.title }}</a>{% endfor %}</marquee>
+</div>
+
+<div class="subcolumns">
+	<div id="banner">
+		<div id="ad"><a href="#"><img height=90 src="{{ MEDIA_URL }}themes/common/images/20081225150759ad01.gif" width='240'></a>
+        	<a href="{% url signup %}"><img height=90 src="{{ MEDIA_URL }}themes/common/images/20081229154340ad02news.gif" width='520'></a>
+		</div>
+	</div>
+</div>
+
+<div class="subcolumns">
+	<div id="cat">
+		<div id="categories">categories:
+			<ul  class="text">{% for category in categories %}
+					<li><a href="{{ category.get_absolute_url }}" target="_blank">{{ category.name }}</a></li>{% endfor %}
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="subcolumns">
+	<div class="c75l">
+	  <div class="subcl">
+	  	<div class="subcolumns">
+            <div class="c50l">
+              <div class="subcl">
+              	<div id="recommended">
+					<div class="big_pic">
+						{% for pic_news in pic_news_list %}
+						<div id="pic_{{ forloop.counter }}" {% if not forloop.first %}style="display:none;"{% endif %}><a  href="{{pic_news.get_absolute_url}}" blockid="1121"><img src="{%comment%}{{ pic_news.pic }}{%endcomment%}{{ MEDIA_URL }}upload/photo/2009/02/03/photos/2008032211.jpg" alt="{{ pic_news.title }}" onmouseover="pauseSwitch();"  onmouseout="goonSwitch();"/></a></div>{% endfor %}
+
+
+						<div id="pictitle" onmouseover="pauseSwitch();"  onmouseout="goonSwitch();"></div>
+						<ul id="picnum"></ul>
+						<div class="bg" onmouseover="pauseSwitch();"  onmouseout="goonSwitch();"></div>
+						<script type="text/javascript">
+						var maxpic = {{pic_news_list.count}} ;
+						var CurScreen = 1 ;
+
+						var piclist = new Array();
+						{% for pic_news in pic_news_list %}
+						piclist[{{ forloop.counter }}]=Array();
+						piclist[{{ forloop.counter }}]['title'] = '{{ pic_news.title }}' ;
+						piclist[{{ forloop.counter }}]['stitle'] = '<a href="{{pic_news.get_absolute_url}}">{{ pic_news.title }}</a>' ;
+						piclist[{{ forloop.counter }}]['link1'] = '{{pic_news.get_absolute_url}}' ;
+						{% endfor %}
+
+
+						var refreshSwitchTimer = null;
+						switchPic(CurScreen);
+						refreshSwitchTimer = setTimeout('reSwitchPic();', 3500);
+						<!---->
+							function switchPic(screen) {
+							if (screen > maxpic) {
+								screen = 1 ;
+							}
+							for (i=1;i<=maxpic;i++) {
+								document.getElementById("pic_"+i).style.display = "none" ;
+							}
+							document.getElementById("pic_"+screen).style.display = "block" ;
+							showpicnum(screen);
+							showpictitle(screen);
+							CurScreen = screen  ;
+							}
+							function showpicnum(screen) {
+							var NavStr = "" ;
+							for (i=maxpic;i>=1;i--) {
+								if (i == screen) {
+									NavStr += '<li onmouseover="pauseSwitch();" onmouseout="goonSwitch();"><a href="javascript://" target="_self" class="active">'+i+'</a></li>' ;
+								}
+								else {
+									NavStr += '<li onmouseover="pauseSwitch();" onmouseout="goonSwitch();" onclick="goManSwitch('+i+');"><a href="javascript://" target="_self">'+i+'</a></li>' ;
+								}
+
+							}
+							document.getElementById("picnum").innerHTML = NavStr ;
+							}
+							function showpictitle(screen) {
+							var titlestr = "" ;
+							titlestr = '<h3><a href="'+piclist[screen]['link1']+'" target="_blank">'+piclist[screen]['title']+'</a></h3><p>'+piclist[screen]['stitle']+'</p>' ;
+							document.getElementById("pictitle").innerHTML = titlestr ;
+							}
+							function reSwitchPic() {
+							refreshSwitchTimer = null;
+							switchPic(CurScreen+1);
+							refreshSwitchTimer = setTimeout('reSwitchPic();', 3500);
+							}
+							function pauseSwitch() {
+							clearTimeout(refreshSwitchTimer);
+							}
+							function goonSwitch() {
+							clearTimeout(refreshSwitchTimer);
+							refreshSwitchTimer = setTimeout('reSwitchPic();', 3500);
+							}
+							function goManSwitch(index) {
+							clearTimeout(refreshSwitchTimer);
+
+							CurScreen = index - 1 ;
+							reSwitchPic();
+							}
+							</script>
+				<!-- -->        </div>
+
+				<div class="floatbox list">
+				       <h2>特别推荐</h2>
+				       <p class="icaption_right">
+				                <a href="#" title=""><img src="{{MEDIA_URL}}upload/photo/2008/11/01/xinsrc_132060418082331282445.jpg" alt="dummy image"/><strong><b>Fig. 1:</b> 新闻标题 </strong></a>
+				       </p>
+						<p><ul>
+							<li><a href="#" title="" target="_blank">新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题</a></li>
+							<li><a href="#" title="" target="_blank">新闻标题新闻标题新闻标题新闻标题新闻标题</a></li>
+							<li><a href="#" title="" target="_blank">新闻标题新闻标题新闻标题新闻标题新闻标题</a></li>
+							<li><a href="#" title="" target="_blank">新闻标题新闻标题新闻标题新闻标题新闻标题 </a></li>
+							<li><a href="#" title="" target="_blank">新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题</a></li>
+						</ul></p>
+					</div>
+				</div>
+              </div>
+            </div>
+
+            <div class="c50r">
+              <div class="subcr">
+                <div class="headline">
+                	{% for headline_news in headline_news_list %}
+					<h2><a href="{{headline_news.get_absolute_url}}" target="_blank">{{ headline_news.title }}</a></h2>
+					<p>{{headline_news.summary}}...<a href="{{headline_news.get_absolute_url}}" target="_blank">[全文]</a></p>
+					{% endfor %}
+					<ul>
+						<li><a href="#" title="新闻标题新闻标题新闻标题新闻标题" target="_blank" >新闻标题新闻标题新闻标题新闻标题新闻标题</a></li>
+						<li><a href="#" title="新闻标题新闻标题新闻标题新闻标题新闻标题(图)" target="_blank" >新闻标题新闻标题新闻标题新闻标题新闻标题(图)</a></li>
+						<li><a href="#" title="新闻标题" target="_blank" >新闻标题新闻标题新闻标题新闻标题新闻标题</a></li>
+						<li><a href="#" title="新闻标题" target="_blank" >新闻标题新闻标题新闻标题新闻标题</a></li>
+						<li><a href="#" title="新闻标题" target="_blank" >新闻标题新闻标题新闻标题新闻标题新闻标题</a></li>
+						<li><a href="#" title="新闻标题" target="_blank" >新闻标题新闻标题新闻标题新闻标题新闻标题</a></li>
+						<li><a href="#" title="新闻标题" target="_blank" >新闻标题新闻标题新闻标题新闻标题新闻标题</a></li>
+						<li><a href="#" title="新闻标题" target="_blank" >新闻标题新闻标题新闻标题新闻标题新闻标题</a></li>
+					</ul>
+				</div>
+              </div>
+            </div>
+          </div>
+	  </div>
+	</div>
+
+	<div class="c25r">
+	  <div class="subcr">
+		<div class="special">
+			<h2>专题</h2>
+            <div class="floatbox">
+                <p><ul>
+					<li><a href="#" target="_blank">新闻标题新闻标题新闻标题新闻标题新闻标题</a></li>
+					<li><a href="#" target="_blank">新闻标题新闻标题新闻标题新闻标题新闻标题</a></li>
+					<li><a href="#" target="_blank">新闻标题新闻标题新闻标题新闻标题新闻标题 </a></li>
+					<li><a href="#" target="_blank">新闻标题新闻标题新闻标题新闻标题新闻标题</a></li>
+					<li><a href="#" target="_blank">新闻标题新闻标题新闻标题新闻标题新闻标题</a></li>
+					<li><a href="#" target="_blank">新闻标题新闻标题新闻标题新闻标题新闻标题</a></li>
+					<li><a href="#" target="_blank">新闻标题新闻标题新闻标题新闻标题新闻标题</a></li>
+					<li><a href="#" target="_blank">新闻标题新闻标题新闻标题新闻标题新闻标题</a></li>
+					<li><a href="#" target="_blank">新闻标题新闻标题新闻标题新闻标题新闻标题</a></li>
+					<li><a href="#" target="_blank">新闻标题新闻标题新闻标题新闻标题新闻标题</a></li>
+				</ul></p>
+            </div>
+            <hr />
+
+			<div id="hot"><div class="topic">
+			<h2>推荐专题</h2>
+			<dl class="title">
+			<dt  class="sd01 active" id="tjt01"><a href="http://movie.kuaiche.com/special/2009/vallen/" title="情人节献礼：与电影相爱" >情人节献礼：与电影相爱</a></dt>
+			<dd id="tjl01"><a href="http://movie.kuaiche.com/special/2009/vallen/"><img src="http://img3.kuaiche.com/upload/thumb/2009-02/854623_haxi.jpg" alt="情人节献礼：与电影相爱" /></a></dd>
+			<dt class="sd02" id="tjt02"><a href="http://movie.kuaiche.com/special/2009/Berlin59/" title="第59届柏林国际电影节" >第59届柏林国际电影节</a></dt>
+			<dd id="tjl02" style="display:none"><a href="http://movie.kuaiche.com/special/2009/Berlin59/"><img src="http://img3.kuaiche.com/upload/thumb/2009-02/1_71_haxi.jpg" alt="第59届柏林国际电影节" /></a></dd>
+			<dt class="sd02" id="tjt03"><a href="http://movie.kuaiche.com/special/2008/review/" title="2008快车经典影视盘点" >2008快车经典影视盘点</a></dt>
+			<dd id="tjl03" style="display:none"><a href="http://movie.kuaiche.com/special/2008/review/"><img src="http://img3.kuaiche.com/upload/thumb/2009-01/54331_haxi.jpg" alt="2008快车经典影视盘点" /></a></dd>
+			<dt class="sd02" id="tjt04"><a href="http://game.kuaiche.com/netgame/news/bagua/2009-02-17/123486094044014.html" title="三国、战国、武侠 古装题材谁优胜？" >三国、战国、武侠 古装题材谁优胜？</a></dt>
+			<dd id="tjl04" style="display:none"><a href="http://game.kuaiche.com/netgame/news/bagua/2009-02-17/123486094044014.html"><img src="http://img3.kuaiche.com/upload/thumb/2009-02/WuBiaoTi-11_haxi.jpg" alt="三国、战国、武侠 古装题材谁优胜？" /></a></dd>
+			<dt class="sd02" id="tjt05"><a href="http://video.kuaiche.com/special/09hesui/" title="2009贺岁档电影高清抢先看" >2009贺岁档电影高清抢先看</a></dt>
+			<dd id="tjl05" style="display:none"><a href="http://video.kuaiche.com/special/09hesui/"><img src="http://img3.kuaiche.com/upload/thumb/2008-12/00_51_haxi.jpg" alt="2009贺岁档电影高清抢先看" /></a></dd>
+			<dt class="sd02" id="tjt06"><a href="http://www.rising.com.cn/2009/exp/page.html?AID=0617009" title="瑞星2009免费试用赢大奖" >瑞星2009免费试用赢大奖</a></dt>
+			<dd id="tjl06" style="display:none"><a href="http://www.rising.com.cn/2009/exp/page.html?AID=0617009"><img src="{{MEDIA_URL}}/themes/yaml/images/logo.gif" alt="瑞星2009免费试用赢大奖" /></a></dd>
+			<dt class="sd02" id="tjt07"><a href="http://www.6-points.com/teemana/sports/sportsContent/ff8080811c038152011c0bf9a06f6aa7.html" title="快车特别赞助-T恤设计创意大赛" >快车特别赞助-T恤设计创意大赛</a></dt>
+			<dd id="tjl07" style="display:none"><a href="http://www.6-points.com/teemana/sports/sportsContent/ff8080811c038152011c0bf9a06f6aa7.html"><img src="{{MEDIA_URL}}/themes/yaml/images/logo.gif" alt="快车特别赞助-T恤设计创意大赛" /></a></dd>
+			<dt class="sd02" id="tjt08"><a href="http://sg.u966.com/" title="来快车 玩中国自己的“三国志”" >来快车 玩中国自己的“三国志”</a></dt>
+			<dd id="tjl08" style="display:none"><a href="http://sg.u966.com/"><img src="http://img3.kuaiche.com/upload/thumb/2008-10/zs21880_haxi.jpg" alt="来快车 玩中国自己的“三国志”" /></a></dd>
+			</dl>
+			</div></div>
+
+
+		</div>
+	  </div>
+	</div>
+</div>
+
+<div class="subcolumns coolsubcol">
+<h2>精彩图片</h2>
+
+	<div class="c33l">
+	  <div class="subcl">
+	    <h3>国内新闻</h3>
+		<ul>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+		</ul>
+	  </div>
+	</div>
+
+	<div class="c33l">
+	  <div class="subcl">
+	    <h3>国内新闻</h3>
+
+		<ul>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+		</ul>
+	  </div>
+	</div>
+
+	<div class="c33r">
+	  <div class="subcr">
+	    <h3>国内新闻</h3>
+
+		<ul>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+		</ul>
+	  </div>
+	</div>
+</div>
+
+<div class="subcolumns coolsubcol">
+<h2>精彩图片</h2>
+
+	<div class="c33l">
+	  <div class="subcl">
+	    <h3>国内新闻</h3>
+
+		<ul>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+		</ul>
+	  </div>
+	</div>
+
+	<div class="c33l">
+	  <div class="subcl">
+	    <h3>国内新闻</h3>
+
+		<ul>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+		</ul>
+	  </div>
+	</div>
+
+	<div class="c33r">
+	  <div class="subcr">
+	    <h3>国内新闻</h3>
+
+		<ul>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+		</ul>
+	  </div>
+	</div>
+</div>
+
+<div class="subcolumns coolsubcol">
+
+
+	<div class="c33l">
+	  <div class="subcl">
+	    <h3>国内新闻</h3>
+
+		<ul>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+		</ul>
+	  </div>
+	</div>
+
+	<div class="c33l">
+	  <div class="subcl">
+	    <h3>国内新闻</h3>
+
+		<ul>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+		</ul>
+	  </div>
+	</div>
+
+	<div class="c33r">
+	  <div class="subcr">
+	    <h3>国内新闻</h3>
+
+		<ul>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+			<li><a href=" ">测试中...</a>2009-2-2</li>
+		</ul>
+	  </div>
+	</div>
+</div>
+{% endblock %}
+
+{% block extended_content %}
+<div id="extended">
+	<div class="page_margins">
+		<div class="page">
+			<div id="links">
+				<h3>友情链接(申请链接请拨电话：0781-87725)</h3>
+				<ul  class="text">{% for link in links %}
+					<li><a href="{{ link.url }}" target="_blank">{{ link.name }}</a></li>{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock extended_content%}

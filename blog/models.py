@@ -22,35 +22,31 @@ except ImportError:
 
 # Create your models here.
 class Category(models.Model):
-        user          = models.ForeignKey(User, blank=True, null=True, related_name="blog_categories")
-        name          = models.CharField(_('name'), max_length=50)
-        slug          = models.SlugField(max_length=50,help_text='alias to the name,use english')
-        parent        = models.ForeignKey('self',null=True,blank=True,related_name='category_child')
-        depth         = models.PositiveSmallIntegerField(_("category's depth"), blank=True,null=True)
-        display_order = models.PositiveSmallIntegerField(_('order'), default=1)
+    user          = models.ForeignKey(User, blank=True, null=True, related_name="blog_categories")
+    name          = models.CharField(_('name'), max_length=50)
+    slug          = models.SlugField(max_length=50,help_text='alias to the name,use english')
+    parent        = models.ForeignKey('self',null=True,blank=True,related_name='category_child')
+    depth         = models.PositiveSmallIntegerField(_("category's depth"), blank=True,null=True)
+    display_order = models.PositiveSmallIntegerField(_('order'), default=1)
 
 
-        class Meta:
-                verbose_name = _('Blog Category')
-                verbose_name_plural = _('Blog Categories')
+    class Meta:
+        verbose_name = _('Blog Category')
+        verbose_name_plural = _('Blog Categories')
 
+    def __unicode__(self):
+        return self.name
 
-    
-        def __unicode__(self):
-                return self.name
-                
-        def get_absolute_url(self):
-        	return "/blog/%s/" %  self.slug
-    
- 
-    
-	def get_children(self):
-		return self.category_child.all()
-    
-	def is_root(self):
-		if self.parent == None:
-			return True
-		return False
+    def get_absolute_url(self):
+        return "/blog/%s/" %  self.slug
+
+    def get_children(self):
+        return self.category_child.all()
+
+    def is_root(self):
+        if self.parent == None:
+            return True
+        return False
 
 
 

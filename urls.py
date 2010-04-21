@@ -59,14 +59,14 @@ urlpatterns = patterns('',
     
     
     # serve static medias
-    (r'^(?i)media/(?P<path>.*)$',   'django.views.static.serve',{'document_root': settings.MEDIA_ROOT}),
-    (r'^(?i)themes/(?P<path>.*)$',  'django.views.static.serve',{'document_root': settings.STATIC_THEMES}),
-    (r'^(?i)images/(?P<path>.*)$',  'django.views.static.serve',{'document_root': settings.STATIC_IMAGE}),
-    (r'^(?i)css/(?P<path>.*)$',  'django.views.static.serve',{'document_root': settings.STATIC_CSS}),	
-    (r'^(?i)js/(?P<path>.*)$',  'django.views.static.serve',{'document_root': settings.STATIC_JS}),    		
-    (r'^(?i)upload/(?P<path>.*)$',   'django.views.static.serve',{'document_root': settings.STATIC_UPLOAD}),
-    (r'^(?i)editor/(?P<path>.*)$',   'django.views.static.serve',{'document_root': settings.STATIC_EDITOR}),
-    (r'^(?i)attachment/(?P<path>.*)$',   'django.views.static.serve',{'document_root': settings.STATIC_UPLOAD+"attachment/"}),
+    (r'^(?i)media/(?P<path>.*)$',      'django.views.static.serve',{'document_root': settings.MEDIA_ROOT}),
+    (r'^(?i)themes/(?P<path>.*)$',     'django.views.static.serve',{'document_root': settings.STATIC_THEMES}),
+    (r'^(?i)images/(?P<path>.*)$',     'django.views.static.serve',{'document_root': settings.STATIC_IMAGE}),
+    (r'^(?i)css/(?P<path>.*)$',        'django.views.static.serve',{'document_root': settings.STATIC_CSS}),	
+    (r'^(?i)js/(?P<path>.*)$',         'django.views.static.serve',{'document_root': settings.STATIC_JS}),    		
+    (r'^(?i)upload/(?P<path>.*)$',     'django.views.static.serve',{'document_root': settings.STATIC_UPLOAD}),
+    (r'^(?i)editor/(?P<path>.*)$',     'django.views.static.serve',{'document_root': settings.STATIC_EDITOR}),
+    (r'^(?i)attachment/(?P<path>.*)$', 'django.views.static.serve',{'document_root': settings.STATIC_UPLOAD+"attachment/"}),
         
     	    
     (r'^(?i)sitemap.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),    
